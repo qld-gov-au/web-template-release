@@ -18,3 +18,4 @@ Install the files via <a href="https://nodejs.org/en/">node package manager (NPM
 $ npm install qg-web-template-release
 
 Check out the <a href="blob/master/documentation/">documentation</a> for implementation advice.
+
