@@ -61,7 +61,8 @@
 
 </head>
 
-<body data-qg-accessibility="true">
+<body data-qg-accessibility="true"
+    data-spy="scroll" data-target="#page-nav">
 
  <!-- Google Tag Manager -->
 <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-PMDS7K"
@@ -72,9 +73,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-PMDS7K');</script>
 <!-- End Google Tag Manager -->
- 
-<section id="qg-access" role="navigation" aria-labelledby="landmark-label">
-	<h1 id="landmark-label" tabindex="0">Skip links and keyboard navigation</h1>
+ <section id="qg-access" role="navigation" aria-labelledby="landmark-label">
+	<h2 id="landmark-label" tabindex="0">Skip links and keyboard navigation</h2>
 	<ul>
 		<li><a id="skip-to-content" href="#qg-primary-content">Skip to content</a></li>
 		<li id="access-instructions"><a href="/help/accessibility/keyboard.html#section-aria-keyboard-navigation">Use tab and cursor keys to move around the page (more information)</a></li>
@@ -117,19 +117,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </li>
 </ul>
 
-            <form action="https://pan.search.qld.gov.au/s/search.html" id="qg-search-form" role="search" class="collapse">
-        <label for="qg-search-query" class="qg-visually-hidden">Search Queensland Government</label>
-        <div class="input-group">
-            <input type="text" name="query" id="qg-search-query" class="form-control" placeholder="Search website" tabindex="0" />
-            <span class="input-group-btn">
-                <button type="submit" id="feature-search-submit" class="btn btn-primary" title="Search site"><span class="fa fa-search" aria-hidden="true"></span><span class="qg-visually-hidden">search</span></button>
-            </span>
-        </div>
-        <!--parameters to display results on search page-->
-        <input type="hidden" name="num_ranks" value="10">
-        <input type="hidden" name="tiers" value="off">
-        <input type="hidden" name="collection" value="qld-gov">
-        <input type="hidden" name="profile" value="qld">
+            <form action="https://pan.search.qld.gov.au/s/search.html" id="qg-search-form" role="search" class="collapse">  
+  <label for="qg-search-query" class="qg-visually-hidden">Search Queensland Government</label>
+  <div class="input-group">
+    <input type="text" name="query" id="qg-search-query" class="form-control" placeholder="Search website" tabindex="0" />
+    <span class="input-group-btn">
+      <button type="submit" id="feature-search-submit" class="btn btn-primary" title="Search site"><span class="fa fa-search" aria-hidden="true"></span><span class="qg-visually-hidden">search</span></button>
+    </span>
+  </div>
+  <!--parameters to display results on search page-->
+  <input type="hidden" name="num_ranks" value="10">
+  <input type="hidden" name="tiers" value="off">
+  <input type="hidden" name="collection" value="qld-gov">
+  <input type="hidden" name="profile" value="qld">
 </form>
 
 
@@ -167,7 +167,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <!-- START Breadcrumbs -->
 <nav id="qg-breadcrumb" role="navigation" aria-label="breadcrumb navigation" aria-labelledby="breadcrumb-heading" class="collapse">
 
-    <h1 id="breadcrumb-heading" class="qg-visually-hidden">You are here:</h2>
+    <h2 id="breadcrumb-heading" class="qg-visually-hidden">You are here:</h2>
 
     <ol class="list-inline">
         <li><a href="https://www.qld.gov.au/">Queensland Government home</a></li>
@@ -195,8 +195,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 </div>-->
 
-
-                    <h1><small>Queensland Government Web Template</small></h1>
 
                     <h1>Javascript</h1>
 
@@ -288,9 +286,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <aside id="qg-secondary-content">
 
                     <div id="page-nav" class="qg-aside qg-docs-sidenav" role="complementary" data-spy="affix" data-offset-top="500" data-offset-bottom="900" data-parent-width="1">
-                        <h2>On this page</h2>
 
-                        <ul>
+                        <h2>On this page</h2>
+                        
+                        <ul class="nav nav-pills nav-stacked" role="tablist">
                             <li><a href="#transitions">Transitions</a>
                             <li><a href="#Modal">Modal</a>
                             <li><a href="#dropdown">Dropdown</a>
@@ -304,10 +303,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             <li><a href="#carousel">Carousel</a>
                             <li><a href="#affix">Affix</a>
                         </ul>
-
+                        <p>
+                            <a href="#top">Back to top</a>
+                        </p>
                     </div>
 
                 </aside>
+
                 <nav id="qg-section-nav" aria-label="side navigation" role="navigation">
 
     <h2><a href="index.html">Web Template Documentation</a></h2>
@@ -472,7 +474,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <li><a href="https://www.qld.gov.au/about/how-government-works/">How government works</a></li>
             <li><a href="https://data.qld.gov.au/">Queensland Government data</a></li>
             <li><a href="https://publications.qld.gov.au/">Queensland Government publications</a></li>
-            <li><a href="https://www.qld.gov.au/gov/">For government employees</a></li>
+            <li><a href="https://www.forgov.qld.gov.au/?utm_medium=website&utm_source=qgov-site&utm_campaign=dsiti-for-gov&utm_content=swe-footer">For government employees</a></li>
         </ul>
     </div>
 
@@ -559,19 +561,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- Require main javascript -->
 <script src="assets/v3/js/qg-main.js"></script>
 
-
-    <script>
-        $('#firstlink').qgLightbox({
-            callbackPreOpen: function() {
-                $('#lightbox').html('Testing Lightbox functionality');
-            }
-        });
-        $('#anotherlink').qgLightbox({
-            callbackPreOpen: function() {
-                $('#lightbox').html('<h1>ANOTHER TEST</h1>');
-            }
-        });
-    </script>
 
 </body>
 
