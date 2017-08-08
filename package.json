@@ -1,6 +1,6 @@
 {
   "name": "web-template-release",
-  "version": "0.1.18",
+  "version": "0.1.19",
   "description": "SWE3 Web Template",
   "main": "index.js",
   "directories": {
@@ -13,7 +13,7 @@
     "type": "git",
     "url": "git+https://github.com/qld-gov-au/web-template-release.git"
   },
-  "author": "Asif Amin <asif.amin@dsiti.qld.gov.au>",
+  "author": "oss.products@dsiti.qld.gov.au",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/qld-gov-au/web-template-release/issues"
