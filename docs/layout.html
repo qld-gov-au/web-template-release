@@ -10,7 +10,7 @@
 
     <meta name="description" content="DESCRIPTION">
     <meta name="keywords" content="KEYWORDS">
-    
+
     <link rel="schema.DCTERMS" href="http://purl.org/dc/terms/">
     <link rel="schema.AGLSTERMS" href="http://www.agls.gov.au/agls/terms/">
 
@@ -36,16 +36,16 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="shortcut icon" href="assets/v3/latest/images/favicon.ico">
+<link rel="shortcut icon" href="/assets/v3/latest/images/favicon.ico">
 
 <link href="//fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic" rel="stylesheet" type="text/css" />
 
-<link href="assets/v3/latest/css/qg-main.css" rel="stylesheet" type="text/css" media="all">
+<link href="/assets/v3/latest/css/qg-main.css" rel="stylesheet" type="text/css" media="all">
 
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 8]>
-    <link href="assets/v3/latest/lib/ext/bootstrap-ie7.css" rel="stylesheet">
-    <![endif]-->
+    <link href="/assets/v3/latest/lib/ext/bootstrap-ie7.css" rel="stylesheet">
+<![endif]-->
 
 <!--[if lt IE 9]>
 	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -53,7 +53,7 @@
 <![endif]-->
 
 <noscript>
-	<link href="assets/v3/latest/css/qg-noscript.css" rel="stylesheet" type="text/css" media="all">
+	<link href="/assets/v3/latest/css/qg-noscript.css" rel="stylesheet" type="text/css" media="all">
 </noscript>
 
 
@@ -86,8 +86,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <header id="qg-site-header">
             <div class="qg-coat-of-arms">
     <a href="//www.qld.gov.au" tabindex="0">
-        <img src="assets/v3/latest/images/coat-of-arms/qg-coa.svg" alt="Queensland Government" class="hidden-xs hidden-sm">
-        <img src="assets/v3/latest/images/coat-of-arms/qg-coa-stacked.svg" alt="Queensland Government" class="hidden-md hidden-lg">
+        <img src="/assets/v3/latest/images/coat-of-arms/qg-coa.svg" alt="Queensland Government" class="hidden-xs hidden-sm">
+        <img src="/assets/v3/latest/images/coat-of-arms/qg-coa-stacked.svg" alt="Queensland Government" class="hidden-md hidden-lg">
     </a>
 </div>
 
@@ -116,10 +116,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </li>
 </ul>
 
-            <form action="//find.search.qld.gov.au/s/search.html" id="qg-search-form" role="search" class="collapse">
+
+            <form action="https://find.search.qld.gov.au/s/search.html" id="qg-search-form" role="search">
   <label for="qg-search-query" class="qg-visually-hidden">Search Queensland Government</label>
   <div class="input-group">
-    <input type="text" name="query" id="qg-search-query" class="form-control" placeholder="Search website" tabindex="0" />
+    <input type="text" name="query" id="qg-search-query" class="form-control" placeholder="Search website" tabindex="0" aria-required="true" aria-expanded="false"/>
     <span class="input-group-btn">
       <button type="submit" id="feature-search-submit" class="btn btn-primary" title="Search site"><span class="fa fa-search" aria-hidden="true"></span><span class="qg-visually-hidden">search</span></button>
     </span>
@@ -133,21 +134,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 
             <!-- global alert -->
+
 <!--
-<div class="alert alert-danger">
-   <span class="fa fa-exclamation-triangle fa-2x" aria-hidden="true"></span>
-   
-        <h2><a href="/emergency/">Emergency Alert</a></h2>
-        <p><time datetime="2014-10-20T12:30:00+10:00">about 3 minutes ago</time></p>
-   
-        <p>
-            <a href="#">SE Qld Flood</a>
-            <a href="#">Cyclone Bazza</a>
-            <a href="#">Burke Bushfires</a>
-        </p>
-    
+<div class="alert alert-danger qg-noicon">
+  <header>
+    <h2><a href="/emergency/">Emergency Alert</a></h2>
+    <p><time datetime="2014-10-20T12:30:00+10:00">about 3 minutes ago</time></p>
+  </header>
+  <section>
+    <a href="#">SE Qld Flood</a>
+    <a href="#">Cyclone Bazza</a>
+    <a href="#">Burke Bushfires</a>
+  </section>
 </div>
--->
+--> 
 
 
             
@@ -180,19 +180,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
                 <div id="qg-primary-content" role="main" class="qg-has-aside">
 
-                    <!--
-<div class="alert alert-danger">
-<span class="fa fa-exclamation-triangle fa-2x" aria-hidden="true"></span>
+                    <!-- global alert -->
 
-<h2><a href="/emergency/">Emergency Alert</a> <time datetime="2014-10-20T12:30:00+10:00">about 3 minutes ago</time></h2>
-
-<ol>
-<li><a href="#">SE Qld Flood</a></li>
-<li><a href="#">Cyclone</a></li>
-<li><a href="#">Bushfires</a></li>
-</ol>
-
-</div>-->
+<!--
+<div class="alert alert-danger qg-noicon qg-global-alert">
+  <header>
+    <h2><a href="/emergency/">Emergency Alert</a></h2>
+    <p><time datetime="2014-10-20T12:30:00+10:00">about 3 minutes ago</time></p>
+  </header>
+  <section>
+    <a href="#">SE Qld Flood</a>
+    <a href="#">Cyclone Bazza</a>
+    <a href="#">Burke Bushfires</a>
+  </section>
+</div>
+-->
 
 
                     <h1>Layout</h1>
@@ -202,6 +204,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- ################################## -->
 
     <h2 id="layout" class="category">Page layout</h2>
+    <p><span class="label label-primary" title="Heavily customised bootstrap implementation">Customised</span></p>
+
     <p>All Franchise websites have a standardised layout. This includes a header, footer, and flexible three column layout.</p>
 
     <h3>Header</h3>
@@ -219,13 +223,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <p>See the <a href="#flexible-three-col">Flexible three column layout</a> section for more information.</p>
 
     <h3>Footer</h3>
-    <p>Content coming soon.</p>
+    <p>The footer at the bottom of this page shows the standard styling.</p>
 
 <!-- ################################## -->
 
     <h2 id="flexible-three-col" class="category">Fexlible three column layout</h2>
+    <p><span class="label label-primary" title="Heavily customised bootstrap implementation">Customised</span></p>
+
     <p>The main content of Queensland Government websites is layed out in three columns as you can see on this page. This is made up of the sections <code>#qg-section-nav</code>, <code>#qg-primary-content</code>, and <code>#qg-secondary-content</code></p>
-    
+
     <h3>Wide layout and Index pages</h3>
     <p>For index pages, applications, and other special purposes, it is possible to have the <code>#qg-primary-content</code> element span the whole width of the document. To do this, add the class <code>qg-wide</code> to the <code>#qg-content</code> element: <code>&lt;div id="qg-content" class="qg-wide"&gt;</code>.</p>
     <p>Once you've done this, you'll notice the secondary content is no longer displayed. To add the secondary content back, add the class <code>qg-has-aside</code> to the <code>#qg-primary-content</code> element: <code>&lt;div id="qg-primary-content" class="qg-has-aside" role="main"&gt;</code>.</p>
@@ -273,9 +279,23 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 &lt;/aside&gt;</code></pre>
 
     <p>If multiple pages are to have the same aside, it is advised that you use an SSI (or some other method of dynamically including files) to include the file from assets/includes-local/asides/.</p>
+<!-- ################################## -->
 
-    <h3>Footer</h3>
-    <p>The footer at the bottom of this page shows the standard styling.</p>
+    <h2 id="javascript-generated-components" class="category">Javascript generated components</h2>
+    <p><span class="label label-primary" title="Entirely custom implementation">Customised</span></p>
+    <p>Following components in a page will be generated by JavaScript</p>
+                  <ul>
+                    <li>Document licence image</li>
+                    <ul>
+                      <li>i.e. 'CCBY' licence image</li>
+                      <li>Element: <code>&lt;p id="document-licence"&gt;</code></li>
+                    </ul>
+                    <li>Share component in 'feedback' bar</li>
+                    <ul>
+                      <li>i.e. Share: facebook, twitter, Linkedin, etc</li>
+                      <li>Element: <code>&lt;div id="qg-share" class="qg-share"&gt;</code></li>
+                    </ul>
+                  </ul>
 
 <!-- ################################## -->
 
@@ -288,20 +308,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             <dd>1 July 2016</dd>
                         </dl>
 
-                        <p id="document-licence">
-	<a rel="license" href="http://creativecommons.org/licenses/by/4.0/" title="Text available under Creative Commons Attribution 4.0 Australia (CC BY 4.0) licence">
-		<img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" />
-	</a>
-</p>
-
 
                     </div>
                 </div>
 
                 <aside id="qg-secondary-content">
 
-                    <div id="page-nav" class="qg-aside qg-docs-sidenav" role="complementary" data-spy="affix" data-offset-top="500" data-offset-bottom="900" data-parent-width="1">
-                    
+                    <div id="page-nav"
+                            data-parent-width="true"
+                            class="qg-aside qg-docs-sidenav"
+                            role="complementary"
+                            data-spy="affix" data-offset-top="500" data-offset-bottom="900">
+
                         <h2>On this page</h2>
 
                         <ul class="nav nav-pills nav-stacked" role="tablist">
@@ -316,20 +334,23 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             </li>
                             <li><a href="#grid">Grid System</a></li>
                             <li><a href="#breakpoints">Breakpoints</a></li>
+                            <li><a href="#javascript-generated-components">Javascript generated components</a></li>
                         </ul>
 
                     </div>
                 </aside>
                 <nav id="qg-section-nav" aria-label="side navigation" role="navigation">
 
-    <h2><a href="index.html">Web Template Documentation</a></h2>
-    <ul aria-label="section navigation">
-        <li><a href="layout.html">Layout</a></li>
-        <li><a href="styles.html">CSS Styles</a></li>
-        <li><a href="components.html">Components</a></li>
-        <li><a href="javascript.html">JavaScript</a></li>
-        <li><a href="qg-utilities.html">Utilities</a></li>
-    </ul>
+  <h2><a href="index.html">Web Template Documentation</a></h2>
+  <ul aria-label="section navigation">
+    <li><a href="layout.html">Layout</a></li>
+    <li><a href="pagemodels.html">Page models</a></li>
+    <li><a href="styles.html">CSS Styles</a></li>
+    <li><a href="components.html">Components</a></li>
+    <li><a href="javascript.html">JavaScript</a></li>
+    <li><a href="qg-utilities.html">Utilities</a></li>
+    <li><a href="releases.html">Release notes</a></li>
+  </ul>
 
 </nav>
 
@@ -354,25 +375,23 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
         <ol class="questions">
             <li>
-                <fieldset id="page-feedback-about">
-                    <legend><span class="label">Is your feedback about:</span></legend>
-                    <ul class="choices">
-                        <li>
-                            <input name="page-feedback-about" id="page-feedback-about-this-website" type="radio" value="this website"
-                                data-qg-pr="default"
-                                data-parent="#qg-page-feedback-form"
-                                data-target="#feedback-page">
-                            <label for="page-feedback-about-this-website">this website</label>
-                        </li>
-                        <li>
-                            <input name="page-feedback-about" id="page-feedback-about-a-government-service" type="radio" value="a government service"
-                                data-qg-pr="default"
-                                data-parent="#qg-page-feedback-form"
-                                data-target="#feedback-serv-dep-staff">
-                            <label for="page-feedback-about-a-government-service">a government service, department or staff member?</label>
-                        </li>
-                    </ul>
-                </fieldset>
+                  <fieldset id="page-feedback-about">
+                      <legend><span class="label">Is your feedback about:</span></legend>
+                      <div class="radio">
+                        <input name="page-feedback-about" id="page-feedback-about-this-website" type="radio" value="this website"
+                               data-qg-pr="default"
+                               data-parent="#qg-page-feedback-form"
+                               data-target="#feedback-page">
+                        <label for="page-feedback-about-this-website">this website</label>
+                      </div>
+                      <div class="radio">
+                        <input name="page-feedback-about" id="page-feedback-about-a-government-service" type="radio" value="a government service"
+                               data-qg-pr="default"
+                               data-parent="#qg-page-feedback-form"
+                               data-target="#feedback-serv-dep-staff">
+                        <label for="page-feedback-about-a-government-service">a government service, department or staff member?</label>
+                      </div>
+                  </fieldset>
             </li>
         </ol>
 
@@ -397,50 +416,45 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                 <span class="label">How satisfied are you with your experience today?</span>
                                 <abbr title="(required)" class="required">*</abbr>
                             </legend>
+                            <div class="radio">
+                              <input type="radio" name="feedback-satisfaction" value="Very dissatisfied" required="" id="fs-very-dissatisfied" />
+                              <label for="fs-very-dissatisfied">Very dissatisfied (1)</label>
+                            </div>
+                            <div class="radio">
+                              <input type="radio" name="feedback-satisfaction" value="Dissatisfied" required="" id="fs-dissatisfied" />
+                              <label for="fs-dissatisfied">Dissatisfied (2)</label>
+                            </div>
+                            <div class="radio">
+                              <input type="radio" name="feedback-satisfaction" value="Neither satisfied or dissatisfied" required="" id="fs-neither-satisfied-or-dissatisfied" />
+                              <label for="fs-neither-satisfied-or-dissatisfied">Neither satisfied or dissatisfied (3)</label>
+                            </div>
+                            <div class="radio">
+                              <input type="radio" name="feedback-satisfaction" value="Satisfied" required="" id="fs-satisfied" />
+                              <label for="fs-satisfied">Satisfied (4)</label>
+                            </div>
+                            <div class="radio">
+                              <input type="radio" name="feedback-satisfaction" value="Very satisfied" required="" id="fs-very-satisfied" />
+                              <label for="fs-very-satisfied">Very satisfied (5)</label>
+                            </div>
 
-                            <ul class="choices">
-
-                                <li>
-                                    <input type="radio" name="feedback-satisfaction" value="Very dissatisfied" required="" id="fs-very-dissatisfied" />
-                                    <label for="fs-very-dissatisfied">Very dissatisfied (1)</label>
-                                </li>
-
-                                <li>
-                                    <input type="radio" name="feedback-satisfaction" value="Dissatisfied" required="" id="fs-dissatisfied" />
-                                    <label for="fs-dissatisfied">Dissatisfied (2)</label>
-                                </li>
-
-                                <li>
-                                    <input type="radio" name="feedback-satisfaction" value="Neither satisfied or dissatisfied" required="" id="fs-neither-satisfied-or-dissatisfied" />
-                                    <label for="fs-neither-satisfied-or-dissatisfied">Neither satisfied or dissatisfied (3)</label>
-                                </li>
-
-                                <li>
-                                    <input type="radio" name="feedback-satisfaction" value="Satisfied" required="" id="fs-satisfied" />
-                                    <label for="fs-satisfied">Satisfied (4)</label>
-                                </li>
-
-                                <li>
-                                    <input type="radio" name="feedback-satisfaction" value="Very satisfied" required="" id="fs-very-satisfied" />
-                                    <label for="fs-very-satisfied">Very satisfied (5)</label>
-
-                                </li>
-
-                            </ul>
                         </fieldset>
                     </li>
 
                     <li class="col-md-6 col-sm-12">
-                        <label for="comments">
-                            <span class="label">Comments</span>
-                            <abbr title="(required)" class="required">*</abbr>
-                        </label>
-                        <textarea name="comments" id="comments" rows="10" cols="40" required="required"></textarea>
+                      <div class="form-group">
+                          <label for="comments">
+                              <span class="label">Comments</span>
+                              <abbr title="(required)" class="required">*</abbr>
+                          </label>
+                          <textarea class="form-control" name="comments" id="comments" rows="10" cols="40" required="required"></textarea>
+                      </div>
                     </li>
 
                     <li id="feedback-captcha-container" class="col-md-12">
-                        <label for="feedback-captcha">Please leave this blank (this helps us identify automatic spam)</label>
-                        <input type="text" name="captcha" id="feedback-captcha" value="" />
+                      <div class="form-group">
+                          <label for="feedback-captcha">Please leave this blank (this helps us identify automatic spam)</label>
+                          <input class="form-control" type="text" name="captcha" id="feedback-captcha" value="" />
+                      </div>
                     </li>
 
                     <li class="footer col-md-12">
@@ -519,16 +533,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <button class="btn btn-link qg-toggle-icon-right collapsed visible-xs-inline-block" data-toggle="collapse" data-target="#footer-info-bi" aria-expanded="false" aria-controls="footer-info-qg"><span class="sr-only">More Queensland Government pages</span>&nbsp;</button>
         </h3>
         <ul class="collapse" id="footer-info-bi">
-            <li><a href="http://www.business.qld.gov.au/business/starting">Starting a business</a></li>
-            <li><a href="http://www.business.qld.gov.au/business/running">Running a business</a></li>
-            <li><a href="http://www.business.qld.gov.au/business/employing">Employing people</a></li>
-            <li><a href="http://www.business.qld.gov.au/invest">Investing in Queensland</a></li>
-            <li><a href="http://www.business.qld.gov.au/industry">For industry</a></li>
-            <li><a href="http://www.business.qld.gov.au/invest/queenslands-regional-locations">Regional investment opportunities</a></li>
-            <li><a href="https://www.business.qld.gov.au/chinese-s/investing-queensland?utm_source=bif-link&amp;utm_medium=footer&amp;utm_campaign=International-content" lang="zh">昆士兰州的投资机会</a></li>
-            <li><a href="https://www.business.qld.gov.au/investing-queensland-chinese-t?utm_source=bif-link&amp;utm_medium=footer&amp;utm_campaign=International-content" lang="zh">昆士蘭州的投資機會</a></li>
-            <li><a href="https://www.business.qld.gov.au/japanese-invest/investing-queensland?utm_source=bif-link&amp;utm_medium=footer&amp;utm_campaign=International-content" lang="ja">クイーンズランド州への投資機会</a></li>
-            <li><a href="https://www.business.qld.gov.au/korean-invest/investing-queensland?utm_source=bif-link&amp;utm_medium=footer&amp;utm_campaign=International-content" lang="ko">퀸즈랜드 투자 기회</a></li>
+          <li><a href="https://www.business.qld.gov.au/starting-business">Starting a business</a></li>
+          <li><a href="https://www.business.qld.gov.au/running-business">Running a business</a></li>
+          <li><a href="https://www.business.qld.gov.au/running-business/employing">Employing people</a></li>
+          <li><a href="https://www.business.qld.gov.au/running-business/employing/payroll-tax">Payroll tax</a></li>
+          <li><a href="https://www.business.qld.gov.au/industries">Industries</a></li>
+          <li><a href="https://www.business.qld.gov.au/industries/invest">Investing in Queensland</a></li>
+          <li><a href="https://www.business.qld.gov.au/industries/invest/chinese-s" lang="zh">昆士兰州的投资机会</a></li>
+          <li><a href="https://www.business.qld.gov.au/industries/invest/chinese-t" lang="zh">昆士蘭州的投資機會</a></li>
+          <li><a href="https://www.business.qld.gov.au/industries/invest/japanese" lang="ja">クイーンズランド州への投資機会</a></li>
+          <li><a href="https://www.business.qld.gov.au/industries/invest/korean" lang="ko">퀸즈랜드 투자 기회</a></li>
+          <li><a href="https://www.business.qld.gov.au/industries/invest/invertir-turismo" lang="sp">Oportunidades de inversión en Queensland</a></li>
         </ul>
     </div>
 
@@ -544,11 +559,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 		<li><a href="https://www.qld.gov.au/right-to-information/">Right to information</a></li>
 		<li><a href="https://www.qld.gov.au/help/accessibility/">Accessibility</a></li>
 		<li><a href="http://www.smartjobs.qld.gov.au/">Jobs in Queensland Government</a></li>
-		<li id="link-languages"><a href="https://www.qld.gov.au/languages/"><span lang="fr" xml:lang="fr">Français</span> (Other languages)</a></li>
+		<li id="link-languages"><a href="https://www.qld.gov.au/languages/">Other languages</a></li>
 	</ul>
 	<p>&copy; The State of Queensland 1995–2017</p>
 	<p><a href="https://www.qld.gov.au/" accesskey="1">Queensland Government</a></p>
 </div>
+
         </footer>
     </div>
 
@@ -563,13 +579,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
-<!-- Butterfly Lightbox -->
-<script src="assets/v3/latest/lib/ext/butterfly/jquery.resize-events.js"></script>
-<script src="assets/v3/latest/lib/ext/butterfly/jquery.history.js"></script>
-<script src="assets/v3/latest/lib/ext/butterfly/jquery.butterfly.js"></script>
+<!-- Butterfly Lightbox
+<script src="/assets/v3/lib/ext/butterfly/jquery.resize-events.js"></script>
+<script src="/assets/v3/lib/ext/butterfly/jquery.history.js"></script>
+<script src="/assets/v3/lib/ext/butterfly/jquery.butterfly.js"></script>-->
+
+<!--external lib  (includes butterfly, markdown, generate-id)-->
+<script src="/assets/v3/latest/lib/all-ext-min.js"></script>
 
 <!-- Require main javascript -->
-<script src="assets/v3/latest/js/qg-main.js"></script>
+<!--<script src="/assets/v3/js/qg-env.js"></script>-->
+<script src="/assets/v3/latest/js/qg-main.js"></script>
 
 
 </body>
