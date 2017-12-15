@@ -1,4 +1,4 @@
-# Queensland Government Web Template 
+# Queensland Government Web Template
 
 **If you are using assets from this Repo, please send an email to oss.products@dsiti.qld.gov.au so we can add you to our change management communications list**
 
