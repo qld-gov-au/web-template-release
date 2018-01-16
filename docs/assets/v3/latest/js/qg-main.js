@@ -99,6 +99,7 @@
 	
 	window.qg = window.qg || {};
 	window.qg.swe = window.qg.swe || {};
+	window.qg.cdn = 'https://static.qgov.net.au';
 	
 	window.qg.swe.paths = {
 	  images: '/assets/v3/latest/images' };
@@ -4701,7 +4702,7 @@
 	  'use strict';
 	  var licenceOptions = {
 	    url: '//creativecommons.org/licenses/',
-	    imgSrc: qg.swe.paths.images + '/licences/',
+	    imgSrc: qg.cdn + qg.swe.paths.images + '/licences/',
 	    types: {
 	      'by': {
 	        'name': 'Attribution',
