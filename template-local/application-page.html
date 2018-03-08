@@ -71,7 +71,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <div class="container-fluid qg-site-width">
 
         <header id="qg-site-header">
-            <div class="qg-coat-of-arms">
+            <div class="qg-coat-of-arms col-xs-6 col-md-4">
     <a href="//www.qld.gov.au" tabindex="0">
         <img src="/assets/v3/latest/images/coat-of-arms/qg-coa.svg" alt="Queensland Government" class="hidden-xs hidden-sm">
         <img src="/assets/v3/latest/images/coat-of-arms/qg-coa-stacked.svg" alt="Queensland Government" class="hidden-md hidden-lg">
@@ -79,7 +79,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </div>
 
 
-            <ul class="qg-utilities list-inline">
+            <ul class="qg-utilities list-inline col-xs-6 col-md-5">
 
     <!-- Optional shopping cart
     <li>
@@ -88,25 +88,25 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     -->
 
     <li>
-        <a href="https://www.qld.gov.au/contact-us/"><span class="fa fa-phone fa-2x hidden-md hidden-lg" aria-hidden="true"></span>Contact us</a>
+        <a href="https://www.qld.gov.au/contact-us/"><span class="fa fa-phone fa-2x hidden-md hidden-lg" aria-hidden="true"></span><span class="hidden-xs hidden-sm">Contact us</span></a>
     </li>
 
     <li class="hidden-md hidden-lg">
         <button id="qg-show-search"
             data-toggle="collapse"
-            data-target="#qg-search-form"><span class="fa fa-search fa-2x" aria-hidden="true"></span>search</button>
+            data-target="#qg-search-form"><span class="fa fa-search fa-2x" aria-hidden="true"></span></button>
     </li>
     <li class="hidden-md hidden-lg">
         <button id="qg-show-menu"
         	data-toggle="collapse"
-            data-target="#qg-site-nav, #qg-breadcrumb"><span class="fa fa-bars fa-2x" aria-hidden="true"></span>menu</button>
+            data-target="#qg-site-nav, #qg-breadcrumb"><span class="fa fa-bars fa-2x" aria-hidden="true"></span></button>
     </li>
 </ul>
 
 
-            <form action="https://find.search.qld.gov.au/s/search.html" id="qg-search-form" role="search">
-  <label for="qg-search-query" class="qg-visually-hidden">Search Queensland Government</label>
+            <form action="https://find.search.qld.gov.au/s/search.html" id="qg-search-form" role="search" class="collapse col-xs-12 col-md-3">
   <div class="input-group">
+    <label for="qg-search-query" class="qg-visually-hidden">Search Queensland Government</label>
     <input type="text" name="query" id="qg-search-query" class="form-control" placeholder="Search website" tabindex="0" aria-required="true" aria-expanded="false"/>
     <span class="input-group-btn">
       <button type="submit" id="feature-search-submit" class="btn btn-primary" title="Search site"><span class="fa fa-search" aria-hidden="true"></span><span class="qg-visually-hidden">search</span></button>
@@ -195,7 +195,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <ol>
                         <li>Make a copy of this file, and move it to your site directory</li>
                         <li>Copy the /assets/ directory to your site</li>
-                        <li><a href="../pattern-library/">Read through the documentation on using the Queensland Government Web Template</a></li>
+                        <li><a href="https://qld-gov-au.github.io/web-template-release/">Read through the documentation on using the Queensland Government Web Template</a></li>
                         <li>
                             Create a new section nav file
                             <ol>
@@ -236,7 +236,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <form id="qg-page-feedback-form"
         method="post"
         action="https://www.smartservice.qld.gov.au/services/submissions/email/feedback/feedback"
-        class="form" ><!-- data-toggle="true" -->
+        class="form"
+        data-recaptcha="true"><!-- data-toggle="true" -->
 
         <ol class="questions">
             <li>
@@ -427,7 +428,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 		<li><a href="http://www.smartjobs.qld.gov.au/">Jobs in Queensland Government</a></li>
 		<li id="link-languages"><a href="https://www.qld.gov.au/languages/">Other languages</a></li>
 	</ul>
-	<p>&copy; The State of Queensland 1995–2018</p>
+  <p class="qg-copyright">&copy; The State of Queensland <span id="qg-copyright-owner"></span><span id="qg-copyright-daterange"></span></p>
 	<p><a href="https://www.qld.gov.au/" accesskey="1">Queensland Government</a></p>
 </div>
 

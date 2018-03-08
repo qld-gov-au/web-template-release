@@ -76,7 +76,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <div class="container-fluid qg-site-width">
 
         <header id="qg-site-header">
-            <div class="qg-coat-of-arms">
+            <div class="qg-coat-of-arms col-xs-6 col-md-4">
     <a href="//www.qld.gov.au" tabindex="0">
         <img src="https://static.qgov.net.au/assets/v3/latest/images/coat-of-arms/qg-coa.svg" alt="Queensland Government" class="hidden-xs hidden-sm">
         <img src="https://static.qgov.net.au/assets/v3/latest/images/coat-of-arms/qg-coa-stacked.svg" alt="Queensland Government" class="hidden-md hidden-lg">
@@ -84,7 +84,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </div>
 
 
-            <ul class="qg-utilities list-inline">
+            <ul class="qg-utilities list-inline col-xs-6 col-md-5">
 
     <!-- Optional shopping cart
     <li>
@@ -93,25 +93,25 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     -->
 
     <li>
-        <a href="https://www.qld.gov.au/contact-us/"><span class="fa fa-phone fa-2x hidden-md hidden-lg" aria-hidden="true"></span>Contact us</a>
+        <a href="https://www.qld.gov.au/contact-us/"><span class="fa fa-phone fa-2x hidden-md hidden-lg" aria-hidden="true"></span><span class="hidden-xs hidden-sm">Contact us</span></a>
     </li>
 
     <li class="hidden-md hidden-lg">
         <button id="qg-show-search"
             data-toggle="collapse"
-            data-target="#qg-search-form"><span class="fa fa-search fa-2x" aria-hidden="true"></span>search</button>
+            data-target="#qg-search-form"><span class="fa fa-search fa-2x" aria-hidden="true"></span></button>
     </li>
     <li class="hidden-md hidden-lg">
         <button id="qg-show-menu"
         	data-toggle="collapse"
-            data-target="#qg-site-nav, #qg-breadcrumb"><span class="fa fa-bars fa-2x" aria-hidden="true"></span>menu</button>
+            data-target="#qg-site-nav, #qg-breadcrumb"><span class="fa fa-bars fa-2x" aria-hidden="true"></span></button>
     </li>
 </ul>
 
 
-            <form action="https://find.search.qld.gov.au/s/search.html" id="qg-search-form" role="search">
-  <label for="qg-search-query" class="qg-visually-hidden">Search Queensland Government</label>
+            <form action="https://find.search.qld.gov.au/s/search.html" id="qg-search-form" role="search" class="collapse col-xs-12 col-md-3">
   <div class="input-group">
+    <label for="qg-search-query" class="qg-visually-hidden">Search Queensland Government</label>
     <input type="text" name="query" id="qg-search-query" class="form-control" placeholder="Search website" tabindex="0" aria-required="true" aria-expanded="false"/>
     <span class="input-group-btn">
       <button type="submit" id="feature-search-submit" class="btn btn-primary" title="Search site"><span class="fa fa-search" aria-hidden="true"></span><span class="qg-visually-hidden">search</span></button>
@@ -971,328 +971,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 
 
-<h2 class="category" id="qg-correct-incorrect">QG Correct / incorrect</h2>
-<p><span class="label label-primary" title="Custom QG styles">Custom</span></p>
-
-<p>Use the following styles to highlight correct/incorrect examples in web content.</p>
-
-<h3>Short form correct/incorrect examples</h3>
-
-<p>Use the short form when your correct/incorrect examples express a simple idea or use a minimum amount of content (e.g. a single word or sentence fragment). </p>
-<p>Note: This example quickly shows customers what they can, and cannot, use an online service for.</p>
-    <div class="qg-tmplt-example">
-      <div class="panel-body">
-        <span class="qg-correct">You can use this service to change your home address.</span>
-        <span class="qg-incorrect">You cannot use this service to change your business address.</span>
-      </div>
-    </div>
-    <h4>Usage</h4>
-    <p>HTML</p>
-<pre>
-<code class="language-markup">
-  &lt;span class="qg-correct"&gt;You can use this service to change your home address.&lt;/span&gt;
-  &lt;span class="qg-incorrect"&gt;You cannot use this service to change your business address.&lt;/span&gt;
-</code>
-</pre>
-
-
-<h3>Long form correct/incorrect examples</h3>
-
-<p> Use the long form when your correct/incorrect examples express a more complex idea or use a larger amount of content (e.g. multiple sentences). </p>
-<p>Note: This example is from the Queensland Government style guide and shows correct/incorrect use of apostrophes. </p>
-    <div class="qg-tmplt-example">
-      <div class="panel-body">
-        <div class="qg-correct" alt="Correct example">
-          <p>Bike paths make it safer and easier to cycle around. Using bike paths:</p>
-          <ul>
-            <li>gives you access to facilities like bike shelters</li>
-            <li>allows you to choose routes for different purposes (such as exercise or sightseeing)</li>
-            <li>reduces greenhouse gases and traffic congestion.</li>
-          </ul>
-
-        </div>
-        <div class="qg-incorrect" alt="Incorrect example">
-          <p>Bike paths make it safer and easier to cycle around. Using bike paths: </p>
-          <ul>
-            <li>Gives you access to facilities like bike shelters.</li>
-            <li>Allows you to choose routes for different purposes (such as exercise or sightseeing).</li>
-            <li>Reduces greenhouse gases and traffic congestion.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <h4>Usage</h4>
-    <p>HTML</p>
-    <pre>
-<code class="language-markup">
-&lt;div class="qg-correct" alt="Correct example"&gt;
-    &lt;p&gt;Bike paths make it safer and easier to cycle around. Using bike paths:&lt;/p&gt;
-  &lt;ul&gt;
-      &lt;li&gt;gives you access to facilities like bike shelters&lt;/li&gt;
-      &lt;li&gt;allows you to choose routes for different purposes (such as exercise or sightseeing)&lt;/li&gt;
-      &lt;li&gt;reduces greenhouse gases and traffic congestion.&lt;/li&gt;
-  &lt;/ul&gt;
-
-&lt;/div&gt;
-&lt;div class="qg-incorrect" alt="Incorrect example"&gt;
-    &lt;p>Bike paths make it safer and easier to cycle around. Using bike paths: &lt;/p&gt;
-  &lt;ul&gt;
-      &lt;li&gt;Gives you access to facilities like bike shelters.&lt;/li&gt;
-      &lt;li&gt;Allows you to choose routes for different purposes (such as exercise or sightseeing).&lt;/li&gt;
-      &lt;li&gt;Reduces greenhouse gases and traffic congestion.&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/div&gt;
-</code>
-</pre>
-
-<h3>Tables</h3>
-
-<p>You can apply correct/incorrect classes to individual table cells.</p>
-<p>Use this when you want to custom specify correct/incorrect cells </p>
-    <div class="qg-tmplt-example">
-      <div class="panel-body">
-        <table title="acronym examples" class="table">
-          <thead>
-            <tr>
-              <th>
-                Acronyms
-              </th>
-              <th>
-                Accessibility
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="qg-incorrect">
-                A.T.O
-              </td>
-              <td class="qg-incorrect">
-                Eg.
-              </td>
-            </tr>
-            <tr>
-              <td class="qg-correct">
-                ATO
-              </td>
-              <td class="qg-correct">
-                Example
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <h4>Usage</h4>
-    <p>HTML</p>
-    <pre>
-<code class="language-markup">
-  &lt;table title="acronym examples" class="table"&gt;
-    &lt;thead&gt;
-      &lt;tr&gt;&lt;th&gt;Acronyms&lt;/th&gt;
-        &lt;th&gt;Accessibility&lt;/th&gt;
-      &lt;/tr&gt;
-    &lt;/thead&gt;
-    &lt;tbody&gt;
-      &lt;tr&gt;
-        &lt;td class="qg-incorrect"&gt;A.T.O&lt;/td&gt;
-        &lt;td class="qg-incorrect"&gt;Eg.&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-        &lt;td class="qg-correct"&gt;ATO&lt;/td&gt;
-        &lt;td class="qg-correct"&gt;Example&lt;/td&gt;
-      &lt;/tr&gt;
-    &lt;/tbody&gt;
-  &lt;/table&gt;
-</code>
-    </pre>
-
-<p>Or you can add correct/incorrect class to the whole table when you want odd columns to be incorrect values and even columns to be correct values.</p>
-    <div class="qg-tmplt-example">
-      <div class="panel-body">
-        <table title="acronym examples" class="table qg-correct-incorrect">
-          <thead>
-            <tr>
-              <th>
-                Not this
-              </th>
-              <th>
-                This
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                Person with disability
-              </td>
-              <td>
-                Cripple, crippled, deformed, disabled person, handicapped, invalid, mentally retarded, retarded, spastic, special, victim
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Hearing-impaired, person is deaf
-              </td>
-              <td>
-                Deaf
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <h4>Usage</h4>
-    <p>HTML</p>
-    <pre>
-<code class="language-markup">
-  &lt;table title="acronym examples" class="table qg-correct-incorrect"&gt;
-    &lt;thead&gt;
-      &lt;tr&gt;
-        &lt;th&gt;Not This&lt;/th&gt;
-        &lt;th&gt;This&lt;/th&gt;
-      &lt;/tr&gt;
-    &lt;/thead&gt;
-    &lt;tbody&gt;
-      &lt;tr&gt;
-        &lt;td&gt;Cripple, crippled, deformed, disabled person, handicapped, invalid, mentally retarded, retarded, spastic, special, victim&lt;/td&gt;
-        &lt;td&gt;Person with disability&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-        &lt;td&gt;Deaf&lt;/td&gt;
-        &lt;td&gt;Hearing-impaired, person is deaf&lt;/td&gt;
-      &lt;/tr&gt;
-    &lt;/tbody&gt;
-  &lt;/table&gt;
-</code>
-    </pre>
-
-<p>You can also add these classes to tables that aren't styled.</p>
-
-<div class="table-responsive">
-  <div class="qg-tmplt-example">
-    <div class="panel-body">
-      <table title="acronym examples">
-        <thead>
-          <tr>
-            <th>
-              Correct
-            </th>
-            <th>
-              Incorrect
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="qg-correct">
-              ATO
-            </td>
-            <td class="qg-incorrect">
-              A.T.O
-            </td>
-          </tr>
-          <tr>
-            <td class="qg-correct">
-              MOU
-            </td>
-            <td class="qg-incorrect">
-              mou
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</div>
-    <h4>Usage</h4>
-    <p>HTML</p>
-    <pre>
-<code class="language-markup">
-  &lt;table title="acronym examples"&gt;
-    &lt;thead&gt;
-      &lt;tr&gt;
-        &lt;th&gt;Correct&lt;/th&gt;
-        &lt;th&gt;Incorrect&lt;/th&gt;
-      &lt;/tr&gt;
-    &lt;/thead&gt;
-    &lt;tbody&gt;
-      &lt;tr&gt;
-        &lt;td class="qg-correct"&gt;ATO&lt;/td&gt;
-        &lt;td class="qg-incorrect"&gt;A.T.O&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-        &lt;td class="qg-correct"&gt;MOU&lt;/td&gt;
-        &lt;td class="qg-incorrect"&gt;mou&lt;/td&gt;
-      &lt;/tr&gt;
-    &lt;/tbody&gt;
-  &lt;/table&gt;
-</code>
-    </pre>
-
-<div class="table-responsive">
-  <div class="qg-tmplt-example">
-    <div class="panel-body">
-      <table title="acronym examples" class="qg-correct-incorrect">
-        <thead>
-          <tr>
-            <th>
-              Incorrect
-            </th>
-            <th>
-              Correct
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              A.T.O
-            </td>
-            <td>
-              ATO
-            </td>
-          </tr>
-          <tr>
-            <td>
-              mou
-            </td>
-            <td>
-              MOU
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-  <h4>Usage</h4>
-  <p>HTML</p>
-  <pre>
-<code class="language-markup">
-  &lt;table title="acronym examples" class="qg-correct-incorrect"&gt;
-    &lt;thead&gt;
-      &lt;tr&gt;
-        &lt;th&gt;Incorrect&lt;/th&gt;
-        &lt;th&gt;Correct&lt;/th&gt;
-      &lt;/tr&gt;
-    &lt;/thead&gt;
-    &lt;tbody&gt;
-      &lt;tr&gt;
-        &lt;td&gt;A.T.O&lt;/td&gt;
-        &lt;td&gt;ATO&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-        &lt;td&gt;mou&lt;/td&gt;
-        &lt;td&gt;MOU&lt;/td&gt;
-      &lt;/tr&gt;
-    &lt;/tbody&gt;
-  &lt;/table&gt;
-</code>
-  </pre>
-</div>
-
-<!-- ################################## -->
-
                     <div class="qg-content-footer">
 
                         <dl>
@@ -1341,7 +1019,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                           <li><a href="#panels">Panels</a></li>
                           <li><a href="#responsive-embed">Responsive embed</a></li>
                           <li><a href="#wells">Wells</a></li>
-                          <li><a href="#qg-correct-incorrect">QG correct / incorrect</a></li>
                         </ul>
                         <p>
                             <a href="#top">Back to top</a>
@@ -1382,7 +1059,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <form id="qg-page-feedback-form"
         method="post"
         action="https://www.smartservice.qld.gov.au/services/submissions/email/feedback/feedback"
-        class="form" ><!-- data-toggle="true" -->
+        class="form"
+        data-recaptcha="true"><!-- data-toggle="true" -->
 
         <ol class="questions">
             <li>
@@ -1572,7 +1250,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 		<li><a href="http://www.smartjobs.qld.gov.au/">Jobs in Queensland Government</a></li>
 		<li id="link-languages"><a href="https://www.qld.gov.au/languages/">Other languages</a></li>
 	</ul>
-	<p>&copy; The State of Queensland 1995–2018</p>
+  <p class="qg-copyright">&copy; The State of Queensland <span id="qg-copyright-owner"></span><span id="qg-copyright-daterange"></span></p>
 	<p><a href="https://www.qld.gov.au/" accesskey="1">Queensland Government</a></p>
 </div>
 

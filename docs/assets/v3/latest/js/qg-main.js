@@ -50,46 +50,47 @@
 	
 	
 	var _qgEnv = __webpack_require__(1);var _qgEnv2 = _interopRequireDefault(_qgEnv);
-	
 	__webpack_require__(2);
 	
-	
-	
-	
-	
-	
-	
-	
 	__webpack_require__(3);
+	
+	
+	
+	
+	
+	
+	
+	
 	__webpack_require__(4);
 	__webpack_require__(5);
-	
-	
-	
 	__webpack_require__(6);
+	
+	
+	
 	__webpack_require__(7);
 	__webpack_require__(8);
-	var _accessibility = __webpack_require__(9);var _accessibility2 = _interopRequireDefault(_accessibility);
+	__webpack_require__(9);
+	var _accessibility = __webpack_require__(10);var _accessibility2 = _interopRequireDefault(_accessibility);
+	
+	__webpack_require__(11);
+	__webpack_require__(12);
 	
 	
-	var _sectionNav = __webpack_require__(10);var _sectionNav2 = _interopRequireDefault(_sectionNav);
-	var _shareLinks = __webpack_require__(11);var _shareLinks2 = _interopRequireDefault(_shareLinks);
-	var _feedbackForm = __webpack_require__(12);var _feedbackForm2 = _interopRequireDefault(_feedbackForm);
+	var _sectionNav = __webpack_require__(13);var _sectionNav2 = _interopRequireDefault(_sectionNav);
+	var _shareLinks = __webpack_require__(14);var _shareLinks2 = _interopRequireDefault(_shareLinks);
+	var _feedbackForm = __webpack_require__(15);var _feedbackForm2 = _interopRequireDefault(_feedbackForm);
 	
-	__webpack_require__(13);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} // Layout
+	__webpack_require__(16);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} // Layout
 	/*import '../lib/ext/generate-id.js';*/ // For site-search-autocomplete
-	/*import './legacy/site-search-autocomplete.js';*/(function () {'use strict';
-	  var franchiseTitle = _qgEnv2.default && _qgEnv2.default.swe && _qgEnv2.default.swe.franchiseTitle;
-	  _sectionNav2.default.highlightNavItem();
-	  _feedbackForm2.default.init(franchiseTitle);
+	/*import './legacy/site-search-autocomplete.js';*/ /*
+	                                                   * Imports Javascript components for the GLUE
+	                                                   */ // env initialization
+	(function () {'use strict';var franchiseTitle = _qgEnv2.default && _qgEnv2.default.swe && _qgEnv2.default.swe.franchiseTitle;_sectionNav2.default.highlightNavItem();_feedbackForm2.default.init(franchiseTitle);
 	  _shareLinks2.default.init();
 	  _accessibility2.default.init();
 	})(); // import '../../../../../node_modules/bootstrap-accessibility-plugin/plugins/js/bootstrap-accessibility.js'; // Removed due to accessibility issues (ironically)
 	// Utils
 	/*This 2 modules (breakpoints, parentwidth) are to be initialize where we are using these or If we make one common function for small utilities then we can initialize here in the main file.*/ /*import breakpoints        from './utils/breakpoints'; */ // Components
-	/*
-	* Imports Javascript components for the GLUE
-	*/ // env initialization
 
 /***/ }),
 /* 1 */
@@ -99,13 +100,37 @@
 	
 	window.qg = window.qg || {};
 	window.qg.swe = window.qg.swe || {};
-	window.qg.cdn = 'https://static.qgov.net.au';
+	window.qg.cdn = window.qg.swe.isProduction === false ? 'https://beta-static.qgov.net.au' : 'https://static.qgov.net.au';
+	window.qg.swe.assets = '/assets/v3/latest/';
 	
 	window.qg.swe.paths = {
-	  images: '/assets/v3/latest/images' };
+	  images: window.qg.swe.assets + 'images' };
 
 /***/ }),
 /* 2 */
+/***/ (function(module, exports) {
+
+	"use strict"; /*globals qg*/
+	/*
+	                             * Utility to handle ajax calls
+	                             * Usage: swe.ajaxCall('https://www.google.com/recaptcha/api.js', 'script', onloadRecaptcha, 'Recaptcha unavailable');
+	                             * */
+	(function ($, swe) {
+	  swe.ajaxCall = function (url, dataType, callback, errorMsg) {
+	    $.ajax({
+	      url: url,
+	      dataType: dataType,
+	      crossDomain: true,
+	      success: callback,
+	      error: function error() {
+	        console.log(errorMsg);
+	      } });
+	
+	  };
+	})(jQuery, qg.swe);
+
+/***/ }),
+/* 3 */
 /***/ (function(module, exports) {
 
 	/*!
@@ -2488,7 +2513,7 @@
 
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, exports) {
 
 	/* ========================================================================
@@ -2509,7 +2534,7 @@
 	module.exports = parentWidth;
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports) {
 
 	'use strict';var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {return typeof obj;} : function (obj) {return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;}; /*! Form validation - v1.1.1 - 2014-04-09
@@ -4101,7 +4126,7 @@
 	//# sourceMappingURL=qg-forms.js.map
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports) {
 
 	'use strict'; /*
@@ -4528,7 +4553,7 @@
 	})(jQuery);
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports) {
 
 	'use strict'; /***********************************
@@ -4574,7 +4599,7 @@
 	})(jQuery);
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports) {
 
 	/**
@@ -4690,7 +4715,7 @@
 	})();
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports) {
 
 	'use strict'; /**
@@ -4830,7 +4855,7 @@
 	})(jQuery, qg);
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports) {
 
 	/* ========================================================================
@@ -4895,7 +4920,58 @@
 	module.exports = { init: init };
 
 /***/ }),
-/* 10 */
+/* 11 */
+/***/ (function(module, exports) {
+
+	'use strict';(function ($) {
+	  //Copyrights update to current year
+	  if ($('#qg-copyright-daterange').length > 0) {
+	    $('#qg-copyright-daterange').html('1995&ndash;' + new Date().getFullYear());
+	  }
+	})(jQuery);
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports) {
+
+	'use strict'; /*
+	              * Any form with form attribute data-recaptcha="true", will run and validate with Google invisible recaptcha
+	              * The site key, will be replaced
+	              *   - Local - by test key in build process (gulp/gulp-config.js, gulp/common-tasks/js.js)
+	              *   - Dev, Test, Staging, Beta - in bamboo deployment plan - https://servicesmadesimpler.govnet.qld.gov.au/bitbucket/projects/CDN/repos/static-qld_cloudformation/browse/deployment_swev3.yml
+	              * */
+	
+	/*globals grecaptcha, qg*/
+	(function ($, swe) {
+	  var onloadRecaptcha = function onloadRecaptcha() {// eslint-disable-line
+	    $('form[data-recaptcha="true"]').find('input[type="submit"], button[type="submit"]').on('click', function (e) {
+	      e.preventDefault();
+	      var subBtn = e.target;
+	      var form = $(subBtn).parents('form');
+	
+	      grecaptcha.render(subBtn, {
+	        'sitekey': '6LeNGSwUAAAAAD6o-P5UTM0FNpKjYB71Kh70F-Ud', //this value will be replaced by build tool. from gulp-config/
+	        'callback': function callback() {
+	          var response = grecaptcha.getResponse();
+	          if (response === '' || response === undefined || response.length === 0) {
+	            console.log('Invalid recaptcha');
+	            return false;
+	          } else {
+	            form.submit();
+	          }
+	        } });
+	
+	      grecaptcha.execute();
+	    });
+	  };
+	
+	  if ($('form[data-recaptcha="true"]').length > 0) {//enable recaptcha on form submits
+	    swe.ajaxCall('https://www.google.com/recaptcha/api.js', 'script', onloadRecaptcha, 'Recaptcha unavailable');
+	  }
+	})(jQuery, qg.swe);
+
+/***/ }),
+/* 13 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -4938,7 +5014,7 @@
 	module.exports = activeSideNav;
 
 /***/ }),
-/* 11 */
+/* 14 */
 /***/ (function(module, exports) {
 
 	'use strict'; /**
@@ -5077,7 +5153,7 @@
 	module.exports = { init: init };
 
 /***/ }),
-/* 12 */
+/* 15 */
 /***/ (function(module, exports) {
 
 	'use strict'; /**
@@ -5115,7 +5191,7 @@
 	module.exports = { init: init };
 
 /***/ }),
-/* 13 */
+/* 16 */
 /***/ (function(module, exports) {
 
 	'use strict'; /**
