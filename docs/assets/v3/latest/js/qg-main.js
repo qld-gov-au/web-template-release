@@ -65,37 +65,36 @@
 	__webpack_require__(5);
 	
 	
-	
-	
 	__webpack_require__(6);
+	
 	__webpack_require__(7);
 	__webpack_require__(8);
 	__webpack_require__(9);
-	var _accessibility = __webpack_require__(10);var _accessibility2 = _interopRequireDefault(_accessibility);
+	__webpack_require__(10);
+	var _accessibility = __webpack_require__(11);var _accessibility2 = _interopRequireDefault(_accessibility);
 	
-	__webpack_require__(11);
 	__webpack_require__(12);
+	__webpack_require__(13);
 	
 	
-	var _sectionNav = __webpack_require__(13);var _sectionNav2 = _interopRequireDefault(_sectionNav);
-	var _stepNav = __webpack_require__(14);var _stepNav2 = _interopRequireDefault(_stepNav);
-	var _shareLinks = __webpack_require__(16);var _shareLinks2 = _interopRequireDefault(_shareLinks);
-	__webpack_require__(17);
-	var _feedbackForm = __webpack_require__(18);var _feedbackForm2 = _interopRequireDefault(_feedbackForm);
+	var _sectionNav = __webpack_require__(14);var _sectionNav2 = _interopRequireDefault(_sectionNav);
+	var _stepNav = __webpack_require__(15);var _stepNav2 = _interopRequireDefault(_stepNav);
+	var _shareLinks = __webpack_require__(17);var _shareLinks2 = _interopRequireDefault(_shareLinks);
+	__webpack_require__(18);
+	var _feedbackForm = __webpack_require__(19);var _feedbackForm2 = _interopRequireDefault(_feedbackForm);
 	
-	__webpack_require__(19);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} // Layout
-	/*
-	 * Imports Javascript components for the GLUE
-	 */ // env initialization
-	(function () {'use strict';var franchiseTitle = _qgEnv2.default && _qgEnv2.default.swe && _qgEnv2.default.swe.franchiseTitle;_sectionNav2.default.highlightNavItem();
-	  _stepNav2.default.init();
+	__webpack_require__(20);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} // Layout
+	/*import './legacy/bootstrap-accessibility.js';*/ /*import '../lib/ext/generate-id.js';*/ // For site-search-autocomplete
+	// import '../../../../../node_modules/bootstrap-accessibility-plugin/plugins/js/bootstrap-accessibility.js'; // Removed due to accessibility issues (ironically)
+	// Utils
+	/*This 2 modules (breakpoints, parentwidth) are to be initialize where we are using these or If we make one common function for small utilities then we can initialize here in the main file.*/ /*import breakpoints        from './utils/breakpoints'; */ // Components
+	(function () {'use strict';var franchiseTitle = _qgEnv2.default && _qgEnv2.default.swe && _qgEnv2.default.swe.franchiseTitle;_sectionNav2.default.highlightNavItem();_stepNav2.default.init();
 	  _feedbackForm2.default.init(franchiseTitle);
 	  _shareLinks2.default.init();
 	  _accessibility2.default.init();
-	})(); /*import './legacy/bootstrap-accessibility.js';*/ /*import '../lib/ext/generate-id.js';*/ // For site-search-autocomplete
-	/*import './legacy/site-search-autocomplete.js';*/ // import '../../../../../node_modules/bootstrap-accessibility-plugin/plugins/js/bootstrap-accessibility.js'; // Removed due to accessibility issues (ironically)
-	// Utils
-	/*This 2 modules (breakpoints, parentwidth) are to be initialize where we are using these or If we make one common function for small utilities then we can initialize here in the main file.*/ /*import breakpoints        from './utils/breakpoints'; */ // Components
+	})(); /*
+	       * Imports Javascript components for the GLUE
+	       */ // env initialization
 
 /***/ }),
 /* 1 */
@@ -4134,6 +4133,197 @@
 /* 6 */
 /***/ (function(module, exports) {
 
+	'use strict'; /*
+	               # Autocomplete for Funnelback site search
+	               # Requires generate-id : node_modules/generate-id/dist/generate-id.min.js';
+	               */
+	
+	// onready
+	$(function () {
+	    'use strict';
+	
+	    // until find.search supports https, we cannot use suggest feature on https domains
+	    if (/^https/.test(window.location.protocol)) {
+	        return;
+	    }
+	
+	    var MAX_SUGGESTIONS = 7;
+	
+	    // TODO refactor this so functions are not created for every search form found on the page
+	
+	    // setup for each form
+	    // TODO hardcoded to find.search.qld.gov.au
+	    $('form').filter('[action*="//find.search.qld.gov.au/"]').each(function () {
+	        var form = this;
+	        var searchField = $(form.elements.query).filter('[name="query"]');
+	        // var lastSearch = searchField.val();
+	        var userTyped = '';
+	
+	        // ARIA
+	        searchField.
+	        attr('role', 'combobox').
+	        attr('autocomplete', 'off')
+	        // both? or list? http://www.w3.org/TR/2011/CR-wai-aria-20110118/states_and_properties#aria-autocomplete
+	        .attr('aria-autocomplete', 'both');
+	
+	        // make the search box wider on focus
+	        // keep it wide while interacting with the search form (box, button, autosuggest list)
+	
+	        // create the suggestion box
+	        var suggestions = $('<ul role="listbox" class="listbox" aria-busy="true"/>').generateId('suggestbox');
+	
+	        function closeSuggestions() {
+	            suggestions.empty();
+	            suggestions.attr('aria-busy', 'true');
+	        }
+	
+	        function prefillInput(value) {
+	            searchField[0].value = value;
+	            // console.log( 'prefilling', value, userTyped );
+	            // http://stackoverflow.com/questions/12047648/setselectionrange-with-on-click-in-chrome-does-not-select-on-second-click
+	            setTimeout(function () {
+	                searchField[0].setSelectionRange(userTyped.length, searchField[0].value.length);
+	            }, 0);
+	        }
+	
+	        function moveFocus(n) {
+	            var a = suggestions.find('a');
+	            var focus = a.filter('.focus');
+	            if (focus.length > 0) {
+	                n = (a.index(focus) + n) % a.length;
+	                focus.removeClass('focus');
+	            } else {
+	                n = n > -1 ? 0 : -1;
+	            }
+	            a = a.eq(n);
+	            a.addClass('focus');
+	            prefillInput(a.text());
+	        }
+	
+	        // TODO how can we run this on both search forms (content and header) but show suggestions in the appropriate place?
+	
+	        suggestions.on('click', 'a', function (event) {
+	            // should this submit? no. see ARIA instructions
+	            event.preventDefault();
+	
+	            searchField.val($(this).text()).get(0).focus();
+	            closeSuggestions();
+	        });
+	
+	
+	        var KEYS = {
+	            alt: 18,
+	            backspace: 8,
+	            delete: 46,
+	            down: 40,
+	            enter: 13,
+	            escape: 27,
+	            left: 37,
+	            right: 39,
+	            tab: 9,
+	            up: 38 };
+	
+	
+	
+	        // clicking outside the field closes suggestions
+	        $(document).on('click', function (event) {
+	            if (searchField.is(event.target)) {
+	                event.stopImmediatePropagation();
+	            } else {
+	                closeSuggestions();
+	            }
+	        });
+	
+	        // handle loss of focus due to TAB
+	        // need to run this onblur, but NOT when focus remains in the suggestions box
+	        // can we check focus in a parent element!? maybe a custom element
+	        // <combobox><input><ul></combobox> ??
+	        searchField.on('keydown', function (event) {
+	            switch (event.which) {
+	                case KEYS.up:
+	                case KEYS.down:
+	                    moveFocus(event.which === KEYS.down ? 1 : -1);
+	                    break;
+	                case KEYS.tab:
+	                    closeSuggestions();}
+	
+	        });
+	        searchField.on('keyup', function (event) {
+	            switch (event.which) {
+	                case KEYS.escape:
+	                case KEYS.enter:
+	                    closeSuggestions();}
+	
+	
+	            // delete
+	            // console.log( event.which );
+	        });
+	
+	        searchField.on('input', function () {
+	
+	            searchField.after(suggestions);
+	            searchField.attr('aria-owns', suggestions.attr('id'));
+	
+	            userTyped = this.value;
+	            if (userTyped.length < 3) {
+	                closeSuggestions();
+	                return;
+	            }
+	
+	            // console.log( 'fetch suggestions for ', userTyped );
+	
+	            $.ajax({
+	                // cache! (the URL will be change with the search text)
+	                cache: true,
+	                dataType: 'jsonp',
+	                url: 'http://find.search.qld.gov.au/s/suggest.json?',
+	                data: {
+	                    // TODO read these from search form
+	                    collection: $(form.elements.collection).filter('[name="collection"]').val() || 'qld-gov',
+	                    profile: $(form.elements.profile).filter('[name="profile"]').val() || 'qld_preview',
+	                    show: MAX_SUGGESTIONS,
+	                    partial_query: userTyped } }).
+	
+	
+	            done(function (data) {
+	                if (data.length < 1) {
+	                    closeSuggestions();
+	                    return;
+	                }
+	                // TODO if the user has typed more, filter the matches in this array
+	                // should we retreive more than 4 so there is a bit of slack here?
+	                // what if ajax repsonses arrive out of sequence? track last match?
+	                // console.log( 'suggestions for ', userTyped, data, 'user has typed', searchField.val() );
+	                var match = new RegExp(userTyped.replace(/([.+*?\[^\]$(){}=!<>|:-\\,])/g, '\\$1'), 'g');
+	                var safeInput = userTyped.replace(/</g, '&lt;');
+	                suggestions.html($.map(data, function (value) {
+	                    var htmlValue = value.replace(/</g, '&lt;').replace(match, '<mark>' + safeInput + '</mark>');
+	                    // use form.action + default params
+	                    return '<li><a href="http://find.search.qld.gov.au/s/search.html?collection=qld-gov&profile=qld&query=' + encodeURIComponent(value) + '">' + htmlValue + '</a></li>';
+	                }).join('\n'));
+	
+	                // issue #3: issues with typing over selected suggestion
+	                // https://github.com/qld-gov-au/jquery.autocomplete/issues/3
+	                // check length is increasing (if not, user is deleting input)
+	                // if ( searchField[0].value.length > lastSearch.length ) {
+	                // 	// set the value to the best answer and select the untyped portion of the text
+	                // 	prefillInput( data[0] );
+	                // }
+	                searchField.val();
+	                suggestions.attr('aria-busy', 'false');
+	            });
+	
+	            // show suggestions box
+	            // click on suggestion = fill in form and submit
+	            // hover over selection = update 'placeholder' style text
+	        });
+	    });
+	}); // onready
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports) {
+
 	'use strict'; /***********************************
 	              /////////////////
 	              // QG Lightbox //
@@ -4177,7 +4367,7 @@
 	})(jQuery);
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports) {
 
 	/**
@@ -4293,7 +4483,7 @@
 	})();
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports) {
 
 	'use strict'; /**
@@ -4433,7 +4623,7 @@
 	})(jQuery, qg);
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports) {
 
 	/*aside carousel play and pause feature*/
@@ -4482,7 +4672,7 @@
 	})(jQuery);
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports) {
 
 	/* ========================================================================
@@ -4547,7 +4737,7 @@
 	module.exports = { init: init };
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports) {
 
 	'use strict';(function ($) {
@@ -4558,7 +4748,7 @@
 	})(jQuery);
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports) {
 
 	'use strict'; /*
@@ -4598,7 +4788,7 @@
 	})(jQuery, qg.swe);
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -4641,10 +4831,10 @@
 	module.exports = activeSideNav;
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	'use strict';Object.defineProperty(exports, "__esModule", { value: true });var _breakpoints = __webpack_require__(15);var _breakpoints2 = _interopRequireDefault(_breakpoints);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+	'use strict';Object.defineProperty(exports, "__esModule", { value: true });var _breakpoints = __webpack_require__(16);var _breakpoints2 = _interopRequireDefault(_breakpoints);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 	var stepNav = {
 	  config: {
 	    $guideSubNav: $('#qg-section-nav .guide-sub-nav'),
@@ -4705,7 +4895,7 @@
 	stepNav;
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports) {
 
 	"use strict";Object.defineProperty(exports, "__esModule", { value: true });var breakpoints = function () {
@@ -4720,7 +4910,7 @@
 	breakpoints;
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports) {
 
 	'use strict'; /**
@@ -4851,7 +5041,7 @@
 	module.exports = { init: init };
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports) {
 
 	'use strict'; /**
@@ -4872,7 +5062,7 @@
 	});
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports) {
 
 	'use strict'; /**
@@ -4910,26 +5100,12 @@
 	module.exports = { init: init };
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports) {
 
-	'use strict'; /**
-	               * This file contains general initialisation, element eventlisteners etc
-	               */
-	
-	(function () {
-	  'use strict';
-	
-	  $(document).ready(function () {
-	    /**
-	                                  * Event listener on header search box to make it accessible
-	                                  * If search box's suggestion list is empty, aria-busy of suggestion list should be true
-	                                  */
-	    $('#qg-search-query').on('focusout', function () {
-	      $(this).siblings('#suggestbox').attr('aria-busy', 'true');
-	    });
-	  });
-	})();
+	/**
+	 * This file contains general initialisation, element eventlisteners etc
+	 */"use strict";
 
 /***/ })
 /******/ ]);
