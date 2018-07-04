@@ -71,19 +71,21 @@
 	__webpack_require__(8);
 	__webpack_require__(9);
 	__webpack_require__(10);
-	var _accessibility = __webpack_require__(11);var _accessibility2 = _interopRequireDefault(_accessibility);
-	
+	__webpack_require__(11);
 	__webpack_require__(12);
-	__webpack_require__(13);
+	var _accessibility = __webpack_require__(13);var _accessibility2 = _interopRequireDefault(_accessibility);
+	
+	__webpack_require__(14);
+	__webpack_require__(15);
 	
 	
-	var _sectionNav = __webpack_require__(14);var _sectionNav2 = _interopRequireDefault(_sectionNav);
-	var _stepNav = __webpack_require__(15);var _stepNav2 = _interopRequireDefault(_stepNav);
-	var _shareLinks = __webpack_require__(17);var _shareLinks2 = _interopRequireDefault(_shareLinks);
-	__webpack_require__(18);
-	var _feedbackForm = __webpack_require__(19);var _feedbackForm2 = _interopRequireDefault(_feedbackForm);
+	var _sectionNav = __webpack_require__(16);var _sectionNav2 = _interopRequireDefault(_sectionNav);
+	var _stepNav = __webpack_require__(17);var _stepNav2 = _interopRequireDefault(_stepNav);
+	var _shareLinks = __webpack_require__(19);var _shareLinks2 = _interopRequireDefault(_shareLinks);
+	__webpack_require__(20);
+	var _feedbackForm = __webpack_require__(21);var _feedbackForm2 = _interopRequireDefault(_feedbackForm);
 	
-	__webpack_require__(20);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} // Layout
+	__webpack_require__(22);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} // Layout
 	/*import './legacy/bootstrap-accessibility.js';*/ /*import '../lib/ext/generate-id.js';*/ // For site-search-autocomplete
 	// import '../../../../../node_modules/bootstrap-accessibility-plugin/plugins/js/bootstrap-accessibility.js'; // Removed due to accessibility issues (ironically)
 	// Utils
@@ -92,6 +94,8 @@
 	  _feedbackForm2.default.init(franchiseTitle);
 	  _shareLinks2.default.init();
 	  _accessibility2.default.init();
+	
+	  $('.qg-index-links .qg-index-item img').length === 0 ? $('.qg-index-links').addClass('content-only') : '';
 	})(); /*
 	       * Imports Javascript components for the GLUE
 	       */ // env initialization
@@ -3899,6 +3903,40 @@
 	        this.on('change', [this, validationMessage], xorConstraintChangeHandler);
 	    };
 	})(jQuery);
+	
+	(function ($) {
+	    'use strict';
+	
+	
+	    /* detect required field markers for IE6 */
+	    $('abbr[title*="required"]').addClass('required');
+	
+	
+	    // show/hide entire 'question' when fields become irrelevant
+	    $('.questions > li').not('.section').
+	    bind('relevant', function (event) {
+	        $(this).relevance('show');
+	        event.stopImmediatePropagation();
+	    }).
+	    bind('irrelevant', function (event) {
+	        $(this).relevance('hide');
+	        event.stopImmediatePropagation();
+	    });
+	
+	
+	
+	    // click the table cell to click on a matrix option
+	    $('.matrix').delegate('td', 'click', function (evt) {
+	        $(evt.target).
+	        find('input').
+	        trigger('click').
+	        trigger('change');
+	
+	    });
+	
+	})(jQuery);
+	
+	
 	/**
 	             * This file initialises forms
 	             */
@@ -4370,6 +4408,53 @@
 /* 8 */
 /***/ (function(module, exports) {
 
+	'use strict'; /*global jQuery*/
+	(function ($) {
+	  'use strict';
+	
+	  var twitter = {
+	    ele: $('.twitter-updates') || '',
+	    init: function init() {
+	      if (twitter.ele.length > 0) {
+	        var account = twitter.ele.data('account') || '';
+	        var list = twitter.ele.data('list') || '';
+	        var widgetid = twitter.ele.data('widgetid') || '';
+	        var num = twitter.ele.data('num') || 5;
+	
+	        if (account.length > 0 && widgetid.length > 0) {
+	          twitter.generateIframe(account, list, widgetid, num);
+	        } else {
+	          console.log('data-account/data-widgetid attribute is empty');
+	        }
+	      }
+	    },
+	    generateIframe: function generateIframe(account, list, widgetid, num) {
+	      var html = '<div style="padding: 1em 1em 0"><a class="twitter-timeline" href="https://twitter.com/' + account + (list.length > 0 ? '/' + list : '') + '" data-widget-id="' + widgetid + '" data-tweet-limit="' + num + '" data-chrome="transparent noheader noborders nofooter" data-link-color="#546A9A">Tweets from @' + account + (list.length > 0 ? '/' + list : '') + '</a></div>';
+	      twitter.ele.append(html);
+	      twitter.runScript();
+	    },
+	    runScript: function runScript() {
+	      return !function (d, s, id) {
+	        var js;
+	        var fjs = d.getElementsByTagName(s)[0];
+	        var p = /^http:/.test(d.location) ? 'http' : 'https';
+	        if (!d.getElementById(id)) {
+	          js = d.createElement(s);
+	          js.id = id;
+	          js.src = p + '://platform.twitter.com/widgets.js';
+	          fjs.parentNode.insertBefore(js, fjs);
+	        }
+	      }(document, 'script', 'twitter-wjs');
+	    } };
+	
+	
+	  twitter.init();
+	})(jQuery);
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports) {
+
 	/**
 	 ************************
 	 ** Progressive Reveal **
@@ -4483,7 +4568,7 @@
 	})();
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports) {
 
 	'use strict'; /**
@@ -4623,7 +4708,7 @@
 	})(jQuery, qg);
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports) {
 
 	/*aside carousel play and pause feature*/
@@ -4672,7 +4757,47 @@
 	})(jQuery);
 
 /***/ }),
-/* 11 */
+/* 12 */
+/***/ (function(module, exports) {
+
+	'use strict';(function ($) {
+	  'use strict';
+	  var quickExit = {
+	    el: '#quick-exit',
+	    init: function init() {
+	      $(this.el).empty().append(this.template);
+	      this.methods();
+	    },
+	    template: '<header><strong>Quick exit</strong></header><ul><li><a target="_top" data-accesskey="Esc" href="http://www.abc.net.au/tv/epg/#/" title="ABC"><img src="https://www.qld.gov.au/_resources/images/icons/abc-bw.png" alt="ABC"></a></li></ul><footer><strong>press \'Esc\'</strong></footer>',
+	    methods: function methods() {
+	      var quickExitLinks = $(this.el).find('a');
+	      var escLink = $(this.el).find('a[data-accesskey="Esc"]').attr('href');
+	      // action on esc key press
+	      $(document).keydown(function (e) {
+	        if (e.keyCode === 27) {
+	          window.location.replace(escLink);
+	          return false;
+	        }
+	      });
+	
+	      // clicking on the quick exit block
+	      $(document).on('click', this.el, function () {
+	        window.location.replace(escLink);
+	      });
+	
+	      //clicking on the links inside the quick exit block
+	      quickExitLinks.click(function (e) {
+	        e.stopPropagation();
+	        e.preventDefault();
+	        window.location.replace($(this).attr('href'));
+	      });
+	    } };
+	
+	  quickExit.init();
+	})(jQuery);
+
+/***/ }),
+/* 13 */
 /***/ (function(module, exports) {
 
 	/* ========================================================================
@@ -4737,7 +4862,7 @@
 	module.exports = { init: init };
 
 /***/ }),
-/* 12 */
+/* 14 */
 /***/ (function(module, exports) {
 
 	'use strict';(function ($) {
@@ -4748,7 +4873,7 @@
 	})(jQuery);
 
 /***/ }),
-/* 13 */
+/* 15 */
 /***/ (function(module, exports) {
 
 	'use strict'; /*
@@ -4788,7 +4913,7 @@
 	})(jQuery, qg.swe);
 
 /***/ }),
-/* 14 */
+/* 16 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -4831,10 +4956,10 @@
 	module.exports = activeSideNav;
 
 /***/ }),
-/* 15 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	'use strict';Object.defineProperty(exports, "__esModule", { value: true });var _breakpoints = __webpack_require__(16);var _breakpoints2 = _interopRequireDefault(_breakpoints);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+	'use strict';Object.defineProperty(exports, "__esModule", { value: true });var _breakpoints = __webpack_require__(18);var _breakpoints2 = _interopRequireDefault(_breakpoints);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 	var stepNav = {
 	  config: {
 	    $guideSubNav: $('#qg-section-nav .guide-sub-nav'),
@@ -4895,7 +5020,7 @@
 	stepNav;
 
 /***/ }),
-/* 16 */
+/* 18 */
 /***/ (function(module, exports) {
 
 	"use strict";Object.defineProperty(exports, "__esModule", { value: true });var breakpoints = function () {
@@ -4910,7 +5035,7 @@
 	breakpoints;
 
 /***/ }),
-/* 17 */
+/* 19 */
 /***/ (function(module, exports) {
 
 	'use strict'; /**
@@ -5041,7 +5166,7 @@
 	module.exports = { init: init };
 
 /***/ }),
-/* 18 */
+/* 20 */
 /***/ (function(module, exports) {
 
 	'use strict'; /**
@@ -5062,7 +5187,7 @@
 	});
 
 /***/ }),
-/* 19 */
+/* 21 */
 /***/ (function(module, exports) {
 
 	'use strict'; /**
@@ -5100,7 +5225,7 @@
 	module.exports = { init: init };
 
 /***/ }),
-/* 20 */
+/* 22 */
 /***/ (function(module, exports) {
 
 	/**
