@@ -4413,7 +4413,7 @@
 	  'use strict';
 	
 	  var twitter = {
-	    ele: $('.twitter-updates') || '',
+	    ele: $('.qg-twitter-updates') || '',
 	    init: function init() {
 	      if (twitter.ele.length > 0) {
 	        var account = twitter.ele.data('account') || '';
@@ -4763,7 +4763,7 @@
 	'use strict';(function ($) {
 	  'use strict';
 	  var quickExit = {
-	    el: '#quick-exit',
+	    el: '#qg-quick-exit',
 	    init: function init() {
 	      $(this.el).empty().append(this.template);
 	      this.methods();
