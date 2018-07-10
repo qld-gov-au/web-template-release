@@ -9203,6 +9203,32 @@ a[data-toggle=collapse].qg-icon:after {
   .alert.alert-warning {
     border-color: #f9af71; }
 
+.qg-search-widget {
+  background: #f2f7f9;
+  padding: .5em 1em; }
+  .qg-search-widget #distance {
+    width: 100%; }
+  .qg-search-widget .qg-fl {
+    display: -ms-flexbox;
+    display: flex; }
+    .qg-search-widget .qg-fl #qg-app-geocoding {
+      background: #78ba00; }
+    .qg-search-widget .qg-fl #qg-location-autocomplete {
+      width: 90%;
+      margin-right: 11px; }
+    .qg-search-widget .qg-fl #qg-app-geocoding {
+      width: 47px;
+      position: relative;
+      bottom: 0 !important; }
+      .qg-search-widget .qg-fl #qg-app-geocoding svg {
+        display: block;
+        margin: auto;
+        position: absolute;
+        top: 5px;
+        right: 7px; }
+  .qg-search-widget #search {
+    margin-right: 10px; }
+
 .qg-correct, .table > tbody > tr td.qg-correct, table td.qg-correct, .table.qg-correct-incorrect > tbody > tr td:nth-child(even), table.qg-correct-incorrect td:nth-child(even), .qg-incorrect, .table > tbody > tr td.qg-incorrect, table td.qg-incorrect, .table.qg-correct-incorrect > tbody > tr td:nth-child(odd), table.qg-correct-incorrect td:nth-child(odd) {
   position: relative;
   margin: 0.4em 0;

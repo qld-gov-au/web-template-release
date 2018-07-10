@@ -51,54 +51,60 @@
 	
 	var _qgEnv = __webpack_require__(1);var _qgEnv2 = _interopRequireDefault(_qgEnv);
 	__webpack_require__(2);
-	
 	__webpack_require__(3);
 	
-	
-	
-	
-	
-	
-	
-	
 	__webpack_require__(4);
+	
+	
+	
+	
+	
+	
+	
+	
 	__webpack_require__(5);
-	
-	
 	__webpack_require__(6);
 	
+	
 	__webpack_require__(7);
+	
 	__webpack_require__(8);
 	__webpack_require__(9);
 	__webpack_require__(10);
 	__webpack_require__(11);
 	__webpack_require__(12);
-	var _accessibility = __webpack_require__(13);var _accessibility2 = _interopRequireDefault(_accessibility);
+	__webpack_require__(13);
+	var _accessibility = __webpack_require__(14);var _accessibility2 = _interopRequireDefault(_accessibility);
 	
-	__webpack_require__(14);
 	__webpack_require__(15);
+	__webpack_require__(16);
+	__webpack_require__(17);
 	
 	
-	var _sectionNav = __webpack_require__(16);var _sectionNav2 = _interopRequireDefault(_sectionNav);
-	var _stepNav = __webpack_require__(17);var _stepNav2 = _interopRequireDefault(_stepNav);
-	var _shareLinks = __webpack_require__(19);var _shareLinks2 = _interopRequireDefault(_shareLinks);
-	__webpack_require__(20);
-	var _feedbackForm = __webpack_require__(21);var _feedbackForm2 = _interopRequireDefault(_feedbackForm);
+	var _sectionNav = __webpack_require__(18);var _sectionNav2 = _interopRequireDefault(_sectionNav);
+	var _stepNav = __webpack_require__(19);var _stepNav2 = _interopRequireDefault(_stepNav);
+	var _shareLinks = __webpack_require__(21);var _shareLinks2 = _interopRequireDefault(_shareLinks);
+	__webpack_require__(22);
+	var _feedbackForm = __webpack_require__(23);var _feedbackForm2 = _interopRequireDefault(_feedbackForm);
 	
-	__webpack_require__(22);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} // Layout
-	/*import './legacy/bootstrap-accessibility.js';*/ /*import '../lib/ext/generate-id.js';*/ // For site-search-autocomplete
-	// import '../../../../../node_modules/bootstrap-accessibility-plugin/plugins/js/bootstrap-accessibility.js'; // Removed due to accessibility issues (ironically)
-	// Utils
-	/*This 2 modules (breakpoints, parentwidth) are to be initialize where we are using these or If we make one common function for small utilities then we can initialize here in the main file.*/ /*import breakpoints        from './utils/breakpoints'; */ // Components
-	(function () {'use strict';var franchiseTitle = _qgEnv2.default && _qgEnv2.default.swe && _qgEnv2.default.swe.franchiseTitle;_sectionNav2.default.highlightNavItem();_stepNav2.default.init();
+	__webpack_require__(24);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} // Layout
+	(function () {
+	  'use strict';
+	  var franchiseTitle = _qgEnv2.default && _qgEnv2.default.swe && _qgEnv2.default.swe.franchiseTitle;
+	  _sectionNav2.default.highlightNavItem();
+	  _stepNav2.default.init();
 	  _feedbackForm2.default.init(franchiseTitle);
 	  _shareLinks2.default.init();
 	  _accessibility2.default.init();
 	
 	  $('.qg-index-links .qg-index-item img').length === 0 ? $('.qg-index-links').addClass('content-only') : '';
-	})(); /*
-	       * Imports Javascript components for the GLUE
-	       */ // env initialization
+	})(); /*import './legacy/bootstrap-accessibility.js';*/ /*import '../lib/ext/generate-id.js';*/ // For site-search-autocomplete
+	// import '../../../../../node_modules/bootstrap-accessibility-plugin/plugins/js/bootstrap-accessibility.js'; // Removed due to accessibility issues (ironically)
+	// Utils
+	/*This 2 modules (breakpoints, parentwidth) are to be initialize where we are using these or If we make one common function for small utilities then we can initialize here in the main file.*/ /*import breakpoints        from './utils/breakpoints'; */ // Components
+	/*
+	 * Imports Javascript components for the GLUE
+	 */ // env initialization
 
 /***/ }),
 /* 1 */
@@ -139,6 +145,58 @@
 
 /***/ }),
 /* 3 */
+/***/ (function(module, exports) {
+
+	'use strict'; /**
+	               * When using functionality related to google libraries, this fuction comes handy to check if libraries already exists and then execute custom function
+	               */
+	/* globals qg */
+	(function (qg, $) {
+	  'use strict';
+	  // lazy load a script
+	  function lazyScript(url) {
+	    $('head').append('<script type="text/javascript" src="' + url + '"></script>');
+	  }
+	  //load Google APi
+	  qg.loadGoogle = function (callback) {
+	    var next = function next() {
+	      if (typeof callback === 'function') {
+	        callback();
+	      } else {
+	        lazyScript(callback);
+	      }
+	    };
+	    if ($('#googleapi').length <= 0) {
+	      var s = document.createElement('script');
+	      var u = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCKuaFIFo7YYZXHZ5zaiEZdJx0UBoyfuAE&region=AU&libraries=places';
+	      s.type = 'text/javascript';
+	      s.id = 'googleapi';
+	      s.src = u;
+	      document.getElementsByTagName('head')[0].appendChild(s);
+	      s.onreadystatechange = function () {//trigger for IE
+	        if (this.readyState === 'complete') {
+	          next();
+	        }
+	      };
+	      s.onload = function () {
+	        next();
+	      };
+	    } else {//if script is already created but either loading or loaded
+	      if (document.readyState === 'loading') {
+	        document.onreadystatechange = function () {
+	          if (this.readyState === 'complete') {
+	            next();
+	          }
+	        };
+	      } else {
+	        next();
+	      }
+	    }
+	  };
+	})(qg, jQuery);
+
+/***/ }),
+/* 4 */
 /***/ (function(module, exports) {
 
 	/*!
@@ -2521,7 +2579,7 @@
 
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports) {
 
 	/* ========================================================================
@@ -2542,7 +2600,7 @@
 	module.exports = parentWidth;
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports) {
 
 	'use strict';var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {return typeof obj;} : function (obj) {return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;}; /*! Form validation - v1.1.1 - 2014-04-09
@@ -4168,7 +4226,7 @@
 	//# sourceMappingURL=qg-forms.js.map
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports) {
 
 	'use strict'; /*
@@ -4359,7 +4417,7 @@
 	}); // onready
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports) {
 
 	'use strict'; /***********************************
@@ -4405,7 +4463,7 @@
 	})(jQuery);
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports) {
 
 	'use strict'; /*global jQuery*/
@@ -4452,7 +4510,7 @@
 	})(jQuery);
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports) {
 
 	/**
@@ -4568,7 +4626,7 @@
 	})();
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports) {
 
 	'use strict'; /**
@@ -4708,7 +4766,7 @@
 	})(jQuery, qg);
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports) {
 
 	/*aside carousel play and pause feature*/
@@ -4757,7 +4815,7 @@
 	})(jQuery);
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports) {
 
 	'use strict';(function ($) {
@@ -4797,7 +4855,7 @@
 	})(jQuery);
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports) {
 
 	/* ========================================================================
@@ -4862,7 +4920,7 @@
 	module.exports = { init: init };
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports) {
 
 	'use strict';(function ($) {
@@ -4873,7 +4931,7 @@
 	})(jQuery);
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports) {
 
 	'use strict'; /*
@@ -4913,7 +4971,163 @@
 	})(jQuery, qg.swe);
 
 /***/ }),
-/* 16 */
+/* 17 */
+/***/ (function(module, exports) {
+
+	'use strict'; /*global qg, jQuery, google*/
+	
+	var qgInitAutocompleteAddress = void 0;
+	
+	function getParameterByName(name, url) {
+	  if (!url) url = window.location.href;
+	  name = name.replace(/[\[\]]/g, '\\$&');
+	  var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)');
+	  var results = regex.exec(url);
+	  if (!results) return null;
+	  if (!results[2]) return '';
+	  return decodeURIComponent(results[2].replace(/\+/g, ' '));
+	}
+	
+	function setValue(name, id) {
+	  if (name) {
+	    if ($('#' + id + '').is('select')) {
+	      $('#' + id + '').add('option[value="' + getParameterByName(name) + '"]').attr('selected', 'selected');
+	    } else {
+	      $('#' + id + '').val(getParameterByName(name));
+	    }
+	  }
+	}
+	
+	(function (qg, $) {
+	  'use strict';
+	  var inputLocationId = 'qg-location-autocomplete';
+	  setValue('location', 'qg-location-autocomplete');
+	  setValue('latitude', 'lat');
+	  setValue('longitude', 'lng');
+	  setValue('distance', 'distance');
+	
+	  $('#qg-search-widget').not('#search').keydown(function (event) {
+	    if (event.keyCode === 13) {
+	      event.preventDefault();
+	      return false;
+	    }
+	  });
+	
+	  if ($('.' + inputLocationId).length > 0) {
+	    var getLocationEle = $('.qg-app-geocoding');
+	    qgInitAutocompleteAddress = function qgInitAutocompleteAddress() {
+	      var qldBounds = new google.maps.LatLngBounds(
+	      new google.maps.LatLng(-29, 138.0578426),
+	      new google.maps.LatLng(-9.9339, 153.63831));
+	      var inputLocationEle = document.getElementsByClassName(inputLocationId);
+	      var addressFormId = 'qg-address-autocomplete';
+	
+	      $.each(inputLocationEle, function () {
+	        var dataStrictBounds = $(this).data('strictbounds') || true;
+	        var options = {
+	          bounds: qldBounds,
+	          strictBounds: dataStrictBounds,
+	          types: ['geocode'] };
+	
+	        var autocomplete = new google.maps.places.Autocomplete(this, options);
+	
+	        //if address form exists fill the selection
+	        var form = $(this).siblings('.' + addressFormId);
+	        if (form.length > 0) {
+	          var formFields = {
+	            street_number: { dataType: 'street', name: 'short_name' },
+	            route: { dataType: 'street', name: 'long_name' },
+	            locality: { dataType: 'city', name: 'long_name' },
+	            administrative_area_level_1: { dataType: 'state', name: 'short_name' },
+	            country: { dataType: 'country', name: 'long_name' },
+	            postal_code: { dataType: 'zip', name: 'short_name' } };
+	
+	          var fillInAddress = function fillInAddress() {
+	            var loc = autocomplete.getPlace();
+	            //clear form
+	            $.each(formFields, function (i, v) {
+	              form.find('input[data-type="' + v.dataType + '"]').val('');
+	            });
+	
+	            for (var i = 0; i < loc.address_components.length; i++) {
+	              var type = loc.address_components[i].types[0];
+	              if (formFields[type] !== undefined && formFields[type].dataType !== undefined) {
+	                var inputEle = form.find('input[data-type="' + formFields[type].dataType + '"]');
+	                if (inputEle.length > 0) {
+	                  var val = inputEle.val() + ' ' + loc.address_components[i][formFields[type].name];
+	                  inputEle.val(val);
+	                  inputEle.change();
+	                }
+	              }
+	            }
+	          };
+	          autocomplete.addListener('place_changed', fillInAddress);
+	          // $(this).on('change', google.maps.event.trigger(autocomplete, 'place_changed'))
+	        } else {
+	          var _fillInAddress = function _fillInAddress() {
+	            var place = autocomplete.getPlace();
+	            document.getElementById('lat').value = place.geometry.location.lat();
+	            document.getElementById('lng').value = place.geometry.location.lng();
+	          };
+	          autocomplete.addListener('place_changed', _fillInAddress);
+	        }
+	      });
+	
+	      //Get current location
+	      if (getLocationEle.length > 0) {
+	        $.each(getLocationEle, function (i, ele) {
+	          $(ele).on('click', function (event) {var _this = this;
+	            event.preventDefault();
+	            if (navigator.geolocation) {
+	              var showLocation = function showLocation(position) {
+	                var latitude = position.coords.latitude;
+	                var longitude = position.coords.longitude;
+	                var latlng = { lat: parseFloat(latitude), lng: parseFloat(longitude) };
+	                var geocoder = new google.maps.Geocoder();
+	                var locationInput = $(_this).siblings('.' + inputLocationId);
+	
+	                document.getElementById('lat').value = latitude;
+	                document.getElementById('lng').value = longitude;
+	
+	                if (locationInput.length > 0) {
+	                  geocoder.geocode({ 'location': latlng }, function (results, status) {
+	                    if (status === 'OK') {
+	                      if (results[1]) {
+	                        locationInput.val(results[1].formatted_address);
+	                        locationInput.trigger('place_changed');
+	                      } else {
+	                        window.alert('No results found');
+	                      }
+	                    } else {
+	                      window.alert('Geocoder failed due to: ' + status);
+	                    }
+	                  });
+	                }
+	              };
+	              var errorHandler = function errorHandler(err) {
+	                if (err.code === 1) {
+	                  alert('Error: Access is denied!');
+	                } else if (err.code === 2) {
+	                  alert('Error: Position is unavailable!');
+	                }
+	              };
+	              var options = { timeout: 60000 };
+	
+	              navigator.geolocation.getCurrentPosition(showLocation, errorHandler, options);
+	            } else {
+	              // Browser doesn't support Geolocation
+	              window.alert('Your browser doesnot support Geolocation');
+	            }
+	          });
+	        });
+	      }
+	    };
+	    qg.loadGoogle(qgInitAutocompleteAddress);
+	  }
+	})(qg, jQuery);
+
+/***/ }),
+/* 18 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -4956,10 +5170,10 @@
 	module.exports = activeSideNav;
 
 /***/ }),
-/* 17 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	'use strict';Object.defineProperty(exports, "__esModule", { value: true });var _breakpoints = __webpack_require__(18);var _breakpoints2 = _interopRequireDefault(_breakpoints);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+	'use strict';Object.defineProperty(exports, "__esModule", { value: true });var _breakpoints = __webpack_require__(20);var _breakpoints2 = _interopRequireDefault(_breakpoints);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 	var stepNav = {
 	  config: {
 	    $guideSubNav: $('#qg-section-nav .guide-sub-nav'),
@@ -5020,7 +5234,7 @@
 	stepNav;
 
 /***/ }),
-/* 18 */
+/* 20 */
 /***/ (function(module, exports) {
 
 	"use strict";Object.defineProperty(exports, "__esModule", { value: true });var breakpoints = function () {
@@ -5035,7 +5249,7 @@
 	breakpoints;
 
 /***/ }),
-/* 19 */
+/* 21 */
 /***/ (function(module, exports) {
 
 	'use strict'; /**
@@ -5166,7 +5380,7 @@
 	module.exports = { init: init };
 
 /***/ }),
-/* 20 */
+/* 22 */
 /***/ (function(module, exports) {
 
 	'use strict'; /**
@@ -5187,7 +5401,7 @@
 	});
 
 /***/ }),
-/* 21 */
+/* 23 */
 /***/ (function(module, exports) {
 
 	'use strict'; /**
@@ -5225,7 +5439,7 @@
 	module.exports = { init: init };
 
 /***/ }),
-/* 22 */
+/* 24 */
 /***/ (function(module, exports) {
 
 	/**
