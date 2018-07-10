@@ -4978,9 +4978,15 @@
 	
 	var qgInitAutocompleteAddress = void 0;
 	
+	/**
+	                                         * Gets parameter value
+	                                         * @param {string} name - parameter name
+	                                         * @param {string} url - url where searching needs to be performed
+	                                         * @returns {*} - returns the parameter value
+	                                         */
 	function getParameterByName(name, url) {
 	  if (!url) url = window.location.href;
-	  name = name.replace(/[\[\]]/g, '\\$&');
+	  name = name.replace(/[\\[\]]/g, '\\$&');
 	  var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)');
 	  var results = regex.exec(url);
 	  if (!results) return null;
@@ -4988,8 +4994,13 @@
 	  return decodeURIComponent(results[2].replace(/\+/g, ' '));
 	}
 	
+	/**
+	   * Checks value if exist on URL parameter then sets the value
+	   * @param {string } name - name of the parameter
+	   * @param {string} id  - id of the parameter in HTML
+	   */
 	function setValue(name, id) {
-	  if (name) {
+	  if (getParameterByName(name)) {
 	    if ($('#' + id + '').is('select')) {
 	      $('#' + id + '').add('option[value="' + getParameterByName(name) + '"]').attr('selected', 'selected');
 	    } else {
@@ -5001,15 +5012,37 @@
 	(function (qg, $) {
 	  'use strict';
 	  var inputLocationId = 'qg-location-autocomplete';
+	  var el = {
+	    $searchWidget: $('.qg-search-widget'),
+	    $autoComplete: $('#qg-location-autocomplete'),
+	    $latitude: $('#lat'),
+	    $longitude: $('#lng') };
+	
+	
+	  // getting and setting input fields value using query parameter
 	  setValue('location', 'qg-location-autocomplete');
 	  setValue('latitude', 'lat');
 	  setValue('longitude', 'lng');
 	  setValue('distance', 'distance');
 	
-	  $('#qg-search-widget').not('#search').keydown(function (event) {
-	    if (event.keyCode === 13) {
-	      event.preventDefault();
-	      return false;
+	  // removing hidden fields value on reset
+	  el.$searchWidget.find('button[type="reset"]').click(function (evt) {
+	    evt.preventDefault();
+	    el.$searchWidget.find($('#distance option:selected')).removeAttr('selected').
+	    end().
+	    find(el.$latitude).val('').
+	    end().
+	    find(el.$longitude).val('').
+	    end().
+	    find('#search-widget-form').get(0).reset();
+	  });
+	
+	  // on autoComplete blur removing hidden fields values
+	  el.$autoComplete.blur(function () {
+	    if ($(this).val().length === 0) {
+	      el.$searchWidget.find(el.$latitude).val('').
+	      end().
+	      find(el.$longitude).val('');
 	    }
 	  });
 	
@@ -5066,8 +5099,9 @@
 	        } else {
 	          var _fillInAddress = function _fillInAddress() {
 	            var place = autocomplete.getPlace();
-	            document.getElementById('lat').value = place.geometry.location.lat();
-	            document.getElementById('lng').value = place.geometry.location.lng();
+	            el.$searchWidget.find(el.$latitude).val(place.geometry.location.lat()).
+	            end().
+	            find(el.$longitude).val(place.geometry.location.lng());
 	          };
 	          autocomplete.addListener('place_changed', _fillInAddress);
 	        }
@@ -5085,10 +5119,9 @@
 	                var latlng = { lat: parseFloat(latitude), lng: parseFloat(longitude) };
 	                var geocoder = new google.maps.Geocoder();
 	                var locationInput = $(_this).siblings('.' + inputLocationId);
-	
-	                document.getElementById('lat').value = latitude;
-	                document.getElementById('lng').value = longitude;
-	
+	                el.$searchWidget.find(el.$latitude).val(latitude).
+	                end().
+	                find(el.$longitude).val(longitude);
 	                if (locationInput.length > 0) {
 	                  geocoder.geocode({ 'location': latlng }, function (results, status) {
 	                    if (status === 'OK') {
