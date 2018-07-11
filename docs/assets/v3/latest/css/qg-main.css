@@ -9284,14 +9284,10 @@ span.qg-correct, span.qg-incorrect {
   max-width: 1327px; }
 
 #qg-primary-content {
-  margin-top: 30px;
-  margin-bottom: 30px; }
+  margin-top: 30px; }
   @media (min-width: 1200px) {
     #qg-primary-content {
       margin-top: 50px; } }
-  @media (min-width: 1200px) {
-    #qg-primary-content {
-      margin-bottom: 50px; } }
   #qg-primary-content .dropup > ul {
     margin: 0; }
 
@@ -10419,7 +10415,7 @@ span.qg-correct, span.qg-incorrect {
   font-weight: normal; }
 
 .qg-content-footer {
-  margin-top: 2em;
+  margin-top: 4em;
   font-size: 0.8em; }
   .qg-content-footer dl {
     float: left; }
