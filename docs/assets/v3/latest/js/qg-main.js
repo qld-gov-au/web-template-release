@@ -52,46 +52,47 @@
 	var _qgEnv = __webpack_require__(1);var _qgEnv2 = _interopRequireDefault(_qgEnv);
 	__webpack_require__(2);
 	__webpack_require__(3);
-	
 	__webpack_require__(4);
 	
-	
-	
-	
-	
-	
-	
-	
 	__webpack_require__(5);
+	
+	
+	
+	
+	
+	
+	
+	
 	__webpack_require__(6);
-	
-	
 	__webpack_require__(7);
 	
+	
 	__webpack_require__(8);
+	
 	__webpack_require__(9);
 	__webpack_require__(10);
 	__webpack_require__(11);
 	__webpack_require__(12);
 	__webpack_require__(13);
-	var _accessibility = __webpack_require__(14);var _accessibility2 = _interopRequireDefault(_accessibility);
+	__webpack_require__(14);
+	var _accessibility = __webpack_require__(15);var _accessibility2 = _interopRequireDefault(_accessibility);
 	
-	__webpack_require__(15);
 	__webpack_require__(16);
 	__webpack_require__(17);
+	__webpack_require__(18);
 	
 	
-	var _sectionNav = __webpack_require__(18);var _sectionNav2 = _interopRequireDefault(_sectionNav);
-	var _stepNav = __webpack_require__(19);var _stepNav2 = _interopRequireDefault(_stepNav);
-	var _shareLinks = __webpack_require__(21);var _shareLinks2 = _interopRequireDefault(_shareLinks);
-	__webpack_require__(22);
-	var _feedbackForm = __webpack_require__(23);var _feedbackForm2 = _interopRequireDefault(_feedbackForm);
+	var _sectionNav = __webpack_require__(19);var _sectionNav2 = _interopRequireDefault(_sectionNav);
+	var _stepNav = __webpack_require__(20);var _stepNav2 = _interopRequireDefault(_stepNav);
+	var _shareLinks = __webpack_require__(22);var _shareLinks2 = _interopRequireDefault(_shareLinks);
+	__webpack_require__(23);
+	var _feedbackForm = __webpack_require__(24);var _feedbackForm2 = _interopRequireDefault(_feedbackForm);
 	
-	__webpack_require__(24);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} // Layout
-	(function () {
-	  'use strict';
-	  var franchiseTitle = _qgEnv2.default && _qgEnv2.default.swe && _qgEnv2.default.swe.franchiseTitle;
-	  _sectionNav2.default.highlightNavItem();
+	__webpack_require__(25);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} // Layout
+	/*
+	 * Imports Javascript components for the GLUE
+	 */ // env initialization
+	(function () {'use strict';var franchiseTitle = _qgEnv2.default && _qgEnv2.default.swe && _qgEnv2.default.swe.franchiseTitle;_sectionNav2.default.highlightNavItem();
 	  _stepNav2.default.init();
 	  _feedbackForm2.default.init(franchiseTitle);
 	  _shareLinks2.default.init();
@@ -102,9 +103,6 @@
 	// import '../../../../../node_modules/bootstrap-accessibility-plugin/plugins/js/bootstrap-accessibility.js'; // Removed due to accessibility issues (ironically)
 	// Utils
 	/*This 2 modules (breakpoints, parentwidth) are to be initialize where we are using these or If we make one common function for small utilities then we can initialize here in the main file.*/ /*import breakpoints        from './utils/breakpoints'; */ // Components
-	/*
-	 * Imports Javascript components for the GLUE
-	 */ // env initialization
 
 /***/ }),
 /* 1 */
@@ -122,6 +120,30 @@
 
 /***/ }),
 /* 2 */
+/***/ (function(module, exports) {
+
+	'use strict'; /*globals qg*/
+	
+	(function ($, swe) {
+	  /**
+	                     * Gets parameter value
+	                     * @param {string} name - parameter name
+	                     * @param {string} url - url where searching needs to be performed
+	                     * @returns {*} - returns the parameter value
+	                     */
+	  swe.getParameterByName = function (name, url) {
+	    if (!url) url = window.location.href;
+	    name = name.replace(/[\\[\]]/g, '\\$&');
+	    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)');
+	    var results = regex.exec(url);
+	    if (!results) return null;
+	    if (!results[2]) return '';
+	    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+	  };
+	})(jQuery, qg.swe);
+
+/***/ }),
+/* 3 */
 /***/ (function(module, exports) {
 
 	"use strict"; /*globals qg*/
@@ -144,7 +166,7 @@
 	})(jQuery, qg.swe);
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, exports) {
 
 	'use strict'; /**
@@ -196,7 +218,7 @@
 	})(qg, jQuery);
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports) {
 
 	/*!
@@ -2579,7 +2601,7 @@
 
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports) {
 
 	/* ========================================================================
@@ -2600,7 +2622,7 @@
 	module.exports = parentWidth;
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports) {
 
 	'use strict';var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {return typeof obj;} : function (obj) {return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;}; /*! Form validation - v1.1.1 - 2014-04-09
@@ -4147,7 +4169,7 @@
 	//# sourceMappingURL=qg-forms.js.map
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports) {
 
 	'use strict'; /*
@@ -4338,7 +4360,7 @@
 	}); // onready
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports) {
 
 	'use strict'; /***********************************
@@ -4384,7 +4406,7 @@
 	})(jQuery);
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports) {
 
 	'use strict'; /*global jQuery*/
@@ -4431,7 +4453,7 @@
 	})(jQuery);
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports) {
 
 	/**
@@ -4547,7 +4569,7 @@
 	})();
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports) {
 
 	'use strict'; /**
@@ -4687,7 +4709,7 @@
 	})(jQuery, qg);
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports) {
 
 	/*aside carousel play and pause feature*/
@@ -4736,7 +4758,7 @@
 	})(jQuery);
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports) {
 
 	'use strict';(function ($) {
@@ -4776,7 +4798,7 @@
 	})(jQuery);
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports) {
 
 	/* ========================================================================
@@ -4841,7 +4863,7 @@
 	module.exports = { init: init };
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports) {
 
 	'use strict';(function ($) {
@@ -4852,7 +4874,7 @@
 	})(jQuery);
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports) {
 
 	'use strict'; /*
@@ -4892,40 +4914,24 @@
 	})(jQuery, qg.swe);
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports) {
 
 	'use strict'; /*global qg, jQuery, google*/
 	
 	var qgInitAutocompleteAddress = void 0;
-	
 	/**
-	                                         * Gets parameter value
-	                                         * @param {string} name - parameter name
-	                                         * @param {string} url - url where searching needs to be performed
-	                                         * @returns {*} - returns the parameter value
+	                                         * Checks value if exist on URL parameter then sets the value
+	                                         * @param {string } name - name of the parameter
+	                                         * @param {string} id  - id of the parameter in HTML
 	                                         */
-	function getParameterByName(name, url) {
-	  if (!url) url = window.location.href;
-	  name = name.replace(/[\\[\]]/g, '\\$&');
-	  var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)');
-	  var results = regex.exec(url);
-	  if (!results) return null;
-	  if (!results[2]) return '';
-	  return decodeURIComponent(results[2].replace(/\+/g, ' '));
-	}
 	
-	/**
-	   * Checks value if exist on URL parameter then sets the value
-	   * @param {string } name - name of the parameter
-	   * @param {string} id  - id of the parameter in HTML
-	   */
 	function setValue(name, id) {
-	  if (getParameterByName(name)) {
+	  if (qg.swe.getParameterByName(name)) {
 	    if ($('#' + id + '').is('select')) {
-	      $('#' + id + '').add('option[value="' + getParameterByName(name) + '"]').attr('selected', 'selected');
+	      $('#' + id + '').add('option[value="' + qg.swe.getParameterByName(name) + '"]').attr('selected', 'selected');
 	    } else {
-	      $('#' + id + '').val(getParameterByName(name));
+	      $('#' + id + '').val(qg.swe.getParameterByName(name));
 	    }
 	  }
 	}
@@ -4935,9 +4941,10 @@
 	  var inputLocationId = 'qg-location-autocomplete';
 	  var el = {
 	    $searchWidget: $('.qg-search-widget'),
-	    $autoComplete: $('#qg-location-autocomplete'),
+	    $autoComplete: $('.qg-location-autocomplete'),
 	    $latitude: $('#lat'),
-	    $longitude: $('#lng') };
+	    $longitude: $('#lng'),
+	    $form: $('#search-widget-form') };
 	
 	
 	  // getting and setting input fields value using query parameter
@@ -4949,13 +4956,11 @@
 	  // removing hidden fields value on reset
 	  el.$searchWidget.find('button[type="reset"]').click(function (evt) {
 	    evt.preventDefault();
-	    el.$searchWidget.find($('#distance option:selected')).removeAttr('selected').
-	    end().
-	    find(el.$latitude).val('').
-	    end().
-	    find(el.$longitude).val('').
-	    end().
-	    find('#search-widget-form').get(0).reset();
+	    el.$form.find('input, select, textarea').each(function () {
+	      $(this).val('');
+	    }).end().find('input[type=checkbox], input[type=radio]').each(function () {
+	      $(this).prop('checked', false);
+	    });
 	  });
 	
 	  // on autoComplete blur removing hidden fields values
@@ -5081,7 +5086,7 @@
 	})(qg, jQuery);
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -5124,10 +5129,10 @@
 	module.exports = activeSideNav;
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	'use strict';Object.defineProperty(exports, "__esModule", { value: true });var _breakpoints = __webpack_require__(20);var _breakpoints2 = _interopRequireDefault(_breakpoints);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+	'use strict';Object.defineProperty(exports, "__esModule", { value: true });var _breakpoints = __webpack_require__(21);var _breakpoints2 = _interopRequireDefault(_breakpoints);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 	var stepNav = {
 	  config: {
 	    $guideSubNav: $('#qg-section-nav .guide-sub-nav'),
@@ -5188,7 +5193,7 @@
 	stepNav;
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports) {
 
 	"use strict";Object.defineProperty(exports, "__esModule", { value: true });var breakpoints = function () {
@@ -5203,7 +5208,7 @@
 	breakpoints;
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports) {
 
 	'use strict'; /**
@@ -5334,7 +5339,7 @@
 	module.exports = { init: init };
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports) {
 
 	'use strict'; /**
@@ -5355,7 +5360,7 @@
 	});
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports) {
 
 	'use strict'; /**
@@ -5393,7 +5398,7 @@
 	module.exports = { init: init };
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports) {
 
 	/**

@@ -10414,6 +10414,11 @@ span.qg-correct, span.qg-incorrect {
   color: #585e62;
   font-weight: normal; }
 
+#qg-primary-content > blockquote {
+  background: #f9f9f9;
+  padding: 0 1em;
+  border: 1px solid #dcdcdc; }
+
 .qg-content-footer {
   margin-top: 4em;
   font-size: 0.8em; }
