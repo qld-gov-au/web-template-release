@@ -9213,7 +9213,7 @@ a[data-toggle=collapse].qg-icon:after {
     display: flex; }
     .qg-search-widget .qg-fl #qg-app-geocoding {
       background: #78ba00; }
-    .qg-search-widget .qg-fl #qg-location-autocomplete {
+    .qg-search-widget .qg-fl .qg-location-autocomplete {
       width: 90%;
       margin-right: 11px; }
     .qg-search-widget .qg-fl #qg-app-geocoding {
@@ -10414,10 +10414,11 @@ span.qg-correct, span.qg-incorrect {
   color: #585e62;
   font-weight: normal; }
 
-#qg-primary-content > blockquote {
+#qg-primary-content blockquote {
   background: #f9f9f9;
-  padding: 0 1em;
-  border: 1px solid #dcdcdc; }
+  padding: 1em;
+  border: 1px solid #dcdcdc;
+  margin-left: 1em; }
 
 .qg-content-footer {
   margin-top: 4em;
@@ -10625,12 +10626,6 @@ span.qg-correct, span.qg-incorrect {
       border: 2px solid #F85C50; }
     #qg-page-feedback .invalid textarea {
       border: 2px solid #F85C50; }
-  #qg-page-feedback .alert {
-    padding-left: 1em;
-    display: inline;
-    color: #F85C50;
-    font-size: 16px;
-    font-size: 1.6rem; }
   #qg-page-feedback #qg-page-feedback-form {
     padding-top: 15px;
     padding-bottom: 15px;

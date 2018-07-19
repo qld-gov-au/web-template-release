@@ -132,12 +132,12 @@
 	                     * @returns {*} - returns the parameter value
 	                     */
 	  swe.getParameterByName = function (name, url) {
+	    if (name == null) return false;
 	    if (!url) url = window.location.href;
 	    name = name.replace(/[\\[\]]/g, '\\$&');
 	    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)');
 	    var results = regex.exec(url);
-	    if (!results) return null;
-	    if (!results[2]) return '';
+	    if (!results || !results[2]) return false;
 	    return decodeURIComponent(results[2].replace(/\+/g, ' '));
 	  };
 	})(jQuery, qg.swe);
@@ -2631,15 +2631,18 @@
 	(function ($) {
 	  'use strict';
 	
+	
 	  var SUBMIT_TOLERANCE = 10000,
-	  DEFAULT_STATUS_HTML = '<div class="alert alert-warning"><div class="inner"><h2>Please check your answers</h2><ol></ol></div></div>',
+	  DEFAULT_STATUS_HTML = '<div class="alert alert-warning" role="alert"><div class="inner"><h2>Please check your answers</h2><ol></ol></div></div>',
 	  // fields that validate
 	  candidateForValidation = 'input, select, textarea',
+	
 	
 	  // invalidFilter
 	  invalidFilter = function invalidFilter() {
 	    return !(this.disabled || this.validity.valid);
 	  },
+	
 	
 	  // follow plugin conventions for storing plugin data
 	  // http://docs.jquery.com/Plugins/Authoring#Data
@@ -2659,6 +2662,7 @@
 	
 	    return dataHash;
 	  },
+	
 	
 	  // helper for .label, .hint and .alert
 	  getLabelComponent = function getLabelComponent(component, options) {
@@ -2684,6 +2688,7 @@
 	      return foundElement;
 	    });
 	  },
+	
 	
 	  changeValidityCheck = function changeValidityCheck() {
 	    var $this = $(this),
@@ -2735,6 +2740,7 @@
 	      // .invalid only happens on submit, to soften inline validation errors
 	    }
 	  },
+	
 	
 	  // checks for invalid elements
 	  // returns number of invalid elements
@@ -2818,6 +2824,7 @@
 	    return invalid.length;
 	  },
 	
+	
 	  submitValidationHandler = function submitValidationHandler(event) {
 	    // validate form
 	    var count = submitValidityCheck.call(this),
@@ -2834,6 +2841,7 @@
 	    remove();
 	
 	
+	
 	    // anything invalid?
 	    if (count > 0) {
 	      // cancel submit
@@ -2844,7 +2852,7 @@
 	      (function (form) {
 	        var summary = pluginData.call(form, 'summaryElement');
 	        // hide any previous status blocks
-	        form.prev('.status').not(summary).remove();
+	        form.prev('.alert').not(summary).remove();
 	        // show the new summary
 	        form.before(summary.fadeIn());
 	        // focus/scroll summary element
@@ -2870,6 +2878,7 @@
 	      return false;
 	    }
 	  },
+	
 	
 	  // bind this AFTER the validation handler
 	  // only invoked if validation did not prevent submit
@@ -2899,6 +2908,7 @@
 	    }
 	  },
 	
+	
 	  // plugin methods
 	  methods = {
 	    // $( x ).formValidation( 'alert' ) -- get
@@ -2922,6 +2932,7 @@
 	      });
 	    },
 	
+	
 	    // $( x ).formValidation( 'label' )
 	    // $( x ).formValidation( 'label', { level : group })
 	    // return .label associated with element or containing group
@@ -2929,12 +2940,14 @@
 	      return getLabelComponent.call(this, '.label', options);
 	    },
 	
+	
 	    // $( x ).formValidation( 'hint' )
 	    // $( x ).formValidation( 'hint', { level : group })
 	    // return .hint associated with element or containing group
 	    hint: function hint(options) {
 	      return getLabelComponent.call(this, '.hint', options);
 	    },
+	
 	
 	    // $( x ).formValidation( 'question' )
 	    // return question element for item
@@ -2951,6 +2964,7 @@
 	      });
 	    },
 	
+	
 	    // $( x ).formValidation( 'group' )
 	    // return group element for item
 	    group: function group() {
@@ -2961,6 +2975,7 @@
 	        })[0];
 	      });
 	    },
+	
 	
 	    // $( x ).formValidation( 'validate' )
 	    // binds validation handler functions
@@ -2986,9 +3001,11 @@
 	      });
 	    },
 	
+	
 	    // $( x ).formValidation( 'getValidationMessage' )
 	    // return String validation message, e.g. "Must be completed"
 	    getValidationMessage: function getValidationMessage() {
+	
 	      var validityState = this[0].validity;
 	
 	      if (typeof validityState === 'undefined' || validityState.valid === true) {
@@ -3018,7 +3035,9 @@
 	    } else {
 	      $.error('Method ' + method + ' does not exist on jQuery.formValidation');
 	    }
+	
 	  };
+	
 	
 	  // legacy API
 	  $.fn.forcesForms = $.fn.formValidation;
@@ -3029,6 +3048,7 @@
 	(function ($) {
 	  'use strict';
 	
+	
 	  /**
 	                 * Assigns a unique value to `@id` unless hasAttribute( 'id' ) is true
 	                 *
@@ -3037,6 +3057,7 @@
 	                 * @return jquery object (chaining supported)
 	                 */
 	  $.fn.generateId = function (preferredId) {
+	
 	    var i = 1;
 	
 	    if (!preferredId) {
@@ -3046,9 +3067,11 @@
 	    }
 	
 	    return this.each(function () {
+	
 	      var id;
 	
 	      if (!this.getAttribute('id')) {
+	
 	        id = preferredId;
 	        while (document.getElementById(id)) {
 	          id = preferredId + String(i);
@@ -3057,7 +3080,10 @@
 	        this.setAttribute('id', id);
 	      }
 	    });
+	
 	  };
+	
+	
 	})(jQuery);
 	/*! HTML5 constraintValidationAPI - v1.0.7 - 2015-02-19
 	             * https://github.com/bboyle/html5-constraint-validation-API
@@ -3066,6 +3092,7 @@
 	if (jQuery !== 'undefined') {
 	  (function ($) {
 	    'use strict';
+	
 	
 	    // http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#valid-e-mail-address
 	    // 1*( atext / "." ) "@" ldh-str 1*( "." ldh-str )
@@ -3094,8 +3121,10 @@
 	      return $(radio.form.elements[radio.name]).filter('[name="' + radio.name + '"]');
 	    },
 	
+	
 	    // manage validity state object
 	    validityState = function validityState(typeMismatch, valueMissing, customError, message, patternMismatch) {
+	
 	      if (typeof message === 'string') {
 	        customError = !!message;
 	      }
@@ -3107,6 +3136,7 @@
 	        valid: !valueMissing && !customError && !typeMismatch && !patternMismatch };
 	
 	    },
+	
 	
 	    validateField = function validateField(message) {
 	      var $this = $(this),
@@ -3125,23 +3155,29 @@
 	      }
 	      // if required, check for missing value
 	      if (required) {
+	
 	        if (/^select$/i.test(this.nodeName)) {
 	          valueMissing = this.selectedIndex === 0 && this.options[0].value === '';
+	
 	        } else if (radio) {
 	          valueMissing = radio.filter(':checked').length === 0;
+	
 	        } else if (this.type === 'checkbox') {
 	          valueMissing = !this.checked;
+	
 	        } else {
 	          valueMissing = !this.value;
 	        }
+	
 	      }
 	
-	      if (this.getAttribute('pattern')) {
+	      if (!!this.getAttribute('pattern')) {
 	        if (this.value.length > 0) {
 	          // http://www.whatwg.org/specs/web-apps/current-work/multipage/common-input-element-attributes.html#compiled-pattern-regular-expression
 	          pattern = new RegExp('^(?:' + this.getAttribute('pattern') + ')$');
 	
 	          patternMismatch = !pattern.test(this.value);
+	
 	        } else {
 	          patternMismatch = false;
 	        }
@@ -3158,22 +3194,28 @@
 	      // set .validationMessage
 	      if (this.validity.valid) {
 	        this.validationMessage = '';
+	
 	      } else if (this.validity.customError) {
 	        if (typeof message === 'string') {
 	          this.validationMessage = message;
 	        }
+	
 	      } else if (this.validity.valueMissing) {
 	        this.validationMessage = 'Please answer this question';
+	
 	      } else if (this.validity.typeMismatch) {
 	        this.validationMessage = 'Please type an email address';
+	
 	      } else if (this.validity.patternMismatch) {
 	        this.validationMessage = 'Please use the format shown';
+	
 	      } else {
 	        this.validationMessage = 'Please answer the question correctly';
 	      }
 	
 	      return this.disabled || this.validity.valid;
 	    },
+	
 	
 	    changeHandler = function changeHandler(event) {
 	      var target = event.target;
@@ -3188,7 +3230,9 @@
 	      }
 	    },
 	
+	
 	    submitHandler = function submitHandler(event) {
+	
 	      var form = $(this),
 	      novalidate = !!form.attr('novalidate'),
 	      invalid = false;
@@ -3198,7 +3242,9 @@
 	      if (polyfill) {
 	        // check fields
 	        form.find(candidateForValidation).each(function () {
+	
 	          invalid = !validateField.call(this);
+	
 	
 	          // unless @novalidate
 	          if (!novalidate) {
@@ -3231,6 +3277,7 @@
 	      }
 	    },
 	
+	
 	    initConstraintValidationAPI = function initConstraintValidationAPI() {
 	      var candidates = $(candidateForValidation);
 	
@@ -3240,8 +3287,10 @@
 	        candidates.filter(function () {
 	          return _typeof(this.validity) !== 'object';
 	        }).each(function () {
+	
 	          this.validity = validityState(false, false, false, '', false);
 	          this.validationMessage = '';
+	
 	        });
 	
 	        // check validity on change
@@ -3348,12 +3397,16 @@
 	    };
 	
 	
+	
 	    // run immediately and ondocumentready
 	    initConstraintValidationAPI();
 	    $(initConstraintValidationAPI);
 	
+	
 	    // expose init function
 	    window.initConstraintValidationAPI = initConstraintValidationAPI;
+	
+	
 	  })(jQuery);
 	}
 	/*
@@ -3370,7 +3423,9 @@
 	   */
 	
 	(function ($) {
+	
 	  $.fn.simplyCountable = function (options) {
+	
 	    options = $.extend({
 	      counter: '#counter',
 	      countType: 'characters',
@@ -3388,11 +3443,13 @@
 	    var navKeys = [33, 34, 35, 36, 37, 38, 39, 40];
 	
 	    return $(this).each(function () {
+	
 	      var countable = $(this),
 	      counter = $(options.counter);
 	      if (!counter.length) {return false;}
 	
 	      var countCheck = function countCheck() {
+	
 	        var count;
 	        var revCount;
 	
@@ -3464,6 +3521,7 @@
 	          counter.removeClass(options.overClass).addClass(options.safeClass);
 	          options.onSafeCount(countInt(), countable, counter);
 	        }
+	
 	      };
 	
 	      countCheck();
@@ -3483,8 +3541,11 @@
 	            break;}
 	
 	      });
+	
 	    });
+	
 	  };
+	
 	})(jQuery); /*! relevance - v2.1.0 - 2015-03-04
 	            * https://github.com/bboyle/relevance
 	            * Copyright (c) 2015 Ben Boyle; Licensed MIT */
@@ -3573,6 +3634,7 @@
 	                $.each(map, function (index, config) {
 	                  if (isRelevant === false) {
 	                    config.items.relevance('relevant', false);
+	
 	                  } else {
 	                    values = $.map(formElementsByName(form[0], name).filter('select,:checked').filter(':visible'), valueMap);
 	                    config.items.relevance('relevant', valueInArray(config.values, values) !== config.negate);
@@ -3584,6 +3646,7 @@
 	        }
 	      }
 	    },
+	
 	
 	    methods = {
 	
@@ -3793,6 +3856,7 @@
 	
 	  var displayFileSize;
 	
+	
 	  // bail out if no file API support
 	  if (_typeof($('<input type="file">')[0].files) !== 'object') {
 	    // duplicate fsize instruction before submit button
@@ -3804,6 +3868,7 @@
 	    });
 	    return;
 	  }
+	
 	
 	  // display file size
 	  displayFileSize = function displayFileSize(input) {
@@ -3819,6 +3884,7 @@
 	      }
 	    }
 	  };
+	
 	
 	  // forms with max file size
 	  $('.max-fsize').each(function () {
@@ -3866,8 +3932,11 @@
 	      each(function (index, element) {
 	        element.setCustomValidity('');
 	      });
+	
 	    });
+	
 	  });
+	
 	})(jQuery);
 	(function ($) {
 	  'use strict';
@@ -3906,6 +3975,7 @@
 	  };
 	
 	
+	
 	  // plugin
 	  $.fn.initXorConstraint = function (validationMessage) {
 	    // custom validation for XOR options
@@ -3917,8 +3987,10 @@
 	(function ($) {
 	  'use strict';
 	
+	
 	  /* detect required field markers for IE6 */
 	  $('abbr[title*="required"]').addClass('required');
+	
 	
 	  // show/hide entire 'question' when fields become irrelevant
 	  $('.questions > li').not('.section').
@@ -3932,6 +4004,7 @@
 	  });
 	
 	
+	
 	  // click the table cell to click on a matrix option
 	  $('.matrix').delegate('td', 'click', function (evt) {
 	    $(evt.target).
@@ -3940,7 +4013,9 @@
 	    trigger('change');
 	
 	  });
+	
 	})(jQuery);
+	
 	
 	/**
 	             * This file initialises forms
@@ -3962,6 +4037,7 @@
 	})(jQuery); /* end closure */
 	(function ($) {
 	  'use strict';
+	
 	
 	  // extend jquery to 'toggle required'
 	  $.fn.toggleRequired = function (required) {
@@ -3992,6 +4068,7 @@
 	var qg = { oldIE: false };
 	qg.date = function () {
 	  'use strict';
+	
 	
 	  var datePackage = {},
 	
@@ -4116,6 +4193,7 @@
 	
 	
 	
+	
 	  // is a public holiday
 	  datePackage.isPublicHoliday = function (date) {
 	    var d = date.getDate(),
@@ -4136,6 +4214,7 @@
 	}();
 	(function ($) {
 	  'use strict';
+	
 	
 	  // find any textareas with a word count
 	  $('.hint').filter(function () {
@@ -4920,21 +4999,6 @@
 	'use strict'; /*global qg, jQuery, google*/
 	
 	var qgInitAutocompleteAddress = void 0;
-	/**
-	                                         * Checks value if exist on URL parameter then sets the value
-	                                         * @param {string } name - name of the parameter
-	                                         * @param {string} id  - id of the parameter in HTML
-	                                         */
-	
-	function setValue(name, id) {
-	  if (qg.swe.getParameterByName(name)) {
-	    if ($('#' + id + '').is('select')) {
-	      $('#' + id + '').add('option[value="' + qg.swe.getParameterByName(name) + '"]').attr('selected', 'selected');
-	    } else {
-	      $('#' + id + '').val(qg.swe.getParameterByName(name));
-	    }
-	  }
-	}
 	
 	(function (qg, $) {
 	  'use strict';
@@ -4942,21 +5006,35 @@
 	  var el = {
 	    $searchWidget: $('.qg-search-widget'),
 	    $autoComplete: $('.qg-location-autocomplete'),
-	    $latitude: $('#lat'),
-	    $longitude: $('#lng'),
+	    $latitude: $('#latitude'),
+	    $longitude: $('#longitude'),
 	    $form: $('#search-widget-form') };
 	
 	
 	  // getting and setting input fields value using query parameter
-	  setValue('location', 'qg-location-autocomplete');
-	  setValue('latitude', 'lat');
-	  setValue('longitude', 'lng');
-	  setValue('distance', 'distance');
+	  var setsValue = function setsValue() {
+	    el.$form.find(':input:not(:checkbox):not(:radio), select, textarea').each(function () {
+	      var name = $(this).attr('name');
+	      var getParameterVal = qg.swe.getParameterByName($(this).attr('name'));
+	      getParameterVal !== false ? $('[name="' + name + '"]').val(getParameterVal) : '';
+	    }).end().find('input[type=checkbox], input[type=radio]').each(function () {
+	      var name = $(this).attr('name');
+	      var getParameterVal = qg.swe.getParameterByName(name);
+	      getParameterVal !== false ? $('[value="' + getParameterVal + '"]').prop('checked', true) : '';
+	    });
+	  };
+	  setsValue();
+	
+	  $('input#location.qg-location-autocomplete').keydown(function (event) {
+	    if (event.keyCode === 13) {
+	      event.preventDefault();
+	    }
+	  });
 	
 	  // removing hidden fields value on reset
 	  el.$searchWidget.find('button[type="reset"]').click(function (evt) {
 	    evt.preventDefault();
-	    el.$form.find('input, select, textarea').each(function () {
+	    el.$form.find(':input:not(:checkbox):not(:radio), select, textarea').each(function () {
 	      $(this).val('');
 	    }).end().find('input[type=checkbox], input[type=radio]').each(function () {
 	      $(this).prop('checked', false);

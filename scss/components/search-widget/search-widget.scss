@@ -1,4 +1,4 @@
-.qg-search-widget{
+#qg-search-widget{
   background: #f2f7f9;
   padding: .5em 1em;
 
@@ -10,7 +10,7 @@
     #qg-app-geocoding{
       background: #78ba00;
     }
-    #qg-location-autocomplete{
+    .qg-location-autocomplete{
       width: 90%;
       margin-right: 11px;
     }
