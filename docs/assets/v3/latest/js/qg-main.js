@@ -5004,11 +5004,11 @@
 	  'use strict';
 	  var inputLocationId = 'qg-location-autocomplete';
 	  var el = {
-	    $searchWidget: $('.qg-search-widget'),
+	    $searchWidget: $('#qg-search-widget'),
 	    $autoComplete: $('.qg-location-autocomplete'),
 	    $latitude: $('#latitude'),
 	    $longitude: $('#longitude'),
-	    $form: $('#search-widget-form') };
+	    $form: $('#qg-search-widget-form') };
 	
 	
 	  // getting and setting input fields value using query parameter
@@ -5025,7 +5025,7 @@
 	  };
 	  setsValue();
 	
-	  $('input#location.qg-location-autocomplete').keydown(function (event) {
+	  el.$form.find('.qg-location-autocomplete').keydown(function (event) {
 	    if (event.keyCode === 13) {
 	      event.preventDefault();
 	    }
