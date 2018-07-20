@@ -97,8 +97,6 @@
 	  _feedbackForm2.default.init(franchiseTitle);
 	  _shareLinks2.default.init();
 	  _accessibility2.default.init();
-	
-	  $('.qg-index-links .qg-index-item img').length === 0 ? $('.qg-index-links').addClass('content-only') : '';
 	})(); /*import './legacy/bootstrap-accessibility.js';*/ /*import '../lib/ext/generate-id.js';*/ // For site-search-autocomplete
 	// import '../../../../../node_modules/bootstrap-accessibility-plugin/plugins/js/bootstrap-accessibility.js'; // Removed due to accessibility issues (ironically)
 	// Utils
@@ -140,6 +138,14 @@
 	    if (!results || !results[2]) return false;
 	    return decodeURIComponent(results[2].replace(/\+/g, ' '));
 	  };
+	
+	  (function () {
+	    $('.qg-index-item').each(function () {
+	      if ($(this).find('img').length <= 0) {
+	        $(this).addClass('content-only');
+	      }
+	    });
+	  })();
 	})(jQuery, qg.swe);
 
 /***/ }),

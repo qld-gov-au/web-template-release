@@ -9219,7 +9219,8 @@ a[data-toggle=collapse].qg-icon:after {
     padding: 1em; }
     .status.success:before, .status.success:hover:before, .status.info:before, .status.info:hover:before, .status.tip:before, .status.tip:hover:before {
       margin-left: -14px;
-      top: 6px; }
+      top: 6px;
+      color: #000; }
   .status.success {
     border-color: #9ebf6d; }
   .status.info, .status.tip {
@@ -9597,7 +9598,7 @@ span.qg-correct, span.qg-incorrect {
     #qg-one-col.wide #qg-primary-content {
       left: 0%; } }
 
-.qg-index-links.content-only .qg-index-item h2, .qg-index-links.content-only .qg-index-item p, .qg-index-links.content-only .qg-index-item ul, .qg-index-links.content-only .qg-index-item > div .qg-index-links.content-only .qg-index-item > span {
+.qg-index-links .qg-index-item.content-only h2, .qg-index-links .qg-index-item.content-only p, .qg-index-links .qg-index-item.content-only ul, .qg-index-links .qg-index-item.content-only > div .qg-index-links .qg-index-item.content-only > span {
   padding-left: 10px; }
 
 .qg-index-links > .qg-index-item {
