@@ -9205,21 +9205,21 @@ a[data-toggle=collapse].qg-icon:after {
     border-color: #1E77AA; }
   .alert.alert-warning {
     border-color: #f9af71; }
-    .alert.alert-warning h2 i {
-      margin-right: 10px; }
+  .alert.alert-success h2 i, .alert.alert-info h2 i, .alert.alert-warning h2 i {
+    margin-right: 10px; }
 
 .status {
   margin: 0 0 24px 0 !important; }
+  .status > *:first-child {
+    margin-left: 30px; }
   .status.success, .status.info, .status.tip {
     position: relative;
     border: 0;
     border-left: 5px solid;
     padding: 1em; }
     .status.success:before, .status.success:hover:before, .status.info:before, .status.info:hover:before, .status.tip:before, .status.tip:hover:before {
-      content: "";
-      font-size: 0; }
-    .status.success h2 i, .status.info h2 i, .status.tip h2 i {
-      margin-right: 10px; }
+      margin-left: -14px;
+      top: 6px; }
   .status.success {
     border-color: #9ebf6d; }
   .status.info, .status.tip {
