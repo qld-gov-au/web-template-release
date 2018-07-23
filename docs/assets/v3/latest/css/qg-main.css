@@ -10479,7 +10479,8 @@ span.qg-correct, span.qg-incorrect {
     float: left;
     margin-left: 0.35em; }
   .qg-content-footer #document-licence {
-    float: right; }
+    float: right;
+    margin-bottom: 24px !important; }
   .qg-content-footer:after {
     content: " ";
     display: block;
