@@ -1,7 +1,7 @@
 # Logs
 logs
 *.log
-*.tgz
+
 npm-debug.log*
 .idea/
 # Runtime data
