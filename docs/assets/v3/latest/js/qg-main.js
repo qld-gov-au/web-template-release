@@ -97,6 +97,10 @@
 	  _feedbackForm2.default.init(franchiseTitle);
 	  _shareLinks2.default.init();
 	  _accessibility2.default.init();
+	
+	  if ($('.status').length > 0) {
+	    $('.status.warn, .status.info, .status.success, .status.tip').wrapInner('<div class="inner"></div>');
+	  }
 	})(); /*import './legacy/bootstrap-accessibility.js';*/ /*import '../lib/ext/generate-id.js';*/ // For site-search-autocomplete
 	// import '../../../../../node_modules/bootstrap-accessibility-plugin/plugins/js/bootstrap-accessibility.js'; // Removed due to accessibility issues (ironically)
 	// Utils
@@ -4859,24 +4863,27 @@
 	      var quickExitLinks = $(this.el).find('a');
 	      var escLink = $(this.el).find('a[data-accesskey="Esc"]').attr('href');
 	      // action on esc key press
-	      $(document).keydown(function (e) {
-	        if (e.keyCode === 27) {
+	
+	      if ($(this.el).length > 0) {
+	        $(document).keydown(function (e) {
+	          if (e.keyCode === 27) {
+	            window.location.replace(escLink);
+	            return false;
+	          }
+	        });
+	
+	        // clicking on the quick exit block
+	        $(document).on('click', this.el, function () {
 	          window.location.replace(escLink);
-	          return false;
-	        }
-	      });
+	        });
 	
-	      // clicking on the quick exit block
-	      $(document).on('click', this.el, function () {
-	        window.location.replace(escLink);
-	      });
-	
-	      //clicking on the links inside the quick exit block
-	      quickExitLinks.click(function (e) {
-	        e.stopPropagation();
-	        e.preventDefault();
-	        window.location.replace($(this).attr('href'));
-	      });
+	        //clicking on the links inside the quick exit block
+	        quickExitLinks.click(function (e) {
+	          e.stopPropagation();
+	          e.preventDefault();
+	          window.location.replace($(this).attr('href'));
+	        });
+	      }
 	    } };
 	
 	  quickExit.init();
@@ -5033,10 +5040,10 @@
 	  };
 	  setsValue();
 	
-	  el.$form.find('.qg-location-autocomplete').keydown(function (e) {
+	  el.$form.find('.qg-location-autocomplete').keydown(function (event) {
 	    if (event.keyCode === 13 && locationSelectionInProgress) {
-	      e.preventDefault();
-	      e.stopPropagation();
+	      event.preventDefault();
+	      event.stopPropagation();
 	    }
 	  });
 	

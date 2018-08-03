@@ -9206,18 +9206,26 @@ a[data-toggle=collapse].qg-icon:after {
   .alert.alert-warning {
     border-color: #f9af71; }
   .alert.alert-success h2 i, .alert.alert-info h2 i, .alert.alert-warning h2 i {
+    font-size: 2.4rem;
     margin-right: 10px; }
 
 .status {
-  margin: 0 0 24px 0 !important; }
-  .status > *:first-child {
-    margin-left: 30px; }
-  .status.success, .status.info, .status.tip {
+  margin: 24px 0 24px 0 !important; }
+  .status > .inner {
+    margin-left: 32px; }
+    .status > .inner h3 {
+      margin-top: 5px; }
+    .status > .inner ul {
+      padding-left: 0; }
+  .status.warn {
+    border-color: #f9af71 !important; }
+  .status.success, .status.info, .status.tip, .status.warn {
     position: relative;
     border: 0;
     border-left: 5px solid;
     padding: 1em; }
-    .status.success:before, .status.success:hover:before, .status.info:before, .status.info:hover:before, .status.tip:before, .status.tip:hover:before {
+    .status.success:before, .status.success:hover:before, .status.info:before, .status.info:hover:before, .status.tip:before, .status.tip:hover:before, .status.warn:before, .status.warn:hover:before {
+      font-size: 2.4rem;
       margin-left: -14px;
       top: 6px;
       color: #000; }
@@ -11091,6 +11099,16 @@ span.qg-correct, span.qg-incorrect {
         #qg-content #qg-secondary-content .qg-aside.qg-contact ul li .tel {
           color: #585e62;
           font-size: 1.4rem; }
+    #qg-content #qg-secondary-content .qg-aside.qg-emergency-contact {
+      background: #ffdea6; }
+      #qg-content #qg-secondary-content .qg-aside.qg-emergency-contact .fa {
+        float: left;
+        font-size: 1.9em;
+        color: #a60000;
+        margin-right: 0.4em; }
+      #qg-content #qg-secondary-content .qg-aside.qg-emergency-contact a[href^="tel:"] {
+        font-size: 1.5em;
+        margin-left: 10px; }
     #qg-content #qg-secondary-content .qg-aside.login h2:before {
       content: "";
       font-family: FontAwesome;
@@ -12003,6 +12021,10 @@ textarea[readonly] {
   /* padding-bottom +.3em to balance padding-top (accounting for line-height on text) */
   list-style: none;
   transition: opacity 0.2s ease, margin 0.2s ease, padding 0.2s ease; }
+
+form li[hidden="hidden"] * {
+  display: none;
+  max-height: 0; }
 
 .questions li[hidden] {
   display: block;
