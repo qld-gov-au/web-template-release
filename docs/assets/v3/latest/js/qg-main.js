@@ -86,25 +86,27 @@
 	var _stepNav = __webpack_require__(20);var _stepNav2 = _interopRequireDefault(_stepNav);
 	var _shareLinks = __webpack_require__(22);var _shareLinks2 = _interopRequireDefault(_shareLinks);
 	__webpack_require__(23);
-	var _feedbackForm = __webpack_require__(24);var _feedbackForm2 = _interopRequireDefault(_feedbackForm);
+	__webpack_require__(24);
+	var _feedbackForm = __webpack_require__(25);var _feedbackForm2 = _interopRequireDefault(_feedbackForm);
 	
-	__webpack_require__(25);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} // Layout
-	/*
-	 * Imports Javascript components for the GLUE
-	 */ // env initialization
+	__webpack_require__(26);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} /*import './legacy/bootstrap-accessibility.js';*/ /*import '../lib/ext/generate-id.js';*/ // For site-search-autocomplete
+	// import '../../../../../node_modules/bootstrap-accessibility-plugin/plugins/js/bootstrap-accessibility.js'; // Removed due to accessibility issues (ironically)
+	// Utils
+	/*This 2 modules (breakpoints, parentwidth) are to be initialize where we are using these or If we make one common function for small utilities then we can initialize here in the main file.*/ /*import breakpoints        from './utils/breakpoints'; */ // Components
 	(function () {'use strict';var franchiseTitle = _qgEnv2.default && _qgEnv2.default.swe && _qgEnv2.default.swe.franchiseTitle;_sectionNav2.default.highlightNavItem();
 	  _stepNav2.default.init();
 	  _feedbackForm2.default.init(franchiseTitle);
 	  _shareLinks2.default.init();
 	  _accessibility2.default.init();
 	
+	  // TODO - temp solution till we change all the classes to use SWE3/Boostrap
 	  if ($('.status').length > 0) {
 	    $('.status.warn, .status.info, .status.success, .status.tip').wrapInner('<div class="inner"></div>');
 	  }
-	})(); /*import './legacy/bootstrap-accessibility.js';*/ /*import '../lib/ext/generate-id.js';*/ // For site-search-autocomplete
-	// import '../../../../../node_modules/bootstrap-accessibility-plugin/plugins/js/bootstrap-accessibility.js'; // Removed due to accessibility issues (ironically)
-	// Utils
-	/*This 2 modules (breakpoints, parentwidth) are to be initialize where we are using these or If we make one common function for small utilities then we can initialize here in the main file.*/ /*import breakpoints        from './utils/breakpoints'; */ // Components
+	})(); // Layout
+	/*
+	 * Imports Javascript components for the GLUE
+	 */ // env initialization
 
 /***/ }),
 /* 1 */
@@ -133,6 +135,7 @@
 	                     * @param {string} url - url where searching needs to be performed
 	                     * @returns {*} - returns the parameter value
 	                     */
+	  // TODO - feature addition to sanitize data
 	  swe.getParameterByName = function (name, url) {
 	    if (name == null) return false;
 	    if (!url) url = window.location.href;
@@ -142,14 +145,6 @@
 	    if (!results || !results[2]) return false;
 	    return decodeURIComponent(results[2].replace(/\+/g, ' '));
 	  };
-	
-	  (function () {
-	    $('.qg-index-item').each(function () {
-	      if ($(this).find('img').length <= 0) {
-	        $(this).addClass('content-only');
-	      }
-	    });
-	  })();
 	})(jQuery, qg.swe);
 
 /***/ }),
@@ -5040,10 +5035,10 @@
 	  };
 	  setsValue();
 	
-	  el.$form.find('.qg-location-autocomplete').keydown(function (event) {
+	  el.$form.find('.qg-location-autocomplete').keydown(function (e) {
 	    if (event.keyCode === 13 && locationSelectionInProgress) {
-	      event.preventDefault();
-	      event.stopPropagation();
+	      e.preventDefault();
+	      e.stopPropagation();
 	    }
 	  });
 	
@@ -5440,6 +5435,18 @@
 /* 23 */
 /***/ (function(module, exports) {
 
+	'use strict';(function () {
+	  $('.qg-index-item').each(function () {
+	    if ($(this).find('img').length <= 0) {
+	      $(this).addClass('content-only');
+	    }
+	  });
+	})();
+
+/***/ }),
+/* 24 */
+/***/ (function(module, exports) {
+
 	'use strict'; /**
 	               * Figures
 	               *
@@ -5458,7 +5465,7 @@
 	});
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports) {
 
 	'use strict'; /**
@@ -5496,7 +5503,7 @@
 	module.exports = { init: init };
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports) {
 
 	/**

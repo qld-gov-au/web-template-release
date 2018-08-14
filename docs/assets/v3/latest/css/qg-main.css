@@ -11106,7 +11106,7 @@ span.qg-correct, span.qg-incorrect {
         font-size: 1.9em;
         color: #a60000;
         margin-right: 0.4em; }
-      #qg-content #qg-secondary-content .qg-aside.qg-emergency-contact a[href^="tel:"] {
+      #qg-content #qg-secondary-content .qg-aside.qg-emergency-contact p span a {
         font-size: 1.5em;
         margin-left: 10px; }
     #qg-content #qg-secondary-content .qg-aside.login h2:before {

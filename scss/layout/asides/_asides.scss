@@ -91,9 +91,11 @@
         color: #a60000;
         margin-right: 0.4em;
       }
-      a[href^="tel:"]{
-        font-size: 1.5em;
-        margin-left: 10px;
+      p {
+        span a{
+          font-size: 1.5em;
+          margin-left: 10px;
+        }
       }
     }
     &.login {
