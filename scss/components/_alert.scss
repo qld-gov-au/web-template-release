@@ -50,7 +50,7 @@
   &.warn {
     border-color: #f9af71 !important;
   }
-  &.success , &.info, &.tip , &.warn{
+  &.success , &.info, &.tip , &.warn. &.fail{
     position: relative;
     border: 0;
     border-left: 5px solid;
@@ -64,6 +64,9 @@
   }
   &.success {
     border-color: #9ebf6d;
+  }
+  &.fail{
+    border-color: #ea6a7e;
   }
   &.info, &.tip{
     border-color: $brand-info;
