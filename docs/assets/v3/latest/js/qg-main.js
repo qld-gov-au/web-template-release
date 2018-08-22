@@ -86,23 +86,27 @@
 	var _stepNav = __webpack_require__(20);var _stepNav2 = _interopRequireDefault(_stepNav);
 	var _shareLinks = __webpack_require__(22);var _shareLinks2 = _interopRequireDefault(_shareLinks);
 	__webpack_require__(23);
-	var _feedbackForm = __webpack_require__(24);var _feedbackForm2 = _interopRequireDefault(_feedbackForm);
+	__webpack_require__(24);
+	var _feedbackForm = __webpack_require__(25);var _feedbackForm2 = _interopRequireDefault(_feedbackForm);
 	
-	__webpack_require__(25);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} // Layout
-	/*
-	 * Imports Javascript components for the GLUE
-	 */ // env initialization
+	__webpack_require__(26);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} /*import './legacy/bootstrap-accessibility.js';*/ /*import '../lib/ext/generate-id.js';*/ // For site-search-autocomplete
+	// import '../../../../../node_modules/bootstrap-accessibility-plugin/plugins/js/bootstrap-accessibility.js'; // Removed due to accessibility issues (ironically)
+	// Utils
+	/*This 2 modules (breakpoints, parentwidth) are to be initialize where we are using these or If we make one common function for small utilities then we can initialize here in the main file.*/ /*import breakpoints        from './utils/breakpoints'; */ // Components
 	(function () {'use strict';var franchiseTitle = _qgEnv2.default && _qgEnv2.default.swe && _qgEnv2.default.swe.franchiseTitle;_sectionNav2.default.highlightNavItem();
 	  _stepNav2.default.init();
 	  _feedbackForm2.default.init(franchiseTitle);
 	  _shareLinks2.default.init();
 	  _accessibility2.default.init();
 	
-	  $('.qg-index-links .qg-index-item img').length === 0 ? $('.qg-index-links').addClass('content-only') : '';
-	})(); /*import './legacy/bootstrap-accessibility.js';*/ /*import '../lib/ext/generate-id.js';*/ // For site-search-autocomplete
-	// import '../../../../../node_modules/bootstrap-accessibility-plugin/plugins/js/bootstrap-accessibility.js'; // Removed due to accessibility issues (ironically)
-	// Utils
-	/*This 2 modules (breakpoints, parentwidth) are to be initialize where we are using these or If we make one common function for small utilities then we can initialize here in the main file.*/ /*import breakpoints        from './utils/breakpoints'; */ // Components
+	  // TODO - temp solution till we change all the classes to use SWE3/Boostrap
+	  if ($('.status').length > 0) {
+	    $('.status.warn, .status.info, .status.success, .status.tip').wrapInner('<div class="inner"></div>');
+	  }
+	})(); // Layout
+	/*
+	 * Imports Javascript components for the GLUE
+	 */ // env initialization
 
 /***/ }),
 /* 1 */
@@ -131,6 +135,7 @@
 	                     * @param {string} url - url where searching needs to be performed
 	                     * @returns {*} - returns the parameter value
 	                     */
+	  // TODO - feature addition to sanitize data
 	  swe.getParameterByName = function (name, url) {
 	    if (name == null) return false;
 	    if (!url) url = window.location.href;
@@ -2633,7 +2638,7 @@
 	
 	
 	  var SUBMIT_TOLERANCE = 10000,
-	  DEFAULT_STATUS_HTML = '<div class="alert alert-warning" role="alert"><div class="inner"><h2>Please check your answers</h2><ol></ol></div></div>',
+	  DEFAULT_STATUS_HTML = '<div class="alert alert-warning" role="alert"><div class="inner"><h2><i class="fa fa-exclamation-triangle"></i>Please check your answers</h2><ol></ol></div></div>',
 	  // fields that validate
 	  candidateForValidation = 'input, select, textarea',
 	
@@ -4853,24 +4858,27 @@
 	      var quickExitLinks = $(this.el).find('a');
 	      var escLink = $(this.el).find('a[data-accesskey="Esc"]').attr('href');
 	      // action on esc key press
-	      $(document).keydown(function (e) {
-	        if (e.keyCode === 27) {
+	
+	      if ($(this.el).length > 0) {
+	        $(document).keydown(function (e) {
+	          if (e.keyCode === 27) {
+	            window.location.replace(escLink);
+	            return false;
+	          }
+	        });
+	
+	        // clicking on the quick exit block
+	        $(document).on('click', this.el, function () {
 	          window.location.replace(escLink);
-	          return false;
-	        }
-	      });
+	        });
 	
-	      // clicking on the quick exit block
-	      $(document).on('click', this.el, function () {
-	        window.location.replace(escLink);
-	      });
-	
-	      //clicking on the links inside the quick exit block
-	      quickExitLinks.click(function (e) {
-	        e.stopPropagation();
-	        e.preventDefault();
-	        window.location.replace($(this).attr('href'));
-	      });
+	        //clicking on the links inside the quick exit block
+	        quickExitLinks.click(function (e) {
+	          e.stopPropagation();
+	          e.preventDefault();
+	          window.location.replace($(this).attr('href'));
+	        });
+	      }
 	    } };
 	
 	  quickExit.init();
@@ -5003,6 +5011,8 @@
 	(function (qg, $) {
 	  'use strict';
 	  var inputLocationId = 'qg-location-autocomplete';
+	  var locationSelectionInProgress = true;
+	
 	  var el = {
 	    $searchWidget: $('#qg-search-widget'),
 	    $autoComplete: $('.qg-location-autocomplete'),
@@ -5025,9 +5035,10 @@
 	  };
 	  setsValue();
 	
-	  el.$form.find('.qg-location-autocomplete').keydown(function (event) {
-	    if (event.keyCode === 13) {
-	      event.preventDefault();
+	  el.$form.find('.qg-location-autocomplete').keydown(function (e) {
+	    if (event.keyCode === 13 && locationSelectionInProgress) {
+	      e.preventDefault();
+	      e.stopPropagation();
 	    }
 	  });
 	
@@ -5102,10 +5113,14 @@
 	          // $(this).on('change', google.maps.event.trigger(autocomplete, 'place_changed'))
 	        } else {
 	          var _fillInAddress = function _fillInAddress() {
+	            locationSelectionInProgress = false;
 	            var place = autocomplete.getPlace();
-	            el.$searchWidget.find(el.$latitude).val(place.geometry.location.lat()).
-	            end().
-	            find(el.$longitude).val(place.geometry.location.lng());
+	            $('.qg-result-title h2').append('near \'<strong><em>' + place.formatted_address + '\'</em></strong>');
+	            if (place.geometry) {
+	              el.$searchWidget.find(el.$latitude).val(place.geometry.location.lat()).
+	              end().
+	              find(el.$longitude).val(place.geometry.location.lng());
+	            }
 	          };
 	          autocomplete.addListener('place_changed', _fillInAddress);
 	        }
@@ -5420,6 +5435,18 @@
 /* 23 */
 /***/ (function(module, exports) {
 
+	'use strict';(function () {
+	  $('.qg-index-item').each(function () {
+	    if ($(this).find('img').length <= 0) {
+	      $(this).addClass('content-only');
+	    }
+	  });
+	})();
+
+/***/ }),
+/* 24 */
+/***/ (function(module, exports) {
+
 	'use strict'; /**
 	               * Figures
 	               *
@@ -5438,7 +5465,7 @@
 	});
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports) {
 
 	'use strict'; /**
@@ -5476,7 +5503,7 @@
 	module.exports = { init: init };
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports) {
 
 	/**
