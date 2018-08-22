@@ -8932,6 +8932,11 @@ body:not([data-accessibility=false]):not([data-access-new-window=false]) #qg-con
       .carousel.qg .qg-carousel-controls .carousel-control .glyphicon {
         line-height: 0.7em; } }
 
+.qg-accordion .controls {
+  float: right;
+  padding: 0 0.5rem;
+  color: #13578b; }
+
 .qg-accordion article {
   position: relative;
   margin-bottom: 1px;
@@ -8961,6 +8966,11 @@ body:not([data-accessibility=false]):not([data-access-new-window=false]) #qg-con
     .qg-accordion article .acc-heading img {
       width: 1.8em;
       height: auto; }
+    .qg-accordion article .acc-heading .subtitle {
+      color: #585e62;
+      font-size: 1.4rem;
+      font-weight: normal;
+      display: block; }
 
 .qg-accordion .collapsing-section {
   max-height: 0;
@@ -8986,6 +8996,11 @@ body:not([data-accessibility=false]):not([data-access-new-window=false]) #qg-con
   .qg-accordion input[type=checkbox]:checked + .acc-heading label i {
     transform: rotate(-135deg);
     -webkit-transform: rotate(-135deg); }
+  .qg-accordion input.expand:checked ~ article .collapsing-section {
+    max-height: inherit;
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s linear 0s, opacity 900ms; }
 
 .qg-accordion .arrow {
   background: #f6f6f6;

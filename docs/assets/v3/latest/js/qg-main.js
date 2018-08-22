@@ -75,25 +75,26 @@
 	__webpack_require__(12);
 	__webpack_require__(13);
 	__webpack_require__(14);
-	var _accessibility = __webpack_require__(15);var _accessibility2 = _interopRequireDefault(_accessibility);
+	__webpack_require__(15);
+	var _accessibility = __webpack_require__(16);var _accessibility2 = _interopRequireDefault(_accessibility);
 	
-	__webpack_require__(16);
 	__webpack_require__(17);
 	__webpack_require__(18);
+	__webpack_require__(19);
 	
 	
-	var _sectionNav = __webpack_require__(19);var _sectionNav2 = _interopRequireDefault(_sectionNav);
-	var _stepNav = __webpack_require__(20);var _stepNav2 = _interopRequireDefault(_stepNav);
-	var _shareLinks = __webpack_require__(22);var _shareLinks2 = _interopRequireDefault(_shareLinks);
-	__webpack_require__(23);
+	var _sectionNav = __webpack_require__(20);var _sectionNav2 = _interopRequireDefault(_sectionNav);
+	var _stepNav = __webpack_require__(21);var _stepNav2 = _interopRequireDefault(_stepNav);
+	var _shareLinks = __webpack_require__(23);var _shareLinks2 = _interopRequireDefault(_shareLinks);
 	__webpack_require__(24);
-	var _feedbackForm = __webpack_require__(25);var _feedbackForm2 = _interopRequireDefault(_feedbackForm);
+	__webpack_require__(25);
+	var _feedbackForm = __webpack_require__(26);var _feedbackForm2 = _interopRequireDefault(_feedbackForm);
 	
-	__webpack_require__(26);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} /*import './legacy/bootstrap-accessibility.js';*/ /*import '../lib/ext/generate-id.js';*/ // For site-search-autocomplete
-	// import '../../../../../node_modules/bootstrap-accessibility-plugin/plugins/js/bootstrap-accessibility.js'; // Removed due to accessibility issues (ironically)
-	// Utils
-	/*This 2 modules (breakpoints, parentwidth) are to be initialize where we are using these or If we make one common function for small utilities then we can initialize here in the main file.*/ /*import breakpoints        from './utils/breakpoints'; */ // Components
-	(function () {'use strict';var franchiseTitle = _qgEnv2.default && _qgEnv2.default.swe && _qgEnv2.default.swe.franchiseTitle;_sectionNav2.default.highlightNavItem();
+	__webpack_require__(27);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} /*
+	                                                                                                                          * Imports Javascript components for the GLUE
+	                                                                                                                          */ // env initialization
+	(function () {'use strict';var franchiseTitle = _qgEnv2.default && _qgEnv2.default.swe && _qgEnv2.default.swe.franchiseTitle;
+	  _sectionNav2.default.highlightNavItem();
 	  _stepNav2.default.init();
 	  _feedbackForm2.default.init(franchiseTitle);
 	  _shareLinks2.default.init();
@@ -104,9 +105,10 @@
 	    $('.status.warn, .status.info, .status.success, .status.tip').wrapInner('<div class="inner"></div>');
 	  }
 	})(); // Layout
-	/*
-	 * Imports Javascript components for the GLUE
-	 */ // env initialization
+	/*import './legacy/bootstrap-accessibility.js';*/ /*import '../lib/ext/generate-id.js';*/ // For site-search-autocomplete
+	// import '../../../../../node_modules/bootstrap-accessibility-plugin/plugins/js/bootstrap-accessibility.js'; // Removed due to accessibility issues (ironically)
+	// Utils
+	/*This 2 modules (breakpoints, parentwidth) are to be initialize where we are using these or If we make one common function for small utilities then we can initialize here in the main file.*/ /*import breakpoints        from './utils/breakpoints'; */ // Components
 
 /***/ }),
 /* 1 */
@@ -4888,6 +4890,44 @@
 /* 15 */
 /***/ (function(module, exports) {
 
+	'use strict'; /**
+	               * This will handle functionalities like
+	               * - Expand all / Collapse all link
+	               * - Ability to direct link to each section and expand the linked section
+	               * - Handles aria-expanded values
+	               */
+	
+	(function ($) {
+	  var accordion = '.qg-accordion';
+	  var accordionControls = 'input[name=control]';
+	  var linkedpanel = $(window.location.hash);
+	
+	  //Handle events of accordion inputs
+	  $(accordion).find('article input').on('change', function () {
+	    var checkedStatus = $(this).prop('checked');
+	    var controlledPanedId = $('#' + $(this).attr('aria-controls'));
+	    $(this).
+	    attr('aria-expanded', checkedStatus) //sets aria
+	    .parents(accordion).find(accordionControls).prop('checked', false); //clears expand/collapse selection
+	    controlledPanedId.attr('aria-hidden', !checkedStatus);
+	  });
+	
+	  //expand all click
+	  $(accordion).find(accordionControls).on('change', function () {
+	    $(this).find('~ article input').prop('checked', $(this).val() === 'expand');
+	    $(accordion).find('article input').trigger('change');
+	  });
+	
+	  //Ability to direct link to each section and expand the linked section
+	  if (linkedpanel) {
+	    linkedpanel.prop('checked', true);
+	  }
+	})(jQuery);
+
+/***/ }),
+/* 16 */
+/***/ (function(module, exports) {
+
 	/* ========================================================================
 	* Accessibility helpers
 	* ======================================================================== */
@@ -4950,7 +4990,7 @@
 	module.exports = { init: init };
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports) {
 
 	'use strict';(function ($) {
@@ -4961,7 +5001,7 @@
 	})(jQuery);
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports) {
 
 	'use strict'; /*
@@ -5001,7 +5041,7 @@
 	})(jQuery, qg.swe);
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports) {
 
 	'use strict'; /*global qg, jQuery, google*/
@@ -5179,7 +5219,7 @@
 	})(qg, jQuery);
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -5222,10 +5262,10 @@
 	module.exports = activeSideNav;
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	'use strict';Object.defineProperty(exports, "__esModule", { value: true });var _breakpoints = __webpack_require__(21);var _breakpoints2 = _interopRequireDefault(_breakpoints);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+	'use strict';Object.defineProperty(exports, "__esModule", { value: true });var _breakpoints = __webpack_require__(22);var _breakpoints2 = _interopRequireDefault(_breakpoints);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 	var stepNav = {
 	  config: {
 	    $guideSubNav: $('#qg-section-nav .guide-sub-nav'),
@@ -5286,7 +5326,7 @@
 	stepNav;
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports) {
 
 	"use strict";Object.defineProperty(exports, "__esModule", { value: true });var breakpoints = function () {
@@ -5301,7 +5341,7 @@
 	breakpoints;
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports) {
 
 	'use strict'; /**
@@ -5432,7 +5472,7 @@
 	module.exports = { init: init };
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports) {
 
 	'use strict';(function () {
@@ -5444,7 +5484,7 @@
 	})();
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports) {
 
 	'use strict'; /**
@@ -5465,7 +5505,7 @@
 	});
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports) {
 
 	'use strict'; /**
@@ -5503,7 +5543,7 @@
 	module.exports = { init: init };
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports) {
 
 	/**
