@@ -6599,7 +6599,6 @@ button.close {
 :root .fa-rotate-270,
 :root .fa-flip-horizontal,
 :root .fa-flip-vertical {
-  -webkit-filter: none;
   filter: none; }
 
 .fa-stack {
@@ -8968,7 +8967,7 @@ body:not([data-accessibility=false]):not([data-access-new-window=false]) #qg-con
       height: auto; }
     .qg-accordion article .acc-heading .subtitle {
       color: #585e62;
-      font-size: 1.4rem;
+      font-size: 1.6rem;
       font-weight: normal;
       display: block; }
 
@@ -9204,8 +9203,6 @@ a[data-toggle=collapse].qg-icon:after {
 
 .alert {
   position: relative;
-  border: 0;
-  border-left: 5px solid;
   color: #000; }
   .alert h2 {
     margin-top: 5px;
@@ -9215,14 +9212,19 @@ a[data-toggle=collapse].qg-icon:after {
     .alert.alert-danger a {
       color: #FF0; }
   .alert.alert-success {
-    border-color: #9ebf6d; }
+    border-left: 5px solid #9ebf6d; }
   .alert.alert-info {
-    border-color: #1E77AA; }
+    border-left: 5px solid #1E77AA; }
   .alert.alert-warning {
-    border-color: #f9af71; }
-  .alert.alert-success h2 i, .alert.alert-info h2 i, .alert.alert-warning h2 i {
-    font-size: 2.4rem;
-    margin-right: 10px; }
+    border-left: 5px solid #f9af71; }
+  .alert.alert-success, .alert.alert-info, .alert.alert-warning, .alert.alert-tip, .alert.alert-danger {
+    padding: 15px;
+    margin: 0;
+    font-weight: normal;
+    margin-bottom: 24px; }
+    .alert.alert-success h2 i, .alert.alert-info h2 i, .alert.alert-warning h2 i, .alert.alert-tip h2 i, .alert.alert-danger h2 i {
+      font-size: 2.4rem;
+      margin-right: 10px; }
 
 .status {
   margin: 24px 0 24px 0 !important; }
@@ -12010,7 +12012,7 @@ textarea.large-compact:focus {
 /* disabled items */
 .placeholder,
 .disabled {
-  color: #777777; }
+  color: #444444; }
 
 input[disabled],
 select[disabled],
@@ -12585,7 +12587,7 @@ form .choices li input {
   top: inherit; }
 
 #qg-page-feedback .status:before {
-  margin-left: -2em; }
+  margin-left: -0.6em; }
 
 #qg-page-feedback .warn {
   margin: 0;
@@ -12602,11 +12604,6 @@ form .choices li input {
 
 #qg-search-form .form-control {
   color: #444444; }
-  #qg-search-form .form-control::-webkit-input-placeholder {
-    /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color: #444444;
-    opacity: 1;
-    /* Firefox */ }
   #qg-search-form .form-control:-ms-input-placeholder {
     /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: #444444;
