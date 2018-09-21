@@ -4893,28 +4893,30 @@
 	
 	(function ($) {
 	  var accordion = '.qg-accordion';
-	  var accordionControls = 'input[name=control]';
-	  var linkedpanel = window.location.hash && $('input[aria-controls=' + window.location.hash.substring(1) + ']');
+	  if ($(accordion).length > 0) {
+	    var accordionControls = 'input[name=control]';
+	    var linkedpanel = window.location.hash && $('input[aria-controls=' + window.location.hash.substring(1) + ']');
 	
-	  //Handle events of accordion inputs
-	  $(accordion).find('article input').on('change', function () {
-	    var checkedStatus = $(this).prop('checked');
-	    var controlledPanedId = $('#' + $(this).attr('aria-controls'));
-	    $(this).
-	    attr('aria-expanded', checkedStatus) //sets aria
-	    .parents(accordion).find(accordionControls).prop('checked', false); //clears expand/collapse selection
-	    controlledPanedId.attr('aria-hidden', !checkedStatus);
-	  });
+	    //Handle events of accordion inputs
+	    $(accordion).find('article input').on('change', function () {
+	      var checkedStatus = $(this).prop('checked');
+	      var controlledPanedId = $('#' + $(this).attr('aria-controls'));
+	      $(this).
+	      attr('aria-expanded', checkedStatus) //sets aria
+	      .parents(accordion).find(accordionControls).prop('checked', false); //clears expand/collapse selection
+	      controlledPanedId.attr('aria-hidden', !checkedStatus);
+	    });
 	
-	  //expand all click
-	  $(accordion).find(accordionControls).on('change', function () {
-	    $(this).find('~ article input').prop('checked', $(this).val() === 'expand');
-	    $(accordion).find('article input').trigger('change');
-	  });
+	    //expand all click
+	    $(accordion).find(accordionControls).on('change', function () {
+	      $(this).find('~ article input').prop('checked', $(this).val() === 'expand');
+	      $(accordion).find('article input').trigger('change');
+	    });
 	
-	  //Ability to direct link to each section and expand the linked section
-	  if (linkedpanel.length > 0) {
-	    linkedpanel.prop('checked', true);
+	    //Ability to direct link to each section and expand the linked section
+	    if (linkedpanel.length > 0) {
+	      linkedpanel.prop('checked', true);
+	    }
 	  }
 	})(jQuery);
 
