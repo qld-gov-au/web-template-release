@@ -4507,10 +4507,10 @@
 	    init: function init() {
 	      var twitterSdkScript = 'platform.twitter.com/widgets.js';
 	      var facebookSdkScript = 'connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.8';
-	      if (this.config.$twitterEl.length > 0 && this.config.$twitterEl.find('iframe').length <= 0) {
+	      if (this.config.$twitterEl.length > 0 && $('script[src*="' + twitterSdkScript + '"]').length <= 0) {
 	        this.loadScript('script', 'twitter-wjs', twitterSdkScript);
 	      }
-	      if (this.config.$facebookEl.length > 0 && this.config.$facebookEl.find('iframe').length <= 0) {
+	      if (this.config.$facebookEl.length > 0 && $('script[src*="' + facebookSdkScript + '"]').length <= 0) {
 	        var fbUrl = this.config.$facebookEl.attr('data-href');
 	        var fbhtml = '<div class="fb-page" data-href="' + fbUrl + '" data-tabs="timeline" data-small-header="true" data-width="10000"  data-adapt-container-width="true" data-show-facepile="false"></div>';
 	        this.config.$facebookEl.append(fbhtml);
@@ -4893,28 +4893,30 @@
 	
 	(function ($) {
 	  var accordion = '.qg-accordion';
-	  var accordionControls = 'input[name=control]';
-	  var linkedpanel = window.location.hash && $('input[aria-controls=' + window.location.hash.substring(1) + ']');
+	  if ($(accordion).length > 0) {
+	    var accordionControls = 'input[name=control]';
+	    var linkedpanel = window.location.hash && $('input[aria-controls=' + window.location.hash.substring(1) + ']');
 	
-	  //Handle events of accordion inputs
-	  $(accordion).find('article input').on('change', function () {
-	    var checkedStatus = $(this).prop('checked');
-	    var controlledPanedId = $('#' + $(this).attr('aria-controls'));
-	    $(this).
-	    attr('aria-expanded', checkedStatus) //sets aria
-	    .parents(accordion).find(accordionControls).prop('checked', false); //clears expand/collapse selection
-	    controlledPanedId.attr('aria-hidden', !checkedStatus);
-	  });
+	    //Handle events of accordion inputs
+	    $(accordion).find('article input').on('change', function () {
+	      var checkedStatus = $(this).prop('checked');
+	      var controlledPanedId = $('#' + $(this).attr('aria-controls'));
+	      $(this).
+	      attr('aria-expanded', checkedStatus) //sets aria
+	      .parents(accordion).find(accordionControls).prop('checked', false); //clears expand/collapse selection
+	      controlledPanedId.attr('aria-hidden', !checkedStatus);
+	    });
 	
-	  //expand all click
-	  $(accordion).find(accordionControls).on('change', function () {
-	    $(this).find('~ article input').prop('checked', $(this).val() === 'expand');
-	    $(accordion).find('article input').trigger('change');
-	  });
+	    //expand all click
+	    $(accordion).find(accordionControls).on('change', function () {
+	      $(this).find('~ article input').prop('checked', $(this).val() === 'expand');
+	      $(accordion).find('article input').trigger('change');
+	    });
 	
-	  //Ability to direct link to each section and expand the linked section
-	  if (linkedpanel.length > 0) {
-	    linkedpanel.prop('checked', true);
+	    //Ability to direct link to each section and expand the linked section
+	    if (linkedpanel.length > 0) {
+	      linkedpanel.prop('checked', true);
+	    }
 	  }
 	})(jQuery);
 
