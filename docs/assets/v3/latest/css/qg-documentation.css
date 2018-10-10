@@ -1004,6 +1004,7 @@ $pre-scrollable-max-height:   340px !default;
     top: 0; } }
 
 pre {
+  display: -webkit-box;
   display: -ms-flexbox;
   display: flex; }
 
