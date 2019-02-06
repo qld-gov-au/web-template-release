@@ -36,19 +36,20 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="shortcut icon" href="https://static.qgov.net.au/assets/v3.1/latest/images/favicon.ico">
+<link rel="shortcut icon" href="/assets/v3.1/latest/images/favicon.ico">
 
 <link href="//fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic" rel="stylesheet" type="text/css" />
 
-<link href="https://static.qgov.net.au/assets/v3.1/latest/css/qg-main.css" rel="stylesheet" type="text/css" media="all">
-
+<link href="/assets/v3.1/latest/css/qg-main.css" rel="stylesheet" type="text/css" media="all">
 
 <noscript>
-	<link href="https://static.qgov.net.au/assets/v3.1/latest/css/qg-noscript.css" rel="stylesheet" type="text/css" media="all">
+	<link href="/assets/v3.1/latest/css/qg-noscript.css" rel="stylesheet" type="text/css" media="all">
 </noscript>
 
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
-    <link href="assets/v3.1/latest/css/qg-documentation.css" rel="stylesheet" type="text/css" media="all">
+
+    <link href="/assets/v3.1/latest/css/qg-documentation.css" rel="stylesheet" type="text/css" media="all">
     <link href="./assets/css/prism.css" media="all" rel="stylesheet" type="text/css">
 </head>
 
@@ -78,8 +79,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <header id="qg-site-header">
         <div class="qg-coat-of-arms col-xs-6 col-md-4">
     <a href="//www.qld.gov.au" tabindex="0">
-        <img src="https://static.qgov.net.au/assets/v3.1/latest/images/coat-of-arms/qg-coa.svg" alt="Queensland Government" class="hidden-xs hidden-sm">
-        <img src="https://static.qgov.net.au/assets/v3.1/latest/images/coat-of-arms/qg-coa-stacked.svg" alt="Queensland Government" class="hidden-md hidden-lg">
+        <img src="/assets/v3.1/latest/images/coat-of-arms/qg-coa.svg" alt="Queensland Government" class="hidden-xs hidden-sm">
+        <img src="/assets/v3.1/latest/images/coat-of-arms/qg-coa-stacked.svg" alt="Queensland Government" class="hidden-md hidden-lg">
     </a>
 </div>
 
@@ -140,10 +141,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <a href="#">Burke Bushfires</a>
   </section>
 </div>
--->
+--> 
 
 
-
+        
 <nav id="qg-site-nav" role="navigation" aria-label="Main navigation" class="collapse">
 	<ul>
 		<li><a href="https://www.qld.gov.au/queenslanders/">For Queenslanders</a></li>
@@ -313,56 +314,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
                 <!-- ################################## -->
 
-
-                <!-- ################################## -->
-
-                <h2 id="buttons" class="category">Buttons</h2>
-                <p><span class="label label-default" title="Default bootstrap implementation">Default Bootstrap</span></p>
-
-                <p>These are the QLD Government implemented buttons from Bootstrap. See the <a href="http://getbootstrap.com/css/#buttons">bootstrap section on buttons</a> for additional implementation advice.</p>
-                <p>Note: QLD Government includes a 'Secondary' button type on top of the standard Bootstrap buttons.</p>
-
-                <p>We advise you use the following buttons in your applications</p>
-                <div class="qg-tmplt-example">
-                    <div class="panel-body">
-                        <p>
-                            <button type="button" class="qg-btn btn-default">Default</button>
-                            <button type="button" class="qg-btn btn-primary">Primary</button>
-                            <button type="button" class="qg-btn btn-secondary">Secondary</button>
-                            <button type="button" class="qg-btn btn-link">Link</button>
-                        </p>
-                    </div>
-                </div>
-
-                <p>The sizes of the buttons have been adjusted to match the Government style guide. Larger buttons can be created using .btn-lg, and smaller buttons with .btn-sm and .btn-xs.</p>
-                <div class="qg-tmplt-example">
-                    <div class="panel-body">
-                        <p>
-                            <button class="qg-btn btn-default btn-xs">Extra Small</button>
-                            <button class="qg-btn btn-default btn-sm">Small</button>
-                            <button class="qg-btn btn-default">Default</button>
-                            <button class="qg-btn btn-default btn-lg">Large</button>
-                        </p>
-                    </div>
-                </div>
-
-                <p>Block level buttons are also available:</p>
-                <div class="qg-tmplt-example">
-                    <div class="panel-body">
-                        <p>
-                            <button type="button" class="btn btn-default btn-block">Default</button>
-                            <button type="button" class="btn btn-primary btn-block">Primary</button>
-                        </p>
-                    </div>
-                </div>
-
-                <!-- ################################## -->
-
-              <h2 id="blockquote" class="category">Blockquote</h2>
-              <blockquote><p>The <em>Disposal of Uncollected Goods Act 1967</em> covers inspection, custody, storage, repair and other treatment of goods. Under this Act, uncollected goods may be sold six months after the date on which they were ready for collection.</p></blockquote>
-
-                <!-- ################################## -->
-
                 <h2 id="using-sass" class="category">Using sass</h2>
                 <p><span class="label label-primary" title="Heavily customised bootstrap implementation">Customised</span></p>
 
@@ -390,6 +341,103 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 </ul>
 
                 <!-- ################################## -->
+
+                <h2 id="typography" class="category">Typography</h2>
+                <p><span class="label label-primary" title="Heavily customised bootstrap implementation">Customised</span></p>
+
+                <p>Typography is used to create clear hierarchies, useful organisations, and purposeful alignments that guide users through the content. The below outlines the type style used in the <a href="https://github.com/qld-gov-au/swe/blob/master/product-definition.md#741standard-page">SWE main content areas</a>. Other components such as the SWE header, footer and asides differ from this style.</p>
+
+                <p>Typeface: <a href="https://fonts.google.com/specimen/Lato">Lato</a></p>
+
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th width="25%">Style</th>
+                            <th>Font-size</th>
+                            <th>Font-weight</th>
+                            <th>Font-colour</th>
+                            <th>Text-decoration</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td><h1>Heading 1</h1></td>
+                            <td>25px</td>
+                            <td>900</td>
+                            <td>#000000</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td><h2>Heading 2</h2></td>
+                            <td>20px</td>
+                            <td>900</td>
+                            <td>#000000</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td><h3>Heading 3</h3></td>
+                            <td>18px</td>
+                            <td>900</td>
+                            <td>#000000</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td><h4>Heading 4</h4></td>
+                            <td>16px</td>
+                            <td>900</td>
+                            <td>#000000</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td><h5>Heading 5</h5></td>
+                            <td>14px</td>
+                            <td>900</td>
+                            <td>#000000</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td><h6>Heading 6</h6></td>
+                            <td>12px</td>
+                            <td>900</td>
+                            <td>#000000</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td><p>Paragraph</p></td>
+                            <td>16px</td>
+                            <td>-</td>
+                            <td>#000000</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td><a href="#typography">Link</a></td>
+                            <td>16px</td>
+                            <td>-</td>
+                            <td>#13578b</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td><a href="#typography">Link (hover)</a></td>
+                            <td>16px</td>
+                            <td>-</td>
+                            <td>#06C</td>
+                            <td>Underline</td>
+                        </tr>
+                        <tr>
+                            <td><a href="#typography">Link (visited)</a></td>
+                            <td>16px</td>
+                            <td>-</td>
+                            <td>#80b</td>
+                            <td>Underline</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+                <!-- ################################## -->
+
 
                 <div class="qg-content-footer">
 
@@ -420,10 +468,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                 <li><a href="#responsive-spacing-mixin">Responsive spacing mixins</a></li>
                             </ul>
                         </li>
-                        <li><a href="#buttons">Buttons</a></li>
-                        <li><a href="#blockquote">Blockquote</a></li>
-                        <li><a href="#using-less">Using less</a></li>
                         <li><a href="#using-sass">Using sass</a></li>
+                        <li><a href="#typography">Typography</a></li>
                     </ul>
                     <p>
                         <a href="#top">Back to top</a>
@@ -440,7 +486,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <li><a href="pagemodels.html">Page models</a></li>
     <li><a href="styles.html">CSS Styles</a></li>
     <li><a href="components.html">Components</a></li>
-    <li><a href="modules.html">Modules</a></li>
     <li><a href="qg-utilities.html">Utilities</a></li>
   </ul>
 
@@ -645,15 +690,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
         <div class="qg-legal row">
 	<ul class="list-inline">
-		<li><a href="https://www.qld.gov.au/contact-us/" class="">Contact us</a></li>
-		<li><a href="https://www.qld.gov.au/help/">Help</a></li>
-		<li><a href="https://www.qld.gov.au/legal/copyright/" class="">Copyright</a></li>
+		<li><a href="https://www.qld.gov.au/contact-us/" class="no-print">Contact us</a></li>
+		<li><a href="https://www.qld.gov.au/help/" class="no-print">Help</a></li>
+		<li><a href="https://www.qld.gov.au/legal/copyright/">Copyright</a></li>
 		<li><a href="https://www.qld.gov.au/legal/disclaimer/">Disclaimer</a></li>
 		<li><a href="https://www.qld.gov.au/legal/privacy/">Privacy</a></li>
 		<li><a href="https://www.qld.gov.au/right-to-information/">Right to information</a></li>
-		<li><a href="https://www.qld.gov.au/help/accessibility/">Accessibility</a></li>
-		<li><a href="http://www.smartjobs.qld.gov.au/">Jobs in Queensland Government</a></li>
-		<li id="link-languages"><a href="https://www.qld.gov.au/languages/">Other languages</a></li>
+		<li><a href="https://www.qld.gov.au/help/accessibility/" class="no-print">Accessibility</a></li>
+		<li><a href="http://www.smartjobs.qld.gov.au/" class="no-print">Jobs in Queensland Government</a></li>
+		<li id="link-languages"><a href="https://www.qld.gov.au/languages/" class="no-print">Other languages</a></li>
 	</ul>
   <p class="qg-copyright">&copy; The State of Queensland <span id="qg-copyright-owner"></span><span id="qg-copyright-daterange"></span></p>
 	<p><a href="https://www.qld.gov.au/" accesskey="1">Queensland Government</a></p>
@@ -669,17 +714,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     qg.swe.franchiseTitle = 'Franchise Title';
 </script>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-
 <!--external lib  (includes butterfly, markdown, generate-id)-->
-<script src="https://static.qgov.net.au/assets/v3.1/latest/lib/all-ext-min.js"></script>
+<script src="/assets/v3.1/latest/lib/all-ext-min.js"></script>
 
 <!-- Require main javascript -->
-<!--<script src="https://static.qgov.net.au/assets/v3/js/qg-env.js"></script>-->
-<script src="https://static.qgov.net.au/assets/v3.1/latest/js/qg-main.js"></script>
-
-
-
+<!--<script src="/assets/v3/js/qg-env.js"></script>-->
+<script src="/assets/v3.1/latest/js/qg-main.js"></script>
 
 <script type="text/javascript" src="./assets/js/prism.js"></script>
 

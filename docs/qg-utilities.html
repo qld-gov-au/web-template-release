@@ -36,19 +36,20 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="shortcut icon" href="https://static.qgov.net.au/assets/v3.1/latest/images/favicon.ico">
+<link rel="shortcut icon" href="/assets/v3.1/latest/images/favicon.ico">
 
 <link href="//fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic" rel="stylesheet" type="text/css" />
 
-<link href="https://static.qgov.net.au/assets/v3.1/latest/css/qg-main.css" rel="stylesheet" type="text/css" media="all">
-
+<link href="/assets/v3.1/latest/css/qg-main.css" rel="stylesheet" type="text/css" media="all">
 
 <noscript>
-	<link href="https://static.qgov.net.au/assets/v3.1/latest/css/qg-noscript.css" rel="stylesheet" type="text/css" media="all">
+	<link href="/assets/v3.1/latest/css/qg-noscript.css" rel="stylesheet" type="text/css" media="all">
 </noscript>
 
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
-    <link href="assets/v3.1/latest/css/qg-documentation.css" rel="stylesheet" type="text/css" media="all">
+
+    <link href="/assets/v3.1/latest/css/qg-documentation.css" rel="stylesheet" type="text/css" media="all">
 
 </head>
 
@@ -78,8 +79,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <header id="qg-site-header">
             <div class="qg-coat-of-arms col-xs-6 col-md-4">
     <a href="//www.qld.gov.au" tabindex="0">
-        <img src="https://static.qgov.net.au/assets/v3.1/latest/images/coat-of-arms/qg-coa.svg" alt="Queensland Government" class="hidden-xs hidden-sm">
-        <img src="https://static.qgov.net.au/assets/v3.1/latest/images/coat-of-arms/qg-coa-stacked.svg" alt="Queensland Government" class="hidden-md hidden-lg">
+        <img src="/assets/v3.1/latest/images/coat-of-arms/qg-coa.svg" alt="Queensland Government" class="hidden-xs hidden-sm">
+        <img src="/assets/v3.1/latest/images/coat-of-arms/qg-coa-stacked.svg" alt="Queensland Government" class="hidden-md hidden-lg">
     </a>
 </div>
 
@@ -140,10 +141,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <a href="#">Burke Bushfires</a>
   </section>
 </div>
--->
+--> 
 
 
-
+            
 <nav id="qg-site-nav" role="navigation" aria-label="Main navigation" class="collapse">
 	<ul>
 		<li><a href="https://www.qld.gov.au/queenslanders/">For Queenslanders</a></li>
@@ -233,6 +234,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <!-- ################################## -->
 
+<!-- ################################## -->
+
+<h2 id="hCard" class="category">hCard</h2>
+
+<p> Whenever publishers need to display contact details, they can choose to use a special set of HTML class attributes known as hCard. A hCard allows programs to export contacts in a standardised format so that they can be imported into other email programs.</p>
+<p> For more information about the hCard, including implementation instructions, please visit the <a href="http://microformats.org/wiki/hcard">Microformats Wiki</a>.</p>
+
+<!-- ################################## -->
+
+<!-- ################################## -->
+
+
                     <div class="qg-content-footer">
 
                         <dl>
@@ -246,6 +259,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     </div>
                 </div>
 
+
+
                 <aside id="qg-secondary-content">
 
                     <div id="page-nav"
@@ -257,6 +272,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
                         <ul class="list" role="tablist">
                             <li><a href="#accessibility">Accessibility</a>
+                            <li><a href="#hCard">hCard</a>
                         </ul>
 
                     </div>
@@ -271,7 +287,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <li><a href="pagemodels.html">Page models</a></li>
     <li><a href="styles.html">CSS Styles</a></li>
     <li><a href="components.html">Components</a></li>
-    <li><a href="modules.html">Modules</a></li>
     <li><a href="qg-utilities.html">Utilities</a></li>
   </ul>
 
@@ -475,15 +490,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
             <div class="qg-legal row">
 	<ul class="list-inline">
-		<li><a href="https://www.qld.gov.au/contact-us/" class="">Contact us</a></li>
-		<li><a href="https://www.qld.gov.au/help/">Help</a></li>
-		<li><a href="https://www.qld.gov.au/legal/copyright/" class="">Copyright</a></li>
+		<li><a href="https://www.qld.gov.au/contact-us/" class="no-print">Contact us</a></li>
+		<li><a href="https://www.qld.gov.au/help/" class="no-print">Help</a></li>
+		<li><a href="https://www.qld.gov.au/legal/copyright/">Copyright</a></li>
 		<li><a href="https://www.qld.gov.au/legal/disclaimer/">Disclaimer</a></li>
 		<li><a href="https://www.qld.gov.au/legal/privacy/">Privacy</a></li>
 		<li><a href="https://www.qld.gov.au/right-to-information/">Right to information</a></li>
-		<li><a href="https://www.qld.gov.au/help/accessibility/">Accessibility</a></li>
-		<li><a href="http://www.smartjobs.qld.gov.au/">Jobs in Queensland Government</a></li>
-		<li id="link-languages"><a href="https://www.qld.gov.au/languages/">Other languages</a></li>
+		<li><a href="https://www.qld.gov.au/help/accessibility/" class="no-print">Accessibility</a></li>
+		<li><a href="http://www.smartjobs.qld.gov.au/" class="no-print">Jobs in Queensland Government</a></li>
+		<li id="link-languages"><a href="https://www.qld.gov.au/languages/" class="no-print">Other languages</a></li>
 	</ul>
   <p class="qg-copyright">&copy; The State of Queensland <span id="qg-copyright-owner"></span><span id="qg-copyright-daterange"></span></p>
 	<p><a href="https://www.qld.gov.au/" accesskey="1">Queensland Government</a></p>
@@ -499,17 +514,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       qg.swe.franchiseTitle = 'Franchise Title';
     </script>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-
-<!--external lib  (includes butterfly, markdown, generate-id)-->
-<script src="https://static.qgov.net.au/assets/v3.1/latest/lib/all-ext-min.js"></script>
+    <!--external lib  (includes butterfly, markdown, generate-id)-->
+<script src="/assets/v3.1/latest/lib/all-ext-min.js"></script>
 
 <!-- Require main javascript -->
-<!--<script src="https://static.qgov.net.au/assets/v3/js/qg-env.js"></script>-->
-<script src="https://static.qgov.net.au/assets/v3.1/latest/js/qg-main.js"></script>
-
-
-
+<!--<script src="/assets/v3/js/qg-env.js"></script>-->
+<script src="/assets/v3.1/latest/js/qg-main.js"></script>
 
 
     <script>
