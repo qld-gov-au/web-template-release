@@ -80,32 +80,26 @@
 	__webpack_require__(16);
 	__webpack_require__(17);
 	__webpack_require__(18);
+	__webpack_require__(19);
 	
 	
-	var _sectionNav = __webpack_require__(19);var _sectionNav2 = _interopRequireDefault(_sectionNav);
-	var _stepNav = __webpack_require__(20);var _stepNav2 = _interopRequireDefault(_stepNav);
-	var _shareLinks = __webpack_require__(22);var _shareLinks2 = _interopRequireDefault(_shareLinks);
-	__webpack_require__(23);
+	var _sectionNav = __webpack_require__(20);var _sectionNav2 = _interopRequireDefault(_sectionNav);
+	var _stepNav = __webpack_require__(21);var _stepNav2 = _interopRequireDefault(_stepNav);
+	var _shareLinks = __webpack_require__(23);var _shareLinks2 = _interopRequireDefault(_shareLinks);
 	__webpack_require__(24);
-	var _feedbackForm = __webpack_require__(25);var _feedbackForm2 = _interopRequireDefault(_feedbackForm);
+	__webpack_require__(25);
+	var _feedbackForm = __webpack_require__(26);var _feedbackForm2 = _interopRequireDefault(_feedbackForm);
 	
-	__webpack_require__(26);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-	(function () {
-	  'use strict';
-	  var franchiseTitle = _qgEnv2.default && _qgEnv2.default.swe && _qgEnv2.default.swe.franchiseTitle;
-	  _sectionNav2.default.highlightNavItem();
-	  _stepNav2.default.init();
-	  _feedbackForm2.default.init(franchiseTitle);
-	  _shareLinks2.default.init();
-	  _accessibility2.default.init();
-	})(); // Layout
-	/*import './legacy/bootstrap-accessibility.js';*/ /*import '../lib/ext/generate-id.js';*/ // For site-search-autocomplete
+	__webpack_require__(27);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} /*import './legacy/bootstrap-accessibility.js';*/ /*import '../lib/ext/generate-id.js';*/ // For site-search-autocomplete
 	// import '../../../../../node_modules/bootstrap-accessibility-plugin/plugins/js/bootstrap-accessibility.js'; // Removed due to accessibility issues (ironically)
 	// Utils
 	/*This 2 modules (breakpoints, parentwidth) are to be initialize where we are using these or If we make one common function for small utilities then we can initialize here in the main file.*/ /*import breakpoints        from './utils/breakpoints'; */ // Components
 	/*
 	 * Imports Javascript components for the GLUE
 	 */ // env initialization
+	(function () {'use strict';var franchiseTitle = _qgEnv2.default && _qgEnv2.default.swe && _qgEnv2.default.swe.franchiseTitle;_sectionNav2.default.highlightNavItem();_stepNav2.default.init();_feedbackForm2.default.init(franchiseTitle);_shareLinks2.default.init();
+	  _accessibility2.default.init();
+	})(); // Layout
 
 /***/ }),
 /* 1 */
@@ -117,6 +111,8 @@
 	window.qg.swe = window.qg.swe || {};
 	window.qg.cdn = window.qg.swe.isProduction === false ? 'https://beta-static.qgov.net.au' : 'https://static.qgov.net.au';
 	window.qg.swe.assets = '/assets/v3.1/latest/';
+	window.qg.googleKey = window.location.hostname.search(/\bdev\b|\btest\b|\blocalhost\b|\buat\b/) !== -1 ? 'AIzaSyCKuaFIFo7YYZXHZ5zaiEZdJx0UBoyfuAE' : 'AIzaSyAqkq7IK18bsh-TUMmNR-x9v9PsptT3LMY';
+	window.qg.googleRecaptchaApiKey = window.location.hostname.search(/\bdev\b|\btest\b|\blocalhost\b|\buat\b/) !== -1 ? '6LeNGSwUAAAAAD6o-P5UTM0FNpKjYB71Kh70F-Ud' : '6LcoIywUAAAAAN-1rq22G-bP3yxl1bBq_5nHJ6s9';
 	
 	window.qg.swe.paths = {
 	  images: window.qg.swe.assets + 'images' };
@@ -194,7 +190,7 @@
 	    };
 	    if ($('#googleapi').length <= 0) {
 	      var s = document.createElement('script');
-	      var u = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCKuaFIFo7YYZXHZ5zaiEZdJx0UBoyfuAE&region=AU&libraries=places';
+	      var u = 'https://maps.googleapis.com/maps/api/js?key=' + window.qg.googleKey + '&region=AU&libraries=places';
 	      s.type = 'text/javascript';
 	      s.id = 'googleapi';
 	      s.src = u;
@@ -2564,26 +2560,6 @@
 	  }
 	}
 	
-	function addFileType() {var _this = this;
-	  var doctypes = 'PDF|DOC|DOCX|XLS|XLSX|RTF';
-	  $('a', '#content, #asides').filter(function () {
-	    var regex = new RegExp('\\.(' + doctypes + ')$', 'i').test(_this.href);
-	    return regex ? $(_this).addClass('download').find('.meta').length === 0 : !1;
-	  }).each(function () {
-	    var regex = null;
-	    var d = null;
-	    var e = $(_this);
-	    var f = e.text();
-	    new RegExp('\\((?:' + doctypes + '),?\\s+[0-9\\.]+\\s*[KM]B\\)$', 'i').test(f) ? (d = $('<span class="meta">' + f.replace(new RegExp('^.*\\((' + doctypes + '),?\\s+([0-9\\.]+)\\s*([KM]B)\\)$'), '($1, $2$3)') + '</span>'),
-	    regex = e.contents().eq(-1),
-	    regex[0].data = regex[0].data.replace(new RegExp('\\s+\\((?:' + doctypes + '),?\\s+[0-9\\.]+\\s*[KM]B\\)$'), ''),
-	    e.wrapInner('<span class="title"/>'),
-	    e.append(' '),
-	    e.append(d)) : (f = e.attr('href').replace(/^.*\.(.+)$/, '$1').toUpperCase(),
-	    e.wrapInner('<span class="title"/>').append(' <span class="meta">(' + f + ')</span>'));
-	  });
-	}
-	
 	function addCorrectIncorrect() {
 	  var ext = ':not(:has(.qg-blank-notice))';
 	  var $correct = $('.qg-correct' + ext + ', table.qg-correct-incorrect td:nth-child(odd)' + ext);
@@ -2596,7 +2572,6 @@
 	function init() {
 	  if ($('body').attr('data-qg-accessibility') !== false) {
 	    opensInNewWindow();
-	    addFileType();
 	    addCorrectIncorrect();
 	  }
 	}
@@ -2634,7 +2609,7 @@
 	      var form = $(subBtn).parents('form');
 	
 	      grecaptcha.render(subBtn, {
-	        'sitekey': '6LeNGSwUAAAAAD6o-P5UTM0FNpKjYB71Kh70F-Ud', //this value will be replaced by build tool. from gulp-config/
+	        'sitekey': window.qg.googleRecaptchaApiKey, //this value will be replaced by build tool. from gulp-config/
 	        'callback': function callback() {
 	          var response = grecaptcha.getResponse();
 	          if (response === '' || response === undefined || response.length === 0) {
@@ -2878,6 +2853,52 @@
 /* 19 */
 /***/ (function(module, exports) {
 
+	'use strict';(function ($) {
+	  'use strict';
+	
+	  // Use uppercase here, as not all uses are case sensitive
+	  var documentTypes = 'PDF|DOC|DOCX|XLS|XLSX|RTF';
+	
+	  // onready
+	  $(document).ready(function () {
+	    // find links in content and asides that are missing metadata markup
+	    $('a', '#qg-primary-content, #qg-secondary-content').filter(function () {
+	      var documentLink = new RegExp('\\.(' + documentTypes + ')$', 'i').test(this.href);
+	
+	      if (documentLink) {
+	        // add document link class
+	        // has meta markup?
+	        return $(this).addClass('download').find('.meta').length === 0;
+	      }
+	
+	      return false;
+	    }).each(function () {
+	      var $this = $(this);
+	      var linkText = $this.text();
+	      var title;
+	      var meta;
+	
+	      // has metadata without markup?
+	      if (new RegExp('\\((?:' + documentTypes + '),?\\s+[0-9\\.]+\\s*[KM]B\\)$', 'i').test(linkText)) {
+	        meta = $('<span class="meta">' + linkText.replace(new RegExp('^.*\\((' + documentTypes + '),?\\s+([0-9\\.]+)\\s*([KM]B)\\)$'), '($1, $2$3)') + '</span>');
+	        title = $this.contents().eq(-1);
+	        title[0].data = title[0].data.replace(new RegExp('\\s+\\((?:' + documentTypes + '),?\\s+[0-9\\.]+\\s*[KM]B\\)$'), '');
+	        $this.wrapInner('<span class="title"/>');
+	        $this.append(' ');
+	        $this.append(meta);
+	      } else {
+	        // get file type from extension
+	        linkText = $this.attr('href').replace(/^.*\.(.+)$/, '$1').toUpperCase();
+	        $this.wrapInner('<span class="title"/>').append(' <span class="meta">(' + linkText + ')</span>');
+	      }
+	    });
+	  });
+	})(jQuery);
+
+/***/ }),
+/* 20 */
+/***/ (function(module, exports) {
+
 	'use strict';
 	
 	var activeSideNav = function () {
@@ -2918,10 +2939,10 @@
 	module.exports = activeSideNav;
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	'use strict';Object.defineProperty(exports, "__esModule", { value: true });var _breakpoints = __webpack_require__(21);var _breakpoints2 = _interopRequireDefault(_breakpoints);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+	'use strict';Object.defineProperty(exports, "__esModule", { value: true });var _breakpoints = __webpack_require__(22);var _breakpoints2 = _interopRequireDefault(_breakpoints);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 	var stepNav = {
 	  config: {
 	    $guideSubNav: $('#qg-section-nav .guide-sub-nav'),
@@ -2982,7 +3003,7 @@
 	stepNav;
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports) {
 
 	"use strict";Object.defineProperty(exports, "__esModule", { value: true });var breakpoints = function () {
@@ -2997,7 +3018,7 @@
 	breakpoints;
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports) {
 
 	'use strict'; /**
@@ -3128,7 +3149,7 @@
 	module.exports = { init: init };
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports) {
 
 	'use strict';(function () {
@@ -3140,7 +3161,7 @@
 	})();
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports) {
 
 	'use strict'; /**
@@ -3161,7 +3182,7 @@
 	});
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports) {
 
 	'use strict'; /**
@@ -3181,6 +3202,23 @@
 	  .replace(/{/g, '&#123;') // strip (
 	  .replace(/}/g, '&#124;'); // strip )
 	}
+	// the script try to predict browser name from the User-Agent
+	var browserName = function () {
+	  var ua = navigator.userAgent;
+	  var tem = void 0;
+	  var M = ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || [];
+	  if (/trident/i.test(M[1])) {
+	    tem = /\brv[ :]+(\d+)/g.exec(ua) || [];
+	    return 'IE ' + (tem[1] || '');
+	  }
+	  if (M[1] === 'Chrome') {
+	    tem = ua.match(/\b(OPR|Edge)\/(\d+)/);
+	    if (tem != null) return tem.slice(1).join(' ').replace('OPR', 'Opera');
+	  }
+	  M = M[2] ? [M[1], M[2]] : [navigator.appName, navigator.appVersion, '-?'];
+	  if ((tem = ua.match(/version\/(\d+)/i)) != null) M.splice(1, 1, tem[1]);
+	  return M.join(' ');
+	}();
 	
 	function addHiddenInput(key, val) {
 	  var newHiddenInput = $('<input type="hidden"/>');
@@ -3194,12 +3232,14 @@
 	  addHiddenInput('page-url', window.location.href);
 	  addHiddenInput('page-referer', document.referrer);
 	  addHiddenInput('rspUsrAgent', navigator.userAgent);
+	  addHiddenInput('browserName', browserName);
+	  addHiddenInput('OS', navigator.platform);
 	}
 	
 	module.exports = { init: init };
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports) {
 
 	/**
