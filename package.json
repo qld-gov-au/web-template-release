@@ -1,6 +1,6 @@
 {
   "name": "web-template-release",
-  "version": "3.1.3",
+  "version": "3.1.4",
   "description": "SWE3 Web Template",
   "main": "index.js",
   "directories": {

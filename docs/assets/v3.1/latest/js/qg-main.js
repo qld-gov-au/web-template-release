@@ -62,35 +62,35 @@
 	
 	
 	
-	__webpack_require__(5);
 	__webpack_require__(6);
-	
-	
 	__webpack_require__(7);
 	
+	
 	__webpack_require__(8);
+	
 	__webpack_require__(9);
 	__webpack_require__(10);
 	__webpack_require__(11);
 	__webpack_require__(12);
 	__webpack_require__(13);
 	__webpack_require__(14);
-	var _accessibility = __webpack_require__(15);var _accessibility2 = _interopRequireDefault(_accessibility);
+	__webpack_require__(15);
+	var _accessibility = __webpack_require__(16);var _accessibility2 = _interopRequireDefault(_accessibility);
 	
-	__webpack_require__(16);
 	__webpack_require__(17);
 	__webpack_require__(18);
 	__webpack_require__(19);
+	__webpack_require__(20);
 	
 	
-	var _sectionNav = __webpack_require__(20);var _sectionNav2 = _interopRequireDefault(_sectionNav);
-	var _stepNav = __webpack_require__(21);var _stepNav2 = _interopRequireDefault(_stepNav);
-	var _shareLinks = __webpack_require__(23);var _shareLinks2 = _interopRequireDefault(_shareLinks);
-	__webpack_require__(24);
+	var _sectionNav = __webpack_require__(21);var _sectionNav2 = _interopRequireDefault(_sectionNav);
+	var _stepNav = __webpack_require__(22);var _stepNav2 = _interopRequireDefault(_stepNav);
+	var _shareLinks = __webpack_require__(24);var _shareLinks2 = _interopRequireDefault(_shareLinks);
 	__webpack_require__(25);
-	var _feedbackForm = __webpack_require__(26);var _feedbackForm2 = _interopRequireDefault(_feedbackForm);
+	__webpack_require__(26);
+	var _feedbackForm = __webpack_require__(27);var _feedbackForm2 = _interopRequireDefault(_feedbackForm);
 	
-	__webpack_require__(27);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} /*import './legacy/bootstrap-accessibility.js';*/ /*import '../lib/ext/generate-id.js';*/ // For site-search-autocomplete
+	__webpack_require__(28);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} /*import './legacy/bootstrap-accessibility.js';*/ /*import '../lib/ext/generate-id.js';*/ // For site-search-autocomplete
 	// import '../../../../../node_modules/bootstrap-accessibility-plugin/plugins/js/bootstrap-accessibility.js'; // Removed due to accessibility issues (ironically)
 	// Utils
 	/*This 2 modules (breakpoints, parentwidth) are to be initialize where we are using these or If we make one common function for small utilities then we can initialize here in the main file.*/ /*import breakpoints        from './utils/breakpoints'; */ // Components
@@ -111,8 +111,6 @@
 	window.qg.swe = window.qg.swe || {};
 	window.qg.cdn = window.qg.swe.isProduction === false ? 'https://beta-static.qgov.net.au' : 'https://static.qgov.net.au';
 	window.qg.swe.assets = '/assets/v3.1/latest/';
-	window.qg.googleKey = window.location.hostname.search(/\bdev\b|\btest\b|\blocalhost\b|\buat\b/) !== -1 ? 'AIzaSyCKuaFIFo7YYZXHZ5zaiEZdJx0UBoyfuAE' : 'AIzaSyAqkq7IK18bsh-TUMmNR-x9v9PsptT3LMY';
-	window.qg.googleRecaptchaApiKey = window.location.hostname.search(/\bdev\b|\btest\b|\blocalhost\b|\buat\b/) !== -1 ? '6LeNGSwUAAAAAD6o-P5UTM0FNpKjYB71Kh70F-Ud' : '6LcoIywUAAAAAN-1rq22G-bP3yxl1bBq_5nHJ6s9';
 	
 	window.qg.swe.paths = {
 	  images: window.qg.swe.assets + 'images' };
@@ -140,6 +138,12 @@
 	    if (!results || !results[2]) return false;
 	    return decodeURIComponent(results[2].replace(/\+/g, ' '));
 	  };
+	  // Maps view full screen customization code
+	  $('.map-modal').butterfly({
+	    contentDefaultWidth: '90%',
+	    contentDefaultHeight: '90%',
+	    reuseFragment: true });
+	
 	})(jQuery, qg.swe);
 
 /***/ }),
@@ -167,15 +171,62 @@
 
 /***/ }),
 /* 4 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-	'use strict'; /**
-	               * When using functionality related to google libraries, this fuction comes handy to check if libraries already exists and then execute custom function
-	               */
-	/* globals qg */
+	'use strict';
+	
+	
+	
+	var _qgGoogleKeys = __webpack_require__(5);var _qgGoogleKeys2 = _interopRequireDefault(_qgGoogleKeys);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+	
 	(function (qg, $) {
 	  'use strict';
-	  // lazy load a script
+	  var googleApiKey = void 0;
+	  var $mapImg = $('.qg-static-map');
+	  window.qg.googleKey = window.location.hostname.search(/\bdev\b|\btest\b|\blocalhost\b|\buat\b/) !== -1 ? _qgGoogleKeys2.default.defGoogle.uat : _qgGoogleKeys2.default.defGoogle.prod;
+	  window.qg.googleRecaptchaApiKey = window.location.hostname.search(/\bdev\b|\btest\b|\blocalhost\b|\buat\b/) !== -1 ? _qgGoogleKeys2.default.defGoogleRecaptcha.uat : _qgGoogleKeys2.default.defGoogleRecaptcha.prod;
+	
+	  var findFranchiseName = function findFranchiseName() {
+	    var path = window.location.pathname.replace(/\/$/, '');
+	    var pathArr = path.split('/').filter(function (e) {
+	      return e;
+	    });
+	    if (pathArr[0]) {
+	      return pathArr[0].toLowerCase();
+	    }
+	  };
+	  var franchise = findFranchiseName();
+	  if (franchise) {
+	    _qgGoogleKeys2.default.franchises.forEach(function (e) {
+	      if (franchise === e.name) {
+	        window.qg.franchise = {
+	          name: e.name,
+	          apiKey: e.apiKey };
+	
+	      }
+	    });
+	  }
+	  googleApiKey = window.qg.franchise && window.qg.franchise.apiKey ? window.qg.franchise.apiKey : window.qg.googleKey;
+	
+	  function generateStaticMapImg(ele) {
+	    var lat = ele.attr('data-lat') || -27.4673;
+	    var lon = ele.attr('data-long') || 153.0233;
+	    var zoom = ele.attr('data-zoom') || 17;
+	    var height = ele.attr('data-height') || 189;
+	    return 'https://maps.googleapis.com/maps/api/staticmap?size=373x' + height + '&maptype=roadmap&markers=' + lat + '%2C' + lon + '&key=' + googleApiKey + '&sensor=false&zoom=' + zoom;
+	  }
+	
+	  if ($mapImg.length > 0) {
+	    var htmlInsert = $('<div>');
+	    $mapImg.each(function () {
+	      var $this = $(this);
+	      $this.find('img').attr('src', generateStaticMapImg($this.find('img')));
+	      htmlInsert.append($this);
+	    });
+	    $('aside').prepend(htmlInsert);
+	    $('a.qg-static-map').wrap("<div class='qg-aside st-map-static'>");
+	    $('.st-map-static').eq(0).prepend("<h2><i class='fa fa-compass' aria-hidden='true'></i>Maps</h2>");
+	  }
 	  function lazyScript(url) {
 	    $('head').append('<script type="text/javascript" src="' + url + '"></script>');
 	  }
@@ -190,7 +241,7 @@
 	    };
 	    if ($('#googleapi').length <= 0) {
 	      var s = document.createElement('script');
-	      var u = 'https://maps.googleapis.com/maps/api/js?key=' + window.qg.googleKey + '&region=AU&libraries=places';
+	      var u = 'https://maps.googleapis.com/maps/api/js?key=' + googleApiKey + '&region=AU&libraries=places';
 	      s.type = 'text/javascript';
 	      s.id = 'googleapi';
 	      s.src = u;
@@ -215,10 +266,18 @@
 	      }
 	    }
 	  };
-	})(qg, jQuery);
+	})(qg, jQuery); /**
+	                 * When using functionality related to google libraries, this fuction comes handy to check if libraries already exists and then execute custom function
+	                 */ /* globals qg */
 
 /***/ }),
 /* 5 */
+/***/ (function(module, exports) {
+
+	module.exports = {"defGoogle":{"uat":"AIzaSyCKuaFIFo7YYZXHZ5zaiEZdJx0UBoyfuAE","prod":"AIzaSyANZv-2WcXRzkBqtgEcLTZq7zVy-9eNWgw"},"defGoogleRecaptcha":{"uat":"6LeNGSwUAAAAAD6o-P5UTM0FNpKjYB71Kh70F-Ud","prod":"6LcoIywUAAAAAN-1rq22G-bP3yxl1bBq_5nHJ6s9"},"franchises":[{"name":"about","apiKey":"AIzaSyBi-T3vrvcYwouFPqPI5IgLoQxl2hz6Ogs"},{"name":"atsi","apiKey":"AIzaSyB2mTTDd1CcLEYrLHJJHlzX60vQ68snyko"},{"name":"community","apiKey":"AIzaSyCJwNeGu0XT1lvhg-2cm7S27BQo9k7Jd9E"},{"name":"disability","apiKey":"AIzaSyC-KQFfBhoGle7kJJhY1Pf_GvR_qC5jzN4"},{"name":"education","apiKey":"AIzaSyDeeYKKOyQCYkpVWXRLLxyNjfy2dhyWVls"},{"name":"emergency","apiKey":"AIzaSyD1xT_2Dh2EZ7Iy6SLodeH8CJzbXlp6vgE"},{"name":"environment","apiKey":"AIzaSyAZJjfwIKDPlQs-S3id-CGp8U_S4U7idFI"},{"name":"families","apiKey":"AIzaSyBucRn0YhJhQ-ELSS-MM7JvYb19-I1bqqI"},{"name":"health","apiKey":"AIzaSyD_Xzvr6nBm5PlpANw2UZ2df3-U5eeOlvY"},{"name":"housing","apiKey":"AIzaSyCgMKJlbP1SRIf3xCMFDbBImNkF_BCubvk"},{"name":"jobs","apiKey":"AIzaSyBXmI1DZvPFVQ_h-E1TNsPNdlNuqDd7MVo"},{"name":"law","apiKey":"AIzaSyBeij584IMIZqpftyhMCt_lZ_hBK_h8hMc"},{"name":"recreation","apiKey":"AIzaSyDJmfdqYI3eyV8-ivwPWVIIHxBzqo5_v2I"},{"name":"seniors","apiKey":"AIzaSyA3PDnd30Twv3Zr3JKqiAUYNO1983ZDBe0"},{"name":"transport","apiKey":"AIzaSyARzyCPigCt9cW1F6ua0_U3NVLdRbxwLyg"},{"name":"youth","apiKey":"AIzaSyCe7FYHy28So2Uio_OEQje0o0Pr23s7gt0"}]}
+
+/***/ }),
+/* 6 */
 /***/ (function(module, exports) {
 
 	/* ========================================================================
@@ -239,7 +298,7 @@
 	module.exports = parentWidth;
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports) {
 
 	'use strict';var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {return typeof obj;} : function (obj) {return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;}; /*! Form validation - v1.1.1 - 2014-04-09
@@ -1865,7 +1924,7 @@
 	//# sourceMappingURL=qg-forms.js.map
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports) {
 
 	'use strict'; /*
@@ -2056,7 +2115,7 @@
 	}); // onready
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports) {
 
 	'use strict'; /***********************************
@@ -2102,7 +2161,7 @@
 	})(jQuery);
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports) {
 
 	'use strict'; /*global jQuery*/
@@ -2143,7 +2202,7 @@
 	})(jQuery);
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports) {
 
 	/**
@@ -2259,7 +2318,7 @@
 	})();
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports) {
 
 	'use strict'; /**
@@ -2399,7 +2458,7 @@
 	})(jQuery, qg);
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports) {
 
 	/*aside carousel play and pause feature*/
@@ -2452,7 +2511,7 @@
 	})(jQuery);
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports) {
 
 	'use strict';(function ($) {
@@ -2495,7 +2554,7 @@
 	})(jQuery);
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports) {
 
 	'use strict'; /**
@@ -2535,7 +2594,7 @@
 	})(jQuery);
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports) {
 
 	/* ========================================================================
@@ -2579,7 +2638,7 @@
 	module.exports = { init: init };
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports) {
 
 	'use strict';(function ($) {
@@ -2590,7 +2649,7 @@
 	})(jQuery);
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports) {
 
 	'use strict'; /*
@@ -2630,7 +2689,7 @@
 	})(jQuery, qg.swe);
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports) {
 
 	'use strict'; /*global qg, jQuery, google*/
@@ -2850,7 +2909,7 @@
 	})(qg, jQuery);
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports) {
 
 	'use strict';(function ($) {
@@ -2880,7 +2939,7 @@
 	})(jQuery);
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -2923,10 +2982,10 @@
 	module.exports = activeSideNav;
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	'use strict';Object.defineProperty(exports, "__esModule", { value: true });var _breakpoints = __webpack_require__(22);var _breakpoints2 = _interopRequireDefault(_breakpoints);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+	'use strict';Object.defineProperty(exports, "__esModule", { value: true });var _breakpoints = __webpack_require__(23);var _breakpoints2 = _interopRequireDefault(_breakpoints);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 	var stepNav = {
 	  config: {
 	    $guideSubNav: $('#qg-section-nav .guide-sub-nav'),
@@ -2987,7 +3046,7 @@
 	stepNav;
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports) {
 
 	"use strict";Object.defineProperty(exports, "__esModule", { value: true });var breakpoints = function () {
@@ -3002,7 +3061,7 @@
 	breakpoints;
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports) {
 
 	'use strict'; /**
@@ -3133,7 +3192,7 @@
 	module.exports = { init: init };
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports) {
 
 	'use strict';(function () {
@@ -3145,7 +3204,7 @@
 	})();
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports) {
 
 	'use strict'; /**
@@ -3166,7 +3225,7 @@
 	});
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports) {
 
 	'use strict'; /**
@@ -3223,7 +3282,7 @@
 	module.exports = { init: init };
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports) {
 
 	/**
