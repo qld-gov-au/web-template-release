@@ -58,13 +58,13 @@
 	__webpack_require__(10);
 	
 	
-	__webpack_require__(23);
-	var _sectionNav = __webpack_require__(24);var _sectionNav2 = _interopRequireDefault(_sectionNav);
-	var _stepNav = __webpack_require__(25);var _stepNav2 = _interopRequireDefault(_stepNav);
-	var _shareLinks = __webpack_require__(27);var _shareLinks2 = _interopRequireDefault(_shareLinks);
-	__webpack_require__(28);
-	__webpack_require__(29);
-	var _feedbackForm = __webpack_require__(30);var _feedbackForm2 = _interopRequireDefault(_feedbackForm);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} // components import
+	__webpack_require__(21);
+	var _sectionNav = __webpack_require__(22);var _sectionNav2 = _interopRequireDefault(_sectionNav);
+	var _stepNav = __webpack_require__(23);var _stepNav2 = _interopRequireDefault(_stepNav);
+	var _shareLinks = __webpack_require__(25);var _shareLinks2 = _interopRequireDefault(_shareLinks);
+	__webpack_require__(26);
+	__webpack_require__(27);
+	var _feedbackForm = __webpack_require__(28);var _feedbackForm2 = _interopRequireDefault(_feedbackForm);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} // components import
 	// legacy module imports
 	// env initialization
 	(function () {'use strict';
@@ -2111,8 +2111,7 @@
 	__webpack_require__(17);
 	__webpack_require__(18);
 	__webpack_require__(19);
-	__webpack_require__(20);
-	var _accessibility = __webpack_require__(22);var _accessibility2 = _interopRequireDefault(_accessibility);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+	var _accessibility = __webpack_require__(20);var _accessibility2 = _interopRequireDefault(_accessibility);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 	
 	_accessibility2.default.init();
 
@@ -2841,372 +2840,6 @@
 
 /***/ }),
 /* 20 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';if ($('.qg-image-gallery')) {
-	  var load = __webpack_require__(21);
-	  load(['https://static.qgov.net.au/assets/v3.1/latest/lib/ext/fancybox/jquery.fancybox.min.css', 'https://static.qgov.net.au/assets/v3.1/latest/lib/ext/fancybox/jquery.fancybox.min.js'], function () {
-	    $('[data-fancybox^="gallery"]').fancybox({
-	      buttons: ['thumbs', 'close'],
-	      baseTpl: '\n        <div class="fancybox-container" role="dialog" tabindex="-1">\n          <div class="fancybox-bg"></div>\n          <div class="fancybox-inner">\n                <div class="fancybox-infobar"><button data-fancybox-prev="" class="fancybox-button fancybox-button--arrow_left" title="Previous"><div><span class="font-awesome fa-2x fa-caret-left"></span></div></button><span data-fancybox-index></span>&nbsp;/&nbsp;<span data-fancybox-count></span><button data-fancybox-next="" class="fancybox-button fancybox-button--arrow_right" title="Next"><div><span class="font-awesome fa-2x fa-caret-right"></span></div></button></div>\n                <div class="fancybox-toolbar">{{buttons}}</div>\n                <div class="fancybox-navigation">{{arrows}}</div>\n                <div class="fancybox-stage"></div>\n                <div class="fancybox-caption"></div>\n          </div>\n        </div>\n      ',
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	      btnTpl: {
-	        arrowLeft: '\n          <button data-fancybox-prev class="fancybox-button fancybox-button--arrow_left" title="{{PREV}}">\n            <div><span class="font-awesome fa-2x fa-caret-left"></span></div>\n          </button>\n        ',
-	
-	
-	
-	
-	        arrowRight: '\n           <button data-fancybox-next class="fancybox-button fancybox-button--arrow_right" title="{{NEXT}}">\n             <div><span class="font-awesome fa-2x fa-caret-right"></span></div>\n          </button>\n        ' },
-	
-	
-	
-	
-	
-	      caption: function caption(instance, item) {
-	        var caption = $(this).data('caption') || '';
-	
-	        if (item.type === 'image') {
-	          caption = '<div class="fancybox-border">' + (caption.length ? caption : '') + '</div>';
-	        }
-	        return caption;
-	      } });
-	
-	  });
-	}
-
-/***/ }),
-/* 21 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function(root, factory) {
-	  if (true) {
-	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-	  } else if (typeof exports === 'object') {
-	    module.exports = factory();
-	  } else {
-	    root.loadjs = factory();
-	  }
-	}(this, function() {
-	/**
-	 * Global dependencies.
-	 * @global {Object} document - DOM
-	 */
-	
-	var devnull = function() {},
-	    bundleIdCache = {},
-	    bundleResultCache = {},
-	    bundleCallbackQueue = {};
-	
-	
-	/**
-	 * Subscribe to bundle load event.
-	 * @param {string[]} bundleIds - Bundle ids
-	 * @param {Function} callbackFn - The callback function
-	 */
-	function subscribe(bundleIds, callbackFn) {
-	  // listify
-	  bundleIds = bundleIds.push ? bundleIds : [bundleIds];
-	
-	  var depsNotFound = [],
-	      i = bundleIds.length,
-	      numWaiting = i,
-	      fn,
-	      bundleId,
-	      r,
-	      q;
-	
-	  // define callback function
-	  fn = function (bundleId, pathsNotFound) {
-	    if (pathsNotFound.length) depsNotFound.push(bundleId);
-	
-	    numWaiting--;
-	    if (!numWaiting) callbackFn(depsNotFound);
-	  };
-	
-	  // register callback
-	  while (i--) {
-	    bundleId = bundleIds[i];
-	
-	    // execute callback if in result cache
-	    r = bundleResultCache[bundleId];
-	    if (r) {
-	      fn(bundleId, r);
-	      continue;
-	    }
-	
-	    // add to callback queue
-	    q = bundleCallbackQueue[bundleId] = bundleCallbackQueue[bundleId] || [];
-	    q.push(fn);
-	  }
-	}
-	
-	
-	/**
-	 * Publish bundle load event.
-	 * @param {string} bundleId - Bundle id
-	 * @param {string[]} pathsNotFound - List of files not found
-	 */
-	function publish(bundleId, pathsNotFound) {
-	  // exit if id isn't defined
-	  if (!bundleId) return;
-	
-	  var q = bundleCallbackQueue[bundleId];
-	
-	  // cache result
-	  bundleResultCache[bundleId] = pathsNotFound;
-	
-	  // exit if queue is empty
-	  if (!q) return;
-	
-	  // empty callback queue
-	  while (q.length) {
-	    q[0](bundleId, pathsNotFound);
-	    q.splice(0, 1);
-	  }
-	}
-	
-	
-	/**
-	 * Execute callbacks.
-	 * @param {Object or Function} args - The callback args
-	 * @param {string[]} depsNotFound - List of dependencies not found
-	 */
-	function executeCallbacks(args, depsNotFound) {
-	  // accept function as argument
-	  if (args.call) args = {success: args};
-	
-	  // success and error callbacks
-	  if (depsNotFound.length) (args.error || devnull)(depsNotFound);
-	  else (args.success || devnull)(args);
-	}
-	
-	
-	/**
-	 * Load individual file.
-	 * @param {string} path - The file path
-	 * @param {Function} callbackFn - The callback function
-	 */
-	function loadFile(path, callbackFn, args, numTries) {
-	  var doc = document,
-	      async = args.async,
-	      maxTries = (args.numRetries || 0) + 1,
-	      beforeCallbackFn = args.before || devnull,
-	      pathStripped = path.replace(/^(css|img)!/, ''),
-	      isLegacyIECss,
-	      e;
-	
-	  numTries = numTries || 0;
-	
-	  if (/(^css!|\.css$)/.test(path)) {
-	    // css
-	    e = doc.createElement('link');
-	    e.rel = 'stylesheet';
-	    e.href = pathStripped;
-	
-	    // tag IE9+
-	    isLegacyIECss = 'hideFocus' in e;
-	
-	    // use preload in IE Edge (to detect load errors)
-	    if (isLegacyIECss && e.relList) {
-	      isLegacyIECss = 0;
-	      e.rel = 'preload';
-	      e.as = 'style';
-	    }
-	  } else if (/(^img!|\.(png|gif|jpg|svg)$)/.test(path)) {
-	    // image
-	    e = doc.createElement('img');
-	    e.src = pathStripped;    
-	  } else {
-	    // javascript
-	    e = doc.createElement('script');
-	    e.src = path;
-	    e.async = async === undefined ? true : async;
-	  }
-	
-	  e.onload = e.onerror = e.onbeforeload = function (ev) {
-	    var result = ev.type[0];
-	
-	    // treat empty stylesheets as failures to get around lack of onerror
-	    // support in IE9-11
-	    if (isLegacyIECss) {
-	      try {
-	        if (!e.sheet.cssText.length) result = 'e';
-	      } catch (x) {
-	        // sheets objects created from load errors don't allow access to
-	        // `cssText` (unless error is Code:18 SecurityError)
-	        if (x.code != 18) result = 'e';
-	      }
-	    }
-	
-	    // handle retries in case of load failure
-	    if (result == 'e') {
-	      // increment counter
-	      numTries += 1;
-	
-	      // exit function and try again
-	      if (numTries < maxTries) {
-	        return loadFile(path, callbackFn, args, numTries);
-	      }
-	    } else if (e.rel == 'preload' && e.as == 'style') {
-	      // activate preloaded stylesheets
-	      return e.rel = 'stylesheet'; // jshint ignore:line
-	    }
-	    
-	    // execute callback
-	    callbackFn(path, result, ev.defaultPrevented);
-	  };
-	
-	  // add to document (unless callback returns `false`)
-	  if (beforeCallbackFn(path, e) !== false) doc.head.appendChild(e);
-	}
-	
-	
-	/**
-	 * Load multiple files.
-	 * @param {string[]} paths - The file paths
-	 * @param {Function} callbackFn - The callback function
-	 */
-	function loadFiles(paths, callbackFn, args) {
-	  // listify paths
-	  paths = paths.push ? paths : [paths];
-	
-	  var numWaiting = paths.length,
-	      x = numWaiting,
-	      pathsNotFound = [],
-	      fn,
-	      i;
-	
-	  // define callback function
-	  fn = function(path, result, defaultPrevented) {
-	    // handle error
-	    if (result == 'e') pathsNotFound.push(path);
-	
-	    // handle beforeload event. If defaultPrevented then that means the load
-	    // will be blocked (ex. Ghostery/ABP on Safari)
-	    if (result == 'b') {
-	      if (defaultPrevented) pathsNotFound.push(path);
-	      else return;
-	    }
-	
-	    numWaiting--;
-	    if (!numWaiting) callbackFn(pathsNotFound);
-	  };
-	
-	  // load scripts
-	  for (i=0; i < x; i++) loadFile(paths[i], fn, args);
-	}
-	
-	
-	/**
-	 * Initiate script load and register bundle.
-	 * @param {(string|string[])} paths - The file paths
-	 * @param {(string|Function|Object)} [arg1] - The (1) bundleId or (2) success
-	 *   callback or (3) object literal with success/error arguments, numRetries,
-	 *   etc.
-	 * @param {(Function|Object)} [arg2] - The (1) success callback or (2) object
-	 *   literal with success/error arguments, numRetries, etc.
-	 */
-	function loadjs(paths, arg1, arg2) {
-	  var bundleId,
-	      args;
-	
-	  // bundleId (if string)
-	  if (arg1 && arg1.trim) bundleId = arg1;
-	
-	  // args (default is {})
-	  args = (bundleId ? arg2 : arg1) || {};
-	
-	  // throw error if bundle is already defined
-	  if (bundleId) {
-	    if (bundleId in bundleIdCache) {
-	      throw "LoadJS";
-	    } else {
-	      bundleIdCache[bundleId] = true;
-	    }
-	  }
-	
-	  function loadFn(resolve, reject) {
-	    loadFiles(paths, function (pathsNotFound) {
-	      // execute callbacks
-	      executeCallbacks(args, pathsNotFound);
-	      
-	      // resolve Promise
-	      if (resolve) {
-	        executeCallbacks({success: resolve, error: reject}, pathsNotFound);
-	      }
-	
-	      // publish bundle load event
-	      publish(bundleId, pathsNotFound);
-	    }, args);
-	  }
-	  
-	  if (args.returnPromise) return new Promise(loadFn);
-	  else loadFn();
-	}
-	
-	
-	/**
-	 * Execute callbacks when dependencies have been satisfied.
-	 * @param {(string|string[])} deps - List of bundle ids
-	 * @param {Object} args - success/error arguments
-	 */
-	loadjs.ready = function ready(deps, args) {
-	  // subscribe to bundle load event
-	  subscribe(deps, function (depsNotFound) {
-	    // execute callbacks
-	    executeCallbacks(args, depsNotFound);
-	  });
-	
-	  return loadjs;
-	};
-	
-	
-	/**
-	 * Manually satisfy bundle dependencies.
-	 * @param {string} bundleId - The bundle id
-	 */
-	loadjs.done = function done(bundleId) {
-	  publish(bundleId, []);
-	};
-	
-	
-	/**
-	 * Reset loadjs dependencies statuses
-	 */
-	loadjs.reset = function reset() {
-	  bundleIdCache = {};
-	  bundleResultCache = {};
-	  bundleCallbackQueue = {};
-	};
-	
-	
-	/**
-	 * Determine if bundle has already been defined
-	 * @param String} bundleId - The bundle id
-	 */
-	loadjs.isDefined = function isDefined(bundleId) {
-	  return bundleId in bundleIdCache;
-	};
-	
-	
-	// export
-	return loadjs;
-	
-	}));
-
-
-/***/ }),
-/* 22 */
 /***/ (function(module, exports) {
 
 	/* ========================================================================
@@ -3250,7 +2883,7 @@
 	module.exports = { init: init };
 
 /***/ }),
-/* 23 */
+/* 21 */
 /***/ (function(module, exports) {
 
 	'use strict';(function ($) {
@@ -3261,7 +2894,7 @@
 	})(jQuery);
 
 /***/ }),
-/* 24 */
+/* 22 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -3304,10 +2937,10 @@
 	module.exports = activeSideNav;
 
 /***/ }),
-/* 25 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	'use strict';Object.defineProperty(exports, "__esModule", { value: true });var _breakpoints = __webpack_require__(26);var _breakpoints2 = _interopRequireDefault(_breakpoints);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+	'use strict';Object.defineProperty(exports, "__esModule", { value: true });var _breakpoints = __webpack_require__(24);var _breakpoints2 = _interopRequireDefault(_breakpoints);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 	var stepNav = {
 	  config: {
 	    $guideSubNav: $('#qg-section-nav .guide-sub-nav'),
@@ -3368,7 +3001,7 @@
 	stepNav;
 
 /***/ }),
-/* 26 */
+/* 24 */
 /***/ (function(module, exports) {
 
 	"use strict";Object.defineProperty(exports, "__esModule", { value: true });var breakpoints = function () {
@@ -3383,7 +3016,7 @@
 	breakpoints;
 
 /***/ }),
-/* 27 */
+/* 25 */
 /***/ (function(module, exports) {
 
 	'use strict'; /**
@@ -3514,7 +3147,7 @@
 	module.exports = { init: init };
 
 /***/ }),
-/* 28 */
+/* 26 */
 /***/ (function(module, exports) {
 
 	'use strict';(function () {
@@ -3526,7 +3159,7 @@
 	})();
 
 /***/ }),
-/* 29 */
+/* 27 */
 /***/ (function(module, exports) {
 
 	'use strict'; /**
@@ -3547,7 +3180,7 @@
 	});
 
 /***/ }),
-/* 30 */
+/* 28 */
 /***/ (function(module, exports) {
 
 	'use strict'; /**
