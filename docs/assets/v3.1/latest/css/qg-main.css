@@ -7668,12 +7668,6 @@ blockquote ol:last-child, blockquote p:last-child, blockquote ul:last-child {
   border: 1px solid #ddd;
   margin-left: -1px; }
 
-.pagination a:not(.print-content-link):visited, .pagination a:not(.print-content-link):visited {
-  color: initial; }
-
-.pagination .active a {
-  color: #fff !important; }
-
 .pagination > li > a:hover, .pagination > li > a:focus, .pagination > li > span:hover, .pagination > li > span:focus {
   z-index: 2;
   color: #0a2d48;
@@ -10427,6 +10421,55 @@ fieldset[disabled] .btn-secondary.focus {
   .qg-visually-shown-lg {
     @extends .qg-visually-hidden; } }
 
+/* qg-Image gallery */
+.qg-image-gallery ul {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  max-width: 560px; }
+
+.qg-image-gallery li {
+  margin: 10px; }
+
+.qg-image-gallery ul img {
+  width: 100px;
+  height: 100px;
+  border: 1px solid #f6f6f6;
+  box-shadow: 0 0 2px 1px #000;
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+  -o-object-fit: cover;
+  object-fit: cover; }
+
+.fancybox-button {
+  background: transparent;
+  transform: scale(1.6);
+  color: #fff; }
+
+.fancybox-button--arrow_left,
+.fancybox-button--arrow_right {
+  padding: 0; }
+
+.fancybox-caption {
+  color: #fff; }
+
+.fancybox-border:empty {
+  display: none; }
+
+.fancybox-border {
+  border-top: 1px solid grey;
+  padding-top: 1em; }
+
+.font-awesome {
+  font-family: FontAwesome; }
+
+@media (max-width: 992px) {
+  .fancybox-navigation button {
+    display: none; } }
+
 .btn-group:not(.dropup) .dropdown-toggle.qg-icon:after, .dropdown .dropdown-toggle.qg-icon:after, .dropup .dropdown-toggle.qg-icon:after {
   display: inline-block;
   width: 1.2em;
@@ -10726,17 +10769,6 @@ a[data-toggle=collapse].qg-icon:after {
 
 .status.info, .status.tip {
   border-color: #1E77AA; }
-
-a {
-  color: #13578b;
-  text-decoration: none; }
-
-a:focus, a:hover {
-  color: #0a2d48;
-  text-decoration: underline; }
-
-a:active, a:hover {
-  outline: 0; }
 
 #qg-search-widget {
   background: #f2f7f9;

@@ -7582,12 +7582,6 @@ blockquote ol:last-child, blockquote p:last-child, blockquote ul:last-child {
   border: 1px solid #ddd;
   margin-left: -1px; }
 
-.pagination a:not(.print-content-link):visited, .pagination a:not(.print-content-link):visited {
-  color: initial; }
-
-.pagination .active a {
-  color: #fff !important; }
-
 .pagination > li > a:hover, .pagination > li > a:focus, .pagination > li > span:hover, .pagination > li > span:focus {
   z-index: 2;
   color: #0a2d48;
@@ -7618,9 +7612,6 @@ label {
   #qg-primary-content h2.category {
     margin-top: 50px;
     padding-top: 50px; } }
-
-.qg-coat-of-arms {
-  padding-left: 50px !important; }
 
 #page-nav {
   font-size: 0.9em; }
