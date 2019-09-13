@@ -29,9 +29,7 @@
   <meta name="DCTERMS.jurisdiction" scheme="AGLSTERMS.AglsJuri" content="Queensland">
   <meta name="DCTERMS.license" scheme="DCTERMS.URI" content="http://creativecommons.org/licenses/by/3.0/au/">
 
-  <!-- GLUE Alpha Build Date: xxx -->
-
-<meta name="DCTERMS.license" scheme="DCTERMS.URI" content="https://creativecommons.org/licenses/by/4.0/">
+  <meta name="DCTERMS.license" scheme="DCTERMS.URI" content="https://creativecommons.org/licenses/by/4.0/">
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -68,7 +66,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	<h2 id="landmark-label" tabindex="0">Skip links and keyboard navigation</h2>
 	<ul>
 		<li><a id="skip-to-content" href="#qg-primary-content">Skip to content</a></li>
-		<li id="access-instructions"><a href="/help/accessibility/keyboard.html#section-aria-keyboard-navigation">Use tab and cursor keys to move around the page (more information)</a></li>
+		<li id="access-instructions"><a href="https://www.qld.gov.au/help/keyboard#section-aria-keyboard-navigation">Use tab and cursor keys to move around the page (more information)</a></li>
 	</ul>
 </section>
 
@@ -149,6 +147,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	<ul>
 		<li><a href="https://www.qld.gov.au/queenslanders/">For Queenslanders</a></li>
 		<li><a href="https://www.business.qld.gov.au/">Business and industry</a></li>
+    <li><a href="https://www.forgov.qld.gov.au/">Government employees</a></li>
 	</ul>
 </nav>
 
@@ -195,7 +194,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
             <article>
               <input id="without-icon" type="checkbox" name="tabs" aria-controls="id-panel-content-1" aria-expanded="false" role="checkbox">
-              <h3 class="acc-heading"><label for="without-icon">Without icon <span class="subtitle">Subtitle can go here (optional)</span><span class="arrow"> <i></i></span></label></h3>
+              <h3 class="acc-heading"><label for="without-icon"><span class="title">Without icon</span><span class="arrow"> <i></i></span></label></h3>
               <div class="collapsing-section"  aria-hidden="true" id="id-panel-content-1">
                 <p> Content related to header. </p>
                 <ul>
@@ -207,8 +206,34 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             </article>
             <article>
               <input id="with-icon" type="checkbox" name="tabs" aria-controls="id-panel-content-2" aria-expanded="false" role="checkbox">
-              <h3 class="acc-heading"><img src="https://placeimg.com/20/20/nature" alt=""><label for="with-icon">With icon <span class="subtitle">Subtitle can go here (optional)</span><span class="arrow"> <i></i></span></label></h3>
+              <h3 class="acc-heading"><img src="https://placeimg.com/20/20/nature" alt=""><label for="with-icon"><span class="title">With icon</span> <span class="subtitle">Subtitle can go here (optional)</span><span class="arrow"> <i></i></span></label></h3>
               <div class="collapsing-section" aria-hidden="true" id="id-panel-content-2">
+                <h4>Heading</h4>
+                <p> Content related to header. </p>
+                <ul>
+                  <li>If dot points are available</li>
+                  <li>Can go here</li>
+                </ul>
+                <p>Or provide any semantic html structure</p>
+                  <button type="button" class="qg-btn btn-default">Default</button>
+                  <button type="button" class="qg-btn btn-primary">Primary</button>
+                  <button type="button" class="qg-btn btn-secondary">Primary Alt</button>
+                  <button type="button" class="qg-btn btn-link">Link</button>
+              </div>
+            </article>
+          </section>
+
+          <section class="qg-accordion mt-5" aria-label="Accordion Label">
+            <input type="radio" name="control" id="collapse" class="controls collapse" value="collapse" role="radio">
+            <label for="collapse" class="controls">Collapse all</label>
+            <span class="controls">&#124;</span>
+            <input type="radio" name="control" id="expand" class="controls expand" value="expand" role="radio">
+            <label for="expand" class="controls">Expand all</label>
+
+            <article>
+              <input id="without-icon-1" type="checkbox" name="tabs" aria-controls="id-panel-content-1" aria-expanded="false" role="checkbox">
+              <h3 class="acc-heading"><label for="without-icon-1"><span class="title">Without icon</span> <span class="subtitle">Subtitle can go here (optional)</span><span class="arrow"> <i></i></span></label></h3>
+              <div class="collapsing-section"  aria-hidden="true" id="id-panel-content-1">
                 <p> Content related to header. </p>
                 <ul>
                   <li>If dot points are available</li>
@@ -217,7 +242,26 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <p>Or provide any semantic html structure</p>
               </div>
             </article>
+            <article>
+              <input id="with-icon-1" type="checkbox" name="tabs" aria-controls="id-panel-content-2" aria-expanded="false" role="checkbox">
+              <h3 class="acc-heading"><img src="https://placeimg.com/20/20/nature" alt=""><label for="with-icon-1"><span class="title">With icon</span> <span class="subtitle">Subtitle can go here (optional)</span><span class="arrow"> <i></i></span></label></h3>
+              <div class="collapsing-section" aria-hidden="true" id="id-panel-content-2">
+                <h4>Heading</h4>
+                <p> Content related to header. </p>
+                <ul>
+                  <li>If dot points are available</li>
+                  <li>Can go here</li>
+                </ul>
+                <p>Or provide any semantic html structure</p>
+                <button type="button" class="qg-btn btn-default">Default</button>
+                <button type="button" class="qg-btn btn-primary">Primary</button>
+                <button type="button" class="qg-btn btn-secondary">Primary Alt</button>
+                <button type="button" class="qg-btn btn-link">Link</button>
+              </div>
+            </article>
           </section>
+
+
 
           </br><p> HTML </p>
 
@@ -231,7 +275,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
                     &lt;article>
                         &lt;input id="without-icon" type="checkbox" name="tabs" aria-controls="id-panel-content-1" aria-expanded="false" role="checkbox">
-                        &lt;h3 class="acc-heading">&lt;label for="without-icon">Without icon &lt;span class="subtitle">Subtitle can go here (optional)&lt;/span>&lt;span class="arrow"> &lt;i>&lt;/i>&lt;/span>&lt;/label>&lt;/h3>
+                        &lt;h3 class="acc-heading">&lt;label for="without-icon">&lt;span class="title"&gt;Without icon&lt;/span&gt; &lt;span class="subtitle">Subtitle can go here (optional)&lt;/span>&lt;span class="arrow"> &lt;i>&lt;/i>&lt;/span>&lt;/label>&lt;/h3>
                         &lt;div class="collapsing-section"  aria-hidden="true" id="id-panel-content-1">
                             &lt;p> Content related to header. &lt;/p>
                             &lt;ul>
@@ -258,9 +302,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
         <h2 class="category" id="alerts">Alerts</h2>
         <p><span class="label label-primary" title="Heavily customised bootstrap implementation">Customised</span></p>
-        <p>Alerts are used to help direct a user's attention to important snippets of information such as an excerpt of text, notification or error message.</p>
-        <p>The thick lefthand border, typography, colours and padding have been used to achieve greater visual prominence and convey the message type. The use of an icon may increase this prominence and enhance understanding.</p>
-        <p>Inline icons are optional and to be selected from the <a href="https://fontawesome.com/icons?d=gallery&m=free"target="_blank">Font Awesome</a> icon set.</p>
+        <p>Alerts are used to notify users of important time-sensitive information or changes, in a way that attracts the user's attention.</p>
+        <p>This component is assigned <code>role="alert"</code> to signify information requiring the user's immediate attention. For people using assistive technologies, this role will listen for such an event and notify the user accordingly:</p>
+        <ul>
+          <li>Screen readers may immediately announce or display the alert message</li>
+          <li>Screen magnifiers may visually indicate that an alert occurred and what the alert text was</li>
+        </ul>
+        <p> Usage considerations</p>
+        <ul>
+          <li>If this component is used incorrectly (e.g. to display content that doesn't require the user's immediate attention), this may pose an accessibility issue.</li>
+          <li>Inline icons are optional and to be selected from the Font Awesome (Opens in new window) icon set</li>
+        </ul>
         <p>See <a href="https://getbootstrap.com/components/#alerts">Bootstrap alerts documentation</a> for more information.</p>
 
         <h3> Success message </h3>
@@ -1004,8 +1056,46 @@ Publishers may use blockquotes to indicate the quotation of a section of text fr
 
         <div class="qg-tmplt-example">
           <div class="panel-body">
-            <nav aria-label="Page navigation">
-              <ul class="pagination"><li class="page-item prev"><a href="#pagination" class="page-link"><span aria-hidden="true">«</span> Previous</a></li><li class="page-item active"><a href="#pagination" class="page-link">1</a></li><li class="page-item"><a href="#pagination" class="page-link">2</a></li><li class="page-item"><a href="#pagination" class="page-link">3</a></li><li class="page-item next"><a href="#pagination" class="page-link">Next <span aria-hidden="true">»</span></a></li></ul>
+            <nav aria-label="Page navigation example">
+              <ul class="pagination">
+                <li class="page-item"><a class="page-link" href="rem#"><i class="fa fa-angle-left" aria-hidden="true"></i> Previous</a></li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"> <a class="page-link" href="#">Next <i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+              </ul>
+            </nav>
+            <nav aria-label="Page navigation example">
+              <ul class="pagination flex-wrap">
+                <li class="page-item disabled"><a class="page-link" href="#"><i class="fa fa-angle-left" aria-hidden="true"></i> Previous</a></li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                <li class="page-item"><a class="page-link" href="#">5</a></li>
+                <li class="page-item"><a class="page-link" href="#">6</a></li>
+                <li class="page-item"><a class="page-link" href="#">7</a></li>
+                <li class="page-item"><a class="page-link" href="#">8</a></li>
+                <li class="page-item"><a class="page-link" href="#">9</a></li>
+                <li class="page-item"><a class="page-link" href="#">10</a></li>
+                <li class="page-item"> <a class="page-link" href="#">Next <i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+              </ul>
+            </nav>
+            <nav aria-label="...">
+              <ul class="pagination flex-wrap">
+                <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-left" aria-hidden="true"></i> Previous</a></li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item active">
+      <span class="page-link">
+        2
+        <span class="sr-only">(current)</span>
+      </span>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item disabled">
+                  <a class="page-link" href="#">Next <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                </li>
+              </ul>
             </nav>
           </div>
         </div>
@@ -1785,7 +1875,7 @@ Publishers may use blockquotes to indicate the quotation of a section of text fr
             <li><a href="https://www.qld.gov.au/about/how-government-works/">How government works</a></li>
             <li><a href="https://data.qld.gov.au/">Queensland Government data</a></li>
             <li><a href="https://publications.qld.gov.au/">Queensland Government publications</a></li>
-            <li><a href="https://www.forgov.qld.gov.au/?utm_medium=website&utm_source=qgov-site&utm_campaign=dsiti-for-gov&utm_content=swe-footer">For government employees</a></li>
+            <li><a href="https://www.forgov.qld.gov.au/?utm_medium=website&utm_source=qgov-site&utm_campaign=dsiti-for-gov&utm_content=swe-footer">Government employees</a></li>
         </ul>
     </div>
 

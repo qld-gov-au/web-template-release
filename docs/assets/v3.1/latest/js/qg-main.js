@@ -2534,6 +2534,7 @@
 	(function ($) {
 	  var accordion = '.qg-accordion';
 	  if ($(accordion).length > 0) {
+	    var tabindex = 1;
 	    var accordionControls = 'input[name=control]';
 	    var linkedpanel = window.location.hash && $('input[aria-controls=' + window.location.hash.substring(1) + ']');
 	
@@ -2548,15 +2549,50 @@
 	    });
 	
 	    //expand all click
-	    $(accordion).find(accordionControls).on('change', function () {
-	      $(this).find('~ article input').prop('checked', $(this).val() === 'expand');
-	      $(accordion).find('article input').trigger('change');
+	    $("label[for='expand']").click(function (e) {
+	      e.preventDefault();
+	      $(this).parent('.qg-accordion').find('input:checkbox').prop('checked', true);
 	    });
 	
-	    //Ability to direct link to each section and expand the linked section
-	    if (linkedpanel.length > 0) {
-	      linkedpanel.prop('checked', true);
-	    }
+	    // collapse all click
+	    $("label[for='collapse']").click(function (e) {
+	      e.preventDefault();
+	      $(this).parent('.qg-accordion').find('input:checkbox').prop('checked', false);
+	    });
+	
+	    // open on page load
+	    var hashTrigger = function hashTrigger() {
+	      linkedpanel = window.location.hash && $('input[aria-controls=' + window.location.hash.substring(1) + ']');
+	      if (linkedpanel.length > 0) {
+	        linkedpanel.parents(accordion).find('~ article input').prop('checked', false); //clears expand/collapse selection
+	        linkedpanel.prop('checked', true);
+	        $('html, body').animate({
+	          'scrollTop': linkedpanel.offset().top },
+	        500);
+	      }
+	    };
+	    hashTrigger();
+	    window.onhashchange = hashTrigger;
+	
+	    // inserting tab index dynamically
+	    $('.qg-accordion .acc-heading').each(function () {
+	      if (this.type !== 'hidden') {
+	        var $input = $(this);
+	        $input.attr('tabindex', tabindex);
+	        tabindex++;
+	      }
+	    });
+	    $('input[name=tabs]').click(function () {
+	      $(this).parent('article').find('.acc-heading').focus();
+	    });
+	
+	    // highlight title on hover
+	    $('.qg-accordion article').hover(function () {
+	      $(accordion).find('.title').removeClass('ht');
+	      $(this).find('.title').addClass('ht');
+	    }, function () {
+	      $(accordion).find('.title').removeClass('ht');
+	    });
 	  }
 	})(jQuery);
 
@@ -2857,21 +2893,24 @@
 	  'use strict';
 	  var linkType = '.PDF$|.DOC$|.DOCX$|.XLS$|.XLSX$|.RTF$';
 	  var contentType = 'PDF|DOC|DOCX|XLS|XLSX|RTF';
-	  // onready
 	  $(document).ready(function () {
 	    $('a', '#qg-primary-content, #qg-secondary-content').each(function () {
 	      var $this = $(this);
 	      var linkRegex = new RegExp(linkType, 'i');
-	      var contentRegex = new RegExp(contentType, 'i');
+	      // check to see if a link with a selected linkType exist
+	      // Example - cue-template-change-log.pdf|rtf...
 	      if (linkRegex.test($this.attr('href'))) {
-	        var linkText = $this.text();
-	        if (contentRegex.test(linkText)) {
-	          if (/\.\d*?/.test(linkText) && /KB/.test(linkText)) {
-	            var extractSize = new RegExp('\\((?:' + contentType.toUpperCase() + '),?\\s+[0-9\\.]+\\s*[KM]B\\)', 'i');
-	            linkText.match(extractSize) ? $(this).find('.meta').empty().append(linkText.match(extractSize)[0].toUpperCase().replace(/(\.\d*)/gi, '')) : '';
-	          }
-	        } else {
-	          linkText = $this.attr('href').replace(/^.*\.(.+)$/, '$1').toUpperCase();
+	        var contentRegex = new RegExp(contentType);
+	        var currContent = $this.text();
+	        if (/\.\d*?/.test(currContent)) {
+	          // check to see if decimals exist, if yes then round then off
+	          // Example (PDF 106.66) -> (PDF 106)
+	          var extractSize = new RegExp('\\((?:' + contentType.toUpperCase() + '),?\\s+[0-9\\.]+\\s*[KM]B\\)', 'i');
+	          currContent.match(extractSize) ? $(this).find('.meta').empty().append(currContent.match(extractSize)[0].toUpperCase().replace(/(\.\d*)/gi, '')) : '';
+	        } else if (!contentRegex.test(currContent)) {
+	          // check to see there is no doc type present in the content section
+	          // If yes then insert <span class="meta">PDF</span>
+	          var linkText = $this.attr('href').replace(/^.*\.(.+)$/, '$1').toUpperCase();
 	          $this.append(' <span class="meta">(' + linkText + ')</span>');
 	        }
 	      }
