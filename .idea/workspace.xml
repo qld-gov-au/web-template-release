@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="98dcb8ab-0cb6-477f-a4d8-e2bac3dedeb1" name="Default Changelist" comment="SWE 3.1.5 testing" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="release-v3.1.5" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1RMUWQp2TWKPxiEa5AfHsIBEUwB" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView />
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="98dcb8ab-0cb6-477f-a4d8-e2bac3dedeb1" name="Default Changelist" comment="" />
+      <created>1561004596285</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1561004596285</updated>
+      <workItem from="1561004597407" duration="1664000" />
+      <workItem from="1569476491015" duration="614000" />
+      <workItem from="1570682598878" duration="8216000" />
+    </task>
+    <task id="LOCAL-00001" summary="SWE 3.1.5 testing">
+      <created>1561007175234</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1561007175234</updated>
+    </task>
+    <task id="LOCAL-00002" summary="v3.1.8 testing">
+      <created>1570682945802</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1570682945802</updated>
+    </task>
+    <task id="LOCAL-00003" summary="v3.1.8 testing">
+      <created>1570689723063</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1570689723063</updated>
+    </task>
+    <task id="LOCAL-00004" summary="v3.1.8 testing">
+      <created>1570691282250</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1570691282250</updated>
+    </task>
+    <task id="LOCAL-00005" summary="v3.1.8 testing">
+      <created>1570753369587</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1570753369587</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="SWE 3.1.5 testing" />
+    <MESSAGE value="v3.1.8 testing" />
+    <option name="LAST_COMMIT_MESSAGE" value="v3.1.8 testing" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="799" height="548" key="Git.Branch.Popup" timestamp="1570682838467">
+      <screen x="1920" y="0" width="1920" height="1200" />
+    </state>
+    <state width="799" height="548" key="Git.Branch.Popup/0.25.1920.1175/1920.0.1920.1200@1920.0.1920.1200" timestamp="1570682838467" />
+    <state width="797" height="546" key="Git.Branch.Popup/1920.1200/1920.1200" timestamp="1570682818301" />
+    <state width="797" height="546" key="Git.Branch.Popup@1920.1200" timestamp="1570682818301" />
+    <state x="555" y="347" width="806" height="547" key="Vcs.Push.Dialog.v2" timestamp="1570753370502">
+      <screen x="0" y="25" width="1920" height="1175" />
+    </state>
+    <state x="555" y="347" key="Vcs.Push.Dialog.v2/0.25.1920.1175/1920.0.1920.1200@0.25.1920.1175" timestamp="1570753370502" />
+    <state x="2475" y="329" width="806" height="547" key="Vcs.Push.Dialog.v2/0.25.1920.1175/1920.0.1920.1200@1920.0.1920.1200" timestamp="1570691283339" />
+    <state x="2543" y="269" width="672" height="678" key="search.everywhere.popup" timestamp="1570682820922">
+      <screen x="1920" y="0" width="1920" height="1200" />
+    </state>
+    <state x="2543" y="269" width="672" height="678" key="search.everywhere.popup/0.25.1920.1175/1920.0.1920.1200@1920.0.1920.1200" timestamp="1570682820922" />
+  </component>
+</project>
