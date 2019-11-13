@@ -63,7 +63,7 @@
       <workItem from="1572406906993" duration="3183000" />
       <workItem from="1572569827163" duration="142000" />
       <workItem from="1572569991497" duration="5000" />
-      <workItem from="1573614391419" duration="646000" />
+      <workItem from="1573614391419" duration="1074000" />
     </task>
     <task id="LOCAL-00001" summary="SWE 3.1.5 testing">
       <created>1561007175234</created>
@@ -198,7 +198,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573614434675</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="SWE 3.1.8 testing">
+      <created>1573615854077</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1573615854077</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -221,10 +228,10 @@
       <screen x="0" y="25" width="1920" height="1175" />
     </state>
     <state x="541" y="350" width="830" height="527" key="IDE.errors.dialog/0.25.1920.1175/1920.0.1920.1200@0.25.1920.1175" timestamp="1572304073404" />
-    <state x="2475" y="329" width="806" height="547" key="Vcs.Push.Dialog.v2" timestamp="1573614435821">
-      <screen x="1920" y="0" width="1920" height="1200" />
+    <state x="555" y="347" width="806" height="547" key="Vcs.Push.Dialog.v2" timestamp="1573615855342">
+      <screen x="0" y="25" width="1920" height="1175" />
     </state>
-    <state x="555" y="347" width="806" height="547" key="Vcs.Push.Dialog.v2/0.25.1920.1175/1920.0.1920.1200@0.25.1920.1175" timestamp="1572315812447" />
+    <state x="555" y="347" width="806" height="547" key="Vcs.Push.Dialog.v2/0.25.1920.1175/1920.0.1920.1200@0.25.1920.1175" timestamp="1573615855342" />
     <state x="2475" y="329" width="806" height="547" key="Vcs.Push.Dialog.v2/0.25.1920.1175/1920.0.1920.1200@1920.0.1920.1200" timestamp="1573614435821" />
     <state x="2543" y="269" width="672" height="678" key="search.everywhere.popup" timestamp="1570682820922">
       <screen x="1920" y="0" width="1920" height="1200" />
