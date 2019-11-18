@@ -27,10 +27,21 @@
     <meta name="AGLSTERMS.documentType" scheme="AGLSTERMS.agls-document" content="guidelines">
     <meta name="DCTERMS.audience" scheme="AGLSTERMS.agls-audience" content="">
     <meta name="DCTERMS.jurisdiction" scheme="AGLSTERMS.AglsJuri" content="Queensland">
+    
+    <!-- Open graph -->
+    <meta property="og:title" content="Queensland Government">
+    <meta property="og:description" content="DESCRIPTION">
+    <meta property="og:image" content="/assets/v3.1/latest/images/coat-of-arms/coa-thumbnail.png">
+    <meta property="og:url" content="">
+    <meta property="og:type" content="article" /> 
 
-    <!-- GLUE Alpha Build Date: xxx -->
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Queensland Government" />
+    <meta name="twitter:description" content="DESCRIPTION" />
+    <meta name="twitter:image" content="/assets/v3.1/latest/images/coat-of-arms/coa-thumbnail.png" />
 
-<meta name="DCTERMS.license" scheme="DCTERMS.URI" content="https://creativecommons.org/licenses/by/4.0/">
+    <meta name="DCTERMS.license" scheme="DCTERMS.URI" content="https://creativecommons.org/licenses/by/4.0/">
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -65,7 +76,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	<h2 id="landmark-label" tabindex="0">Skip links and keyboard navigation</h2>
 	<ul>
 		<li><a id="skip-to-content" href="#qg-primary-content">Skip to content</a></li>
-		<li id="access-instructions"><a href="/help/accessibility/keyboard.html#section-aria-keyboard-navigation">Use tab and cursor keys to move around the page (more information)</a></li>
+		<li id="access-instructions"><a href="https://www.qld.gov.au/help/keyboard#section-aria-keyboard-navigation">Use tab and cursor keys to move around the page (more information)</a></li>
 	</ul>
 </section>
 
@@ -108,7 +119,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </ul>
 
 
-            <form action="https://find.search.qld.gov.au/s/search.html" id="qg-search-form" role="search" class="collapse col-xs-12 col-md-3">
+            <form action="https://www.qld.gov.au/search" id="qg-search-form" role="search" class="collapse col-xs-12 col-md-3 qg-search-form">
     <div class="input-group">
         <label for="qg-search-query" class="qg-visually-hidden">Search Queensland Government</label>
         <input type="text" name="query" id="qg-search-query" class="form-control" placeholder="Search website" tabindex="0" aria-required="true" aria-expanded="false"/>
@@ -122,6 +133,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <input type="hidden" name="collection" value="qld-gov">
     <input type="hidden" name="profile" value="qld">
 </form>
+
+
 
             <!-- global alert -->
 
@@ -145,6 +158,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	<ul>
 		<li><a href="https://www.qld.gov.au/queenslanders/">For Queenslanders</a></li>
 		<li><a href="https://www.business.qld.gov.au/">Business and industry</a></li>
+    <li><a href="https://www.forgov.qld.gov.au/">Government employees</a></li>
 	</ul>
 </nav>
 
@@ -392,6 +406,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                       </div>
                     </li>
 
+                    <li id="feedback-captcha-container2" class="col-md-12">
+                        <div class="form-group">
+                            <label for="feedback-captchaCatch">Please leave this blank (this helps us identify automatic spam)</label>
+                            <input class="form-control" type="text" name="captchaCatch" id="feedback-captchaCatch" value="" />
+                        </div>
+                    </li>
+
                     <li id="feedback-captcha-container" class="col-md-12">
                       <div class="form-group">
                           <label for="feedback-captcha">Please leave this blank (this helps us identify automatic spam)</label>
@@ -405,11 +426,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <ul class="actions">
 
                             <li>
-                                <button type="submit" value="Submit feedback" class="btn btn-primary">Submit feedback</button>
+                                <button type="submit" value="Submit feedback" class="qg-btn btn-primary">Submit feedback</button>
                             </li>
 
                         </ul>
-
+                        <p class="captchaPrivacyTerms">
+                                This site is protected by reCAPTCHA and the Google
+                                <a href="https://policies.google.com/privacy">Privacy Policy</a> and
+                                <a href="https://policies.google.com/terms">Terms of Service</a> apply.
+                        </p>
                     </li>
 
                 </ol>
@@ -441,7 +466,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <li><a href="https://www.qld.gov.au/about/how-government-works/">How government works</a></li>
             <li><a href="https://data.qld.gov.au/">Queensland Government data</a></li>
             <li><a href="https://publications.qld.gov.au/">Queensland Government publications</a></li>
-            <li><a href="https://www.forgov.qld.gov.au/?utm_medium=website&utm_source=qgov-site&utm_campaign=dsiti-for-gov&utm_content=swe-footer">For government employees</a></li>
+            <li><a href="https://www.forgov.qld.gov.au/?utm_medium=website&utm_source=qgov-site&utm_campaign=dsiti-for-gov&utm_content=swe-footer">Government employees</a></li>
         </ul>
     </div>
 

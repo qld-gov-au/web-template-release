@@ -8,9 +8,18 @@
   padding: 1.6rem 3.2rem;
 }
 
-.download{
+a{
   .meta{
     display: inline-block;
     text-decoration: none;
+  }
+}
+
+//table style
+.qg-table{
+  @extend .table;
+  thead > tr > th, thead > tr > td {
+    background-color: $qg-blue-dark;
+    color: #fff;
   }
 }

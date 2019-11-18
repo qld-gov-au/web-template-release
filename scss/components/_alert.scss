@@ -36,9 +36,6 @@
     margin: 0;
     border-radius: 0;
     padding: 0.75rem 1.25rem;
-    ul {
-      padding-left: 0 !important;
-    }
     h2{
       i {
         @include rem(font-size, 24px);
@@ -81,17 +78,4 @@
   &.info, &.tip{
     border-color: $brand-info;
   }
-}
-
-// links
-a {
-  color: #13578b;
-  text-decoration: none;
-}
-a:focus, a:hover {
-  color: #0a2d48;
-  text-decoration: underline;
-}
-a:active, a:hover {
-  outline: 0;
 }
