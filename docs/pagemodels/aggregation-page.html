@@ -28,6 +28,19 @@
     <meta name="DCTERMS.audience" scheme="AGLSTERMS.agls-audience" content="">
     <meta name="DCTERMS.jurisdiction" scheme="AGLSTERMS.AglsJuri" content="Queensland">
 
+    <!-- Open graph -->
+    <meta property="og:title" content="Queensland Government">
+    <meta property="og:description" content="DESCRIPTION">
+    <meta property="og:image" content="https://static.qgov.net.au/assets/v3.1/latest/images/coat-of-arms/coa-thumbnail.png">
+    <meta property="og:url" content="">
+    <meta property="og:type" content="article" /> 
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Queensland Government" />
+    <meta name="twitter:description" content="DESCRIPTION" />
+    <meta name="twitter:image" content="https://static.qgov.net.au/assets/v3.1/latest/images/coat-of-arms/coa-thumbnail.png" />
+
     <meta name="DCTERMS.license" scheme="DCTERMS.URI" content="https://creativecommons.org/licenses/by/4.0/">
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -106,7 +119,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </ul>
 
 
-            <form action="https://www.qld.gov.au/search" id="qg-search-form" role="search" class="collapse col-xs-12 col-md-3">
+            <form action="https://www.qld.gov.au/search" id="qg-search-form" role="search" class="collapse col-xs-12 col-md-3 qg-search-form">
     <div class="input-group">
         <label for="qg-search-query" class="qg-visually-hidden">Search Queensland Government</label>
         <input type="text" name="query" id="qg-search-query" class="form-control" placeholder="Search website" tabindex="0" aria-required="true" aria-expanded="false"/>
@@ -120,6 +133,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <input type="hidden" name="collection" value="qld-gov">
     <input type="hidden" name="profile" value="qld">
 </form>
+
 
 
             <!-- global alert -->
@@ -400,6 +414,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                       </div>
                     </li>
 
+                    <li id="feedback-captcha-container2" class="col-md-12">
+                        <div class="form-group">
+                            <label for="feedback-captchaCatch">Please leave this blank (this helps us identify automatic spam)</label>
+                            <input class="form-control" type="text" name="captchaCatch" id="feedback-captchaCatch" value="" />
+                        </div>
+                    </li>
+
                     <li id="feedback-captcha-container" class="col-md-12">
                       <div class="form-group">
                           <label for="feedback-captcha">Please leave this blank (this helps us identify automatic spam)</label>
@@ -417,7 +438,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             </li>
 
                         </ul>
-
+                        <p class="captchaPrivacyTerms">
+                                This site is protected by reCAPTCHA and the Google
+                                <a href="https://policies.google.com/privacy">Privacy Policy</a> and
+                                <a href="https://policies.google.com/terms">Terms of Service</a> apply.
+                        </p>
                     </li>
 
                 </ol>
