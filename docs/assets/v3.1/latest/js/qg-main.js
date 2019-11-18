@@ -84,7 +84,7 @@
 	
 	window.qg = window.qg || {};
 	window.qg.swe = window.qg.swe || {};
-	window.qg.cdn = window.qg.swe.isProduction === false ? 'https://beta-static.qgov.net.au' : 'https://static.qgov.net.au';
+	window.qg.cdn = window.qg.swe.isProduction === false ? 'https://beta-beta-static.qgov.net.au' : 'https://beta-static.qgov.net.au';
 	window.qg.swe.assets = '/assets/v3.1/latest/';
 	
 	window.qg.swe.paths = {
@@ -3065,8 +3065,8 @@
 
 	'use strict';if ($("script[src*='jquery.fancybox']").length === 0) {
 	  if ($('.qg-image-gallery').length > 0 || $('.qg-lightbox').length > 0 || $('.image-gallery').length > 0 || $('.cut-in').length > 0) {
-	    $('head').append($("<link rel='stylesheet' href='https://static.qgov.net.au/assets/v3.1/latest/lib/ext/fancybox/jquery.fancybox.min.css' type='text/css' media='screen' />"));
-	    $.getScript('https://static.qgov.net.au/assets/v3.1/latest/lib/ext/fancybox/jquery.fancybox.min.js', function () {
+	    $('head').append($("<link rel='stylesheet' href='https://beta-static.qgov.net.au/assets/v3.1/latest/lib/ext/fancybox/jquery.fancybox.min.css' type='text/css' media='screen' />"));
+	    $.getScript('https://beta-static.qgov.net.au/assets/v3.1/latest/lib/ext/fancybox/jquery.fancybox.min.js', function () {
 	      // image gallery
 	      $('.qg-image-gallery, .image-gallery').each(function (index) {
 	        $(this).find('a').each(function () {
