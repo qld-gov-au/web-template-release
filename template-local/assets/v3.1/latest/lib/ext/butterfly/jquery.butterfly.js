@@ -1,10 +1,10 @@
-/*! SWE 3.1.8 2019101T911 */
+/*! SWE 3.1.8 2019101T1259 */
 !function(e){function t(n){if(i[n])return i[n].exports;var a=i[n]={i:n,l:!1,exports:{}};return e[n].call(a.exports,a,a.exports,t),a.l=!0,a.exports}var i={};t.m=e,t.c=i,t.i=function(e){return e},t.d=function(e,i,n){t.o(e,i)||Object.defineProperty(e,i,{configurable:!1,enumerable:!0,get:n})},t.n=function(e){var i=e&&e.__esModule?function(){return e.default}:function(){return e};return t.d(i,"a",i),i},t.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},t.p="",t(t.s=0)}([function(e,t){/*
  * "Float like a butterfly"
  *              Muhammad Ali (a not-so-lightboxer).
- * 
+ *
  * jquery.butterfly is a fairly light-weight and fully accessible lightbox implementation for jQuery.
- * 
+ *
  * jquery.butterfly.js
  * @version 0.13
  * Changelog:
@@ -25,10 +25,10 @@
  * @author Andrew Ramsden <http://irama.org/>
  * @see http://irama.org/web/dhtml/butterfly/
  * @license GNU GENERAL PUBLIC LICENSE (GPL) <http://www.gnu.org/licenses/gpl.html>
- * 
+ *
  * @requires jQuery (tested with 1.8.3) <http://jquery.com/>
  * @requires jQuery jARIA plugin <http://outstandingelephant.com/jaria/>
- * 
+ *
  * @optional (but reccommended) jQuery ResizeEvents plugin <http://irama.org/web/dhtml/resize-events/>
  * @optional (but reccommended) jQuery Got Style? plugin <http://irama.org/web/dhtml/got-style/>
  * @optional (but reccommended) jQuery ARIA keyboard navigation plugin <http://irama.org/web/dhtml/aria/key-nav/>
