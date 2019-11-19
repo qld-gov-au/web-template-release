@@ -46,18 +46,18 @@
 
 	'use strict';
 	var _qgEnv = __webpack_require__(1);var _qgEnv2 = _interopRequireDefault(_qgEnv);
-
-
+	
+	
 	__webpack_require__(2);
-
-
+	
+	
 	__webpack_require__(8);
 	__webpack_require__(9);
-
-
+	
+	
 	__webpack_require__(10);
-
-
+	
+	
 	__webpack_require__(25);
 	var _sectionNav = __webpack_require__(26);var _sectionNav2 = _interopRequireDefault(_sectionNav);
 	var _stepNav = __webpack_require__(27);var _stepNav2 = _interopRequireDefault(_stepNav);
@@ -81,12 +81,12 @@
 /***/ (function(module, exports) {
 
 	'use strict'; // All the environment related SWE3 code
-
+	
 	window.qg = window.qg || {};
 	window.qg.swe = window.qg.swe || {};
-	window.qg.cdn = window.qg.swe.isProduction === false ? 'https://beta-beta-static.qgov.net.au' : 'https://beta-static.qgov.net.au';
+	window.qg.cdn = window.qg.swe.isProduction === false ? 'https://beta-static.qgov.net.au' : 'https://static.qgov.net.au';
 	window.qg.swe.assets = '/assets/v3.1/latest/';
-
+	
 	window.qg.swe.paths = {
 	  images: window.qg.swe.assets + 'images' };
 
@@ -104,7 +104,7 @@
 /***/ (function(module, exports) {
 
 	'use strict'; /*globals qg*/
-
+	
 	(function ($, swe) {
 	  /**
 	                     * Gets parameter value
@@ -127,7 +127,7 @@
 	    contentDefaultWidth: '90%',
 	    contentDefaultHeight: '90%',
 	    reuseFragment: true });
-
+	
 	})(jQuery, qg.swe);
 
 /***/ }),
@@ -149,7 +149,7 @@
 	      error: function error() {
 	        console.log(errorMsg);
 	      } });
-
+	
 	  };
 	})(jQuery, qg.swe);
 
@@ -158,17 +158,17 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
-
-
-
+	
+	
+	
 	var _qgGoogleKeys = __webpack_require__(6);var _qgGoogleKeys2 = _interopRequireDefault(_qgGoogleKeys);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-
+	
 	(function (qg, $) {
 	  'use strict';
 	  var googleApiKey = void 0;
 	  var firstFolderPath = location.pathname.split('/')[1];
 	  var $mapImg = $('.qg-static-map');
-
+	
 	  // check if the hostname contains a specific word and assign the key accordingly
 	  if (window.location.hostname.search(/\bgithub\b/) !== -1) {
 	    console.log('docs key in use');
@@ -179,7 +179,7 @@
 	  } else {
 	    googleApiKey = _qgGoogleKeys2.default.defGoogle.prod;
 	  }
-
+	
 	  // check if first folder path exist and match to see if this is a valid franchise name or not
 	  if (firstFolderPath) {
 	    _qgGoogleKeys2.default.franchises.forEach(function (e) {
@@ -195,7 +195,7 @@
 	    var height = ele.attr('data-height') || 189;
 	    return 'https://maps.googleapis.com/maps/api/staticmap?size=373x' + height + '&maptype=roadmap&markers=' + lat + '%2C' + lon + '&key=' + googleApiKey + '&sensor=false&zoom=' + zoom;
 	  }
-
+	
 	  if ($mapImg.length > 0) {
 	    var htmlInsert = $('<div>');
 	    $mapImg.each(function () {
@@ -265,16 +265,16 @@
 	* [TODO: Write about what this is for, to make it easier for future
 	* developers to know what to put into it, and what not to.]
 	* ======================================================================== */
-
+	
 	'use strict';
-
+	
 	// FIXME: Reports linting error as it's defined as a module, but never used
 	//If this is not in use then we can can delete?
 	var parentWidth = function ($) {
 	  var $target = $('*[data-parent-width=true], *[data-parent-width=1]');
 	  $target.outerWidth($target.parent().width());
 	}(jQuery);
-
+	
 	module.exports = parentWidth;
 
 /***/ }),
@@ -286,26 +286,26 @@
 	                                                                                                                                                                                                                                                                                        * Copyright (c) 2014 Ben Boyle; Licensed MIT */
 	(function ($) {
 	  'use strict';
-
-
+	
+	
 	  var SUBMIT_TOLERANCE = 10000,
 	  DEFAULT_STATUS_HTML = '<div class="alert alert-warning" role="alert"><div class="inner"><h2><i class="fa fa-exclamation-triangle"></i>Please check your answers</h2><ol></ol></div></div>',
 	  // fields that validate
 	  candidateForValidation = 'input, select, textarea',
-
-
+	
+	
 	  // invalidFilter
 	  invalidFilter = function invalidFilter() {
 	    return !(this.disabled || this.validity.valid);
 	  },
-
-
+	
+	
 	  // follow plugin conventions for storing plugin data
 	  // http://docs.jquery.com/Plugins/Authoring#Data
 	  pluginDataKey = 'formValidation',
 	  pluginData = function pluginData(key, value) {
 	    var dataHash = this.data(pluginDataKey) || this.data(pluginDataKey, {}).data(pluginDataKey);
-
+	
 	    if (typeof key !== 'undefined') {
 	      if (typeof value !== 'undefined') {
 	        dataHash[key] = value;
@@ -315,18 +315,18 @@
 	      }
 	      return null;
 	    }
-
+	
 	    return dataHash;
 	  },
-
-
+	
+	
 	  // helper for .label, .hint and .alert
 	  getLabelComponent = function getLabelComponent(component, options) {
 	    return this.map(function (index, domElement) {
 	      var $element = $(domElement),
 	      labelElement = null,
 	      foundElement = null;
-
+	
 	      if ((typeof options === 'undefined' ? 'undefined' : _typeof(options)) === 'object' && options.level === 'group') {
 	        foundElement = $element.formValidation('group').find(component)[0];
 	      } else if ($element.is(':radio, :checkbox')) {
@@ -344,14 +344,14 @@
 	      return foundElement;
 	    });
 	  },
-
-
+	
+	
 	  changeValidityCheck = function changeValidityCheck() {
 	    var $this = $(this),
 	    alertElement = $this.formValidation('alert'),
 	    alertLevel,
 	    invalidContainers;
-
+	
 	    // is this control valid?
 	    if (this.validity.valid) {
 	      // is it part of a group that contain other invalid controls?
@@ -367,7 +367,7 @@
 	          alertElement.remove();
 	        }
 	      }
-
+	
 	      // remove invalid class from ancestors that do not contain invalid fields
 	      $this.parentsUntil('form', '.invalid').filter(function () {
 	        return $(this).find(candidateForValidation).filter(invalidFilter).length === 0;
@@ -388,29 +388,29 @@
 	      if ($this.formValidation('group').hasClass('atomic')) {
 	        alertLevel = { 'level': 'group' };
 	      }
-
+	
 	      $this.formValidation('label', alertLevel).parent().find('.label, abbr[title="(required)"]').eq(-1).
 	      after(alertElement);
-
+	
 	      // NOTE we don't flag the question as .invalid now
 	      // .invalid only happens on submit, to soften inline validation errors
 	    }
 	  },
-
-
+	
+	
 	  // checks for invalid elements
 	  // returns number of invalid elements
 	  submitValidityCheck = function submitValidityCheck() {
 	    // form object
 	    var form = $(this).closest('form'),
-
+	
 	    // invalid fields
 	    invalid = form.find(candidateForValidation).filter(function invalidFields() {
 	      // skip disabled
 	      if (this.disabled) {
 	        return false;
 	      }
-
+	
 	      // only check radio button groups once (skip individual radio button)
 	      if (this.type === 'radio') {
 	        if (!invalidFields.cache) {
@@ -420,23 +420,23 @@
 	        }
 	        invalidFields.cache[this.name] = true;
 	      }
-
+	
 	      return this.validity && !this.validity.valid;
 	    }),
-
+	
 	    // alert container
 	    alert = pluginData.call(form, 'summaryElement') || pluginData.call(form, 'summaryElement', $(DEFAULT_STATUS_HTML)),
-
+	
 	    // messages within alert
 	    messages = alert.find('ol'),
-
+	
 	    // track groups
 	    lastGroupSeen = true;
-
+	
 	    if (invalid.length > 0) {
 	      // remove old messages
 	      messages.find('li').remove();
-
+	
 	      // add new messages
 	      invalid.each(function () {
 	        // get field
@@ -446,24 +446,24 @@
 	        // get label or group label
 	        label = $this.formValidation('label', {
 	          level: group.length > 0 ? 'group' : null }),
-
+	
 	        labelId,
 	        item;
-
+	
 	        // get the label id
 	        if (label.length > 0) {
 	          labelId = label[0].id || label.generateId('label-' + this.id)[0].id;
 	        } else {
 	          labelId = this.name;
 	        }
-
+	
 	        // get alert item
 	        item = pluginData.call($this, 'summaryElement') || pluginData.call($this, 'summaryElement', $('<li><a href="#' + labelId + '"></a></li>'));
-
+	
 	        if (group.length === 0 || group[0] !== lastGroupSeen) {
 	          // update last group seen
 	          lastGroupSeen = group[0];
-
+	
 	          // create error message with link to label
 	          item.
 	          find('a').
@@ -476,16 +476,16 @@
 	        }
 	      });
 	    }
-
+	
 	    return invalid.length;
 	  },
-
-
+	
+	
 	  submitValidationHandler = function submitValidationHandler(event) {
 	    // validate form
 	    var count = submitValidityCheck.call(this),
 	    form = $(this);
-
+	
 	    // remove invalid class from questions that do not contain invalid fields
 	    form.find('.invalid').filter(function () {
 	      return $(this).find(candidateForValidation).filter(invalidFilter).length === 0;
@@ -495,15 +495,15 @@
 	    // remove old alerts (change handler should have already done this)
 	    .find('.alert').
 	    remove();
-
-
-
+	
+	
+	
 	    // anything invalid?
 	    if (count > 0) {
 	      // cancel submit
 	      event.stopImmediatePropagation();
 	      event.preventDefault();
-
+	
 	      // show the error summary
 	      (function (form) {
 	        var summary = pluginData.call(form, 'summaryElement');
@@ -514,7 +514,7 @@
 	        // focus/scroll summary element
 	        $(window).scrollTop(summary.offset().top);
 	      })(form);
-
+	
 	      // find all the invalid fields
 	      form.find(candidateForValidation).filter(invalidFilter).each(function () {
 	        // update inline alerts
@@ -525,17 +525,17 @@
 	      // but not sections
 	      .not('.section, .compact').
 	      addClass('invalid');
-
-
+	
+	
 	      // trigger x-invalid
 	      form.trigger('x-invalid');
-
+	
 	      // cancel submit
 	      return false;
 	    }
 	  },
-
-
+	
+	
 	  // bind this AFTER the validation handler
 	  // only invoked if validation did not prevent submit
 	  // This will softlock submit if form submit passes this function with in SUBMIT_TOLERANCE timerange
@@ -545,13 +545,13 @@
 	    form = $(this),
 	    summaryElement = pluginData.call(form, 'summaryElement'),
 	    lastSubmitTimeStamp;
-
-
+	
+	
 	    // remove summary element from DOM on successful submit
 	    if (summaryElement) {
 	      summaryElement.remove();
 	    }
-
+	
 	    // is this submit event too soon after the last one?
 	    lastSubmitTimeStamp = pluginData.call(form, 'lastSubmitTimeStamp');
 	    if (lastSubmitTimeStamp && timeStamp - lastSubmitTimeStamp < SUBMIT_TOLERANCE) {
@@ -564,8 +564,8 @@
 	      pluginData.call(form, 'lastSubmitTimeStamp', timeStamp);
 	    }
 	  },
-
-
+	
+	
 	  // plugin methods
 	  methods = {
 	    // $( x ).formValidation( 'alert' ) -- get
@@ -574,7 +574,7 @@
 	      return this.map(function (index, domElement) {
 	        var $element = $(domElement),
 	        group;
-
+	
 	        if ($element.is(':radio, :checkbox') === true) {
 	          return $element.closest('fieldset').find('legend > .alert')[0];
 	        } else {
@@ -588,24 +588,24 @@
 	        }
 	      });
 	    },
-
-
+	
+	
 	    // $( x ).formValidation( 'label' )
 	    // $( x ).formValidation( 'label', { level : group })
 	    // return .label associated with element or containing group
 	    label: function label(options) {
 	      return getLabelComponent.call(this, '.label', options);
 	    },
-
-
+	
+	
 	    // $( x ).formValidation( 'hint' )
 	    // $( x ).formValidation( 'hint', { level : group })
 	    // return .hint associated with element or containing group
 	    hint: function hint(options) {
 	      return getLabelComponent.call(this, '.hint', options);
 	    },
-
-
+	
+	
 	    // $( x ).formValidation( 'question' )
 	    // return question element for item
 	    question: function question(options) {
@@ -614,14 +614,14 @@
 	        // return the group
 	        return this.formValidation('group');
 	      }
-
+	
 	      // not looking for group
 	      return this.map(function (index, domElement) {
 	        return $(domElement).parentsUntil('form', '.questions > li')[0];
 	      });
 	    },
-
-
+	
+	
 	    // $( x ).formValidation( 'group' )
 	    // return group element for item
 	    group: function group() {
@@ -632,8 +632,8 @@
 	        })[0];
 	      });
 	    },
-
-
+	
+	
 	    // $( x ).formValidation( 'validate' )
 	    // binds validation handler functions
 	    // sets @novalidate on form to disable built-in validation
@@ -654,10 +654,10 @@
 	        .find(candidateForValidation).
 	        off('change', changeValidityCheck).
 	        on('change', changeValidityCheck);
-
+	
 	      });
 	    },
-
+	
 	    // jQuery("div.alert.alert-warning").remove(); //as this function only add's to it. submitDoneHandler did the removal on success.
 	    // $( x ).formValidation( 'validate', event )
 	    // validates the form it is attached too
@@ -670,14 +670,14 @@
 	    validateNow: function validateNow(event) {
 	      return submitValidationHandler.call(this, event);
 	    },
-
-
+	
+	
 	    // $( x ).formValidation( 'getValidationMessage' )
 	    // return String validation message, e.g. "Must be completed"
 	    getValidationMessage: function getValidationMessage() {
-
+	
 	      var validityState = this[0].validity;
-
+	
 	      if (typeof validityState === 'undefined' || validityState.valid === true) {
 	        return '';
 	      } else if (validityState.valueMissing) {
@@ -692,9 +692,9 @@
 	        return 'Must be a valid answer';
 	      }
 	    } };
-
-
-
+	
+	
+	
 	  $.fn.formValidation = function (method) {
 	    // Method calling logic
 	    // http://docs.jquery.com/Plugins/Authoring#Plugin_Methods
@@ -705,10 +705,10 @@
 	    } else {
 	      $.error('Method ' + method + ' does not exist on jQuery.formValidation');
 	    }
-
+	
 	  };
-
-
+	
+	
 	  // legacy API
 	  $.fn.forcesForms = $.fn.formValidation;
 	})(jQuery);
@@ -717,8 +717,8 @@
 	             * Copyright (c) 2014 Ben Boyle; Licensed MIT */
 	(function ($) {
 	  'use strict';
-
-
+	
+	
 	  /**
 	                 * Assigns a unique value to `@id` unless hasAttribute( 'id' ) is true
 	                 *
@@ -727,21 +727,21 @@
 	                 * @return jquery object (chaining supported)
 	                 */
 	  $.fn.generateId = function (preferredId) {
-
+	
 	    var i = 1;
-
+	
 	    if (!preferredId) {
 	      preferredId = 'id';
 	    } else {
 	      preferredId = $.trim(preferredId.toLowerCase().replace(/[^a-z0-9_]+/g, ' ')).replace(/\s+/g, '-');
 	    }
-
+	
 	    return this.each(function () {
-
+	
 	      var id;
-
+	
 	      if (!this.getAttribute('id')) {
-
+	
 	        id = preferredId;
 	        while (document.getElementById(id)) {
 	          id = preferredId + String(i);
@@ -750,10 +750,10 @@
 	        this.setAttribute('id', id);
 	      }
 	    });
-
+	
 	  };
-
-
+	
+	
 	})(jQuery);
 	/*! HTML5 constraintValidationAPI - v1.0.7 - 2015-02-19
 	             * https://github.com/bboyle/html5-constraint-validation-API
@@ -762,39 +762,39 @@
 	if (jQuery !== 'undefined') {
 	  (function ($) {
 	    'use strict';
-
-
+	
+	
 	    // http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#valid-e-mail-address
 	    // 1*( atext / "." ) "@" ldh-str 1*( "." ldh-str )
 	    var REXP_EMAIL = /^[A-Za-z0-9!#$%&'*+\-\/=\?\^_`\{\|\}~\.]+@[A-Za-z0-9\-]+(\.[A-Za-z0-9\-]+)*$/,
-
+	
 	    // fields that validate
 	    candidateForValidation = 'input, select, textarea',
-
+	
 	    // for feature detection
 	    input = $('<input>').get(0),
-
+	
 	    // polyfill test
 	    polyfill = _typeof(input.validity) !== 'object',
-
+	
 	    // radio button bug (google earth internal browser)
 	    radioButtonBug = !polyfill && $('<input type="radio" required checked>').get(0).validity.valueMissing === true,
 	    validateBuggyRadioButtons,
-
+	
 	    // invalid fields filter
 	    isInvalid = function isInvalid() {
 	      return !(this.disabled || this.validity.valid);
 	    },
-
+	
 	    // get all radio buttons
 	    getRadioButtonsInGroup = function getRadioButtonsInGroup(radio) {
 	      return $(radio.form.elements[radio.name]).filter('[name="' + radio.name + '"]');
 	    },
-
-
+	
+	
 	    // manage validity state object
 	    validityState = function validityState(typeMismatch, valueMissing, customError, message, patternMismatch) {
-
+	
 	      if (typeof message === 'string') {
 	        customError = !!message;
 	      }
@@ -804,10 +804,10 @@
 	        patternMismatch: !!patternMismatch,
 	        valueMissing: !!valueMissing,
 	        valid: !valueMissing && !customError && !typeMismatch && !patternMismatch };
-
+	
 	    },
-
-
+	
+	
 	    validateField = function validateField(message) {
 	      var $this = $(this),
 	      required = !!$this.attr('required'),
@@ -817,42 +817,42 @@
 	      patternMismatch,
 	      pattern,
 	      newValidityState;
-
-
+	
+	
 	      // radio buttons are required if any single radio button is flagged as required
 	      if (radio && !required) {
 	        required = radio.filter('[required]').length > 0;
 	      }
 	      // if required, check for missing value
 	      if (required) {
-
+	
 	        if (/^select$/i.test(this.nodeName)) {
 	          valueMissing = this.selectedIndex === 0 && this.options[0].value === '';
-
+	
 	        } else if (radio) {
 	          valueMissing = radio.filter(':checked').length === 0;
-
+	
 	        } else if (this.type === 'checkbox') {
 	          valueMissing = !this.checked;
-
+	
 	        } else {
 	          valueMissing = !this.value;
 	        }
-
+	
 	      }
-
+	
 	      if (!!this.getAttribute('pattern')) {
 	        if (this.value.length > 0) {
 	          // http://www.whatwg.org/specs/web-apps/current-work/multipage/common-input-element-attributes.html#compiled-pattern-regular-expression
 	          pattern = new RegExp('^(?:' + this.getAttribute('pattern') + ')$');
-
+	
 	          patternMismatch = !pattern.test(this.value);
-
+	
 	        } else {
 	          patternMismatch = false;
 	        }
 	      }
-
+	
 	      // set .validityState
 	      newValidityState = validityState(invalidEmail, valueMissing, this.validity.customError || false, message, patternMismatch);
 	      if (radio) {
@@ -860,38 +860,38 @@
 	      } else {
 	        this.validity = newValidityState;
 	      }
-
+	
 	      // set .validationMessage
 	      if (this.validity.valid) {
 	        this.validationMessage = '';
-
+	
 	      } else if (this.validity.customError) {
 	        if (typeof message === 'string') {
 	          this.validationMessage = message;
 	        }
-
+	
 	      } else if (this.validity.valueMissing) {
 	        this.validationMessage = 'Please answer this question';
-
+	
 	      } else if (this.validity.typeMismatch) {
 	        this.validationMessage = 'Please type an email address';
-
+	
 	      } else if (this.validity.patternMismatch) {
 	        this.validationMessage = 'Please use the format shown';
-
+	
 	      } else {
 	        this.validationMessage = 'Please answer the question correctly';
 	      }
-
+	
 	      return this.disabled || this.validity.valid;
 	    },
-
-
+	
+	
 	    changeHandler = function changeHandler(event) {
 	      var target = event.target;
-
+	
 	      validateField.call(target);
-
+	
 	      if (target.type === 'radio') {
 	        getRadioButtonsInGroup(target).each(function () {
 	          this.validity = target.validity;
@@ -899,23 +899,23 @@
 	        });
 	      }
 	    },
-
-
+	
+	
 	    submitHandler = function submitHandler(event) {
-
+	
 	      var form = $(this),
 	      novalidate = !!form.attr('novalidate'),
 	      invalid = false;
-
-
+	
+	
 	      // polyfill validation?
 	      if (polyfill) {
 	        // check fields
 	        form.find(candidateForValidation).each(function () {
-
+	
 	          invalid = !validateField.call(this);
-
-
+	
+	
 	          // unless @novalidate
 	          if (!novalidate) {
 	            // if invalid
@@ -926,17 +926,17 @@
 	          }
 	        });
 	      }
-
+	
 	      // NOTE all the code below runs in all browsers to polyfill implementation bugs
-
+	
 	      // required radio button check
 	      if (radioButtonBug) {
 	        validateBuggyRadioButtons(this);
 	      }
-
+	
 	      // Opera 11 on OSX fires submit event even when fields are invalid
 	      // correct implementations will not invoke this submit handler until all fields are valid
-
+	
 	      // unless @novalidate
 	      // if there are invalid fields
 	      if (!novalidate && form.find(candidateForValidation).filter(isInvalid).length > 0) {
@@ -946,30 +946,30 @@
 	        return false;
 	      }
 	    },
-
-
+	
+	
 	    initConstraintValidationAPI = function initConstraintValidationAPI() {
 	      var candidates = $(candidateForValidation);
-
+	
 	      // INPUT validityState
 	      if (polyfill) {
 	        // set us up the API
 	        candidates.filter(function () {
 	          return _typeof(this.validity) !== 'object';
 	        }).each(function () {
-
+	
 	          this.validity = validityState(false, false, false, '', false);
 	          this.validationMessage = '';
-
+	
 	        });
-
+	
 	        // check validity on change
 	        candidates.
 	        off('change.constraintValidationAPI').
 	        on('change.constraintValidationAPI', changeHandler);
-
+	
 	      }
-
+	
 	      // INPUT validitationMessage
 	      if (typeof input.validationMessage !== 'string') {
 	        // set us up the API
@@ -979,7 +979,7 @@
 	          this.validationMessage = '';
 	        });
 	      }
-
+	
 	      // INPUT checkValidity
 	      if (typeof input.checkValidity !== 'function') {
 	        // set us up the API
@@ -987,21 +987,21 @@
 	          return typeof this.checkValidity !== 'function';
 	        }).each(function () {
 	          var domElement = this;
-
+	
 	          this.checkValidity = function () {
 	            var valid = validateField.call(domElement);
-
+	
 	            // if invalid, and unless novalidate
 	            if (!valid && !this.form.getAttribute('novalidate')) {
 	              // use triggerHandler because invalid does not bubble
 	              $(domElement).triggerHandler('invalid');
 	            }
-
+	
 	            return valid;
 	          };
 	        });
 	      }
-
+	
 	      // INPUT setCustomValidity
 	      if (typeof input.setCustomValidity !== 'function') {
 	        // set us up the API
@@ -1009,28 +1009,28 @@
 	          return typeof this.setCustomValidity !== 'function';
 	        }).each(function () {
 	          var that = this;
-
+	
 	          this.setCustomValidity = function (message) {
 	            validateField.call(that, message);
 	          };
 	        });
 	      }
-
+	
 	      // check for required radio button bug (google earth internal browser)
 	      if (radioButtonBug) {
 	        validateBuggyRadioButtons = function validateBuggyRadioButtons(form) {
 	          var seen = {};
 	          var radio,
 	          valueMissing;
-
+	
 	          // check every required radio button
 	          $('input', form).filter(':radio').filter('[required],[aria-required="true"]').each(function () {
 	            if (typeof seen[this.name] === 'undefined') {
 	              seen[this.name] = true;
-
+	
 	              radio = getRadioButtonsInGroup(this);
 	              valueMissing = radio.filter(':checked').length === 0;
-
+	
 	              if (valueMissing) {
 	                // make sure @required is set to use validation API
 	                radio.attr('required', 'required');
@@ -1042,10 +1042,10 @@
 	            }
 	          });
 	        };
-
+	
 	        // initial validity
 	        $('form').each(validateBuggyRadioButtons);
-
+	
 	        // watch changes
 	        if (!polyfill) {
 	          candidates.filter(':radio').
@@ -1053,30 +1053,30 @@
 	          on('change.constraintValidationAPI', function () {
 	            validateBuggyRadioButtons(this.form);
 	          });
-
+	
 	        }
 	      }
-
+	
 	      // check validity on submit
 	      // this should be bound before all other submit handlers bound to the same form
 	      // otherwise they will execute before this handler can cancel submit (oninvalid)
 	      $('form').
 	      off('submit.constraintValidationAPI').
 	      on('submit.constraintValidationAPI', submitHandler);
-
+	
 	    };
-
-
-
+	
+	
+	
 	    // run immediately and ondocumentready
 	    initConstraintValidationAPI();
 	    $(initConstraintValidationAPI);
-
-
+	
+	
 	    // expose init function
 	    window.initConstraintValidationAPI = initConstraintValidationAPI;
-
-
+	
+	
 	  })(jQuery);
 	}
 	/*
@@ -1091,11 +1091,11 @@
 	   * Dual licensed under the MIT (http://www.opensource.org/licenses/mit-license.php)
 	   * and GPL (http://www.opensource.org/licenses/gpl-license.php) licenses.
 	   */
-
+	
 	(function ($) {
-
+	
 	  $.fn.simplyCountable = function (options) {
-
+	
 	    options = $.extend({
 	      counter: '#counter',
 	      countType: 'characters',
@@ -1109,28 +1109,28 @@
 	      onSafeCount: function onSafeCount() {},
 	      onMaxCount: function onMaxCount() {} },
 	    options);
-
+	
 	    var navKeys = [33, 34, 35, 36, 37, 38, 39, 40];
-
+	
 	    return $(this).each(function () {
-
+	
 	      var countable = $(this),
 	      counter = $(options.counter);
 	      if (!counter.length) {return false;}
-
+	
 	      var countCheck = function countCheck() {
-
+	
 	        var count;
 	        var revCount;
-
+	
 	        var reverseCount = function reverseCount(ct) {
 	          return ct - ct * 2 + options.maxCount;
 	        };
-
+	
 	        var countInt = function countInt() {
 	          return options.countDirection === 'up' ? revCount : count;
 	        };
-
+	
 	        var numberFormat = function numberFormat(ct) {
 	          var prefix = '';
 	          if (options.thousandSeparator) {
@@ -1146,11 +1146,11 @@
 	          }
 	          return prefix + ct;
 	        };
-
+	
 	        var changeCountableValue = function changeCountableValue(val) {
 	          countable.val(val).trigger('change');
 	        };
-
+	
 	        /* Calculates count for either words or characters */
 	        if (options.countType === 'words') {
 	          count = options.maxCount - $.trim(countable.val()).split(/\s+/).length;
@@ -1159,7 +1159,7 @@
 	          count = options.maxCount - countable.val().length;
 	        }
 	        revCount = reverseCount(count);
-
+	
 	        /* If strictMax set restrict further characters */
 	        if (options.strictMax && count <= 0) {
 	          var content = countable.val();
@@ -1174,9 +1174,9 @@
 	          } else {changeCountableValue(content.substring(0, options.maxCount));}
 	          count = 0, revCount = options.maxCount;
 	        }
-
+	
 	        counter.text(numberFormat(countInt()));
-
+	
 	        /* Set CSS class rules and API callbacks */
 	        if (!counter.hasClass(options.safeClass) && !counter.hasClass(options.overClass)) {
 	          if (count < 0) {
@@ -1191,11 +1191,11 @@
 	          counter.removeClass(options.overClass).addClass(options.safeClass);
 	          options.onSafeCount(countInt(), countable, counter);
 	        }
-
+	
 	      };
-
+	
 	      countCheck();
-
+	
 	      countable.on('keyup blur paste', function (e) {
 	        switch (e.type) {
 	          case 'keyup':
@@ -1209,20 +1209,20 @@
 	          default:
 	            countCheck();
 	            break;}
-
+	
 	      });
-
+	
 	    });
-
+	
 	  };
-
+	
 	})(jQuery); /*! relevance - v2.1.0 - 2015-03-04
 	            * https://github.com/bboyle/relevance
 	            * Copyright (c) 2015 Ben Boyle; Licensed MIT */
 	if (jQuery !== 'undefined') {
 	  (function ($) {
 	    'use strict';
-
+	
 	    var relevantEvent = 'relevant',
 	    irrelevantEvent = 'irrelevant',
 	    elementsToDisable = 'button, input, select, textarea',
@@ -1232,57 +1232,57 @@
 	      hidden.remove();
 	      return !hiddenSupported;
 	    }(),
-
+	
 	    formElementsByName = function formElementsByName(form, name) {
 	      // filter out the @id matching of HTMLFormElement.elements[]
 	      return $(form.elements[name]).filter('[name="' + name + '"]');
 	    },
-
+	
 	    filterRelevant = function filterRelevant() {
 	      return $(this).closest('[hidden]').length === 0;
 	    },
-
+	
 	    filterIrrelevant = function filterIrrelevant() {
 	      return $(this).closest('[hidden]').length > 0;
 	    },
-
+	
 	    valueMap = function valueMap(element) {
 	      return element.value;
 	    },
-
+	
 	    valueInArray = function valueInArray(possibleValues, actualValues) {
 	      var i;
 	      if ((typeof possibleValues === 'undefined' ? 'undefined' : _typeof(possibleValues)) !== 'object') {
 	        possibleValues = [possibleValues];
 	      }
-
+	
 	      for (i = 0; i < actualValues.length; i++) {
 	        if ($.inArray(actualValues[i], possibleValues) !== -1) {
 	          return true;
 	        }
 	      }
-
+	
 	      return false;
 	    },
-
+	
 	    // when changing a control that alters relevance of other elements…
 	    recalculateRelevance = function recalculateRelevance() {
 	      // assume dependency map exists
 	      var map = $(this.form).data('relevance').dependencyMap[this.name],
 	      values = $.map(formElementsByName(this.form, this.name).filter('select,:checked').filter(':visible'), valueMap);
-
-
+	
+	
 	      $.each(map, function (index, config) {
 	        config.items.relevance('relevant', valueInArray(config.values, values) !== config.negate);
 	      });
 	    },
-
+	
 	    // when an element changes relevance, check descendent controls that alter relevance in turn…
 	    recalculateDependents = function recalculateDependents(isRelevant) {
 	      var form,
 	      dependencyMap,
 	      targets;
-
+	
 	      // any change to relevant toggles?
 	      form = this.closest('form');
 	      if (form.length) {
@@ -1299,12 +1299,12 @@
 	            $.each(targets, function (index, name) {
 	              var map = dependencyMap[name],
 	              values;
-
+	
 	              if ((typeof map === 'undefined' ? 'undefined' : _typeof(map)) === 'object') {
 	                $.each(map, function (index, config) {
 	                  if (isRelevant === false) {
 	                    config.items.relevance('relevant', false);
-
+	
 	                  } else {
 	                    values = $.map(formElementsByName(form[0], name).filter('select,:checked').filter(':visible'), valueMap);
 	                    config.items.relevance('relevant', valueInArray(config.values, values) !== config.negate);
@@ -1316,10 +1316,10 @@
 	        }
 	      }
 	    },
-
-
+	
+	
 	    methods = {
-
+	
 	      // $( x ).relevance( 'relevant', true )
 	      // if the element is hidden, fire a 'relevant' event
 	      // $( x ).relevance( 'relevant', false )
@@ -1336,7 +1336,7 @@
 	        }
 	        return this;
 	      },
-
+	
 	      // $( x ).relevance( 'show' )
 	      // shows the element (does not check if element is already visible)
 	      // triggers 'relevant-done' after showing is complete
@@ -1348,22 +1348,22 @@
 	        each(function () {
 	          this.removeAttribute('disabled');
 	        });
-
+	
 	        // stop animation, remove @hidden and @aria-hidden, start showing
 	        if (polyfillHidden) {
 	          this.stop(true, true).slideDown();
 	        }
 	        return this.removeAttr('hidden').removeAttr('aria-hidden');
 	      },
-
+	
 	      // $( x ).relevance( 'hide' )
 	      // hides the element (does not check if element is already hidden)
 	      hide: function hide() {
 	        this.attr({
 	          hidden: 'hidden',
 	          'aria-hidden': 'true' });
-
-
+	
+	
 	        if (polyfillHidden) {
 	          this.stop(true, true).hide(0, function () {
 	            var $this = $(this);
@@ -1377,10 +1377,10 @@
 	            this.setAttribute('disabled', 'disabled');
 	          });
 	        }
-
+	
 	        return this;
 	      },
-
+	
 	      // $( x ).relevance( 'relevantWhen', { name: radio/checkbox/select, value: requiredValue, negate: false | true })
 	      // sets up dependent relevance
 	      // example: $( '#red' ).relevance( 'relevantWhen', { name: 'rgb', value: 'red' })
@@ -1391,9 +1391,9 @@
 	        data,
 	        name,
 	        values;
-
+	
 	        values = config.values || [config.value];
-
+	
 	        if (config.name) {
 	          name = config.name;
 	        } else if (config.id) {
@@ -1402,7 +1402,7 @@
 	          name = $(config.container).find('select,:radio,:checkbox').attr('name');
 	        }
 	        config.negate = config.negate === true;
-
+	
 	        // find the form that has this control
 	        form = this.closest('form');
 	        // get dependency map (create it if needed)
@@ -1423,21 +1423,21 @@
 	          end().
 	          filter('select').
 	          on('change', recalculateRelevance);
-
+	
 	        }
 	        // add or update relevance rule
 	        data.dependencyMap[name].push({
 	          items: this,
 	          values: values,
 	          negate: config.negate });
-
-
+	
+	
 	        // initial relevance
 	        this.relevance('relevant', valueInArray(values, $.map(formElementsByName(form[0], name).filter('select,:checked').filter(':visible'), valueMap)) !== config.negate);
-
+	
 	        return this;
 	      },
-
+	
 	      // $( x ).relevance( 'instructions', options )
 	      // sets up relevance handling based on text instructions
 	      // options ::= { instructions: '.relevance', questions: '.questions > li' }
@@ -1446,7 +1446,7 @@
 	          instructionSelector: '.relevance',
 	          questionSelector: '.questions > li' },
 	        options);
-
+	
 	        this.find(options.instructionSelector).each(function () {
 	          var $this = $(this),
 	          value = $this.text(),
@@ -1457,7 +1457,7 @@
 	          nestedToggles,
 	          match = false,
 	          negate = false;
-
+	
 	          // pattern: (If different to <PREVIOUS QUESTION>)
 	          if (/If different to/.test(value)) {
 	            // assume previous 'li' is the toggle
@@ -1494,7 +1494,7 @@
 	        });
 	        return this;
 	      } };
-
+	
 	    // fallback (default) event handling
 	    $(document).on('relevant irrelevant', function (event) {
 	      var target = $(event.target);
@@ -1504,7 +1504,7 @@
 	        target.relevance('hide');
 	      }
 	    });
-
+	
 	    $.fn.relevance = function (method) {
 	      // Method calling logic
 	      // http://docs.jquery.com/Plugins/Authoring#Plugin_Methods
@@ -1521,12 +1521,12 @@
 	}
 	(function ($) {
 	  'use strict';
-
+	
 	  // window.console.log( 'file-size-validation.js' );
-
+	
 	  var displayFileSize;
-
-
+	
+	
 	  // bail out if no file API support
 	  if (_typeof($('<input type="file">')[0].files) !== 'object') {
 	    // duplicate fsize instruction before submit button
@@ -1538,14 +1538,14 @@
 	    });
 	    return;
 	  }
-
-
+	
+	
 	  // display file size
 	  displayFileSize = function displayFileSize(input) {
 	    input.nextAll('.fsize').remove();
 	    if (input[0].files.length > 0) {
 	      var filesize = input[0].files[0].size / 1024;
-
+	
 	      if (filesize >= 1024) {
 	        filesize = filesize / 1024;
 	        input.after('<span class="fsize">File size: ' + Math.round(filesize * 10) / 10 + 'MB' + '</span>');
@@ -1554,26 +1554,26 @@
 	      }
 	    }
 	  };
-
-
+	
+	
 	  // forms with max file size
 	  $('.max-fsize').each(function () {
 	    var fsize = $(this),
 	    form,
 	    maxFileSize;
-
+	
 	    // read fsize, assume MB
 	    maxFileSize = parseInt(fsize.text().replace(/\D+/g, ''), 10) * 1024 * 1024;
 	    // window.console.log( 'found max fsize', maxFileSize );
-
+	
 	    // get form (closest form after the preamble)
 	    form = fsize.closest('.preamble').nextAll('form').eq(0);
-
+	
 	    form.find(':file').on('change', function () {
 	      var input = $(this);
-
+	
 	      displayFileSize(input);
-
+	
 	      // recalculate file sizes
 	      var total = 0,
 	      valid;
@@ -1581,12 +1581,12 @@
 	        var size = element.files.length ? element.files[0].size : 0;
 	        total += size; // total = total + size;
 	      });
-
+	
 	      // is everything valid or invalid?
 	      valid = total <= maxFileSize;
-
+	
 	      // window.console.info( 'file size validation:', total, '<', maxFileSize, total < maxFileSize );
-
+	
 	      $(':file', this.form)
 	      // update validity for :file inputs with values
 	      .filter(function () {
@@ -1602,15 +1602,15 @@
 	      each(function (index, element) {
 	        element.setCustomValidity('');
 	      });
-
+	
 	    });
-
+	
 	  });
-
+	
 	})(jQuery);
 	(function ($) {
 	  'use strict';
-
+	
 	  var xorConstraintSubmitHandler = function xorConstraintSubmitHandler(event) {
 	    // has one of the required fields been answered?
 	    var xorFields = event.data[0],
@@ -1618,34 +1618,34 @@
 	    xorConstraintMet = xorFields.filter(function () {
 	      return this.value.length > 1;
 	    }).length > 0;
-
-
+	
+	
 	    xorFields.each(function () {
 	      this.setCustomValidity(
 	      xorConstraintMet ? '' : validationMessage);
-
+	
 	    });
 	  },
-
+	
 	  xorConstraintChangeHandler = function xorConstraintChangeHandler(event, validationUiRefreshOnly) {
 	    if (validationUiRefreshOnly === true) {
 	      // pass through to other change handlers
 	      return;
 	    }
-
+	
 	    var xorFields = event.data[0];
-
+	
 	    // constraint validity check
 	    xorConstraintSubmitHandler(event);
-
+	
 	    // trigger validation UI  on other fields?
 	    if (event.type === 'change') {
 	      xorFields.not(event.target).triggerHandler('change', true);
 	    }
 	  };
-
-
-
+	
+	
+	
 	  // plugin
 	  $.fn.initXorConstraint = function (validationMessage) {
 	    // custom validation for XOR options
@@ -1653,15 +1653,15 @@
 	    this.on('change', [this, validationMessage], xorConstraintChangeHandler);
 	  };
 	})(jQuery);
-
+	
 	(function ($) {
 	  'use strict';
-
-
+	
+	
 	  /* detect required field markers for IE6 */
 	  $('abbr[title*="required"]').addClass('required');
-
-
+	
+	
 	  // show/hide entire 'question' when fields become irrelevant
 	  $('.questions > li').not('.section').
 	  on('relevant', function (event) {
@@ -1672,21 +1672,21 @@
 	    $(this).relevance('hide');
 	    event.stopImmediatePropagation();
 	  });
-
-
-
+	
+	
+	
 	  // click the table cell to click on a matrix option
 	  $('.matrix').delegate('td', 'click', function (evt) {
 	    $(evt.target).
 	    find('input').
 	    trigger('click').
 	    trigger('change');
-
+	
 	  });
-
+	
 	})(jQuery);
-
-
+	
+	
 	/**
 	             * This file initialises forms
 	             */
@@ -1707,14 +1707,14 @@
 	})(jQuery); /* end closure */
 	(function ($) {
 	  'use strict';
-
-
+	
+	
 	  // extend jquery to 'toggle required'
 	  $.fn.toggleRequired = function (required) {
 	    return this.each(function () {
 	      var controls = $(this.form.elements[this.name]),
 	      question = $(this).closest('.questions > li');
-
+	
 	      if (required) {
 	        if (question.find('abbr[title="(required)"]').length === 0) {
 	          question.find('.label').after(
@@ -1723,7 +1723,7 @@
 	          attr('title', '(required)').
 	          text('*').
 	          addClass('required'));
-
+	
 	        }
 	        controls.attr('required', 'required');
 	      } else {
@@ -1738,10 +1738,10 @@
 	var qg = { oldIE: false };
 	qg.date = function () {
 	  'use strict';
-
-
+	
+	
 	  var datePackage = {},
-
+	
 	  // Public holiday dates for 2010-2014 (viewed 2012-09-28)
 	  // http://www.justice.qld.gov.au/fair-and-safe-work/industrial-relations/public-holidays/dates
 	  qldHolidays = {
@@ -1757,7 +1757,7 @@
 	    '2010-12-25': 'Christmas Day',
 	    '2010-12-27': 'Boxing Day',
 	    '2010-12-28': 'Christmas Day holiday',
-
+	
 	    // 2011
 	    '2011-01-01': 'New Year’s Day',
 	    '2011-01-03': 'New Year’s Day holiday',
@@ -1771,7 +1771,7 @@
 	    '2011-12-25': 'Christmas Day',
 	    '2011-12-26': 'Boxing Day',
 	    '2011-12-27': 'Christmas Day holiday',
-
+	
 	    // 2012
 	    '2012-01-01': 'New Year’s Day',
 	    '2012-01-02': 'New Year’s Day holiday',
@@ -1785,7 +1785,7 @@
 	    '2012-10-01': 'Queen’s Birthday',
 	    '2012-12-25': 'Christmas Day',
 	    '2012-12-26': 'Boxing Day',
-
+	
 	    // 2013
 	    '2013-01-01': 'New Year’s Day',
 	    '2013-01-28': 'Australia Day holiday',
@@ -1797,7 +1797,7 @@
 	    '2013-10-07': 'Labour Day',
 	    '2013-12-25': 'Christmas Day',
 	    '2013-12-26': 'Boxing Day',
-
+	
 	    // 2014
 	    '2014-01-01': 'New Year’s Day',
 	    '2014-01-27': 'Australia Day holiday',
@@ -1809,7 +1809,7 @@
 	    '2014-10-06': 'Labour Day',
 	    '2014-12-25': 'Christmas Day',
 	    '2014-12-26': 'Boxing Day',
-
+	
 	    // 2015
 	    '2015-01-01': 'New Year’s Day',
 	    '2015-01-26': 'Australia Day holiday',
@@ -1822,7 +1822,7 @@
 	    '2015-12-25': 'Christmas Day',
 	    '2015-12-26': 'Boxing Day',
 	    '2015-12-28': 'Boxing Day holiday',
-
+	
 	    // 2016
 	    '2016-01-01': 'New Year’s Day',
 	    '2016-01-26': 'Australia Day holiday',
@@ -1835,7 +1835,7 @@
 	    '2016-12-25': 'Christmas Day',
 	    '2016-12-27': 'Christmas Day holiday',
 	    '2016-12-26': 'Boxing Day',
-
+	
 	    // 2017
 	    '2017-01-01': 'New Year’s Day',
 	    '2017-01-02': 'New Year’s Day holiday',
@@ -1848,7 +1848,7 @@
 	    '2017-10-02': 'Labour Day',
 	    '2017-12-25': 'Christmas Day',
 	    '2017-12-26': 'Boxing Day',
-
+	
 	    // 2018
 	    '2018-01-01': 'New Year’s Day',
 	    '2018-01-26': 'Australia Day holiday',
@@ -1860,32 +1860,32 @@
 	    '2018-10-01': 'Queen’s Birthday',
 	    '2018-12-25': 'Christmas Day',
 	    '2018-12-26': 'Boxing Day' };
-
-
-
-
+	
+	
+	
+	
 	  // is a public holiday
 	  datePackage.isPublicHoliday = function (date) {
 	    var d = date.getDate(),
 	    m = date.getMonth() + 1,
 	    y = String(date.getFullYear()),
 	    dateString = y + (m < 10 ? '-0' : '-') + m + (d < 10 ? '-0' : '-') + d;
-
-
+	
+	
 	    // return true, date is a public holiday
 	    // TODO, if not a state-wide public holiday and given a latlong, check if it is a show holiday
 	    // return false, date is not a public holiday
 	    // TODO
 	    // return undefined, it is not known if the date is a public holiday (beyond 2 years in the future?)
-
+	
 	    return !!qldHolidays[dateString];
 	  };
 	  return datePackage;
 	}();
 	(function ($) {
 	  'use strict';
-
-
+	
+	
 	  // find any textareas with a word count
 	  $('.hint').filter(function () {
 	    return (/Maximum:\s+\d+\s+words/.test($(this).text()));
@@ -1894,12 +1894,12 @@
 	    max = parseInt(hint.text().replace(/Maximum:\s+(\d+)\s+words/, '$1'), 10),
 	    textField = hint.closest('label').nextAll('textarea'),
 	    counter;
-
+	
 	    // add counter
 	    counter = $('<span/>').generateId('word-count');
 	    //eg. Maximum: 50 words (50 remaining)
 	    hint.append(' (', counter, ' remaining)');
-
+	
 	    textField.simplyCountable({
 	      counter: '#' + counter[0].id,
 	      countType: 'words',
@@ -1911,10 +1911,10 @@
 	      onSafeCount: function onSafeCount() {
 	        textField[0].setCustomValidity('');
 	      } });
-
+	
 	  });
 	})(jQuery);
-
+	
 	//# sourceMappingURL=qg-forms.js.map
 
 /***/ }),
@@ -1925,20 +1925,20 @@
 	               # Autocomplete for Funnelback site search
 	               # Requires generate-id : node_modules/generate-id/dist/generate-id.min.js';
 	               */
-
+	
 	// onready
 	$(function () {
 	  'use strict';
-
+	
 	  // until find.search supports https, we cannot use suggest feature on https domains
 	  // if (/^https/.test(window.location.protocol)) {
 	  //     return;
 	  // }
-
+	
 	  var MAX_SUGGESTIONS = 7;
-
+	
 	  // TODO refactor this so functions are not created for every search form found on the page
-
+	
 	  // setup for each form
 	  // TODO hardcoded to find.search.qld.gov.au
 	  $('.qg-search-form').each(function () {
@@ -1946,25 +1946,25 @@
 	    var searchField = $(form.elements.query).filter('[name="query"]');
 	    // var lastSearch = searchField.val();
 	    var userTyped = '';
-
+	
 	    // ARIA
 	    searchField.
 	    attr('role', 'combobox').
 	    attr('autocomplete', 'off')
 	    // both? or list? http://www.w3.org/TR/2011/CR-wai-aria-20110118/states_and_properties#aria-autocomplete
 	    .attr('aria-autocomplete', 'both');
-
+	
 	    // make the search box wider on focus
 	    // keep it wide while interacting with the search form (box, button, autosuggest list)
-
+	
 	    // create the suggestion box
 	    var suggestions = $('<ul role="listbox" class="listbox" aria-busy="true"/>').generateId('suggestbox');
-
+	
 	    function closeSuggestions() {
 	      suggestions.empty();
 	      suggestions.attr('aria-busy', 'true');
 	    }
-
+	
 	    function prefillInput(value) {
 	      searchField[0].value = value;
 	      // console.log( 'prefilling', value, userTyped );
@@ -1973,7 +1973,7 @@
 	        searchField[0].setSelectionRange(userTyped.length, searchField[0].value.length);
 	      }, 0);
 	    }
-
+	
 	    function moveFocus(n) {
 	      var a = suggestions.find('a');
 	      var focus = a.filter('.focus');
@@ -1987,17 +1987,17 @@
 	      a.addClass('focus');
 	      prefillInput(a.text());
 	    }
-
+	
 	    // TODO how can we run this on both search forms (content and header) but show suggestions in the appropriate place?
-
+	
 	    suggestions.on('click', 'a', function (event) {
 	      // should this submit? no. see ARIA instructions
 	      event.preventDefault();
-
+	
 	      searchField.val($(this).text()).get(0).focus();
 	      closeSuggestions();
 	    });
-
+	
 	    var KEYS = {
 	      alt: 18,
 	      backspace: 8,
@@ -2009,8 +2009,8 @@
 	      right: 39,
 	      tab: 9,
 	      up: 38 };
-
-
+	
+	
 	    // clicking outside the field closes suggestions
 	    $(document).on('click', function (event) {
 	      if (searchField.is(event.target)) {
@@ -2019,7 +2019,7 @@
 	        closeSuggestions();
 	      }
 	    });
-
+	
 	    // handle loss of focus due to TAB
 	    // need to run this onblur, but NOT when focus remains in the suggestions box
 	    // can we check focus in a parent element!? maybe a custom element
@@ -2032,31 +2032,31 @@
 	          break;
 	        case KEYS.tab:
 	          closeSuggestions();}
-
+	
 	    });
 	    searchField.on('keyup', function (event) {
 	      switch (event.which) {
 	        case KEYS.escape:
 	        case KEYS.enter:
 	          closeSuggestions();}
-
-
+	
+	
 	      // delete
 	      // console.log( event.which );
 	    });
-
+	
 	    searchField.on('input', function () {
 	      searchField.after(suggestions);
 	      searchField.attr('aria-owns', suggestions.attr('id'));
-
+	
 	      userTyped = this.value;
 	      if (userTyped.length < 3) {
 	        closeSuggestions();
 	        return;
 	      }
-
+	
 	      // console.log( 'fetch suggestions for ', userTyped );
-
+	
 	      $.ajax({
 	        // cache! (the URL will be change with the search text)
 	        cache: true,
@@ -2068,8 +2068,8 @@
 	          profile: $(form.elements.profile).filter('[name="profile"]').val() || 'qld_preview',
 	          show: MAX_SUGGESTIONS,
 	          partial_query: userTyped } }).
-
-
+	
+	
 	      done(function (data) {
 	        if (data.length < 1) {
 	          closeSuggestions();
@@ -2086,7 +2086,7 @@
 	          // use form.action + default params
 	          return '<li><a href="https://find.search.qld.gov.au/s/search.html?collection=qld-gov&profile=qld&query=' + encodeURIComponent(value) + '">' + htmlValue + '</a></li>';
 	        }).join('\n'));
-
+	
 	        // issue #3: issues with typing over selected suggestion
 	        // https://github.com/qld-gov-au/jquery.autocomplete/issues/3
 	        // check length is increasing (if not, user is deleting input)
@@ -2097,7 +2097,7 @@
 	        searchField.val();
 	        suggestions.attr('aria-busy', 'false');
 	      });
-
+	
 	      // show suggestions box
 	      // click on suggestion = fill in form and submit
 	      // hover over selection = update 'placeholder' style text
@@ -2122,9 +2122,9 @@
 	__webpack_require__(21);
 	__webpack_require__(22);
 	__webpack_require__(23);
-
+	
 	var _accessibility = __webpack_require__(24);var _accessibility2 = _interopRequireDefault(_accessibility);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-
+	
 	_accessibility2.default.init();
 
 /***/ }),
@@ -2134,12 +2134,12 @@
 	'use strict'; /*global jQuery*/
 	(function ($) {
 	  'use strict';
-
+	
 	  var qgSocialMedia = {
 	    config: {
 	      $twitterEl: $('.qg-twitter-updates'),
 	      $facebookEl: $('.qg-facebook-updates') },
-
+	
 	    init: function init() {
 	      var twitterSdkScript = 'platform.twitter.com/widgets.js';
 	      var facebookSdkScript = 'connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.8';
@@ -2164,7 +2164,7 @@
 	        fjs.parentNode.insertBefore(createEl, fjs);
 	      }
 	    } };
-
+	
 	  qgSocialMedia.init();
 	})(jQuery);
 
@@ -2204,18 +2204,18 @@
 	 * 1.0.1  - 28/4 - Fixed minor bugs for robustness
 	 * 1.0    - First full version
 	**/
-
+	
 	'use strict';
-
+	
 	(function () {
 	  var defaultSettings = {
 	    toggle: 'false',
 	    hideOthers: 'true' };
-
+	
 	  var settingsAttr = {
 	    toggle: 'data-toggle',
 	    hideOthers: 'data-hide-others' };
-
+	
 	  // For parent / group
 	  var parentAttr = 'data-qg-pr-parent'; // Optional
 	  // For trigger
@@ -2223,10 +2223,10 @@
 	  var trgrTargetAttr = 'data-target';
 	  var trgrParentAttr = 'data-parent'; // Optional
 	  var trgrActiveDataName = 'qgProgressiveRevealActive';
-
+	
 	  function saveAttr(target, $parent, setting) {
 	    var aVal = settingsAttr[setting];
-
+	
 	    if (!$(target).attr(aVal)) {
 	      if ($parent.attr(aVal)) {
 	        $(target).attr(aVal, $parent.attr(aVal));
@@ -2235,7 +2235,7 @@
 	      }
 	    }
 	  }
-
+	
 	  function handleNonActiveElements(trgr, $parent) {
 	    if ($(trgr).attr(settingsAttr.hideOthers) !== 'false') {
 	      $parent.find('*[' + trgrAttr + ']').each(function () {
@@ -2245,7 +2245,7 @@
 	      });
 	    }
 	  }
-
+	
 	  // Set up targets
 	  $('*[' + trgrAttr + ']').each(function () {
 	    // Find parent
@@ -2258,14 +2258,14 @@
 	    saveAttr(this, $parent, 'toggle');
 	    saveAttr(this, $parent, 'hideOthers');
 	  });
-
+	
 	  // Trigger action
 	  $('*[' + trgrAttr + ']').on('click', function () {
 	    // Set target (should reduce file size)
 	    var $tgt = $($(this).attr(trgrTargetAttr));
-
+	
 	    $(this).data(trgrActiveDataName, true);
-
+	
 	    // Handle other active elements
 	    if ($(this).attr(trgrParentAttr)) {
 	      var $parent = $(this).closest($(this).attr(trgrParentAttr));
@@ -2279,7 +2279,7 @@
 	    } else if (!$tgt.is(':visible')) {
 	      $tgt.slideDown();
 	    }
-
+	
 	    $(this).removeData(trgrActiveDataName);
 	  });
 	})();
@@ -2306,13 +2306,13 @@
 	          '3.0': {
 	            'title': '3.0 Australia (CC BY 3.0 AU)',
 	            'urlPath': 'by/3.0/au/' },
-
+	
 	          '4.0': {
 	            'title': '4.0 International (CC BY 4.0)',
 	            'urlPath': 'by/4.0/' } } },
-
-
-
+	
+	
+	
 	      'by-sa': {
 	        'name': 'Attribution-ShareAlike',
 	        'imgName': 'by-sa-80x15.png',
@@ -2320,13 +2320,13 @@
 	          '3.0': {
 	            'title': '3.0 Australia (CC BY-SA 3.0 AU)',
 	            'urlPath': 'by-sa/3.0/au' },
-
+	
 	          '4.0': {
 	            'title': '4.0 International (CC BY-SA 4.0)',
 	            'urlPath': 'by-sa/4.0/' } } },
-
-
-
+	
+	
+	
 	      'by-nd': {
 	        'name': 'Attribution-NoDerivatives',
 	        'imgName': 'by-nd-80x15.png',
@@ -2334,13 +2334,13 @@
 	          '3.0': {
 	            'title': '3.0 Australia (CC BY-ND 3.0 AU))',
 	            'urlPath': 'by-nd/3.0/au/' },
-
+	
 	          '4.0': {
 	            'title': '4.0 International (CC BY-ND 4.0)',
 	            'urlPath': 'by-nd/4.0/' } } },
-
-
-
+	
+	
+	
 	      'by-nc': {
 	        'name': 'Attribution-NonCommercial',
 	        'imgName': 'by-nc-80x15.png',
@@ -2348,13 +2348,13 @@
 	          '3.0': {
 	            'title': '3.0 Australia (CC BY-NC 3.0 AU)',
 	            'urlPath': 'by-nc/3.0/au/' },
-
+	
 	          '4.0': {
 	            'title': '4.0 International (CC BY-NC 4.0)',
 	            'urlPath': 'by-nc/4.0/' } } },
-
-
-
+	
+	
+	
 	      'by-nc-sa': {
 	        'name': 'Attribution-NonCommercial-ShareAlike',
 	        'imgName': 'by-nc-sa-80x15.png',
@@ -2362,13 +2362,13 @@
 	          '3.0': {
 	            'title': '3.0 Australia (CC BY-NC-SA 3.0 AU)',
 	            'urlPath': 'by-nc-sa/3.0/au/' },
-
+	
 	          '4.0': {
 	            'title': '4.0 International (CC BY-NC-SA 4.0)',
 	            'urlPath': 'by-nc-sa/4.0/' } } },
-
-
-
+	
+	
+	
 	      'by-nc-nd': {
 	        'name': 'Attribution-NonCommercial-NoDerivatives',
 	        'imgName': 'by-nc-nd-80x15.png',
@@ -2376,32 +2376,32 @@
 	          '3.0': {
 	            'title': '3.0 Australia (CC BY-NC-ND 3.0 AU)',
 	            'urlPath': 'by-nc-nd/3.0/au/' },
-
+	
 	          '4.0': {
 	            'title': '4.0 International (CC BY-NC-ND 4.0)',
 	            'urlPath': 'by-nc-nd/4.0/' } } } } };
-
-
-
-
-
-
+	
+	
+	
+	
+	
+	
 	  var getLicenseVal = function getLicenseVal(url) {
 	    var urlArr = /\/licenses\/([a-zA-Z0-9-/.]+)/g.exec(url)[1].split('/').filter(function (e) {
 	      return e;
 	    });
-
+	
 	    var abbreviation = urlArr[0];
 	    var version = urlArr[1];
-
+	
 	    return {
 	      name: licenceOptions.types[abbreviation].name,
 	      url: licenceOptions.url,
 	      imgPath: licenceOptions.imgSrc + licenceOptions.types[abbreviation].imgName,
 	      version: licenceOptions.types[abbreviation].versions[version] };
-
+	
 	  };
-
+	
 	  // add licence if not present
 	  if (!document.getElementById('document-licence')) {
 	    // get licence URL from metadata
@@ -2418,7 +2418,7 @@
 	        '<img src="' + licence.imgPath + '" alt="Creative Commons ' + licence.name + ' ' + licence.version.title + '" />' +
 	        '</a>' +
 	        '</p>');
-
+	
 	      }
 	    });
 	  }
@@ -2430,7 +2430,7 @@
 
 	/*aside carousel play and pause feature*/
 	'use strict';
-
+	
 	(function ($) {
 	  var carousels = [];
 	  var eqHeight = function eqHeight(carousels) {
@@ -2494,7 +2494,7 @@
 	      var quickExitLinks = $(this.el).find('a');
 	      var escLink = $(this.el).find('a[data-accesskey="Esc"]').attr('href');
 	      // action on esc key press
-
+	
 	      if ($(this.el).length > 0) {
 	        $(document).keydown(function (e) {
 	          if (e.keyCode === 27) {
@@ -2502,12 +2502,12 @@
 	            return false;
 	          }
 	        });
-
+	
 	        // clicking on the quick exit block
 	        $(document).on('click', this.el, function () {
 	          window.location.replace(escLink);
 	        });
-
+	
 	        //clicking on the links inside the quick exit block
 	        quickExitLinks.click(function (e) {
 	          e.stopPropagation();
@@ -2516,7 +2516,7 @@
 	        });
 	      }
 	    } };
-
+	
 	  quickExit.init();
 	})(jQuery);
 
@@ -2532,7 +2532,7 @@
 	    if ($contentTable.width() > $('#qg-primary-content').width()) {
 	      $contentTable.wrap(
 	      '<div class="scrollable"><div class="inner"></div></div>');
-
+	
 	    }
 	  }
 	  tablesscrollable();
@@ -2548,14 +2548,14 @@
 	               * - Ability to direct link to each section and expand the linked section
 	               * - Handles aria-expanded values
 	               */
-
+	
 	(function ($) {
 	  var accordion = '.qg-accordion';
 	  if ($(accordion).length > 0) {
 	    var tabindex = 1;
 	    var accordionControls = 'input[name=control]';
 	    var linkedpanel = window.location.hash && $('input[aria-controls=' + window.location.hash.substring(1) + ']');
-
+	
 	    //Handle events of accordion inputs
 	    $(accordion).find('article input').on('change', function () {
 	      var checkedStatus = $(this).prop('checked');
@@ -2565,7 +2565,7 @@
 	      .parents(accordion).find(accordionControls).prop('checked', false); //clears expand/collapse selection
 	      controlledPanedId.attr('aria-hidden', !checkedStatus);
 	    });
-
+	
 	    //expand all click
 	    // label selector is to provide backward compatibility in case projects are using old markup
 	    $('.qg-acc-controls .expand, label[for=\'expand\']').click(function (e) {
@@ -2573,14 +2573,14 @@
 	      $(this).focus();
 	      $(this).parents('.qg-accordion').find('input:checkbox').prop('checked', true);
 	    });
-
+	
 	    // collapse all click
 	    // label selector is to provide backward compatibility in case projects are using old markup
 	    $('.qg-acc-controls .collapse, label[for=\'collapse\']').click(function (e) {
 	      e.preventDefault();
 	      $(this).parents('.qg-accordion').find('input:checkbox').prop('checked', false);
 	    });
-
+	
 	    // open on page load
 	    var hashTrigger = function hashTrigger() {
 	      linkedpanel = window.location.hash && $('input[aria-controls=' + window.location.hash.substring(1) + ']');
@@ -2594,7 +2594,7 @@
 	    };
 	    hashTrigger();
 	    window.onhashchange = hashTrigger;
-
+	
 	    // inserting tab index dynamically
 	    // label selector is to provide backward compatibility in case projects are using old markup
 	    $('.qg-accordion .acc-heading, .qg-acc-controls .expand, .qg-acc-controls .collapse, label[for="expand"], label[for="collapse"]').each(function () {
@@ -2607,7 +2607,7 @@
 	    $('input[name=tabs]').click(function () {
 	      $(this).parent('article').find('.acc-heading').focus();
 	    });
-
+	
 	    // highlight title on hover
 	    $('.qg-accordion article').hover(function () {
 	      $(accordion).find('.title').removeClass('ht');
@@ -2623,19 +2623,19 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
-
-
-
-
-
-
-
+	
+	
+	
+	
+	
+	
+	
 	var _qgGoogleKeys = __webpack_require__(6);var _qgGoogleKeys2 = _interopRequireDefault(_qgGoogleKeys);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-
+	
 	(function ($, swe) {
 	  var checkEnv = window.location.hostname.search(/\bdev\b|\btest\b|\blocalhost\b|\bgithub\b|\buat\b/);
 	  var $feedbackForm = $('#qg-page-feedback-form');
-
+	
 	  if ($feedbackForm.length > 0) {
 	    var setUrlEnableCaptcha = function setUrlEnableCaptcha() {
 	      // if environment is not PROD then use test submission handler link
@@ -2647,7 +2647,7 @@
 	    };
 	    setUrlEnableCaptcha();
 	  }
-
+	
 	  var googleRecaptchaApiKey = checkEnv !== -1 ?
 	  _qgGoogleKeys2.default.defGoogleRecaptcha.uat :
 	  _qgGoogleKeys2.default.defGoogleRecaptcha.prod; //This is a v2 key
@@ -2676,7 +2676,7 @@
 	      return false;
 	    }
 	  };
-
+	
 	  //v2 Captcha, usually is singular
 	  var v2Captcha = function v2Captcha(form, subBtn, key) {
 	    try {
@@ -2696,14 +2696,14 @@
 	            form.submit();
 	          }
 	        } });
-
+	
 	    } catch (e) {
 	      grecaptcha.reset();
 	      return false;
 	    }
 	    grecaptcha.execute();
 	  };
-
+	
 	  var loadedRecaptcha = false;
 	  var onloadRecaptcha = function onloadRecaptcha() {
 	    grecaptcha.ready(function () {
@@ -2756,7 +2756,7 @@
 	        'script',
 	        onloadRecaptcha,
 	        'Recaptcha unavailable');
-
+	
 	      } else if (manualSitekey === undefined && manualAction !== undefined) {
 	        requireDefaultKey = true;
 	      } else {
@@ -2766,7 +2766,7 @@
 	          'script',
 	          onloadRecaptcha,
 	          'Recaptcha unavailable');
-
+	
 	          v2Loaded = true;
 	        }
 	      }
@@ -2779,7 +2779,7 @@
 	      'script',
 	      onloadRecaptcha,
 	      'Recaptcha unavailable');
-
+	
 	    } else {
 	      if (loadFooter) {
 	        //Only load if the feedback button is clicked
@@ -2789,11 +2789,11 @@
 	          'script',
 	          onloadRecaptcha,
 	          'Recaptcha unavailable');
-
+	
 	        });
 	      }
 	    }
-
+	
 	    //If all forms have captchaPrivacyTerms, we can hide reCAPTCHA Badge
 	    if ($('p[class="captchaPrivacyTerms"]').length === $('form[data-recaptcha="true"]').length) {
 	      var hidegrecaptchaBadge = '.grecaptcha-badge { visibility: hidden; }';
@@ -2816,20 +2816,20 @@
 
 	'use strict'; /*global qg, jQuery, google*/
 	var qgInitAutocompleteAddress = void 0;
-
+	
 	(function (qg, $) {
 	  'use strict';
 	  var inputLocationId = 'qg-location-autocomplete';
 	  var addressSelection = false;
-
+	
 	  var el = {
 	    $searchWidget: $('#qg-search-widget'),
 	    $autoComplete: $('.qg-location-autocomplete'),
 	    $latitude: $('#latitude'),
 	    $longitude: $('#longitude'),
 	    $form: $('#qg-search-widget-form') };
-
-
+	
+	
 	  // getting and setting input fields value using query parameter
 	  var setsValue = function setsValue() {
 	    el.$form.find(':input:not(:checkbox):not(:radio), select, textarea').each(function () {
@@ -2843,7 +2843,7 @@
 	    });
 	  };
 	  setsValue();
-
+	
 	  // removing hidden fields value on reset
 	  el.$searchWidget.find('button[type="reset"]').click(function (evt) {
 	    evt.preventDefault();
@@ -2853,7 +2853,7 @@
 	      $(this).prop('checked', false);
 	    });
 	  });
-
+	
 	  // on autoComplete blur removing hidden fields values
 	  el.$autoComplete.blur(function () {
 	    if ($(this).val().length === 0) {
@@ -2876,7 +2876,7 @@
 	          bounds: qldBounds,
 	          strictBounds: dataStrictBounds,
 	          types: ['geocode'] };
-
+	
 	        var autocomplete = new google.maps.places.Autocomplete(this, options);
 	        //if address form exists fill the selection
 	        var form = $(this).siblings('.' + addressFormId);
@@ -2888,7 +2888,7 @@
 	            administrative_area_level_1: { dataType: 'state', name: 'short_name' },
 	            country: { dataType: 'country', name: 'long_name' },
 	            postal_code: { dataType: 'zip', name: 'short_name' } };
-
+	
 	          var _fillInAddress = function _fillInAddress() {
 	            var loc = autocomplete.getPlace();
 	            if ($('.error-handler').length > 0) {$('.error-handler').html('');}
@@ -2977,7 +2977,7 @@
 	          }
 	        });
 	      });
-
+	
 	      //Get current location
 	      if (getLocationEle.length > 0) {
 	        $.each(getLocationEle, function (i, ele) {
@@ -3084,8 +3084,8 @@
 
 	'use strict';if ($("script[src*='jquery.fancybox']").length === 0) {
 	  if ($('.qg-image-gallery').length > 0 || $('.qg-lightbox').length > 0 || $('.image-gallery').length > 0 || $('.cut-in').length > 0) {
-	    $('head').append($("<link rel='stylesheet' href='https://beta-static.qgov.net.au/assets/v3.1/latest/lib/ext/fancybox/jquery.fancybox.min.css' type='text/css' media='screen' />"));
-	    $.getScript('https://beta-static.qgov.net.au/assets/v3.1/latest/lib/ext/fancybox/jquery.fancybox.min.js', function () {
+	    $('head').append($("<link rel='stylesheet' href='https://static.qgov.net.au/assets/v3.1/latest/lib/ext/fancybox/jquery.fancybox.min.css' type='text/css' media='screen' />"));
+	    $.getScript('https://static.qgov.net.au/assets/v3.1/latest/lib/ext/fancybox/jquery.fancybox.min.js', function () {
 	      // image gallery
 	      $('.qg-image-gallery, .image-gallery').each(function (index) {
 	        $(this).find('a').each(function () {
@@ -3100,7 +3100,7 @@
 	      // cut in images caption
 	      var cutInLink = $('.cut-in .caption a');
 	      $(cutInLink).attr('data-fancybox', 'images');
-
+	
 	      $('[data-fancybox^="gallery"]').fancybox({
 	        buttons: ['thumbs', 'close'],
 	        mobile: {
@@ -3109,40 +3109,40 @@
 	          clickSlide: function clickSlide(current, event) {
 	            return current.type === 'image' ? 'close' : 'close';
 	          } },
-
+	
 	        baseTpl: '\n        <div class="fancybox-container" role="dialog" tabindex="-1">\n          <div class="fancybox-bg"></div>\n          <div class="fancybox-inner">\n                <div class="fancybox-infobar"><button data-fancybox-prev="" class="fancybox-button fancybox-button--arrow_left p-0" title="Previous"><span class="font-awesome fa-2x fa-caret-left"></span></button><span data-fancybox-index></span>&nbsp;/&nbsp;<span data-fancybox-count></span><button data-fancybox-next="" class="fancybox-button fancybox-button--arrow_right p-0" title="Next"><span class="font-awesome fa-2x fa-caret-right"></span></button></div>\n                <div class="fancybox-toolbar">{{buttons}}</div>\n                <div class="fancybox-navigation">{{arrows}}</div>\n                <div class="fancybox-stage"></div>\n                <div class="fancybox-caption"><div class=""fancybox-caption__body"></div></div>\n          </div>\n        </div>\n      ',
-
-
-
-
-
-
-
-
-
-
-
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	        btnTpl: {
 	          arrowLeft: '\n          <button data-fancybox-prev class="fancybox-button fancybox-button--arrow_left p-0" title="{{PREV}}">\n            <span class="font-awesome fa-2x fa-caret-left"></span>\n          </button>\n        ',
-
-
-
-
+	
+	
+	
+	
 	          arrowRight: '\n           <button data-fancybox-next class="fancybox-button fancybox-button--arrow_right p-0" title="{{NEXT}}">\n            <span class="font-awesome fa-2x fa-caret-right"></span>\n          </button>\n        ' },
-
-
-
-
-
+	
+	
+	
+	
+	
 	        caption: function caption(instance, item) {
 	          var caption = $(this).data('caption') || '';
-
+	
 	          if (item.type === 'image') {
 	            caption = '<div class="fancybox-border">' + (caption.length ? caption : '') + '</div>';
 	          }
 	          return caption;
 	        } });
-
+	
 	    });
 	  }
 	}
@@ -3163,7 +3163,7 @@
 	    { property: 'meta[name="twitter:title"]' },
 	    { property: 'meta[name="twitter:description"]' },
 	    { property: 'meta[name="twitter:image"]' }];
-
+	
 	    var openGraph = {
 	        init: function init() {
 	            var graphImg = '/assets/v3.1/latest/images/coat-of-arms/coa-thumbnail.png';
@@ -3200,7 +3200,7 @@
 	                }
 	            });
 	        } };
-
+	
 	    openGraph.init();
 	})(jQuery);
 
@@ -3211,12 +3211,12 @@
 	/* ========================================================================
 	* Accessibility helpers
 	* ======================================================================== */
-
+	
 	'use strict';
-
+	
 	function opensInNewWindow() {
 	  var $target = $('a[target=_blank]');
-
+	
 	  if (!$target.hasClass('qg-accessibility-off') && // Legacy
 	  $target.attr('data-access-extlink') !== false && // Legacy
 	  $target.attr('data-access-new-window') !== false &&
@@ -3229,23 +3229,23 @@
 	    }
 	  }
 	}
-
+	
 	function addCorrectIncorrect() {
 	  var ext = ':not(:has(.qg-blank-notice))';
 	  var $correct = $('.qg-correct' + ext + ', table.qg-correct-incorrect td:nth-child(odd)' + ext);
 	  var $incorrect = $('.qg-incorrect' + ext + ', table.qg-correct-incorrect td:nth-child(even)' + ext);
-
+	
 	  $correct.prepend('<span class="qg-blank-notice sr-only">Correct.</span> ');
 	  $incorrect.prepend('<span class="qg-blank-notice sr-only">Incorrect.</span> ');
 	}
-
+	
 	function init() {
 	  if ($('body').attr('data-qg-accessibility') !== false) {
 	    opensInNewWindow();
 	    addCorrectIncorrect();
 	  }
 	}
-
+	
 	module.exports = { init: init };
 
 /***/ }),
@@ -3264,14 +3264,14 @@
 /***/ (function(module, exports) {
 
 	'use strict';
-
+	
 	var activeSideNav = function () {
 	  // const currentFilename = window.location.pathname.substr(window.location.pathname.lastIndexOf('/') + 1);
-
+	
 	  function refineText(text) {
 	    return text.toLowerCase().replace(/ /g, '');
 	  }
-
+	
 	  function getCurrentTitle() {
 	    var currentPageTitle = '';
 	    if ($('#guide-title').length > 0) {
@@ -3285,7 +3285,7 @@
 	    }
 	    return refineText(currentPageTitle);
 	  }
-
+	
 	  function highlightNavItem() {
 	    var currentPageTitle = getCurrentTitle();
 	    $('#qg-section-nav ul>li').each(function () {
@@ -3294,12 +3294,12 @@
 	      }
 	    });
 	  }
-
+	
 	  return {
 	    highlightNavItem: highlightNavItem };
-
+	
 	}();
-
+	
 	module.exports = activeSideNav;
 
 /***/ }),
@@ -3314,7 +3314,7 @@
 	    $qgSectionNavListItems: $('#qg-section-nav .guide-sub-nav li'),
 	    $stepNav: $('#step-nav'),
 	    $heading: $('#qg-primary-content h1') },
-
+	
 	  init: function init() {var _this = this;
 	    if (this.config.$guideSubNav.length > 0) {
 	      this.createStepNav();
@@ -3335,12 +3335,12 @@
 	  },
 	  view: function view(getActiveNav, countListItems) {
 	    return '<section id="step-nav">\n               <ul>\n                 <li>\n                    <a class="dropdown">Step ' +
-
-
+	
+	
 	    getActiveNav + ' of ' + countListItems + '</a>\n                 </li>\n               </ul>\n            </section>';
-
-
-
+	
+	
+	
 	  },
 	  createStepNav: function createStepNav() {
 	    var block = void 0;
@@ -3362,8 +3362,8 @@
 	      $(document).find($('#step-nav')).remove();
 	    }
 	  } };exports.default =
-
-
+	
+	
 	stepNav;
 
 /***/ }),
@@ -3376,9 +3376,9 @@
 	    bsSm: 768,
 	    bsMd: 992,
 	    bsLg: 1200 };
-
+	
 	}();exports.default =
-
+	
 	breakpoints;
 
 /***/ }),
@@ -3391,19 +3391,19 @@
 	               * Requires:
 	               * - JQuery
 	               **/
-
+	
 	/**
 	                    * #####################################
 	                    * Model
 	                    **/
-
+	
 	var socialLinksList = {
 	  primary: [
 	  { title: 'Facebook', showTitle: false, icon: renderIcon('fa', 'facebook') },
 	  { title: 'Twitter', showTitle: false, icon: renderIcon('fa', 'twitter') },
 	  { title: 'LinkedIn', showTitle: false, icon: renderIcon('fa', 'linkedin') },
 	  { title: 'Others', showTitle: false, icon: renderIcon('fa', 'share-alt') }]
-
+	
 	  /* secondary: [
 	                                                                                 // {title: 'Delicious',    showTitle: true, icon: renderIcon('fa', 'delicious')},
 	                                                                                 { title: "Digg", showTitle: true, icon: renderIcon("fa", "digg") },
@@ -3413,13 +3413,13 @@
 	                                                                                 // {title: 'Tumblr',       showTitle: true, icon: renderIcon('fa', 'tumblr')},
 	                                                                                 { title: "Google+", showTitle: true, icon: renderIcon("fa", "google-plus") }
 	                                                                               ]*/ };
-
-
+	
+	
 	/**
 	                                                                                       * #####################################
 	                                                                                       * Views
 	                                                                                       **/
-
+	
 	function renderSocialURL(who, from, title, domain, description) {
 	  switch (who) {
 	    case 'facebook':
@@ -3444,43 +3444,43 @@
 	                                                                                  return `https://www.tumblr.com/widgets/share/tool?posttype=link&content=${from}&title=${title}&caption=${description}`;
 	                                                                                case "google+":
 	                                                                                  return `https://plus.google.com/share?url=${from}`;*/}
-
+	
 	  return false;
 	}
-
+	
 	function renderIcon(type, name) {var src = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
 	  switch (type) {
 	    case 'fa':
 	      return '<span class="fa fa-' + name + ' fa-2x qg-share-icon" aria-hidden="true"></span>';
 	    case 'svg':
 	      return '<img src="' + src + '" aria-hidden="true" class="qg-share-icon" alt="name" />';}
-
+	
 	  // Default, return nothing
 	  return '';
 	}
-
+	
 	function renderHidden() {
 	  return 'qg-visually-hidden';
 	}
-
+	
 	function renderLink(url, title, icon) {var hidden = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : '';
 	  return '<li>\n            <a class="qg-share-link qg-accessibility-off" href="' +
 	  url + '" title="' + title + '">' + icon + '<span class="title ' + hidden + '"">' + title + '</span></a>\n          </li>';
-
+	
 	}
-
+	
 	function renderShareButtons() {
 	  return '<h2>Share:</h2>\n  <ul class="navbar navbar-right">\n    ' +
-
+	
 	  getLinks('primary') + '\n   </ul>';
-
+	
 	}
-
+	
 	/**
 	   * #####################################
 	   * Controller
 	   **/
-
+	
 	function getLinks(type) {
 	  // Get link list
 	  var socialLinks = socialLinksList;
@@ -3489,7 +3489,7 @@
 	  var domain = window.location.hostname;
 	  // const title = $(document).find('title').text();
 	  var description = $('meta[name="DCTERMS.description"]').attr('content');
-
+	
 	  // Iterate
 	  var str = '';
 	  for (var prop in socialLinks[type]) {
@@ -3504,12 +3504,12 @@
 	  }
 	  return str;
 	}
-
+	
 	function init() {
 	  var $target = $('#qg-share');
 	  $target.html(renderShareButtons());
 	}
-
+	
 	module.exports = { init: init };
 
 /***/ }),
@@ -3535,10 +3535,10 @@
 	               *
 	               * @requires jQuery
 	               */
-
+	
 	$(function () {
 	    'use strict';
-
+	
 	    var figureElement = '.qg-cut-in, .qg-cut-in-alt';
 	    $('#qg-content .figure-credits-toggle').on('click', function () {
 	        $(this).closest(figureElement).find('.figure-credits').toggle(500).focus().end();
@@ -3552,7 +3552,7 @@
 	'use strict'; /**
 	              * Adds page and user details to hidden inputs on the feedback form
 	              **/
-
+	
 	function sanitize(str) {
 	  if (!str) {
 	    return false;
@@ -3583,7 +3583,7 @@
 	  if ((tem = ua.match(/version\/(\d+)/i)) != null) M.splice(1, 1, tem[1]);
 	  return M.join(' ');
 	}();
-
+	
 	function addHiddenInput(key, val) {
 	  var newHiddenInput = $('<input type="hidden"/>');
 	  newHiddenInput.attr('name', key);
@@ -3600,7 +3600,7 @@
 	  addHiddenInput('OS', navigator.platform);
 	  addHiddenInput('g-recaptcha-response', '');
 	}
-
+	
 	module.exports = { init: init };
 
 /***/ })

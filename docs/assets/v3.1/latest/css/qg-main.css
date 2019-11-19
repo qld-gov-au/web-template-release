@@ -14253,10 +14253,7 @@ form button,
   font-style: normal;
   color: #ffffff;
   background: #585E62;
-  border: none;
-  border-radius: 0;
-  -moz-border-radius: 0;
-  -webkit-border-radius: 0; }
+  border: none; }
 
 /* slimmer buttons in asides */
 .aside button,
@@ -14319,9 +14316,7 @@ strong .ui-button:focus,
 .poll .button:focus,
 .actions strong input:hover,
 .actions strong input:focus {
-  background-color: #b1e455;
-  outline: 1px solid #78BA00;
-  outline-offset: -1px; }
+  background-color: #b1e455; }
 
 form strong button:active,
 strong .ui-button:active,
