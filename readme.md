@@ -11,10 +11,10 @@ This template is for anyone in Queensland Government developing a Franchise (SWE
  - **docs** - Documentation of available features/components hosted on [Github.io](https://qld-gov-au.github.io/web-template-release/)
  - **scss** - Uncompiled scss stylesheets used to build theme
  - **template-cdn-ssi** -
-      - Assets in the template will be requested from static CDN - https://beta-beta-static.qgov.net.au/
+      - Assets in the template will be requested from static CDN - https://static.qgov.net.au/
       - Contains server side includes
  - **template-cdn** -
-     - Assets in the template will be requested from static CDN - https://beta-beta-static.qgov.net.au/
+     - Assets in the template will be requested from static CDN - https://static.qgov.net.au/
      - Server side includes are converted to static html
  - **template-local-ssi** -
        - Assets in the template will be requested from local - /assets/v3.1/latest/
