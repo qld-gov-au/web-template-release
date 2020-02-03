@@ -51,20 +51,20 @@
 	__webpack_require__(2);
 	
 	
-	__webpack_require__(8);
 	__webpack_require__(9);
-	
-	
 	__webpack_require__(10);
 	
 	
-	__webpack_require__(25);
-	var _sectionNav = __webpack_require__(26);var _sectionNav2 = _interopRequireDefault(_sectionNav);
-	var _stepNav = __webpack_require__(27);var _stepNav2 = _interopRequireDefault(_stepNav);
-	var _shareLinks = __webpack_require__(29);var _shareLinks2 = _interopRequireDefault(_shareLinks);
-	__webpack_require__(30);
+	__webpack_require__(11);
+	
+	
+	__webpack_require__(26);
+	var _sectionNav = __webpack_require__(27);var _sectionNav2 = _interopRequireDefault(_sectionNav);
+	var _stepNav = __webpack_require__(28);var _stepNav2 = _interopRequireDefault(_stepNav);
+	var _shareLinks = __webpack_require__(30);var _shareLinks2 = _interopRequireDefault(_shareLinks);
 	__webpack_require__(31);
-	var _feedbackForm = __webpack_require__(32);var _feedbackForm2 = _interopRequireDefault(_feedbackForm);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} // components import
+	__webpack_require__(32);
+	var _feedbackForm = __webpack_require__(33);var _feedbackForm2 = _interopRequireDefault(_feedbackForm);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} // components import
 	// legacy module imports
 	// env initialization
 	(function () {'use strict';
@@ -98,6 +98,7 @@
 	__webpack_require__(4);
 	__webpack_require__(5);
 	__webpack_require__(7);
+	__webpack_require__(8);
 
 /***/ }),
 /* 3 */
@@ -171,10 +172,8 @@
 	
 	  // check if the hostname contains a specific word and assign the key accordingly
 	  if (window.location.hostname.search(/\bgithub\b/) !== -1) {
-	    console.log('docs key in use');
 	    googleApiKey = _qgGoogleKeys2.default.defGoogle.docs;
 	  } else if (window.location.hostname.search(/\bdev\b|\btest\b|\blocalhost\b/) !== -1) {
-	    console.log('test key in use');
 	    googleApiKey = _qgGoogleKeys2.default.defGoogle.test;
 	  } else {
 	    googleApiKey = _qgGoogleKeys2.default.defGoogle.prod;
@@ -279,6 +278,21 @@
 
 /***/ }),
 /* 8 */
+/***/ (function(module, exports) {
+
+	'use strict';function browserSupportsDateInput() {
+	  var i = document.createElement('input');
+	  i.setAttribute('type', 'date');
+	  return i.type !== 'text';
+	}
+	if (!browserSupportsDateInput() && $('input[type=\'date\']').length > 0) {
+	  $.getScript('https://static.qgov.net.au/assets/v3.1/latest/lib/ext/nodep-date-input-polyfill.dist.js', function () {
+	    console.log('date polyfill loaded');
+	  });
+	}
+
+/***/ }),
+/* 9 */
 /***/ (function(module, exports) {
 
 	'use strict';var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {return typeof obj;} : function (obj) {return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;}; /*! Form validation - v1.1.1 - 2014-04-09
@@ -1918,7 +1932,7 @@
 	//# sourceMappingURL=qg-forms.js.map
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports) {
 
 	'use strict'; /*
@@ -2109,11 +2123,10 @@
 	}); // onready
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	'use strict';__webpack_require__(11);
-	__webpack_require__(12);
+	'use strict';__webpack_require__(12);
 	__webpack_require__(13);
 	__webpack_require__(14);
 	__webpack_require__(15);
@@ -2125,13 +2138,14 @@
 	__webpack_require__(21);
 	__webpack_require__(22);
 	__webpack_require__(23);
+	__webpack_require__(24);
 	
-	var _accessibility = __webpack_require__(24);var _accessibility2 = _interopRequireDefault(_accessibility);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+	var _accessibility = __webpack_require__(25);var _accessibility2 = _interopRequireDefault(_accessibility);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 	
 	_accessibility2.default.init();
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports) {
 
 	'use strict'; /*global jQuery*/
@@ -2172,7 +2186,7 @@
 	})(jQuery);
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports) {
 
 	/**
@@ -2288,7 +2302,7 @@
 	})();
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports) {
 
 	'use strict'; /**
@@ -2428,7 +2442,7 @@
 	})(jQuery, qg);
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports) {
 
 	/*aside carousel play and pause feature*/
@@ -2481,50 +2495,43 @@
 	})(jQuery);
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports) {
 
-	'use strict';(function ($) {
-	  'use strict';
-	  var quickExit = {
-	    el: '#qg-quick-exit',
-	    init: function init() {
-	      $(this.el).empty().append(this.template);
-	      this.methods();
-	    },
-	    template: '<header><strong>Quick exit</strong></header><ul><li><a target="_top" data-accesskey="Esc" href="http://www.abc.net.au/tv/epg/#/" title="ABC"><img src="https://www.qld.gov.au/_resources/images/icons/abc-bw.png" alt="ABC"></a></li></ul><footer><strong>press \'Esc\'</strong></footer>',
-	    methods: function methods() {
-	      var quickExitLinks = $(this.el).find('a');
-	      var escLink = $(this.el).find('a[data-accesskey="Esc"]').attr('href');
-	      // action on esc key press
-	
-	      if ($(this.el).length > 0) {
+	'use strict';var quickExit = {
+	  el: '.qg-quick-exit',
+	  init: function init() {
+	    this.methods();
+	  },
+	  methods: function methods() {
+	    var newloc = 'https://www.google.com.au';
+	    var el = $(this.el);
+	    if (el.length > 0) {
+	      $.getScript('https://static.qgov.net.au/assets/v3.1/latest/lib/ext/stickyfill.min.js', function () {
+	        // IE 11 fix
+	        /*global Stickyfill*/
+	        Stickyfill.add(el);
+	        // navigating on pressing Escape key
 	        $(document).keydown(function (e) {
 	          if (e.keyCode === 27) {
-	            window.location.replace(escLink);
+	            window.open(newloc, '_blank', '');
+	            window.location.replace(newloc);
 	            return false;
 	          }
 	        });
-	
-	        // clicking on the quick exit block
-	        $(document).on('click', this.el, function () {
-	          window.location.replace(escLink);
+	        // clicking on the quick exit button
+	        $('body').on('click', '.qg-quick-exit__button', function () {
+	          window.open(newloc, '_blank', '');
+	          window.location.replace(newloc);
 	        });
+	      });
+	    }
+	  } };
 	
-	        //clicking on the links inside the quick exit block
-	        quickExitLinks.click(function (e) {
-	          e.stopPropagation();
-	          e.preventDefault();
-	          window.location.replace($(this).attr('href'));
-	        });
-	      }
-	    } };
-	
-	  quickExit.init();
-	})(jQuery);
+	quickExit.init();
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports) {
 
 	'use strict';(function ($) {
@@ -2542,7 +2549,7 @@
 	})(jQuery);
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports) {
 
 	'use strict'; /**
@@ -2622,7 +2629,7 @@
 	})(jQuery);
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2814,7 +2821,7 @@
 	                    * */ /*globals grecaptcha, qg*/
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports) {
 
 	'use strict'; /*global qg, jQuery, google*/
@@ -3034,7 +3041,7 @@
 	})(qg, jQuery);
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports) {
 
 	'use strict';(function ($) {
@@ -3049,7 +3056,7 @@
 	})(jQuery);
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports) {
 
 	'use strict';(function ($) {
@@ -3082,7 +3089,7 @@
 	})(jQuery);
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports) {
 
 	'use strict';if ($("script[src*='jquery.fancybox']").length === 0) {
@@ -3151,7 +3158,7 @@
 	}
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports) {
 
 	'use strict';(function ($) {
@@ -3208,7 +3215,7 @@
 	})(jQuery);
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports) {
 
 	/* ========================================================================
@@ -3252,7 +3259,7 @@
 	module.exports = { init: init };
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports) {
 
 	'use strict';(function ($) {
@@ -3263,7 +3270,7 @@
 	})(jQuery);
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -3306,10 +3313,10 @@
 	module.exports = activeSideNav;
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	'use strict';Object.defineProperty(exports, "__esModule", { value: true });var _breakpoints = __webpack_require__(28);var _breakpoints2 = _interopRequireDefault(_breakpoints);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+	'use strict';Object.defineProperty(exports, "__esModule", { value: true });var _breakpoints = __webpack_require__(29);var _breakpoints2 = _interopRequireDefault(_breakpoints);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 	var stepNav = {
 	  config: {
 	    $guideSubNav: $('#qg-section-nav .guide-sub-nav'),
@@ -3370,7 +3377,7 @@
 	stepNav;
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports) {
 
 	"use strict";Object.defineProperty(exports, "__esModule", { value: true });var breakpoints = function () {
@@ -3385,7 +3392,7 @@
 	breakpoints;
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports) {
 
 	'use strict'; /**
@@ -3428,7 +3435,7 @@
 	    case 'facebook':
 	      return 'http://www.facebook.com/share.php?u=' + from + '&title=' + title;
 	    case 'twitter':
-	      return 'http://twitter.com/home?status=' + title + '+' + from;
+	      return 'https://twitter.com/share?url=' + encodeURI(from);
 	    case 'linkedin':
 	      return 'http://www.linkedin.com/shareArticle?mini=true&url=' + from + '&title=' + title + '&source=' + domain;
 	    case 'others':
@@ -3516,7 +3523,7 @@
 	module.exports = { init: init };
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports) {
 
 	'use strict';(function () {
@@ -3528,7 +3535,7 @@
 	})();
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports) {
 
 	'use strict'; /**
@@ -3549,7 +3556,7 @@
 	});
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, exports) {
 
 	'use strict'; /**
