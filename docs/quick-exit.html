@@ -150,10 +150,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <a href="#">Burke Bushfires</a>
   </section>
 </div>
--->
+--> 
 
 
-
+            
 <nav id="qg-site-nav" role="navigation" aria-label="Main navigation" class="collapse">
 	<ul>
 		<li><a href="https://www.qld.gov.au/queenslanders/">For Queenslanders</a></li>
@@ -202,7 +202,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                       </label>
                     </li>
                     <li class="qg-quick-exit__item">
-                      <button class="qg-quick-exit__button">Close this site v2</button>
+                      <a class="qg-quick-exit__button" href="https://www.google.com.au/">Close this site</a>
                     </li>
                   </ul>
                 </div>
@@ -362,8 +362,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </div>
 <!-- end mini cart -->
 
-
-
+                  
+                  
     <div class="qg-aside qg-search">
         <h2><span class="fa fa-search fa-2x" aria-hidden="true"></span>Search Queensland Government jobs</h2>
 
@@ -559,7 +559,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         method="post"
         action="https://www.smartservice.qld.gov.au/services/submissions/email/feedback/feedback"
         class="form"
-        data-recaptcha="true"><!-- data-toggle="true" -->
+        data-recaptcha="true" data-action="homepage"><!-- data-toggle="true" -->
 
         <ol class="questions">
             <li>
@@ -651,6 +651,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                           <input class="form-control" type="text" name="captcha" id="feedback-captcha" value="" />
                       </div>
                     </li>
+
+                    <input class="form-control" type="hidden" name="g-recaptcha-response" value="">`
 
                     <li class="footer col-md-12">
                         <span id="feedback-hidden-inputs"></span>
