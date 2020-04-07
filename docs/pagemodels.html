@@ -215,7 +215,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         method="post"
         action="https://www.smartservice.qld.gov.au/services/submissions/email/feedback/feedback"
         class="form"
-        data-recaptcha="true"><!-- data-toggle="true" -->
+        data-recaptcha="true" data-action="homepage"><!-- data-toggle="true" -->
 
         <ol class="questions">
             <li>
@@ -307,6 +307,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                           <input class="form-control" type="text" name="captcha" id="feedback-captcha" value="" />
                       </div>
                     </li>
+
+                    <input class="form-control" type="hidden" name="g-recaptcha-response" value="">`
 
                     <li class="footer col-md-12">
                         <span id="feedback-hidden-inputs"></span>
