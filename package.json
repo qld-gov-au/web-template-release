@@ -1,22 +1,50 @@
 {
-  "name": "web-template-release",
-  "version": "3.1.10",
+  "_from": "web-template-release@3.1.9",
+  "_id": "web-template-release@3.1.9",
+  "_inBundle": false,
+  "_integrity": "sha512-jbhFckiocpAX1dEU8R+6R3U0juS/a0buNk8zsLNQijQcr8I43Mxjunl4T0EtKpYdfwrbwjiaj9VHgH+Dqnz2IA==",
+  "_location": "/web-template-release",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "web-template-release@3.1.9",
+    "name": "web-template-release",
+    "escapedName": "web-template-release",
+    "rawSpec": "3.1.9",
+    "saveSpec": null,
+    "fetchSpec": "3.1.9"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/web-template-release/-/web-template-release-3.1.9.tgz",
+  "_shasum": "d6ca069787eac8c159259c925ef77695b7168cb4",
+  "_spec": "web-template-release@3.1.9",
+  "_where": "/Users/asifamin/WebstormProjects/work-tasks/recaptcha-v3-demo",
+  "author": {
+    "name": "oss.products@dsiti.qld.gov.au"
+  },
+  "bugs": {
+    "url": "https://github.com/qld-gov-au/web-template-release/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
   "description": "SWE3 Web Template",
-  "main": "index.js",
   "directories": {
     "doc": "docs"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "homepage": "https://github.com/qld-gov-au/web-template-release#readme",
+  "license": "ISC",
+  "main": "index.js",
+  "name": "web-template-release",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/qld-gov-au/web-template-release.git"
   },
-  "author": "oss.products@dsiti.qld.gov.au",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/qld-gov-au/web-template-release/issues"
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "homepage": "https://github.com/qld-gov-au/web-template-release#readme"
+  "version": "3.1.9"
 }

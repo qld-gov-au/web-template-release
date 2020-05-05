@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en" xmlns="">
+<html lang="en">
 
 <head>
 
@@ -173,22 +173,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <!-- / END Breadcrumbs -->
 
       <div id="qg-primary-content" role="main">
-        <!-- global alert -->
 
-<!--
-<div class="alert alert-danger qg-noicon qg-global-alert">
-  <header>
-    <h2><a href="/emergency/">Emergency Alert</a></h2>
-    <p><time datetime="2014-10-20T12:30:00+10:00">about 3 minutes ago</time></p>
-  </header>
-  <section>
-    <a href="#">SE Qld Flood</a>
-    <a href="#">Cyclone Bazza</a>
-    <a href="#">Burke Bushfires</a>
-  </section>
-</div>
--->
-
+        <!-- # include virtual="/assets/includes-local/content/alert.html"-->
         <h1>Components</h1>
 
         <p class="lead">Reusable components for your Queensland Government websites and web applications</p>
@@ -198,109 +184,29 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <!-- ################################## -->
         <h2 id="accordion" class="category">Accordion</h2>
         <section>
-          <p>Accordions display collapsible content panels for presenting information in a limited amount of space. Accordions help users see only the content they need, while everything else is easily accessible.</p>
-          <p> Usage considerations</p>
-          <ul>
-            <li>Try to limit the number of panels in an accordion by categorising information into smaller, digestible chucks. This will assist your users in scanning and comprehending the content.</li>
-            <li>Remember to structure textual content correctly in accordions, for example use heading tags where appropriate.</li>
-          </ul>
-
+          <p>Displays collapsible content panels for presenting information in a limited amount of space.</p>
+          <p>Click headers to expand/collapse content that is categorised into logical sections.</p>
           <section class="qg-accordion qg-dark-accordion" aria-label="Accordion Label">
             <div class="qg-acc-controls">
-              <button class="controls expand">Expand all</button>
+              <a href="#" class="controls expand">Expand all</a>
               <span class="controls">&#124;</span>
-              <button class="controls collapse">Collapse all</button>
+              <a href="#" class="controls collapse">Collapse all</a>
             </div>
             <article>
-              <input id="without-icon" type="checkbox" name="tabs" aria-controls="id-panel-content-1" aria-expanded="false" role="checkbox" tabindex="-1">
-              <button class="acc-heading"><label for="without-icon"><span class="title">Without icon</span><span class="arrow"> <i></i></span></label></button>
+              <input id="without-icon" type="checkbox" name="tabs" aria-controls="id-panel-content-1" aria-expanded="false" role="checkbox">
+              <h3 class="acc-heading"><label for="without-icon"><span class="title">Without icon</span><span class="arrow"> <i></i></span></label></h3>
               <div class="collapsing-section"  aria-hidden="true" id="id-panel-content-1">
                 <p> Content related to header. </p>
                 <ul>
                   <li>If dot points are available</li>
                   <li>Can go here</li>
                 </ul>
-                <p>Form example inside accordion</p>
-                <form name="feedback" action="" method="post">
-                  <ol class="sections">
-                    <li class="section"><fieldset><legend><span class="h3">Contact details</span></legend>
-                      <ol class="questions">
-                        <li>
-                          <label for="name">
-                            <span class="label">Name</span>
-                          </label>
-                          <input id="name"  name="name" size="20" type="text" />
-                        </li>
-                        <li>
-                          <label for="email">
-                            <span class="label">Email</span>
-                          </label>
-                          <input id="email" name="email" size="40" type="email" />
-                        </li>
-                        <li>
-                          <label for="phone">
-                            <span class="label">Phone</span>
-
-
-                          </label>
-                          <input id="phone" name="phone" size="40" type="text" />
-                        </li>
-                        <li>
-                          <label for="organisation">
-                            <span class="label">Organisation</span>
-                          </label>
-                          <input id="organisation" name="organisation" size="40" type="text" />
-                        </li>
-
-                        <li>
-                          <label for="additional-comments">
-                            <span class="label">Comments</span>
-                            <abbr class="required" title="(required)">*</abbr>
-                            <small class="hint">Please do not include private or sensitive information such as credit card numbers, bank account numbers, usernames and passwords.</small>
-                          </label>
-                          <textarea id="additional-comments" name="additional-comments" required="required" rows="10" cols="40"></textarea>
-                        </li>
-                      </ol>
-                    </fieldset>
-                    </li>
-
-                    <div class="form-check">
-                      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                      <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                      <label class="form-check-label" for="exampleRadios1">
-                        Default radio
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                      <label class="form-check-label" for="exampleRadios2">
-                        Second default radio
-                      </label>
-                    </div>
-                    <div class="form-check disabled">
-                      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" disabled>
-                      <label class="form-check-label" for="exampleRadios3">
-                        Disabled radio
-                      </label>
-                    </div>
-
-                    <li class="footer">
-
-                      <input type="hidden" name="Last page visited" value="" />
-                      <ol class="actions">
-                        <li><strong><input value="Send message" type="submit" /></strong></li>
-                      </ol>
-                    </li>
-                  </ol>
-                </form>
+                <p>Or provide any semantic html structure</p>
               </div>
             </article>
             <article>
-              <input id="with-icon" type="checkbox" name="tabs" tabindex="-1" aria-controls="id-panel-content-2" aria-expanded="false" role="checkbox">
-              <button class="acc-heading"><img src="https://placeimg.com/20/20/nature" alt=""><label for="with-icon"><span class="title">With icon</span> <span class="subtitle">Subtitle can go here (optional)</span><span class="arrow"> <i></i></span></label></button>
+              <input id="with-icon" type="checkbox" name="tabs" aria-controls="id-panel-content-2" aria-expanded="false" role="checkbox">
+              <h3 class="acc-heading"><img src="https://placeimg.com/20/20/nature" alt=""><label for="with-icon"><span class="title">With icon</span> <span class="subtitle">Subtitle can go here (optional)</span><span class="arrow"> <i></i></span></label></h3>
               <div class="collapsing-section" aria-hidden="true" id="id-panel-content-2">
                 <h4>Heading</h4>
                 <p> Content related to header. </p>
@@ -319,14 +225,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
           <section class="qg-accordion mt-5" aria-label="Accordion Label">
             <div class="qg-acc-controls">
-              <button class="controls expand">Expand all</button>
+              <a href="#" class="controls expand">Expand all</a>
               <span class="controls">&#124;</span>
-              <button class="controls collapse">Collapse all</button>
+              <a href="#" class="controls collapse">Collapse all</a>
             </div>
             <article>
-              <input id="without-icon-1" type="checkbox" name="tabs" tabindex="-1" aria-controls="id-panel-content-1" aria-expanded="false" role="checkbox">
-              <button class="acc-heading"><label for="without-icon-1"><span class="title">Without icon</span> <span class="subtitle">Subtitle can go here (optional)</span><span class="arrow"> <i></i></span></label></button>
-              <div class="collapsing-section"  aria-hidden="true" id="id-panel-content-3">
+              <input id="without-icon-1" type="checkbox" name="tabs" aria-controls="id-panel-content-1" aria-expanded="false" role="checkbox">
+              <h3 class="acc-heading"><label for="without-icon-1"><span class="title">Without icon</span> <span class="subtitle">Subtitle can go here (optional)</span><span class="arrow"> <i></i></span></label></h3>
+              <div class="collapsing-section"  aria-hidden="true" id="id-panel-content-1">
                 <p> Content related to header. </p>
                 <ul>
                   <li>If dot points are available</li>
@@ -336,9 +242,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               </div>
             </article>
             <article>
-              <input id="with-icon-1" type="checkbox" name="tabs" tabindex="-1" aria-controls="id-panel-content-2" aria-expanded="false" role="checkbox">
-              <button class="acc-heading"><img src="https://placeimg.com/20/20/nature" alt=""><label for="with-icon-1"><span class="title">With icon</span> <span class="subtitle">Subtitle can go here (optional)</span><span class="arrow"> <i></i></span></label></button>
-              <div class="collapsing-section" aria-hidden="true" id="id-panel-content-4">
+              <input id="with-icon-1" type="checkbox" name="tabs" aria-controls="id-panel-content-2" aria-expanded="false" role="checkbox">
+              <h3 class="acc-heading"><img src="https://placeimg.com/20/20/nature" alt=""><label for="with-icon-1"><span class="title">With icon</span> <span class="subtitle">Subtitle can go here (optional)</span><span class="arrow"> <i></i></span></label></h3>
+              <div class="collapsing-section" aria-hidden="true" id="id-panel-content-2">
                 <h4>Heading</h4>
                 <p> Content related to header. </p>
                 <ul>
@@ -367,7 +273,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     &lt;label for="expand" class="controls">Expand all&lt;/label>
 
                     &lt;article>
-                        &lt;input id="without-icon" type="checkbox" name="tabs" tabindex="-1" aria-controls="id-panel-content-1" aria-expanded="false" role="checkbox">
+                        &lt;input id="without-icon" type="checkbox" name="tabs" aria-controls="id-panel-content-1" aria-expanded="false" role="checkbox">
                         &lt;h3 class="acc-heading">&lt;label for="without-icon">&lt;span class="title"&gt;Without icon&lt;/span&gt; &lt;span class="subtitle">Subtitle can go here (optional)&lt;/span>&lt;span class="arrow"> &lt;i>&lt;/i>&lt;/span>&lt;/label>&lt;/h3>
                         &lt;div class="collapsing-section"  aria-hidden="true" id="id-panel-content-1">
                             &lt;p> Content related to header. &lt;/p>
@@ -1622,13 +1528,13 @@ Publishers may use blockquotes to indicate the quotation of a section of text fr
         <!-- ################################## -->
 
         <h2 id="quick-exit-module" class="category">Quick Exit</h2>
-        <p>The Quick Exit is a feature that can be placed on a webpage with contains sensitive information and allows a user to immediately be redirected to an innocuous site (www.google.com) and hide what they were looking at.</p>
-        <p>For desktop users, this feature contains a link to the <a href="https://www.qld.gov.au/help/tips-to-browse-safely-online">Tips to browse safely online</a> webpage, which educates users about how to browse privately (e.g. private tabs, deleting browser history).</p>
+        <p>The Quick Exit is a feature that can be placed on a webpage with contains sensitive information and allows a user to immediately be redirected to an innocuous site (ABC TV Guide) and hide what they were looking at.</p>
+        <p>It is suggested that agencies utilising the Quick Exit feature add messaging to educate users about how to browse privately (e.g. private tabs, deleting browser history). This may be done using existing SWE components such as Alerts or Asides.</p>
 
         <div class="qg-tmplt-example">
 
           <div class="panel-body">
-            Please visit the <a href="https://www.qld.gov.au/community/getting-support-health-social-issue/support-victims-abuse/domestic-family-violence/domestic-family-violence-getting-help/planning-safety/planning-safety-technology">Planning Safety Technology</a> webpage in Community Support franchise for an example of the Quick Exit feature.
+            Please visit the <a href="https://www.qld.gov.au/community/getting-support-health-social-issue/support-victims-abuse/domestic-family-violence/domestic-family-violence-getting-help/planning-safety/planning-safety-technology">Planning Safety Technology</a> webpage in Community Support franchise for an example of the Quick Exit feature as well as tips for online safety.
 
           </div>
         </div>
@@ -1844,7 +1750,7 @@ Publishers may use blockquotes to indicate the quotation of a section of text fr
         method="post"
         action="https://www.smartservice.qld.gov.au/services/submissions/email/feedback/feedback"
         class="form"
-        data-recaptcha="true" data-action="homepage"><!-- data-toggle="true" -->
+        data-recaptcha="true"><!-- data-toggle="true" -->
 
         <ol class="questions">
             <li>
@@ -1936,8 +1842,6 @@ Publishers may use blockquotes to indicate the quotation of a section of text fr
                           <input class="form-control" type="text" name="captcha" id="feedback-captcha" value="" />
                       </div>
                     </li>
-
-                    <input class="form-control" type="hidden" name="g-recaptcha-response" value="">`
 
                     <li class="footer col-md-12">
                         <span id="feedback-hidden-inputs"></span>

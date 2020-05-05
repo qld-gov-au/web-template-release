@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en" xmlns="">
+<html lang="en">
 
 <head>
 
@@ -174,7 +174,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
       <div id="qg-primary-content" role="main">
 
-        <!-- #include virtual="/assets/includes-local/content/alert.html"-->
+        <!-- # include virtual="/assets/includes-local/content/alert.html"-->
 
         <!-- Start page content -->
 
@@ -850,7 +850,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <span class="label">Year of birth</span>
                     <small class="hint">Examples: 1901, 11/07/1876, 04/1913</small>
                   </label>
-                  <input type="search" id="dob" class="qg-date-input" name="ChildDateOfBirth" size="15" placeholder="dd/mm/yyyy" min="1829-01-01" max="1914-12-31" />
+                  <input type="search" id="dob" name="ChildDateOfBirth" size="15" placeholder="dd/mm/yyyy" min="1829-01-01" max="1914-12-31" />
                 </li>
                 <li class="group atomic">
                   <fieldset id="dob-range">
@@ -863,13 +863,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <label for="dob-min">
                           <span class="label">From</span>
                         </label>
-                        <input type="search" id="dob-min" class="qg-date-input" name="ChildDateOfBirth_lower" size="15" placeholder="dd/mm/yyyy" min="1829-01-01" max="1914-12-31" />
+                        <input type="search" id="dob-min" name="ChildDateOfBirth_lower" size="15" placeholder="dd/mm/yyyy" min="1829-01-01" max="1914-12-31" />
                       </li>
                       <li>
                         <label for="dob-max">
                           <span class="label">Until (optional)</span>
                         </label>
-                        <input type="search" id="dob-max" class="qg-date-input" name="ChildDateOfBirth_upper" size="15" placeholder="dd/mm/yyyy" min="1829-01-01" max="1914-12-31" />
+                        <input type="search" id="dob-max" name="ChildDateOfBirth_upper" size="15" placeholder="dd/mm/yyyy" min="1829-01-01" max="1914-12-31" />
                       </li>
                   </fieldset>
                 </li>
@@ -937,14 +937,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </ul>
 
         <h2 id="progressive-disclosure">Progressive disclosure</h2>
-        <h3>Visually hidden content</h3>
-        <p>Content which should be visually hidden, but remains accessible to assistive technologies such as screen readers, can be styled using the .sr-only class. This can be useful in situations where additional visual information or cues (such as meaning denoted through the use of colour) need to also be conveyed to non-visual users.</p>
-        <p> Similarly, when the progressive disclosure design pattern is used for forms (hiding and showing fields based on a particular selection), people using assistive technologies need a way to understand the condition behind a form control. This class can be used to convey this condition which otherwise can be conveyed through visual cues.</p>
-
-        Example:
-        <pre><code class="language-markup">&lt;p class=&quot;text-danger&quot;&gt;&lt;span class=&quot;sr-only&quot;&gt;Danger: &lt;/span&gt; This action is not reversible&lt;/p&gt;</code></pre>
-
-        For visually hidden interactive controls, such as traditional “skip” links, .sr-only can be combined with the .sr-only-focusable class. This will ensure that the control becomes visible once focused (for sighted keyboard users).
 
         <h3>Showing sections of a form one at a time (e.g. step-by-step wizard)</h3>
         <p>Server side implementation is recommended</p>
@@ -1445,19 +1437,6 @@ $( '#email' ).closest( '.section' ).relevance( 'relevantWhen', { name: 'replyReq
           </tr>
         </table>
 
-        <h2 id="datepicker">Datepicker</h2>
-        <p>There are 2 options to include a Datepicker</p>
-        <form>
-          <div class="form-group">
-            <label for="jqueryui-date">jQuery UI datepicker (using <strong>.qg-date-input</strong> class )</label>
-            <input type="text" class="qg-date-input" id="jqueryui-date">
-          </div>
-          <div class="form-group">
-            <label for="html5-date">HTML5 datepicker (using <strong>type="date"</strong>)</label>
-            <input type="date" class="form-control" id="html5-date" placeholder="Password">
-          </div>
-        </form>
-
         <h2 id="references">References</h2>
         <ul>
           <li><a href="http://www.qld.gov.au/web/cue/module4/">Module 4 Online Forms (Consistent User Experience standard)</a></li>
@@ -1562,12 +1541,7 @@ $( '#email' ).closest( '.section' ).relevance( 'relevantWhen', { name: 'replyReq
             <li><a href="#questions">Questions</a></li>
             <li><a href="#progressive-disclosure">Progressive disclosure</a></li>
             <li><a href="#autocomplete-address-form">Autocomplete address form</a></li>
-            <li>
-              <a href="#client-side-validation">Client-side validation</a>
-              <ul>
-                <li><a href="#datepicker">Datepicker</a></li>
-              </ul>
-            </li>
+            <li><a href="#client-side-validation">Client-side validation</a></li>
             <li><a href="#references">References</a></li>
           </ul>
           <p>
@@ -1608,7 +1582,7 @@ $( '#email' ).closest( '.section' ).relevance( 'relevantWhen', { name: 'replyReq
         method="post"
         action="https://www.smartservice.qld.gov.au/services/submissions/email/feedback/feedback"
         class="form"
-        data-recaptcha="true" data-action="homepage"><!-- data-toggle="true" -->
+        data-recaptcha="true"><!-- data-toggle="true" -->
 
         <ol class="questions">
             <li>
@@ -1700,8 +1674,6 @@ $( '#email' ).closest( '.section' ).relevance( 'relevantWhen', { name: 'replyReq
                           <input class="form-control" type="text" name="captcha" id="feedback-captcha" value="" />
                       </div>
                     </li>
-
-                    <input class="form-control" type="hidden" name="g-recaptcha-response" value="">`
 
                     <li class="footer col-md-12">
                         <span id="feedback-hidden-inputs"></span>

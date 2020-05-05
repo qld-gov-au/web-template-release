@@ -45,7 +45,8 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
-	__webpack_require__(1);
+	var _qgEnv = __webpack_require__(1);var _qgEnv2 = _interopRequireDefault(_qgEnv);
+	
 	
 	__webpack_require__(2);
 	
@@ -67,7 +68,7 @@
 	// legacy module imports
 	// env initialization
 	(function () {'use strict';
-	  var franchiseTitle = window.qg.swe.franchiseTitle;
+	  var franchiseTitle = _qgEnv2.default && _qgEnv2.default.swe && _qgEnv2.default.swe.franchiseTitle;
 	  _sectionNav2.default.highlightNavItem();
 	  _stepNav2.default.init();
 	  _feedbackForm2.default.init(franchiseTitle);
@@ -79,13 +80,15 @@
 /* 1 */
 /***/ (function(module, exports) {
 
-	"use strict";var env = function () {
-	  // All the environment related SWE3 code
-	  window.qg = window.qg || {};
-	  window.qg.swe = window.qg.swe || {};
-	}();
+	'use strict'; // All the environment related SWE3 code
 	
-	module.exports = env;
+	window.qg = window.qg || {};
+	window.qg.swe = window.qg.swe || {};
+	window.qg.cdn = window.qg.swe.isProduction === false ? 'https://beta-static.qgov.net.au' : 'https://static.qgov.net.au';
+	window.qg.swe.assets = '/assets/v3.1/latest/';
+	
+	window.qg.swe.paths = {
+	  images: window.qg.swe.assets + 'images' };
 
 /***/ }),
 /* 2 */
@@ -283,18 +286,8 @@
 	  return i.type !== 'text';
 	}
 	if (!browserSupportsDateInput() && $('input[type=\'date\']').length > 0) {
-	  $.getScript('https://static.qgov.net.au/assets/v3.1/latest/lib/ext/nodep-date-input-polyfill/nodep-date-input-polyfill.dist.js', function () {
+	  $.getScript('https://static.qgov.net.au/assets/v3.1/latest/lib/ext/nodep-date-input-polyfill.dist.js', function () {
 	    console.log('date polyfill loaded');
-	  });
-	}
-	if ($('input[class=\'qg-date-input\']').length > 0) {
-	  $.getScript('https://static.qgov.net.au/assets/v3.1/latest/lib/ext/jquery-ui-bundle/jquery-ui.min.js', function () {
-	    $('head').append($("<link rel='stylesheet' href='https://static.qgov.net.au/assets/v3.1/latest/lib/ext/jquery-ui-bundle/jquery-ui.min.css' type='text/css' media='screen' />"));
-	    $('.qg-date-input').datepicker({
-	      dateFormat: 'dd/mm/yy',
-	      changeYear: true,
-	      changeMonth: true });
-	
 	  });
 	}
 
@@ -1967,10 +1960,8 @@
 	  }
 	  $('.qg-web-autocomplete').each(function () {
 	    var form = this;
-	    var searchField = $(form.elements).filter('[name="query"]');
+	    var searchField = $(form.elements.query).filter('[name="query"]');
 	    // var lastSearch = searchField.val();
-	    var profile = $(form.elements).filter('[name="profile"]').val() || 'qld_preview';
-	    var submit = $(form.elements).filter('[type="submit"]');
 	    var userTyped = '';
 	
 	    // ARIA
@@ -1985,10 +1976,6 @@
 	
 	    // create the suggestion box
 	    var suggestions = $('<ul role="listbox" class="listbox" aria-busy="true"/>').generateId('suggestbox');
-	
-	    if (profile.length > 0 && submit.length > 0) {
-	      submit.attr('data-analytics-link-group', 'qg-search-submit-from-' + profile);
-	    }
 	
 	    function closeSuggestions() {
 	      suggestions.empty();
@@ -2080,21 +2067,22 @@
 	      searchField.attr('aria-owns', suggestions.attr('id'));
 	
 	      userTyped = this.value;
-	
 	      if (userTyped.length < 3) {
 	        closeSuggestions();
 	        return;
 	      }
 	
 	      // console.log( 'fetch suggestions for ', userTyped );
+	
 	      $.ajax({
 	        // cache! (the URL will be change with the search text)
 	        cache: true,
 	        dataType: 'jsonp',
 	        url: 'https://find.search.qld.gov.au/s/suggest.json?',
 	        data: {
+	          // TODO read these from search form
 	          collection: $(form.elements.collection).filter('[name="collection"]').val() || 'qld-gov',
-	          profile: profile || 'qld_preview',
+	          profile: $(form.elements.profile).filter('[name="profile"]').val() || 'qld_preview',
 	          show: MAX_SUGGESTIONS,
 	          partial_query: userTyped } }).
 	
@@ -2113,7 +2101,7 @@
 	        suggestions.html($.map(data, function (value) {
 	          var htmlValue = value.replace(/</g, '&lt;').replace(match, '<mark>' + safeInput + '</mark>');
 	          // use form.action + default params
-	          return '<li><a href="https://find.search.qld.gov.au/s/search.html?collection=qld-gov&profile=qld&query=' + encodeURIComponent(value) + '" data-analytics-link-group="qg-search-suggestion-from-' + profile + '">' + htmlValue + '</a></li>';
+	          return '<li><a href="https://find.search.qld.gov.au/s/search.html?collection=qld-gov&profile=qld&query=' + encodeURIComponent(value) + '">' + htmlValue + '</a></li>';
 	        }).join('\n'));
 	
 	        // issue #3: issues with typing over selected suggestion
@@ -2326,7 +2314,7 @@
 	  'use strict';
 	  var licenceOptions = {
 	    url: '//creativecommons.org/licenses/',
-	    imgSrc: 'https://static.qgov.net.au/assets/v3.1/latest/images/licences/',
+	    imgSrc: qg.cdn + qg.swe.paths.images + '/licences/',
 	    types: {
 	      'by': {
 	        'name': 'Attribution',
@@ -2510,67 +2498,37 @@
 /* 16 */
 /***/ (function(module, exports) {
 
-	'use strict';
-	(function () {
-	  var $quickExit = $('.qg-quick-exit');
-	  if ($quickExit.length > 0 && $('.qg-quick-exit__button').length > 0) {
-	    var quickExitInit = function quickExitInit() {
-	      var button = document.querySelector('.qg-quick-exit__button');
-	      var escapeSite = 'https://www.google.com.au/';
-	      var hotkey = 27;
-	
-	      // add click handler
-	      button.onclick = function (e) {
-	        /*globals quickExit*/
-	        return quickExit(escapeSite);
-	      };
-	
-	      // load a plugin only on IE browser to support position:sticky
-	      if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) {
-	        $.getScript('https://static.qgov.net.au/assets/v3.1/latest/lib/ext/stickyfilljs/dist/stickyfill.min.js', function () {
-	          /*global Stickyfill*/
-	          console.log('loaded stickyfill');
-	          Stickyfill.add($quickExit);
-	        });
-	      }
-	
-	      // add hotkey trigger
-	      document.addEventListener('keydown', function (e) {
-	        if (e.keyCode === hotkey) {
-	          quickExit(escapeSite);
-	
-	          if (e) {
-	            // stop escape from cancelling redirect
-	            e.preventDefault();
-	
-	            // early IEs don't have preventDefault
-	            e.returnValue = false;
+	'use strict';var quickExit = {
+	  el: '.qg-quick-exit',
+	  init: function init() {
+	    this.methods();
+	  },
+	  methods: function methods() {
+	    var newloc = 'https://www.google.com.au';
+	    var el = $(this.el);
+	    if (el.length > 0) {
+	      $.getScript('https://static.qgov.net.au/assets/v3.1/latest/lib/ext/stickyfill.min.js', function () {
+	        // IE 11 fix
+	        /*global Stickyfill*/
+	        Stickyfill.add(el);
+	        // navigating on pressing Escape key
+	        $(document).keydown(function (e) {
+	          if (e.keyCode === 27) {
+	            window.open(newloc, '_blank', '');
+	            window.location.replace(newloc);
+	            return false;
 	          }
-	
-	          return false;
-	        }
+	        });
+	        // clicking on the quick exit button
+	        $('body').on('click', '.qg-quick-exit__button', function () {
+	          window.open(newloc, '_blank', '');
+	          window.location.replace(newloc);
+	        });
 	      });
-	    };
-	    window.quickExit = function (site) {
-	      // then redirect to a non-sensitive site
-	      window.open(site, '_blank');
-	      window.location.replace(site);
+	    }
+	  } };
 	
-	      // remove as much info from URL as possible
-	      if (window.history) {
-	        try {
-	          window.history.replaceState({}, '', '/');
-	        } catch (e) {
-	
-	        }
-	      }
-	
-	      // disable default event handling
-	      return false;
-	    };
-	    quickExitInit();
-	  }
-	})();
+	quickExit.init();
 
 /***/ }),
 /* 17 */
@@ -2604,32 +2562,33 @@
 	(function ($) {
 	  var accordion = '.qg-accordion';
 	  if ($(accordion).length > 0) {
+	    var tabindex = 1;
 	    var accordionControls = 'input[name=control]';
-	    var accItem = $(accordion).find('article');
 	    var linkedpanel = window.location.hash && $('input[aria-controls=' + window.location.hash.substring(1) + ']');
 	
-	    // keyboard accessibility
-	    var a11yClick = function a11yClick(event) {
-	      if (event.type === 'click') {
-	        return true;
-	      } else if (event.type === 'keypress') {
-	        var code = event.charCode || event.keyCode;
-	        if (code === 32 || code === 13) {
-	          return true;
-	        }
-	      } else {
-	        return false;
-	      }
-	    };
-	
 	    //Handle events of accordion inputs
-	    $(accordion).find('article input[name=tabs]').on('change', function () {
+	    $(accordion).find('article input').on('change', function () {
 	      var checkedStatus = $(this).prop('checked');
 	      var controlledPanedId = $('#' + $(this).attr('aria-controls'));
 	      $(this).
 	      attr('aria-expanded', checkedStatus) //sets aria
 	      .parents(accordion).find(accordionControls).prop('checked', false); //clears expand/collapse selection
 	      controlledPanedId.attr('aria-hidden', !checkedStatus);
+	    });
+	
+	    //expand all click
+	    // label selector is to provide backward compatibility in case projects are using old markup
+	    $('.qg-acc-controls .expand, label[for=\'expand\']').click(function (e) {
+	      e.preventDefault();
+	      $(this).focus();
+	      $(this).parents('.qg-accordion').find('input:checkbox').prop('checked', true);
+	    });
+	
+	    // collapse all click
+	    // label selector is to provide backward compatibility in case projects are using old markup
+	    $('.qg-acc-controls .collapse, label[for=\'collapse\']').click(function (e) {
+	      e.preventDefault();
+	      $(this).parents('.qg-accordion').find('input:checkbox').prop('checked', false);
 	    });
 	
 	    // open on page load
@@ -2646,61 +2605,25 @@
 	    hashTrigger();
 	    window.onhashchange = hashTrigger;
 	
+	    // inserting tab index dynamically
+	    // label selector is to provide backward compatibility in case projects are using old markup
+	    $('.qg-accordion .acc-heading, .qg-acc-controls .expand, .qg-acc-controls .collapse, label[for="expand"], label[for="collapse"]').each(function () {
+	      if (this.type !== 'hidden') {
+	        var $input = $(this);
+	        $input.attr('tabindex', tabindex);
+	        tabindex++;
+	      }
+	    });
 	    $('input[name=tabs]').click(function () {
 	      $(this).parent('article').find('.acc-heading').focus();
 	    });
 	
 	    // highlight title on hover
-	    accItem.hover(function () {
+	    $('.qg-accordion article').hover(function () {
 	      $(accordion).find('.title').removeClass('ht');
 	      $(this).find('.title').addClass('ht');
 	    }, function () {
 	      $(accordion).find('.title').removeClass('ht');
-	    });
-	
-	    // expand/collapse on enter keypress
-	    accItem.find('.acc-heading').on('keypress', function (event) {
-	      if (event.target === event.currentTarget) {
-	        event.preventDefault();
-	        if (a11yClick(event) === true) {
-	          var parent = $(this).parent();
-	          if (parent.find('input[name="tabs"]:checked').length > 0) {
-	            parent.find('input[name="tabs"]').prop('checked', false);
-	          } else {
-	            parent.find('input[name="tabs"]').prop('checked', true);
-	          }
-	        }
-	      }
-	    });
-	    accItem.find('.acc-heading').on('click', function (event) {
-	      if (event.target === event.currentTarget) {
-	        if (event.clientX !== 0) {
-	          var parent = $(this).parent();
-	          if (parent.find('input[name="tabs"]:checked').length > 0) {
-	            parent.find('input[name="tabs"]').prop('checked', false);
-	          } else {
-	            parent.find('input[name="tabs"]').prop('checked', true);
-	          }
-	          return false;
-	        }
-	      }
-	    });
-	    //expand all click
-	    // label selector is to provide backward compatibility in case projects are using old markup
-	    $('.qg-acc-controls .expand, label[for=\'expand\']').on('click keypress', function (event) {
-	      if (a11yClick(event) === true) {
-	        $(this).parents('.qg-accordion').find('input:checkbox').prop('checked', true);
-	        event.preventDefault();
-	      }
-	    });
-	
-	    // collapse all click
-	    // label selector is to provide backward compatibility in case projects are using old markup
-	    $('.qg-acc-controls .collapse, label[for=\'collapse\']').on('click keypress', function (event) {
-	      if (a11yClick(event) === true) {
-	        $(this).parents('.qg-accordion').find('input:checkbox').prop('checked', false);
-	        event.preventDefault();
-	      }
 	    });
 	  }
 	})(jQuery);
@@ -3678,13 +3601,7 @@
 	  $('#feedback-hidden-inputs').append(newHiddenInput);
 	}
 	function init(franchiseTitle) {
-	  var franchise;
-	  if (franchiseTitle) {
-	    franchise = franchiseTitle;
-	  } else {
-	    franchise = location.pathname.split('/')[1];
-	  }
-	  addHiddenInput('franchise', franchise);
+	  addHiddenInput('franchise', location.pathname.split('/')[1]);
 	  addHiddenInput('page-title', $(document).find('title').text());
 	  addHiddenInput('page-url', window.location.href);
 	  addHiddenInput('page-referer', document.referrer);
