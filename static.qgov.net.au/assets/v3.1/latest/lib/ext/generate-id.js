@@ -1,2 +1,49 @@
-/*! SWE 3.1.10 20200407T1526 */
-!function(t){function e(n){if(r[n])return r[n].exports;var i=r[n]={i:n,l:!1,exports:{}};return t[n].call(i.exports,i,i.exports,e),i.l=!0,i.exports}var r={};e.m=t,e.c=r,e.i=function(t){return t},e.d=function(t,r,n){e.o(t,r)||Object.defineProperty(t,r,{configurable:!1,enumerable:!0,get:n})},e.n=function(t){var r=t&&t.__esModule?function(){return t.default}:function(){return t};return e.d(r,"a",r),r},e.o=function(t,e){return Object.prototype.hasOwnProperty.call(t,e)},e.p="",e(e.s=0)}([function(t,e){!function(t){"use strict";t.fn.generateId=function(e){var r=1;return e=e?t.trim(e.toLowerCase().replace(/[^a-z0-9_]+/g," ")).replace(/\s+/g,"-"):"id",this.each(function(){var t;if(!this.getAttribute("id")){for(t=e;document.getElementById(t);)t=e+String(r),r++;this.setAttribute("id",t)}})}}(jQuery)}]);
+/*! SWE 3.1.11 2020061T1228 */
+/*
+ * generate-id
+ * http://bboyle.github.com/Generate-ID
+ *
+ * Copyright (c) 2013 Ben Boyle
+ * Licensed under the MIT license.
+ */
+
+(function( $ ) {
+  'use strict';
+
+
+  /**
+   * Assigns a unique value to `@id` unless hasAttribute( 'id' ) is true
+   *
+   * @param preferredId string to use for id value
+   *
+   * @return jquery object (chaining supported)
+   */
+  $.fn.generateId = function( preferredId ) {
+
+    var i = 1;
+
+    if ( ! preferredId ) {
+      preferredId = 'id';
+    } else {
+      preferredId = $.trim( preferredId.toLowerCase().replace( /[^a-z0-9_]+/g, ' ' )).replace( /\s+/g, '-' );
+    }
+
+    return this.each(function() {
+
+      var id;
+
+      if ( ! this.getAttribute( 'id' )) {
+
+        id = preferredId;
+        while ( document.getElementById( id )) {
+          id = preferredId + String( i );
+          i++;
+        }
+        this.setAttribute( 'id', id );
+      }
+    });
+
+  };
+
+
+}( jQuery ));
