@@ -283,13 +283,14 @@
 	  return i.type !== 'text';
 	}
 	if (!browserSupportsDateInput() && $('input[type=\'date\']').length > 0) {
-	  $.getScript('https://static.qgov.net.au/assets/v3.1/latest/lib/ext/nodep-date-input-polyfill/nodep-date-input-polyfill.dist.js', function () {
+	  $.getScript('https://test-static.qgov.net.au/assets/v3.1/latest/lib/ext/nodep-date-input-polyfill/nodep-date-input-polyfill.dist.js', function () {
+	    $('input[type="date"]').attr('lang', 'en-GB');
 	    console.log('date polyfill loaded');
 	  });
 	}
 	if ($('input[class=\'qg-date-input\']').length > 0) {
-	  $.getScript('https://static.qgov.net.au/assets/v3.1/latest/lib/ext/jquery-ui-bundle/jquery-ui.min.js', function () {
-	    $('head').append($("<link rel='stylesheet' href='https://static.qgov.net.au/assets/v3.1/latest/lib/ext/jquery-ui-bundle/jquery-ui.min.css' type='text/css' media='screen' />"));
+	  $.getScript('https://test-static.qgov.net.au/assets/v3.1/latest/lib/ext/jquery-ui-bundle/jquery-ui.min.js', function () {
+	    $('head').append($("<link rel='stylesheet' href='https://test-static.qgov.net.au/assets/v3.1/latest/lib/ext/jquery-ui-bundle/jquery-ui.min.css' type='text/css' media='screen' />"));
 	    $('.qg-date-input').datepicker({
 	      dateFormat: 'dd/mm/yy',
 	      changeYear: true,
@@ -2160,8 +2161,7 @@
 /* 12 */
 /***/ (function(module, exports) {
 
-	'use strict'; /*global jQuery*/
-	(function ($) {
+	'use strict';(function ($) {
 	  'use strict';
 	
 	  var qgSocialMedia = {
@@ -2176,9 +2176,12 @@
 	        this.loadScript('script', 'twitter-wjs', twitterSdkScript);
 	      }
 	      if (this.config.$facebookEl.length > 0 && $('script[src*="' + facebookSdkScript + '"]').length <= 0) {
-	        var fbUrl = this.config.$facebookEl.attr('data-href');
-	        var fbhtml = '<div class="fb-page" data-href="' + fbUrl + '" data-tabs="timeline" data-small-header="true" data-width="10000"  data-adapt-container-width="true" data-show-facepile="false"></div>';
-	        this.config.$facebookEl.append(fbhtml);
+	        this.config.$facebookEl.each(function () {
+	          var curr = $(this);
+	          var fbUrl = curr.attr('data-href');
+	          var fbhtml = '<div class="fb-page" data-href="' + fbUrl + '" data-tabs="timeline" data-small-header="true" data-width="10000"  data-adapt-container-width="true" data-show-facepile="false"></div>';
+	          curr.append(fbhtml);
+	        });
 	        this.loadScript('script', 'facebook-wjs', facebookSdkScript);
 	      }
 	    },
@@ -2326,7 +2329,7 @@
 	  'use strict';
 	  var licenceOptions = {
 	    url: '//creativecommons.org/licenses/',
-	    imgSrc: 'https://static.qgov.net.au/assets/v3.1/latest/images/licences/',
+	    imgSrc: 'https://test-static.qgov.net.au/assets/v3.1/latest/images/licences/',
 	    types: {
 	      'by': {
 	        'name': 'Attribution',
@@ -2527,7 +2530,7 @@
 	
 	      // load a plugin only on IE browser to support position:sticky
 	      if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) {
-	        $.getScript('https://static.qgov.net.au/assets/v3.1/latest/lib/ext/stickyfilljs/dist/stickyfill.min.js', function () {
+	        $.getScript('https://test-static.qgov.net.au/assets/v3.1/latest/lib/ext/stickyfilljs/dist/stickyfill.min.js', function () {
 	          /*global Stickyfill*/
 	          console.log('loaded stickyfill');
 	          Stickyfill.add($quickExit);
@@ -3171,8 +3174,8 @@
 
 	'use strict';if ($("script[src*='jquery.fancybox']").length === 0) {
 	  if ($('.qg-image-gallery').length > 0 || $('.qg-lightbox').length > 0 || $('.image-gallery').length > 0 || $('.cut-in').length > 0) {
-	    $('head').append($("<link rel='stylesheet' href='https://static.qgov.net.au/assets/v3.1/latest/lib/ext/fancybox/jquery.fancybox.min.css' type='text/css' media='screen' />"));
-	    $.getScript('https://static.qgov.net.au/assets/v3.1/latest/lib/ext/fancybox/jquery.fancybox.min.js', function () {
+	    $('head').append($("<link rel='stylesheet' href='https://test-static.qgov.net.au/assets/v3.1/latest/lib/ext/fancybox/jquery.fancybox.min.css' type='text/css' media='screen' />"));
+	    $.getScript('https://test-static.qgov.net.au/assets/v3.1/latest/lib/ext/fancybox/jquery.fancybox.min.js', function () {
 	      // image gallery
 	      $('.qg-image-gallery, .image-gallery').each(function (index) {
 	        $(this).find('a').each(function () {
