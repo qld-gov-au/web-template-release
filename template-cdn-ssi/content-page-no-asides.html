@@ -31,7 +31,7 @@
   <!-- Open graph -->
   <meta property="og:title" content="Queensland Government">
   <meta property="og:description" content="DESCRIPTION">
-  <meta property="og:image" content="/assets/v3.1/latest/images/coat-of-arms/coa-thumbnail.png">
+  <meta property="og:image" content="/assets/v4/latest/images/coat-of-arms/coa-thumbnail.png">
   <meta property="og:url" content="">
   <meta property="og:type" content="article" />
 
@@ -39,7 +39,7 @@
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Queensland Government" />
   <meta name="twitter:description" content="DESCRIPTION" />
-  <meta name="twitter:image" content="/assets/v3.1/latest/images/coat-of-arms/coa-thumbnail.png" />
+  <meta name="twitter:image" content="/assets/v4/latest/images/coat-of-arms/coa-thumbnail.png" />
 
   <!--#include virtual="/assets/includes-cdn/head-assets.html"-->
 
@@ -50,24 +50,11 @@
 <!--#include virtual="/assets/includes-cdn/analytics.html"-->
 <!--#include virtual="/assets/includes-cdn/header/access.html"-->
 
+<!--#include virtual="/assets/includes-cdn/header/header.html"-->
+<!--#include virtual="/assets/includes-cdn/breadcrumbs/breadcrumb-global.html"-->
 <div class="container-fluid qg-site-width">
-
-  <header id="qg-site-header">
-    <!--#include virtual="/assets/includes-cdn/header/coat-of-arms.html"-->
-
-    <!--#include virtual="/assets/includes-cdn/header/site-utilities.html"-->
-
-    <!--#include virtual="/assets/includes-cdn/header/site-search.html"-->
-
-    <!--#include virtual="/assets/includes-cdn/header/global-alert.html"-->
-
-    <!--#include virtual="/assets/includes-cdn/header/site-nav.html"-->
-  </header>
-
   <div id="qg-content">
     <div id="qg-two-col-nav" class="row wide">
-
-      <!--#include virtual="/assets/includes-cdn/breadcrumbs/breadcrumb-demo.html"-->
 
       <!--#include virtual="/assets/includes-cdn/content/alert.html"-->
 
@@ -136,20 +123,25 @@
 
 
         </div>
+        <!--#include virtual="/assets/includes-cdn/content/options.html"-->
       </div>
 
       <!--#include virtual="/assets/includes-cdn/section-nav/sample.html"-->
 
     </div>
-    <!--#include virtual="/assets/includes-cdn/content/options.html"-->
 
   </div>
-
-  <footer>
-    <!--#include virtual="/assets/includes-cdn/footer/footer-site-map.html"-->
-    <!--#include virtual="/assets/includes-cdn/footer/footer-legals.html"-->
-  </footer>
 </div>
+
+<!--#include virtual="/assets/includes-cdn/footer/footer.html"-->
+
+
+<script>
+  var qg = qg || {};
+  qg.swe = qg.swe || {};
+  // Used by the feedback form.
+  qg.swe.franchiseTitle = 'Franchise Title';
+</script>
 
 <!--#include virtual="/assets/includes-cdn/footer/footer-scripts.html"-->
 
