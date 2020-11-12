@@ -8,11 +8,11 @@
 // print styles
 @media print {
   * {
-    float:none!important;
-    position:static!important;
+    float:none;
+    position:static;
   }
-  .row {
-    display:block!important;
+  .row{
+    display: block;
   }
   *,
   *:before,
@@ -91,6 +91,8 @@
   }
 
   .table {
+    // testing table cut off issue in IE
+    font-size: 10px;
     border-collapse: collapse !important;
 
     td,

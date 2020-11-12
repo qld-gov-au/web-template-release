@@ -6970,10 +6970,10 @@ a.text-dark:hover, a.text-dark:focus {
 
 @media print {
   * {
-    float: none !important;
-    position: static !important; }
+    float: none;
+    position: static; }
   .row {
-    display: block !important; }
+    display: block; }
   *,
   *:before,
   *:after {
@@ -7019,6 +7019,7 @@ a.text-dark:hover, a.text-dark:focus {
   .label {
     border: 1px solid #000; }
   .table, .qg-table {
+    font-size: 10px;
     border-collapse: collapse !important; }
   .table td,
   .qg-table td, .table th, .qg-table th {
@@ -11944,10 +11945,10 @@ a .meta {
 
 @media print {
   * {
-    float: none !important;
-    position: static !important; }
+    float: none;
+    position: static; }
   .row {
-    display: block !important; }
+    display: block; }
   *,
   *:before,
   *:after {
@@ -11993,6 +11994,7 @@ a .meta {
   .label {
     border: 1px solid #000; }
   .table, .qg-table {
+    font-size: 10px;
     border-collapse: collapse !important; }
   .table td,
   .qg-table td, .table th, .qg-table th {
