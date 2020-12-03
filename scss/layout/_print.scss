@@ -8,11 +8,11 @@
 // print styles
 @media print {
   * {
-    float:none!important;
-    position:static!important;
+    float:none;
+    position:static;
   }
-  .row {
-    display:block!important;
+  .row{
+    display: block;
   }
   *,
   *:before,
@@ -115,6 +115,12 @@
     display:none !important;
   }
   #qg-primary-content{
+    max-width: 100%;
+    width:100%;
+    left:0;
+    table{
+      font-size: 15px;
+    }
     margin-top: 0;
     h1 {
       margin-top: 12px;
@@ -293,6 +299,9 @@
   }
   .qg-coat-of-arms .qg-print-coat-of-arms {
     display: block !important;
+  }
+  .pagination {
+    display: none;
   }
   //SSQGHF styles END
 }
