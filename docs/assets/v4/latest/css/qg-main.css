@@ -11191,11 +11191,6 @@ a[data-toggle=collapse].qg-icon:after {
   height: 75px;
   margin: 1em 1em 0 1em; }
 
-@media (min-width: 992px) {
-  .qg-cards .qg-card {
-    padding-left: 1em !important;
-    padding-right: 1em !important; } }
-
 .qg-card {
   color: #FFFFFF;
   margin-bottom: 2rem;
@@ -11236,8 +11231,11 @@ a[data-toggle=collapse].qg-icon:after {
 .qg-card.qg-card__light-theme .content .details {
   color: #000; }
 
-.qg-card.qg-card__light-theme .content .details a:not(.btn):not(.qg-btn), .qg-card.qg-card__light-theme .content .details a:not(.qg-btn) {
+.qg-card.qg-card__light-theme .content .details a:not(.btn):not(.qg-btn):not(.stretched-link), .qg-card.qg-card__light-theme .content .details a:not(.qg-btn):not(.stretched-link) {
   color: #000000; }
+
+.qg-card.qg-card__light-theme .content .details a:not(.btn):not(.qg-btn):not(.stretched-link):hover, .qg-card.qg-card__light-theme .content .details a:not(.btn):not(.qg-btn):not(.stretched-link):active, .qg-card.qg-card__light-theme .content .details a:not(.btn):not(.qg-btn):not(.stretched-link):focus, .qg-card.qg-card__light-theme .content .details a:not(.btn):not(.qg-btn):not(.stretched-link):visited, .qg-card.qg-card__light-theme .content .details a:not(.qg-btn):not(.stretched-link):hover, .qg-card.qg-card__light-theme .content .details a:not(.qg-btn):not(.stretched-link):active, .qg-card.qg-card__light-theme .content .details a:not(.qg-btn):not(.stretched-link):focus, .qg-card.qg-card__light-theme .content .details a:not(.qg-btn):not(.stretched-link):visited {
+  color: #000000 !important; }
 
 .qg-card.qg-card__light-theme .content .details .stretched-link {
   color: #00698f !important;
@@ -11290,7 +11288,7 @@ a[data-toggle=collapse].qg-icon:after {
   text-decoration: underline; }
 
 .qg-card .content .details a:hover, .qg-card .content .details a:active, .qg-card .content .details a:focus, .qg-card .content .details a:visited {
-  color: #FFFFFF;
+  color: #FFFFFF !important;
   text-decoration: none !important; }
 
 .qg-card .content .details a.btn, .qg-card .content .details a.qg-btn {
