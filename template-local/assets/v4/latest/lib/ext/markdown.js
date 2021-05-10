@@ -1,4 +1,4 @@
-/*! SWE 4.0.6 20210209T1232 */
+/*! SWE 4.0.7 2021051T1215 */
 // Released under MIT license
 // Copyright (c) 2009-2010 Dominic Baggott
 // Copyright (c) 2009-2010 Ash Berlin
