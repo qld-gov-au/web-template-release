@@ -112,7 +112,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <a href="//www.qld.gov.au" tabindex="0">
         <img src="https://static.qgov.net.au/assets/v4/latest/images/coat-of-arms/qg-coa-white.svg" alt="Queensland Government" class="hidden-xs">
         <img src="https://static.qgov.net.au/assets/v4/latest/images/coat-of-arms/qg-coa-stacked-white.svg" alt="Queensland Government" class="hidden-sm hidden-md hidden-lg">
-        <img src="https://static.qgov.net.au/assets/v4/latest/images/coat-of-arms/qg-coa-stacked.svg" alt="Queensland Government" class="hidden-xs hidden-sm hidden-md hidden-lg qg-print-coat-of-arms"> 
+        <img src="https://static.qgov.net.au/assets/v4/latest/images/coat-of-arms/qg-coa-stacked.svg" alt="Queensland Government" class="hidden-xs hidden-sm hidden-md hidden-lg qg-print-coat-of-arms">
     </a>
 </div>
 
@@ -403,29 +403,28 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div class="qg-tmplt-example">
 
           <div class="panel-body">
-            <div class="qg-twitter-updates">
+            <div class="qg-twitter-updates col-6">
               <p class="more text-right">
                 <a href="https://twitter.com/TMFranchise/lists/transport-and-motoring" title="More from the Transport and motoring franchise on Twitter">View all</a>
               </p>
-              <a class="twitter-timeline" href="https://twitter.com/TMFranchise/lists/transport-and-motoring" title="More from the Transport and motoring franchise on Twitter" data-tweet-limit="2">View all</a>
+              <a class="twitter-timeline" href="https://twitter.com/TMFranchise/lists/transport-and-motoring" title="More from the Transport and motoring franchise on Twitter" data-height="800">View all</a>
             </div>
           </div>
         </div>
-
         <h3>HTML</h3>
 
         <pre><code class="language-markup">
 
 &lt;div class="qg-twitter-updates"&gt;
   &lt;p class="more text-right"&gt; &lt;a href="https://twitter.com/TMFranchise/lists/transport-and-motoring" title="More from the Transport and motoring franchise on Twitter"&gt;View all&lt;/a&gt; &lt;/p&gt;
-  &lt;a class="twitter-timeline" href="https://twitter.com/TMFranchise/lists/transport-and-motoring" title="More from the Transport and motoring franchise on Twitter" data-tweet-limit="1"&gt;View all&lt;/a&gt;
+  &lt;a class="twitter-timeline" href="https://twitter.com/TMFranchise/lists/transport-and-motoring" title="More from the Transport and motoring franchise on Twitter" data-height="600"&gt;View all&lt;/a&gt;
 &lt;/div&gt;
 
 
 						</code></pre>
         <br/><p><i>Configuration options</i></p>
         <ul>
-          <li>data-tweet-limit="n" -> attribute to specify a number of Tweets </li>
+          <li>data-height="n" -> attribute to specify height of a Twitter widget </li>
         </ul>
 
       </div>

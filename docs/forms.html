@@ -109,7 +109,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <a href="//www.qld.gov.au" tabindex="0">
         <img src="https://static.qgov.net.au/assets/v4/latest/images/coat-of-arms/qg-coa-white.svg" alt="Queensland Government" class="hidden-xs">
         <img src="https://static.qgov.net.au/assets/v4/latest/images/coat-of-arms/qg-coa-stacked-white.svg" alt="Queensland Government" class="hidden-sm hidden-md hidden-lg">
-        <img src="https://static.qgov.net.au/assets/v4/latest/images/coat-of-arms/qg-coa-stacked.svg" alt="Queensland Government" class="hidden-xs hidden-sm hidden-md hidden-lg qg-print-coat-of-arms"> 
+        <img src="https://static.qgov.net.au/assets/v4/latest/images/coat-of-arms/qg-coa-stacked.svg" alt="Queensland Government" class="hidden-xs hidden-sm hidden-md hidden-lg qg-print-coat-of-arms">
     </a>
 </div>
 
@@ -1648,7 +1648,7 @@ $( '#email' ).closest( '.section' ).relevance( 'relevantWhen', { name: 'replyReq
           </tr>
         </table>
 
-        <h2 id="datepicker">Datepicker</h2>
+        <h2 class="anchored" id="datepicker">Datepicker</h2>
         <p>There are 2 options to include a Datepicker</p>
         <form>
           <div class="form-group">
@@ -1667,7 +1667,7 @@ $( '#email' ).closest( '.section' ).relevance( 'relevantWhen', { name: 'replyReq
           <li><a href="http://www.webdirections.org/resources/aaron-gustafson/">Learning to love forms (Aaron Gustafson, 2007)</a></li>
         </ul>
         <hr />
-        <h2>Radio button and Checkbox pattern</h2>
+        <h2 class="anchored">Radio button and Checkbox pattern</h2>
 
         <form action="https://www.smartservice.qld.gov.au/services/submissions/email/yrcl/jp-resign" method="post" id="jpresign" class="form">
           <ol class="questions">
@@ -2074,6 +2074,13 @@ $( '#email' ).closest( '.section' ).relevance( 'relevantWhen', { name: 'replyReq
 <!--<script src="/assets/v3/js/qg-env.js"></script>-->
 <script src="https://static.qgov.net.au/assets/v4/latest/js/qg-main.js"></script>
 <!--script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvR5MCDqi0HtcjkehKqbKhyoCxt4Khqac"></script-->
+
+<script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"  
+crossorigin="anonymous" 
+integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g=="></script>
+<script>
+  anchors.add('.anchored');
+</script>
 
 
 </body>
