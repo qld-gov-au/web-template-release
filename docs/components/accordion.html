@@ -10,10 +10,6 @@
 
   <meta name="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur cupiditate eius facere hic molestiae quasi sapiente. Accusantium beatae consectetur cumque, eaque fugit labore officia quisquam quod reprehenderit suscipit! Consectetur, magni!" content="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur cupiditate eius facere hic molestiae quasi sapiente. Accusantium beatae consectetur cumque, eaque fugit labore officia quisquam quod reprehenderit suscipit! Consectetur, magni!">
   <meta name="keywords" content="KEYWORDS">
-
-  <link rel="schema.DCTERMS" href="http://purl.org/dc/terms/">
-  <link rel="schema.AGLSTERMS" href="http://www.agls.gov.au/agls/terms/">
-
   <meta name="DCTERMS.creator" scheme="AGLSTERMS.GOLD" content="c=AU; o=The State of Queensland; ou=DEPARTMENT NAME; ou=UNIT NAME">
   <meta name="DCTERMS.publisher" scheme="AGLSTERMS.AglsAgent" content="corporateName=The State of Queensland; jurisdiction=Queensland">
   <meta name="DCTERMS.created" content="2010-11-04">
@@ -42,18 +38,17 @@
   <meta name="twitter:image" content="https://static.qgov.net.au/assets/v4/latest/images/coat-of-arms/coa-thumbnail.png" />
 
   <meta name="DCTERMS.license" scheme="DCTERMS.URI" content="https://creativecommons.org/licenses/by/4.0/">
-
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<link rel="schema.DCTERMS" href="http://purl.org/dc/terms/">
+<link rel="schema.AGLSTERMS" href="https://agls.gov.au/documents/aglsterms/">
 <link rel="shortcut icon" href="https://static.qgov.net.au/assets/v4/latest/images/favicon.ico">
-
 <link href="//fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic" rel="stylesheet" type="text/css" />
-
 <link href="https://static.qgov.net.au/assets/v4/latest/css/qg-main.css" rel="stylesheet" type="text/css" media="all">
 
 <noscript>
-	<link href="https://static.qgov.net.au/assets/v4/latest/css/qg-noscript.css" rel="stylesheet" type="text/css" media="all">
+  <link href="https://static.qgov.net.au/assets/v4/latest/css/qg-noscript.css" rel="stylesheet" type="text/css" media="all">
 </noscript>
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -415,7 +410,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                    </span>
                 </a>
               </button>
-              <div class="collapsing-section">
+              <div class="collapsing-section" id="id-panel-3">
                 <p> Content related to header. </p>
                 <ul>
                   <li>If dot points are available</li>
@@ -506,7 +501,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                   <span class="accordion-label"><span class="title">With icon</span> <span class="subtitle">Subtitle can go here (optional)</span></span>
                 </a>
               </button>
-              <div class="collapsing-section au-accordion--closed">
+              <div class="collapsing-section " id="id-panel-4">
                 <h4>Heading</h4>
                 <p> Content related to header. </p>
                 <ul>
@@ -535,7 +530,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                   </span>
                 </a>
               </button>
-              <div class="collapsing-section">
+              <div class="collapsing-section" id="id-panel-1">
                 <p> Content related to header. </p>
                 <ul>
                   <li>If dot points are available</li>
@@ -554,7 +549,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                   </span>
                 </a>
               </button>
-              <div class="collapsing-section au-accordion--closed">
+              <div class="collapsing-section " id="id-panel-2">
                 <h4>Heading</h4>
                 <p> Content related to header. </p>
                 <ul>
@@ -595,7 +590,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             &lt;/article&gt;
             &lt;article&gt;
               &lt;button class=&quot;acc-heading qg-accordion--closed&quot; aria-controls=&quot;accordion-default&quot; aria-expanded=&quot;true&quot; &gt;&lt;img src=&quot;https://placeimg.com/20/20/nature&quot; alt=&quot;&quot;&gt;&lt;span class=&quot;accordion-label&quot;&gt;&lt;span class=&quot;title&quot;&gt;With icon&lt;/span&gt; &lt;span class=&quot;subtitle&quot;&gt;Subtitle can go here (optional)&lt;/span&gt;&lt;/span&gt;&lt;/button&gt;
-              &lt;div class=&quot;collapsing-section au-accordion--closed&quot;&gt;
+              &lt;div class=&quot;collapsing-section &quot;&gt;
                 &lt;h4&gt;Heading&lt;/h4&gt;
                 &lt;p&gt; Content related to header. &lt;/p&gt;
                 &lt;ul&gt;
@@ -625,13 +620,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               <td>Accordion enhancements (accessibility and design). For backward compatibility accordions already in use without this new class will work as expected</td>
             </tr>
           </table>
+          <p>Use 'title of an accordion' or an 'ID of an accordion' to open a panel</p>
+          <div>
+            <ul>
+              <li>We can use a 'title of an accordion'. For example , https://qld-gov-au.github.io/web-template-release/components/accordion.html#With-icon</li>
+              <li>Similarly we can use an ID to open a panel For example , https://qld-gov-au.github.io/web-template-release/components/accordion.html##id-panel-3</li>
+            </ul>
+          </div>
           <p class="mt-4">Fontawesome icon can also be used instead of image.</p>
           <p class="alert alert-info mb-2">Accordion without icons or images is advised best practice. </p>
           <pre><code class="language-markdown">
                 &lt;i class="fa fa-car" aria-hidden="true">&lt;/i>
                 or
                 &lt;img src="{{path of the image}}" alt="">
-                                    </code></pre>
+          </code></pre>
         </section>
 
       </div>
