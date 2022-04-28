@@ -484,7 +484,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <h4> Example </h4>
         <div class="qg-tmplt-example">
           <div class="panel-body">
-            <form>
+            <form class="qg-forms-v2">
               <ul class="actions">
                 <li><strong><input type="submit" value="Primary alt" class="qg-btn btn-primary" /></strong></li>
                 <li><input type="submit" value="Secondary" class="qg-btn btn-default"/></li>
@@ -557,7 +557,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <h4> Example </h4>
         <div class="qg-tmplt-example">
           <div class="panel-body">
-            <form>
+            <form class="qg-forms-v2">
               <label for="car-make-model">
                 <span class="label">Car make and model</span>
                 <small class="hint">Example: Holden Commodore, Toyota Camry</small>
@@ -603,7 +603,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div class="qg-tmplt-example">
           <div class="panel-body">
 
-            <form>
+            <form class="qg-forms-v2">
               <label for="card-security-code">
                 <span class="label">Card security code</span>
                 <small class="hint">
@@ -639,7 +639,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div class="qg-tmplt-example">
           <div class="panel-body">
 
-            <form>
+            <form class="qg-forms-v2">
               <ol class="questions">
                 <li>
                   <label for="email">
@@ -742,14 +742,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <h6> Example</h6>
         <div class="qg-tmplt-example">
           <div class="panel-body">
-            <form>
+            <form class="qg-forms-v2">
               <ol class="questions">
                 <li>
                   <fieldset>
                     <legend>
                       <span class="label">Flavours</span>
                     </legend>
-                    <ul class="choices">
+                    <ul class="choices qg-forms-v2__checkbox">
                       <li>
                         <input type="checkbox" name="flavours" value="Chocolate" id="flavours-chocolate" />
                         <label for="flavours-chocolate">Chocolate</label>
@@ -775,14 +775,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </div>
         <div class="qg-tmplt-example">
           <div class="panel-body">
-            <form>
+            <form class="qg-forms-v2">
               <ol class="questions">
                 <li>
                   <fieldset>
                     <legend>
                       <span class="label">Device</span>
                     </legend>
-                    <ul class="choices">
+                    <ul class="choices qg-forms-v2__radio">
                       <li>
                         <input type="radio" name="device" value="Laptop" id="device-laptop" />
                         <label for="device-laptop">Laptop</label>
@@ -902,7 +902,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div class="qg-tmplt-example">
           <div class="panel-body">
 
-            <form>
+            <form class="qg-forms-v2">
 
               <ol class="questions">
                 <li class="group atomic">
@@ -1019,7 +1019,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <h5>Example</h5>
         <div class="qg-tmplt-example">
           <div class="panel-body">
-            <form>
+            <form class="qg-forms-v2">
               <ol type="A" class="xor">
                 <li>
                   <h2>Queensland Government account</h2>
@@ -1090,7 +1090,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
         <div class="qg-tmplt-example">
           <div class="panel-body">
-            <form>
+            <form class="qg-forms-v2">
               <ol type="A" class="xor">
                 <li>
                   <label for="dob">
@@ -1154,7 +1154,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div class="qg-tmplt-example">
           <div class="panel-body">
 
-            <form>
+            <form class="qg-forms-v2">
               <ol class="questions invalid">
                 <li>
                   <label for="email2">
@@ -1239,7 +1239,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <br>
             <h4>Example</h4>
 
-            <form>
+            <form class="qg-forms-v2">
               <ol class="questions">
                 <li>
                   <fieldset>
@@ -1315,15 +1315,15 @@ $( '#email' ).closest( '.section' ).relevance( 'relevantWhen', { name: 'replyReq
 
         <div class="qg-tmplt-example">
           <div class="panel-body">
-            <form>
+            <form class="qg-forms-v2">
               <ol class="questions">
-                <li>
+                <li class="qg-forms-v2__radio">
                   <fieldset>
                     <legend>
                       <span class="label">Would you like a reply?</span>
                       <abbr title="(required)">*</abbr>
                     </legend>
-                    <ul class="choices compact">
+                    <ul class="choices compact qg-forms-v2__radio">
                       <li><input type="radio" name="replyRequested" id="reply-requested-yes-2" value="yes" /><label for="reply-requested-yes-2">Yes</label></li>
                       <li><input type="radio" name="replyRequested" id="reply-requested-no-2" value="no" /><label for="reply-requested-no-2">No</label></li>
                     </ul>
@@ -1686,7 +1686,7 @@ $( '#email' ).closest( '.section' ).relevance( 'relevantWhen', { name: 'replyReq
 
         <h2 class="anchored" id="datepicker">Datepicker</h2>
         <p>There are 2 options to include a Datepicker</p>
-        <form>
+        <form class="qg-forms-v2">
           <div class="form-group">
             <label for="jqueryui-date">jQuery UI datepicker (using <strong>.qg-date-input</strong> class )</label>
             <input type="text" class="qg-date-input" id="jqueryui-date">
@@ -1696,16 +1696,10 @@ $( '#email' ).closest( '.section' ).relevance( 'relevantWhen', { name: 'replyReq
             <input type="date" class="form-control" id="html5-date" placeholder="Password">
           </div>
         </form>
-
-        <h2 id="references">References</h2>
-        <ul>
-          <li><a href="http://www.qld.gov.au/web/cue/module4/">Module 4 Online Forms (Consistent User Experience standard)</a></li>
-          <li><a href="http://www.webdirections.org/resources/aaron-gustafson/">Learning to love forms (Aaron Gustafson, 2007)</a></li>
-        </ul>
         <hr />
-        <h2 class="anchored">Radio button and checkbox custom theme</h2>
+        <h2 id="radio-checkbox-custom-theme" class="anchored">Radio button and checkbox custom theme</h2>
 
-        <form action="https://www.smartservice.qld.gov.au/services/submissions/email/yrcl/jp-resign" method="post" id="jpresign" class="form">
+        <form action="https://www.smartservice.qld.gov.au/services/submissions/email/yrcl/jp-resign" method="post" id="jpresign" class="form qg-forms-v2">
 
               <fieldset>
                 <legend>
@@ -1889,6 +1883,21 @@ $( '#email' ).closest( '.section' ).relevance( 'relevantWhen', { name: 'replyReq
 
         </form>
 
+        <h2 id="recaptcha" class="anchored">Google reCAPTCHA</h2>
+        <p>The SWE code for Google reCAPTCHA includes both the version 3 and version 2, the SWE Feedback footer uses the version 3</p>
+        <p>reCAPTCHAs Multiple reCAPTCHAs can be loaded on the same page</p>
+        <p>To enable recaptcha on a form with the default SWE Google recaptcha key, set <strong class="text-nowrap">data-recaptcha=true</strong></p>
+        <p>You can set a custom key by using the attribute <strong class="text-nowrap">data-sitekey="KEY"</strong>.  For the feature to work, the combination server key must be used on Form Submission handler</p>
+        <a href="https://qld-gov-au.github.io/qg-web-template/captcha.html">reCAPTCHA examples</a>
+
+
+
+        <h2 id="references">References</h2>
+        <ul>
+          <li><a href="http://www.qld.gov.au/web/cue/module4/">Module 4 Online Forms (Consistent User Experience standard)</a></li>
+          <li><a href="http://www.webdirections.org/resources/aaron-gustafson/">Learning to love forms (Aaron Gustafson, 2007)</a></li>
+        </ul>
+
 
         <!-- ################################## -->
 
@@ -1933,6 +1942,8 @@ $( '#email' ).closest( '.section' ).relevance( 'relevantWhen', { name: 'replyReq
                 <li><a href="#datepicker">Datepicker</a></li>
               </ul>
             </li>
+            <li><a href="#radio-checkbox-custom-theme">Radio button and checkbox custom theme</a></li>
+            <li><a href="#recaptcha">Google recaptcha</a></li>
             <li><a href="#references">References</a></li>
           </ul>
           <p>
@@ -2032,119 +2043,117 @@ $( '#email' ).closest( '.section' ).relevance( 'relevantWhen', { name: 'replyReq
 </div>
 
   <div class="col col-md-4">
-    <div class="qg-footer-col-content qg-feedback">
-        <h3>Website feedback</h3>
-        <p>Help us improve the content on our website or tell us what is working really well.</p>
-        <div class="qg-footer-feedback-wrap no-js">
-            <a class="btn btn-global-secondary qg-feedback-toggle" data-toggle="collapse" href="#qg-footer-feedback" role="button" aria-expanded="false" aria-controls="qg-footer-feedback" data-analytics-link-group="qg-feedback">
-                <span class="qg-feedback-toggle__text">Leave your feedback</span>
-            </a>
-            <div id="qg-footer-feedback" class="qg-footer-feedback collapse">
-                <div class="qg-footer-feedback-content">
-                    <form id="qg-page-feedback-form" method="post" action="https://www.smartservice.qld.gov.au/services/submissions/email/feedback/feedback-v2" class="form" data-recaptcha="true" data-action="feedback" novalidate>
+  <div class="qg-footer-col-content qg-feedback">
+    <h3>Website feedback</h3>
+    <p>Help us improve the content on our website or tell us what is working really well.</p>
+    <div class="qg-footer-feedback-wrap no-js">
+      <a class="btn btn-global-secondary qg-feedback-toggle" data-toggle="collapse" href="#qg-footer-feedback" role="button" aria-expanded="false" aria-controls="qg-footer-feedback" data-analytics-link-group="qg-feedback">
+        <span class="qg-feedback-toggle__text">Leave your feedback</span>
+      </a>
+      <div id="qg-footer-feedback" class="qg-footer-feedback__v2 collapse">
+        <div class="qg-footer-feedback-content">
+          <form id="qg-page-feedback-form" method="post" action="https://www.smartservice.qld.gov.au/services/submissions/email/feedback/feedback-v2" class="form qg-forms-v2" data-recaptcha="true" data-action="feedback" novalidate>
+            <ol class="questions pt-2">
+              <li>
+                <fieldset>
+                  <legend class="pb-2">
+                    <span class="label">Is your feedback about:</span>
+                    <abbr class="required" title="(required)">*</abbr>
+                  </legend>
+                  <ol class="choices qg-forms-v2__radio">
+                    <li>
+                      <input name="page-feedback-about" id="page-feedback-about-this-website" type="radio" value="this website" data-qg-pr="default" data-parent="#qg-page-feedback-form" data-target="#feedback-page" data-toggle="false" data-hide-others="true">
+                      <label for="page-feedback-about-this-website">this website</label>
+                    </li>
+                    <li>
+                      <input name="page-feedback-about" id="page-feedback-about-a-government-service" type="radio" value="a government service" data-qg-pr="default" data-parent="#qg-page-feedback-form" data-target="#feedback-serv-dep-staff" data-toggle="false" data-hide-others="true">
+                      <label for="page-feedback-about-a-government-service">a government service, department or staff member?</label>
+                    </li>
+                  </ol>
+                </fieldset>
+              </li>
+            </ol>
 
-                        <ol class="questions initial-question">
-                            <li>
-                                <fieldset id="page-feedback-about">
-                                    <legend><span class="label">Is your feedback about:</span></legend>
-                                    <div class="radio">
-                                        <input name="page-feedback-about" id="page-feedback-about-this-website" type="radio" value="this website" data-qg-pr="default" data-parent="#qg-page-feedback-form" data-target="#feedback-page" data-toggle="false" data-hide-others="true">
-                                        <label for="page-feedback-about-this-website">this website</label>
-                                    </div>
-                                    <div class="radio">
-                                        <input name="page-feedback-about" id="page-feedback-about-a-government-service" type="radio" value="a government service" data-qg-pr="default" data-parent="#qg-page-feedback-form" data-target="#feedback-serv-dep-staff" data-toggle="false" data-hide-others="true">
-                                        <label for="page-feedback-about-a-government-service">a government service, department or staff member?</label>
-                                    </div>
-                                </fieldset>
-                            </li>
-                        </ol>
+            <div class="panel">
 
-                        <div class="panel">
+              <div id="feedback-serv-dep-staff" class="status global-info panel-collapse collapse">
+                <h4><span class="fa fa-info-circle"></span>Feedback on government services, departments and staff</h4>
+                <p>Please use our <a href="https://www.qld.gov.au/contact-us/complaints/" data-analytics-link-group="qg-feedback-non-website">complaints and compliments form</a>.</p>
+              </div>
 
-                            <div id="feedback-serv-dep-staff" class="status global-info panel-collapse collapse">
-                                <h4><span class="fa fa-info-circle"></span>Feedback on government services, departments and staff</h4>
-                                <p>Please use our <a href="https://www.qld.gov.au/contact-us/complaints/" data-analytics-link-group="qg-feedback-non-website">complaints and compliments form</a>.</p>
-                            </div>
+              <div id="feedback-page" class="panel-collapse collapse">
+                <ol class="questions pt-2">
+                  <li>
+                    <fieldset>
+                      <legend class="pb-2">
+                        <span class="label">How satisfied are you with your experience today?</span>
+                        <abbr class="required" title="(required)">*</abbr>
+                      </legend>
+                      <ol class="choices qg-forms-v2__radio">
+                        <li>
+                          <input type="radio" name="feedback-satisfaction" value="Very dissatisfied" required="" id="fs-very-dissatisfied">
+                          <label for="fs-very-dissatisfied">Very dissatisfied (1)</label>
+                        </li>
+                        <li>
+                          <input type="radio" name="feedback-satisfaction" value="Dissatisfied" required="" id="fs-dissatisfied">
+                          <label for="fs-dissatisfied">Dissatisfied (2)</label>
+                        </li>
+                        <li>
+                          <input type="radio" name="feedback-satisfaction" value="Neither satisfied or dissatisfied" required="" id="fs-neither-satisfied-or-dissatisfied">
+                          <label for="fs-neither-satisfied-or-dissatisfied">Neither satisfied or dissatisfied (3)</label>
+                        </li>
+                        <li>
+                          <input type="radio" name="feedback-satisfaction" value="Satisfied" required="" id="fs-satisfied">
+                          <label for="fs-satisfied">Satisfied (4)</label>
+                        </li>
+                        <li>
+                          <input type="radio" name="feedback-satisfaction" value="Very satisfied" required="" id="fs-very-satisfied">
+                          <label for="fs-very-satisfied">Very satisfied (5)</label>
+                        </li>
+                      </ol>
+                    </fieldset>
+                  </li>
+                </ol>
 
-                            <div id="feedback-page" class="panel-collapse collapse">
+                <ol class="questions pt-2">
+                  <li>
+                    <label for="comments" class="pb-2">
+                      <span class="label">Comments</span>
+                      <abbr title="(required)" class="required">*</abbr>
+                    </label>
+                    <textarea class="form-control" name="comments" id="comments" rows="6" cols="40" required="required"></textarea>
+                  </li>
 
-                                <ol id="feedback-page-list" class="questions">
+                  <li class="footer col-md-12 mt-3">
+                    <span id="feedback-hidden-inputs"></span>
 
-                                    <li>
+                    <ul class="actions">
+                      <li>
+                        <button type="submit" value="Submit feedback" class="btn btn-global-primary" data-analytics-link-group="qg-feedback-website">Submit feedback</button>
+                      </li>
+                    </ul>
+                    <p class="captchaPrivacyTerms pb-3">
+                      This site is protected by reCAPTCHA and the Google
+                      <a href="https://policies.google.com/privacy">Privacy Policy</a> and
+                      <a href="https://policies.google.com/terms">Terms of Service</a> apply.
+                    </p>
 
-                                        <fieldset>
+                  </li>
+                </ol>
 
-                                            <legend>
-                                                <span class="label">How satisfied are you with your experience today?</span>
-                                                <abbr title="(required)" class="required">*</abbr>
-                                            </legend>
-                                            <div class="radio">
-                                                <input type="radio" name="feedback-satisfaction" value="Very dissatisfied" required="" id="fs-very-dissatisfied">
-                                                <label for="fs-very-dissatisfied">Very dissatisfied (1)</label>
-                                            </div>
-                                            <div class="radio">
-                                                <input type="radio" name="feedback-satisfaction" value="Dissatisfied" required="" id="fs-dissatisfied">
-                                                <label for="fs-dissatisfied">Dissatisfied (2)</label>
-                                            </div>
-                                            <div class="radio">
-                                                <input type="radio" name="feedback-satisfaction" value="Neither satisfied or dissatisfied" required="" id="fs-neither-satisfied-or-dissatisfied">
-                                                <label for="fs-neither-satisfied-or-dissatisfied">Neither satisfied or dissatisfied (3)</label>
-                                            </div>
-                                            <div class="radio">
-                                                <input type="radio" name="feedback-satisfaction" value="Satisfied" required="" id="fs-satisfied">
-                                                <label for="fs-satisfied">Satisfied (4)</label>
-                                            </div>
-                                            <div class="radio">
-                                                <input type="radio" name="feedback-satisfaction" value="Very satisfied" required="" id="fs-very-satisfied">
-                                                <label for="fs-very-satisfied">Very satisfied (5)</label>
-                                            </div>
+              </div>
 
-                                        </fieldset>
-                                    </li>
-
-                                    <li>
-                                        <div class="form-group">
-                                            <label for="comments">
-                                                <span class="label">Comments</span>
-                                                <abbr title="(required)" class="required">*</abbr>
-                                            </label>
-                                            <textarea class="form-control" name="comments" id="comments" rows="6" cols="40" required="required"></textarea>
-                                        </div>
-                                    </li>
-
-                                    <li class="footer col-md-12">
-                                      <span id="feedback-hidden-inputs"></span>
-
-                                        <ul class="actions">
-
-                                            <li>
-                                                <button type="submit" value="Submit feedback" class="btn btn-global-primary" data-analytics-link-group="qg-feedback-website">Submit feedback</button>
-                                            </li>
-
-                                        </ul>
-                                        <p class="captchaPrivacyTerms">
-                                        This site is protected by reCAPTCHA and the Google
-                                        <a href="https://policies.google.com/privacy">Privacy Policy</a> and
-                                        <a href="https://policies.google.com/terms">Terms of Service</a> apply.
-                                        </p>
-
-                                    </li>
-
-                                </ol>
-
-                            </div>
-
-                        </div>
-                    </form>
-                    <div class="thankyou d-none"></div>
-
-                    <div class="qg-footer-feedback-footer">
-                        <a class="qg-footer-feedback__close" data-toggle="collapse" href="#qg-footer-feedback" role="button" aria-expanded="false" aria-controls="qg-footer-feedback">Close</a>
-                    </div>
-                </div>
             </div>
+          </form>
+
+          <div class="thankyou d-none"></div>
+          <div class="qg-footer-feedback-footer">
+            <a class="qg-footer-feedback__close" data-toggle="collapse" href="#qg-footer-feedback" role="button" aria-expanded="false" aria-controls="qg-footer-feedback">Close</a>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </div>
 
 </div>
