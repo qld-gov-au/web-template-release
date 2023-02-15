@@ -12,14 +12,7 @@
     .nav-link {
         display: block;
         padding: 5px 13px;
-        @media (min-width: 992px) {
-            [aria-expanded="true"] {
-                @include qg-link-styles__no-underline-default;
-            }
-            &:not([aria-expanded="true"]) {
-                @include qg-link-styles__no-underline-white;
-            }
-        }
+    @include qg-link-styles__no-underline-white;
     }
     @media print {
         display: none !important;
@@ -115,11 +108,11 @@
     .nav-link {
         @include qg-link-styles__no-underline-black;
         &:hover {
-            text-decoration-color: $qg-global-primary-darker-grey;
+            text-decoration-color: $qg-global-primary-darker-grey !important;
         }
     }
     #qg-site-nav .show .nav-link {
-        text-decoration-line: none;
+        text-decoration: none;
     }
     .qg-search-form, #qg-site-nav, .qg-portal-links {
         padding: 0;

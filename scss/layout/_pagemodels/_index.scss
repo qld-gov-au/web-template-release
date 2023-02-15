@@ -18,9 +18,6 @@
       float: left;
     }
     a {
-      // workaround for Firefox border issue on multiline links,
-      // https://www.drupal.org/project/drupal/issues/3016658
-      display: inline-block;
       &:not(:hover){
         text-decoration-line: none !important;
       }
@@ -99,7 +96,7 @@
       a:hover {
         background: #007eb1;
         color: #ffffff !important;
-        text-decoration-line: none !important;
+        text-decoration: none !important;
       }
       img {
         display: none;

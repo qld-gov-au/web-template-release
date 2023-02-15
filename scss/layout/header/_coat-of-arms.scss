@@ -3,10 +3,6 @@
   padding-top: 20px;
   overflow: hidden;
 
-  a {
-    @include qg-global-link-styles;
-  }
-
   img {
     height: 50px;
     width: 289px;

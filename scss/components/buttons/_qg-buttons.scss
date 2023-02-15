@@ -4,21 +4,19 @@
 
 .btn-global-primary{
   color: #fff;
-  background-color: $qg-global-primary-dark;
+  background-color: $qg-global-primary-dark-grey;
   font-weight: bold;
   border-radius: 4px;
   padding: 9px 24px;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 5px;
 
   @include media-breakpoint-down(sm) {
     padding: 9px 11px;
   }
 
-  &:hover, &:focus, &.hover, &.focus, &:active {
+  &:hover, &:focus, &.hover, &.focus {
     text-decoration-line: underline;
     color: #fff;
-    background-color: $qg-global-primary-dark;
+    background-color: $qg-global-primary-dark-grey;
   }
 
   &:focus, &.focus {
@@ -35,8 +33,6 @@
   overflow: hidden;
   padding: 9px 24px;
   display: table;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 5px;
 
   @include media-breakpoint-down(sm) {
     padding: 9px 11px;
@@ -61,10 +57,9 @@
   font-weight: bold;
   border-radius: 4px;
   padding: 7px 24px;
-  text-decoration-line: none;
-  text-decoration-thickness: 2px;
+  text-decoration: none;
 
-  &:hover, &:focus, &.hover, &.focus, &:active {
+  &:hover, &:focus, &.hover, &.focus {
     color: #fff;
     text-decoration-line: underline;
   }
@@ -79,7 +74,7 @@
   @include button-variant($qg-light-green, $qg-light-green, lighten($qg-light-green, 7.5%), $hover-border: $qg-light-green, $active-background:$qg-light-green, $active-border: $qg-light-green);
   color: #000;
   a, &:focus:not(:disabled), &:hover:not(:disabled), &:link:not(:disabled), &:visited:not(:disabled), &:active:not(:disabled), &.focus:not(:disabled), &.hover:not(:disabled), &.link:not(:disabled), &.visited:not(:disabled), &.active:not(:disabled) {
-    text-decoration-line: none !important;
+    text-decoration: none !important;
     color: #000 !important;
   }
 }
@@ -89,7 +84,7 @@
   color: #fff;
   a, &:focus, &:hover, &:link, &:visited, &:active, &.focus, &.hover, &.link, &.visited, &.active {
     color: #fff !important;
-    text-decoration-line: none !important;
+    text-decoration: none !important;
   }
 }
 
@@ -98,7 +93,7 @@
   color: #fff;
   a, &:focus, &:hover, &:link, &:visited, &:active, &.focus, &.hover, &.link, &.visited, &.active {
     color: #fff !important;
-    text-decoration-line: none !important;
+    text-decoration: none !important;
   }
 }
 
@@ -116,13 +111,13 @@
     border:3px solid $qg-outline-dark;
     &:hover:not(:disabled), &:active:not(:disabled), &:focus:not(:disabled), &.hover:not(:disabled), &.active:not(:disabled), &.focus:not(:disabled) {
       border:3px solid $qg-outline-dark-hover;
-      color: $qg-outline-dark-hover;
+      color: $qg-outline-dark-hover !important;
       text-decoration-line: underline;
     }
   }
   &.btn-outline-light{
     color: #ffffff !important;
-    background-color: transparent;
+    background-color: transparent !important;
     border:3px solid #ffffff;
     &:hover, &:active, &:focus, &.hover, &.active, &.focus {
       text-decoration-line: underline;
@@ -131,9 +126,4 @@
   &.btn-link.light{
     color:#ffffff;
   }
-}
-
-#body .qg-btn, #body .btn, {
-  // override default .btn styling
-  @include qg-link-hover-decoration;
 }

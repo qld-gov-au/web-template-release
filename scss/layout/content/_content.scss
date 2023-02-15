@@ -1,4 +1,4 @@
-#qg-primary-content, #qg-content .container-fluid.qg-site-width {
+#qg-primary-content {
   h1:first-child {
     margin-top: 0;
     margin-bottom: 1em;
@@ -24,12 +24,6 @@
     border: 1px solid #dcdcdc;
     margin-left: 1em;
     font-size: 1rem;
-  }
-  ul, ol {
-    // don't add margins to contexts that manage their own spacing
-    li:not(.select2 li, .graph li, #tabbed-nav li) {
-      margin-bottom: 0.5em;
-    }
   }
 }
 
