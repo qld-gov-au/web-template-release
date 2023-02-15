@@ -1,4 +1,4 @@
-/*! SWE 4.0.13 2022083T1106 */
+/*! SWE 4.1.0 2023023T1010 */
 /*!
  * Stickyfill -- `position: sticky` polyfill
  * v. 1.1.1 | https://github.com/wilddeer/stickyfill
@@ -20,5 +20,5 @@
  * Copyright (c) 2015 Ben Boyle; Licensed MIT */
 
 /*! relevance - v2.1.0 - 2015-03-04
-* https://github.com/bboyle/relevance
-* Copyright (c) 2015 Ben Boyle; Licensed MIT */
+            * https://github.com/bboyle/relevance
+            * Copyright (c) 2015 Ben Boyle; Licensed MIT */

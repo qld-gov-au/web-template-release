@@ -1,4 +1,4 @@
-/*! SWE 4.0.13 2022083T1106 */
+/*! SWE 4.1.0 2023023T1010 */
 /*!
  * Stickyfill -- `position: sticky` polyfill
  * v. 1.1.1 | https://github.com/wilddeer/stickyfill
@@ -15,7 +15,7 @@ module.exports = (function(doc, win) {
     if (!win) {
         win = window;
     }
-
+    
     var watchArray = [],
         scroll,
         initialized = false,
@@ -60,7 +60,7 @@ module.exports = (function(doc, win) {
     }
 
     function mergeObjects(targetObj, sourceObject) {
-        for (var key in sourceObject) {
+        for (key in sourceObject) {
             if (sourceObject.hasOwnProperty(key)) {
                 targetObj[key] = sourceObject[key];
             }
@@ -84,7 +84,7 @@ module.exports = (function(doc, win) {
             rebuild();
             return;
         }
-
+        
         if (win.pageYOffset != scroll.top) {
             updateScrollPos();
             recalcAllPos();
@@ -283,7 +283,7 @@ module.exports = (function(doc, win) {
             },
             nodeOffset = getElementOffset(node),
             parentOffset = getElementOffset(parentNode),
-
+            
             parent = {
                 node: parentNode,
                 css: {
@@ -399,11 +399,11 @@ module.exports = (function(doc, win) {
         if (!initialized) return;
 
         deinitAll();
-
+        
         for (var i = watchArray.length - 1; i >= 0; i--) {
             watchArray[i] = getElementParams(watchArray[i].node);
         }
-
+        
         initAll();
     }
 
@@ -421,7 +421,7 @@ module.exports = (function(doc, win) {
 
     function stop() {
         pause();
-        deinitAll();
+        deinitAll(); 
     }
 
     function kill() {
