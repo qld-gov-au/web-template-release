@@ -1,27 +1,21 @@
-@mixin hover() {
-  &:hover:not(:disabled, .disabled), &.hover:not(:disabled, .disabled) { @content; }
-}
-
 .btn-global-primary{
   color: #fff;
-  background-color: $qg-global-primary-dark;
+  background-color: $qg-global-primary-dark-grey;
   font-weight: bold;
   border-radius: 4px;
   padding: 9px 24px;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 5px;
 
   @include media-breakpoint-down(sm) {
     padding: 9px 11px;
   }
 
-  &:hover, &:focus, &.hover, &.focus, &:active {
-    text-decoration-line: underline;
+  &:hover, &:focus {
+    text-decoration: underline;
     color: #fff;
-    background-color: $qg-global-primary-dark;
+    background-color: $qg-global-primary-dark-grey;
   }
 
-  &:focus, &.focus {
+  &:focus {
     outline: 1px dotted #000;
     outline: 5px auto -webkit-focus-ring-color;
   }
@@ -35,19 +29,17 @@
   overflow: hidden;
   padding: 9px 24px;
   display: table;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 5px;
 
   @include media-breakpoint-down(sm) {
     padding: 9px 11px;
   }
 
-  &:hover, &:focus, &.hover, &.focus {
+  &:hover, &:focus {
     color: $qg-global-primary-dark-grey;
-    text-decoration-line: underline;
+    text-decoration: underline;
   }
 
-  &:focus, &.focus {
+  &:focus {
     outline: 1px dotted #000;
     outline: 5px auto -webkit-focus-ring-color;
   }
@@ -61,15 +53,14 @@
   font-weight: bold;
   border-radius: 4px;
   padding: 7px 24px;
-  text-decoration-line: none;
-  text-decoration-thickness: 2px;
+  text-decoration: none;
 
-  &:hover, &:focus, &.hover, &.focus, &:active {
+  &:hover, &:focus {
     color: #fff;
-    text-decoration-line: underline;
+    text-decoration: underline;
   }
 
-  &:focus, &.focus {
+  &:focus {
     outline: 1px dotted #000;
     outline: 5px auto -webkit-focus-ring-color;
   }
@@ -78,8 +69,8 @@
 .btn-primary{
   @include button-variant($qg-light-green, $qg-light-green, lighten($qg-light-green, 7.5%), $hover-border: $qg-light-green, $active-background:$qg-light-green, $active-border: $qg-light-green);
   color: #000;
-  a, &:focus:not(:disabled), &:hover:not(:disabled), &:link:not(:disabled), &:visited:not(:disabled), &:active:not(:disabled), &.focus:not(:disabled), &.hover:not(:disabled), &.link:not(:disabled), &.visited:not(:disabled), &.active:not(:disabled) {
-    text-decoration-line: none !important;
+  a, &:focus, &:hover, &:link, &:visited, &:active {
+    text-decoration: none !important;
     color: #000 !important;
   }
 }
@@ -87,24 +78,18 @@
 .btn-secondary {
   @include button-variant($qg-blue, $qg-blue);
   color: #fff;
-  a, &:focus, &:hover, &:link, &:visited, &:active, &.focus, &.hover, &.link, &.visited, &.active {
+  a, &:focus, &:hover, &:link, &:visited, &:active {
     color: #fff !important;
-    text-decoration-line: none !important;
+    text-decoration: none !important;
   }
 }
 
 .btn-default {
   @include button-variant($qg-dark-grey, $qg-dark-grey);
   color: #fff;
-  a, &:focus, &:hover, &:link, &:visited, &:active, &.focus, &.hover, &.link, &.visited, &.active {
+  a, &:focus, &:hover, &:link, &:visited, &:active {
     color: #fff !important;
-    text-decoration-line: none !important;
-  }
-}
-
-.btn-link {
-  @include hover() {
-    @include link-hover;
+    text-decoration: none !important;
   }
 }
 
@@ -114,26 +99,21 @@
     color: $qg-outline-dark;
     background-color: transparent !important;
     border:3px solid $qg-outline-dark;
-    &:hover:not(:disabled), &:active:not(:disabled), &:focus:not(:disabled), &.hover:not(:disabled), &.active:not(:disabled), &.focus:not(:disabled) {
+    &:hover, &:active, &:focus{
       border:3px solid $qg-outline-dark-hover;
-      color: $qg-outline-dark-hover;
-      text-decoration-line: underline;
+      color: $qg-outline-dark-hover !important;
+      text-decoration: underline;
     }
   }
   &.btn-outline-light{
     color: #ffffff !important;
-    background-color: transparent;
+    background-color: transparent !important;
     border:3px solid #ffffff;
-    &:hover, &:active, &:focus, &.hover, &.active, &.focus {
-      text-decoration-line: underline;
+    &:hover, &:active, &:focus{
+      text-decoration: underline;
     }
   }
   &.btn-link.light{
     color:#ffffff;
   }
-}
-
-#body .qg-btn, #body .btn, {
-  // override default .btn styling
-  @include qg-link-hover-decoration;
 }

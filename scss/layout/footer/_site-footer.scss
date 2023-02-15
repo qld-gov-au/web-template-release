@@ -1,17 +1,10 @@
 .qg-site-footer {
-    background-color: $qg-global-primary;
+    background-color: $qg-global-primary-grey;
     color: #fff;
     padding-top: 8px;
 
     .container-fluid {
         padding: 0;
-    }
-
-    a:not(.btn) {
-      @include qg-link-styles__theme-white;
-    }
-    #qg-footer-feedback a:not(.btn) {
-      @include qg-link-styles__default;
     }
 
     .btn {
@@ -30,11 +23,11 @@
 
         a {
             color: #fff;
-            text-decoration-line: none;
+            text-decoration: none;
             transition: opacity .1s linear;
 
             &:hover, &:focus {
-                text-decoration-line: underline;
+                text-decoration: underline;
                 color: $qg-global-primary-hover-grey;
             }
         }
@@ -74,6 +67,15 @@
         }
         li {
             margin-top: rem(16px);
+            a {
+                color: #FFF;
+                text-decoration: underline;
+                transition: opacity .1s linear;
+
+                &:hover, &:focus {
+                    color: $qg-global-primary-hover-grey;
+                }
+            }
             &.facebook:before {
                 content: "\f082";
             }

@@ -1,4 +1,4 @@
-/*! SWE 4.1.0 2023023T1010 */
+/*! SWE 4.0.13 2023023T1123 */
 /*!
  * jQuery Browser Plugin 0.1.0
  * https://github.com/gabceb/jquery-browser-plugin

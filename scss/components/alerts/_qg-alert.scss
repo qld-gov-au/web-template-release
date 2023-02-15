@@ -1,3 +1,8 @@
+// global alert styles
+.qg-global-alert {
+  margin-bottom: 0;
+}
+
 // content alert and global alert styles
 .alert {
   position: relative;
@@ -57,19 +62,6 @@
     }
   }
 
-  &.alert-content {
-    width: 100%;
-    padding: 15px 50px 5px;
-    border: none;
-    i, span {
-      float: left;
-      margin-right: 10px;
-      line-height: 24px;
-    }
-    & + #qg-primary-content {
-      margin-top: 50px;
-    }
-  }
 }
 
 .status{

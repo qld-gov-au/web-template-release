@@ -11,6 +11,7 @@
 
     margin: 0;
     background-color: #f2f7f9;
+
     &:last-child{
       border-bottom: none;
     }
@@ -50,9 +51,6 @@
     ul {
       // Check in other patterns to see this padding is of no use
       //padding-left: 1.5em;
-      li {
-        margin-bottom: 0.5em;
-      }
     }
 
     .tel {
@@ -117,5 +115,4 @@
     width: 100%;
     height: auto;
   }
-  @include qg-non-button-link-styles__default;
 }

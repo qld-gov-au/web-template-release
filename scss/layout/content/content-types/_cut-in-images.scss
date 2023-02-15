@@ -13,7 +13,7 @@
   .qg-cut-in-alt__anchor:hover{
     cursor: pointer;
     .qg-cut-in__large-image a:not(.print-content-link) {
-      text-decoration-line: underline !important;
+      text-decoration: underline !important;
     }
     .qg-cut-in__img-container{
       outline: 1px solid #0066CC;
@@ -93,11 +93,11 @@
       color: #13578b;
     }
     a:not(.print-content-link):link {
-      text-decoration-line: none;
+      text-decoration: none;
     }
     a:not(.print-content-link):hover {
       .qg-cut-in-alt__label {
-        text-decoration-line: underline;
+        text-decoration: underline;
         background: #F5F5F5;
       }
     }

@@ -37,9 +37,16 @@
 				transition: max-width 0s;
 			}
 
-			.qg-breadcrumb-list-item__link {
-        color: #292929;
-        @include qg-link-styles__theme-black-always;
+			&__link {
+				color: $qg-global-primary-darker-grey;
+
+				&[href] {
+					text-decoration: underline;
+
+					&:hover, &:focus {
+						color: $qg-global-primary-dark-grey;
+					}
+				}
 			}
 
 			&:last-child {
@@ -50,12 +57,11 @@
 		}
 	}
 
-  .qg-breadcrumb-toggle {
-    border: 0;
-    background-color: transparent;
-    padding: 0;
-    @include qg-global-link-styles;
-  }
+	&-toggle {
+		border: 0;
+		background-color: transparent;
+		padding: 0;
+	}
 }
 
 @include media-breakpoint-down(sm) {

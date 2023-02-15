@@ -4,11 +4,11 @@
 
   a, a:link, a:hover, a:focus {
     color: $qg-blue5;
-    text-decoration-line: none;
+    text-decoration: none;
   }
   @include breakpoint(md) {
     a:hover {
-      text-decoration-line: underline;
+      text-decoration: underline;
     }
   }
 
