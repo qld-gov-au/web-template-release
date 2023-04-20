@@ -2,6 +2,7 @@
 .qg-portal-links {
   background-color: $qg-dark-grey-dark;
   padding-top: 3px;
+  padding-bottom: 2px;
   order: 1;
 
   .navbar {
@@ -20,18 +21,15 @@
     padding: 0;
     display: flex;
 
-    .nav-link {
+    .nav-link, .qg-portal-links__btn {
+      background-color: $qg-dark-grey-dark;
       padding: 10px 20px 10px 15px;
       @include qg-link-styles__no-underline-white;
     }
   }
 
   .qg-portal-links__btn {
-    @include qg-link-styles__no-underline-white;
-    background-color: $qg-dark-grey-dark;
     border: none;
-    color: #fff;
-    padding: 10px 20px 10px 15px;
     &:active, &:focus{
       position: relative;
       z-index: 1;
@@ -66,10 +64,10 @@
   }
 
   .dropdown-item {
-    color: #fff;
+    color: white;
     padding: 13px 0;
     white-space: normal;
-    @include css-chevron-inline-right(6px, #fff, 21px, before, 26px);
+    @include css-chevron-inline-right(6px, white, 21px, before, 26px);
     @include qg-link-styles__no-underline-white;
 
     &.qg-dropdown-all {
@@ -79,7 +77,7 @@
 
       &:hover {
         text-decoration-thickness: 2px;
-        text-decoration-color: #fff;
+        text-decoration-color: white;
       }
 
       padding-left: 0;
@@ -98,6 +96,7 @@
     .nav-item {
       margin-top: 2px;
       max-height: 44px;
+      padding-left: 5px;
     }
     .dropdown-menu {
       height: 0;
@@ -140,6 +139,9 @@
       overflow: hidden;
       margin: 0 25px;
       width: 100%;
+      .nav-link {
+        margin: 5px;
+      }
     }
     .nav-item {
       border-bottom: 1px solid #000;
@@ -149,12 +151,13 @@
       }
     }
     .qg-portal-links__btn {
+      margin: 5px;
       text-align: left;
       width: 100%;
       &:after {
         border: none;
       }
-      @include css-chevron-inline-down(6px, #fff, 20px);
+      @include css-chevron-inline-down(6px, white, 20px);
       &:hover, &:focus,
       &[aria-expanded="true"] {
         text-decoration-line: underline;
