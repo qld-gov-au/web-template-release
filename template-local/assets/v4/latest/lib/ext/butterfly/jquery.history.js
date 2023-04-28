@@ -1,4 +1,4 @@
-/*! SWE 4.1.0 2023023T1010 */
+/*! SWE 4.2.0 2023045T1102 */
 /*
  * jQuery history plugin
  * 
