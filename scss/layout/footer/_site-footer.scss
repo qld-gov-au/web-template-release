@@ -1,6 +1,6 @@
 .qg-site-footer {
     background-color: $qg-global-primary;
-    color: #fff;
+    color: white;
     padding-top: 8px;
 
     .container-fluid {
@@ -10,8 +10,11 @@
     a:not(.btn) {
       @include qg-link-styles__theme-white;
     }
+
     #qg-footer-feedback a:not(.btn) {
       @include qg-link-styles__default;
+      color: $qg-blue-dark !important;
+      text-decoration-color: #457aa3 !important;   
     }
 
     .btn {
@@ -29,7 +32,7 @@
         margin-bottom: 30px;
 
         a {
-            color: #fff;
+            color: white;
             text-decoration-line: none;
             transition: opacity .1s linear;
 
@@ -41,7 +44,7 @@
     }
 
     p {
-        line-height: 20px;
+        line-height: 1.5;
     }
 
     .col {
@@ -67,7 +70,7 @@
           }
           &:before{
             @include rem(font-size, 20px);
-            color: #FFF;
+            color: white;
             font-family: FontAwesome;
             margin-right: 10px;
           }
