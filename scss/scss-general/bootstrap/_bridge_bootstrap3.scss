@@ -478,6 +478,6 @@ label {
 }
 
 // preserve visited link colour
-a:visited:not(.btn, .button, .qg-btn):not(.qg-private-content a):not([class^="dfv"]):not([class*=' dfv']) {
-  color: #80b;
-}
+// a:visited:not(.btn, .button, .qg-btn, .qg-private-content a, .qg-index-links a, [class^="dfv"], [class*=' dfv'], .qg-search-concierge .list-group-item > a) {
+//   color: #80b;
+// }

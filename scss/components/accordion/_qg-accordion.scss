@@ -62,11 +62,19 @@
       }
     }
   }
+  
   button {
+
     @include qg-button-outline-decoration ($margin: 0px) {
       z-index: 100;
     }
+  
+    &:hover > a {
+      text-decoration-thickness: 2px !important;
+    }
+
   }
+
   &.qg-dark-accordion article {
     background-color: #f5f5f5;
   }
