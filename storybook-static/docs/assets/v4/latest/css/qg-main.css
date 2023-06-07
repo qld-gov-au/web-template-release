@@ -9647,10 +9647,6 @@ label {
   font-weight: 700;
 }
 
-a:visited:not(.btn, .qg-btn, .button):not(.qg-private-content a):not([class^=dfv]):not([class*=" dfv"]) {
-  color: #80b;
-}
-
 /*!
  *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
@@ -13312,8 +13308,9 @@ body:not([data-accessibility=false]):not([data-access-new-window=false]) #qg-con
   position: initial;
   left: inherit;
   top: 0;
-  width: inherit;
   right: 0;
+  width: inherit;
+  margin: 0 !important;
   background-image: none;
   color: #000;
   text-shadow: none;
@@ -13519,6 +13516,10 @@ body:not([data-accessibility=false]):not([data-access-new-window=false]) #qg-con
   padding: 1rem;
 }
 
+.qg-accordion.qg-accordion-v2 article .acc-heading:hover > a, .qg-accordion.qg-accordion-v2 article .acc-heading:focus > a, .qg-accordion.qg-accordion-v2 article .acc-heading:focus-visible > a {
+  text-decoration-thickness: 2px !important;
+}
+
 .qg-accordion.qg-accordion-v2 article .acc-heading .title {
   color: #13578b;
   text-decoration-line: underline;
@@ -13614,7 +13615,8 @@ body:not([data-accessibility=false]):not([data-access-new-window=false]) #qg-con
   display: inline;
 }
 
-.qg-accordion label[for=expand], .qg-accordion label[for=collapse] {
+.qg-accordion label[for=expand],
+.qg-accordion label[for=collapse] {
   text-decoration-line: none !important;
   padding: 0 0.7rem;
   color: #13578b !important;
@@ -13622,7 +13624,13 @@ body:not([data-accessibility=false]):not([data-access-new-window=false]) #qg-con
   display: inline-block;
 }
 
-.qg-accordion .expand:hover, .qg-accordion .expand.hover, .qg-accordion .collapse:hover, .qg-accordion .collapse.hover, .qg-accordion label[for=expand]:hover, .qg-accordion label[for=expand].hover, .qg-accordion label[for=collapse]:hover, .qg-accordion label[for=collapse].hover {
+.qg-accordion .expand:hover, .qg-accordion .expand.hover,
+.qg-accordion .collapse:hover,
+.qg-accordion .collapse.hover,
+.qg-accordion label[for=expand]:hover,
+.qg-accordion label[for=expand].hover,
+.qg-accordion label[for=collapse]:hover,
+.qg-accordion label[for=collapse].hover {
   text-decoration-line: underline !important;
 }
 
@@ -13670,7 +13678,8 @@ body:not([data-accessibility=false]):not([data-access-new-window=false]) #qg-con
   margin-bottom: 0;
 }
 
-.qg-accordion article .acc-heading img, .qg-accordion article .acc-heading .fa {
+.qg-accordion article .acc-heading img,
+.qg-accordion article .acc-heading .fa {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -13678,7 +13687,8 @@ body:not([data-accessibility=false]):not([data-access-new-window=false]) #qg-con
   left: 1rem;
 }
 
-.qg-accordion article .acc-heading img + label, .qg-accordion article .acc-heading .fa + label {
+.qg-accordion article .acc-heading img + label,
+.qg-accordion article .acc-heading .fa + label {
   padding-left: 2.7rem;
 }
 
@@ -13712,13 +13722,15 @@ body:not([data-accessibility=false]):not([data-access-new-window=false]) #qg-con
   margin-top: 0 !important;
 }
 
-.qg-accordion input[name=tabs], .qg-accordion input[name=control] {
+.qg-accordion input[name=tabs],
+.qg-accordion input[name=control] {
   position: absolute;
   opacity: 0;
   z-index: -1;
 }
 
-.qg-accordion input[name=tabs]:checked ~ .collapsing-section, .qg-accordion input[name=control]:checked ~ .collapsing-section {
+.qg-accordion input[name=tabs]:checked ~ .collapsing-section,
+.qg-accordion input[name=control]:checked ~ .collapsing-section {
   max-height: inherit;
   visibility: visible;
   opacity: 1;
@@ -13726,16 +13738,19 @@ body:not([data-accessibility=false]):not([data-access-new-window=false]) #qg-con
   display: block;
 }
 
-.qg-accordion input[name=tabs][type=checkbox]:checked + .acc-heading label i, .qg-accordion input[name=control][type=checkbox]:checked + .acc-heading label i {
+.qg-accordion input[name=tabs][type=checkbox]:checked + .acc-heading label i,
+.qg-accordion input[name=control][type=checkbox]:checked + .acc-heading label i {
   transform: rotate(-135deg);
   -webkit-transform: rotate(-135deg);
 }
 
-.qg-accordion input[name=tabs][type=checkbox]:checked + .acc-heading .title, .qg-accordion input[name=control][type=checkbox]:checked + .acc-heading .title {
+.qg-accordion input[name=tabs][type=checkbox]:checked + .acc-heading .title,
+.qg-accordion input[name=control][type=checkbox]:checked + .acc-heading .title {
   text-decoration-line: underline;
 }
 
-.qg-accordion input[name=tabs].expand:checked ~ article .collapsing-section, .qg-accordion input[name=control].expand:checked ~ article .collapsing-section {
+.qg-accordion input[name=tabs].expand:checked ~ article .collapsing-section,
+.qg-accordion input[name=control].expand:checked ~ article .collapsing-section {
   max-height: inherit;
   visibility: visible;
   opacity: 1;
@@ -13764,11 +13779,18 @@ body:not([data-accessibility=false]):not([data-access-new-window=false]) #qg-con
   }
 }
 @media not all and (-webkit-min-device-pixel-ratio: 0), not all and (min-resolution: 0.001dpcm) {
-  .qg-accordion .acc-heading:focus, .qg-accordion .acc-heading.focus {
+  .qg-accordion .acc-heading:focus,
+  .qg-accordion .acc-heading.focus {
     outline: 2px solid #007EB1;
   }
-  .qg-accordion .expand:focus, .qg-accordion .expand:active, .qg-accordion .collapse:focus, .qg-accordion .collapse:active,
-  .qg-accordion .expand.focus, .qg-accordion .expand.active, .qg-accordion .collapse.focus, .qg-accordion .collapse.active {
+  .qg-accordion .expand:focus,
+  .qg-accordion .expand:active,
+  .qg-accordion .collapse:focus,
+  .qg-accordion .collapse:active,
+  .qg-accordion .expand.focus,
+  .qg-accordion .expand.active,
+  .qg-accordion .collapse.focus,
+  .qg-accordion .collapse.active {
     outline: 2px solid #007EB1 !important;
     outline-offset: -2px;
   }
@@ -18186,6 +18208,11 @@ a[data-toggle=collapse].qg-icon:after {
 
 .alert a:not(.qg-feature-box .qg-link):not(.qg-index a.qg-index-item):not(.page-item .page-link):not(.dfv-cards--type-top-prompt a.card):not(.search-categories__index-toggle):not(.search-categories__index):not(.qg-aside-button):not(.QSAR-records-search a):not(#ict-tabcontainer *, #tabbed-nav *) {
   margin: 2px 2px 2px 0;
+}
+
+.alert a:hover {
+  text-decoration-thickness: 2px !important;
+  color: #13578b;
 }
 
 .alert + p {
@@ -22762,13 +22789,13 @@ a .meta {
 }
 
 @media (max-width: 991.98px) {
-  .qg-breadcrumb-list-item {
+  #qg-breadcrumb .qg-breadcrumb-list-item {
     display: none;
   }
-  .qg-breadcrumb-list-item:nth-last-child(2) {
+  #qg-breadcrumb .qg-breadcrumb-list-item:nth-last-child(2) {
     display: block;
   }
-  .qg-breadcrumb-list-item:nth-last-child(2):before {
+  #qg-breadcrumb .qg-breadcrumb-list-item:nth-last-child(2):before {
     content: "\f053";
   }
 }
