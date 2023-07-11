@@ -1,4 +1,4 @@
-/*! SWE 4.2.2 2023062T1112 */
+/*! SWE 4.3.0 2023073T943 */
 // TODO - this lib is no more required - please do testing on Squiz and some other projects and then remove this
 /**
  * Resize Events
