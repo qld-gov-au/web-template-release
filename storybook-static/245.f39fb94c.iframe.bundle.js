@@ -8,7 +8,7 @@
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "NoDocs": () => (/* binding */ NoDocs)
+/* harmony export */   NoDocs: () => (/* binding */ NoDocs)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 
@@ -48,8 +48,8 @@ NoDocs.displayName = "NoDocs";
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "renderDocs": () => (/* binding */ renderDocs),
-/* harmony export */   "unmountDocs": () => (/* binding */ unmountDocs)
+/* harmony export */   renderDocs: () => (/* binding */ renderDocs),
+/* harmony export */   unmountDocs: () => (/* binding */ unmountDocs)
 /* harmony export */ });
 /* harmony import */ var regenerator_runtime_runtime_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! regenerator-runtime/runtime.js */ "./node_modules/regenerator-runtime/runtime.js");
 /* harmony import */ var regenerator_runtime_runtime_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(regenerator_runtime_runtime_js__WEBPACK_IMPORTED_MODULE_0__);

@@ -1,16 +1,16 @@
 "use strict";
-(self["webpackChunkQueensland_Government_Web_Template"] = self["webpackChunkQueensland_Government_Web_Template"] || []).push([[690],{
+(self["webpackChunkQueensland_Government_Web_Template"] = self["webpackChunkQueensland_Government_Web_Template"] || []).push([[551],{
 
-/***/ "./node_modules/@storybook/builder-webpack5/node_modules/@storybook/components/dist/esm/GlobalScrollAreaStyles-8793ce4a.js":
-/*!*********************************************************************************************************************************!*\
-  !*** ./node_modules/@storybook/builder-webpack5/node_modules/@storybook/components/dist/esm/GlobalScrollAreaStyles-8793ce4a.js ***!
-  \*********************************************************************************************************************************/
+/***/ "./node_modules/@storybook/components/dist/esm/GlobalScrollAreaStyles-8793ce4a.js":
+/*!****************************************************************************************!*\
+  !*** ./node_modules/@storybook/components/dist/esm/GlobalScrollAreaStyles-8793ce4a.js ***!
+  \****************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ GlobalScrollAreaStyles),
-/* harmony export */   "getScrollAreaStyles": () => (/* binding */ getScrollAreaStyles)
+/* harmony export */   getScrollAreaStyles: () => (/* binding */ getScrollAreaStyles)
 /* harmony export */ });
 /* harmony import */ var core_js_modules_es_array_slice_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.array.slice.js */ "./node_modules/core-js/modules/es.array.slice.js");
 /* harmony import */ var core_js_modules_es_array_slice_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_slice_js__WEBPACK_IMPORTED_MODULE_0__);
@@ -484,4 +484,4 @@ var GlobalScrollAreaStyles = function GlobalScrollAreaStyles() {
 /***/ })
 
 }]);
-//# sourceMappingURL=690.164c98be.iframe.bundle.js.map
+//# sourceMappingURL=551.00fdf973.iframe.bundle.js.map
