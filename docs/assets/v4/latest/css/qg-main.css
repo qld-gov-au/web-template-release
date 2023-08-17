@@ -19931,11 +19931,11 @@ a .meta {
   position: absolute;
 }
 
-.qg-service-centre-list-item:nth-child(1):before {
+.qg-service-centre-list-item.service-info:before {
   content: "\f05a";
 }
 
-.qg-service-centre-list-item:nth-child(2):before {
+.qg-service-centre-list-item.centre-distance:before {
   content: "\f14e";
 }
 
