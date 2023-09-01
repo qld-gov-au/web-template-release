@@ -1,0 +1,19 @@
+/*! ../../readme/tech-in-use.md?raw */
+
+/*! ./node_modules/@storybook/addon-docs/dist/shims/mdx-react-shim */
+
+/*! @storybook/addon-docs */
+
+/*! @storybook/blocks */
+
+/*! react */
+
+/*! react/jsx-runtime */
+
+/*!***********************************!*\
+  !*** ./readme/tech-in-use.md?raw ***!
+  \***********************************/
+
+/*!***********************************!*\
+  !*** ./src/stories/TechInUse.mdx ***!
+  \***********************************/

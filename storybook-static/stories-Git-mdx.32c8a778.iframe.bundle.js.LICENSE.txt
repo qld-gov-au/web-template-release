@@ -1,0 +1,19 @@
+/*! ../../readme/git.md?raw */
+
+/*! ./node_modules/@storybook/addon-docs/dist/shims/mdx-react-shim */
+
+/*! @storybook/addon-docs */
+
+/*! @storybook/blocks */
+
+/*! react */
+
+/*! react/jsx-runtime */
+
+/*!***************************!*\
+  !*** ./readme/git.md?raw ***!
+  \***************************/
+
+/*!*****************************!*\
+  !*** ./src/stories/Git.mdx ***!
+  \*****************************/

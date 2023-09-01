@@ -1,0 +1,17 @@
+/*! ./node_modules/@storybook/addon-docs/dist/shims/mdx-react-shim */
+
+/*! ./templates/Default.html */
+
+/*! @storybook/addon-docs */
+
+/*! react */
+
+/*! react/jsx-runtime */
+
+/*!*******************************************************************!*\
+  !*** ./src/stories/components/Breadcrumbs/templates/Default.html ***!
+  \*******************************************************************/
+
+/*!********************************************************************!*\
+  !*** ./src/stories/components/Breadcrumbs/Breadcrumbs.stories.mdx ***!
+  \********************************************************************/

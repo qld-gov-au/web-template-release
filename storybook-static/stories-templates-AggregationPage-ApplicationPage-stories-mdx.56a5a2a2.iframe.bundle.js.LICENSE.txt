@@ -1,0 +1,59 @@
+/*! ../../../template-pages/application-page.html */
+
+/*! ../../helpers */
+
+/*! ../../node_modules/html-loader/dist/runtime/getUrl.js */
+
+/*! ./../../build/assets/v4/latest/images/coat-of-arms/coa-thumbnail.png */
+
+/*! ./chunk-BLYPNILM.mjs */
+
+/*! ./getDecoratedParameters */
+
+/*! ./getMobileProps */
+
+/*! ./node_modules/@storybook/addon-docs/dist/shims/mdx-react-shim */
+
+/*! @storybook/addon-docs */
+
+/*! @storybook/addon-viewport */
+
+/*! react */
+
+/*! react/jsx-runtime */
+
+/*!**************************************!*\
+  !*** ./src/stories/helpers/index.js ***!
+  \**************************************/
+
+/*!***********************************************!*\
+  !*** ./src/stories/helpers/getMobileProps.js ***!
+  \***********************************************/
+
+/*!**************************************************!*\
+  !*** ./src/template-pages/application-page.html ***!
+  \**************************************************/
+
+/*!*******************************************************!*\
+  !*** ./src/stories/helpers/getDecoratedParameters.js ***!
+  \*******************************************************/
+
+/*!*********************************************************!*\
+  !*** ./node_modules/html-loader/dist/runtime/getUrl.js ***!
+  \*********************************************************/
+
+/*!***************************************************************!*\
+  !*** ./node_modules/@storybook/addon-viewport/dist/index.mjs ***!
+  \***************************************************************/
+
+/*!**********************************************************************!*\
+  !*** ./build/assets/v4/latest/images/coat-of-arms/coa-thumbnail.png ***!
+  \**********************************************************************/
+
+/*!************************************************************************!*\
+  !*** ./node_modules/@storybook/addon-viewport/dist/chunk-BLYPNILM.mjs ***!
+  \************************************************************************/
+
+/*!***************************************************************************!*\
+  !*** ./src/stories/templates/AggregationPage/ApplicationPage.stories.mdx ***!
+  \***************************************************************************/
