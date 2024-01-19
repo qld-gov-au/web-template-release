@@ -1,0 +1,33 @@
+/*! ./node_modules/@storybook/addon-docs/dist/shims/mdx-react-shim */
+
+/*! ./templates/Alert.html */
+
+/*! ./templates/Brand.html */
+
+/*! ./templates/Text.html */
+
+/*! @storybook/addon-docs */
+
+/*! react */
+
+/*! react/jsx-runtime */
+
+/*!*****************************************!*\
+  !*** ./node_modules/memoizerific/ sync ***!
+  \*****************************************/
+
+/*!*********************************************************!*\
+  !*** ./src/stories/foundations/Color/Color.stories.mdx ***!
+  \*********************************************************/
+
+/*!***********************************************************!*\
+  !*** ./src/stories/foundations/Color/templates/Text.html ***!
+  \***********************************************************/
+
+/*!************************************************************!*\
+  !*** ./src/stories/foundations/Color/templates/Alert.html ***!
+  \************************************************************/
+
+/*!************************************************************!*\
+  !*** ./src/stories/foundations/Color/templates/Brand.html ***!
+  \************************************************************/

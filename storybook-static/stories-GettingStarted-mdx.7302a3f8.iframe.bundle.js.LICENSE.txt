@@ -1,0 +1,23 @@
+/*! ../../readme/getting-started.md?raw */
+
+/*! ./node_modules/@storybook/addon-docs/dist/shims/mdx-react-shim */
+
+/*! @storybook/addon-docs */
+
+/*! @storybook/blocks */
+
+/*! react */
+
+/*! react/jsx-runtime */
+
+/*!***************************************!*\
+  !*** ./readme/getting-started.md?raw ***!
+  \***************************************/
+
+/*!****************************************!*\
+  !*** ./src/stories/GettingStarted.mdx ***!
+  \****************************************/
+
+/*!*****************************************!*\
+  !*** ./node_modules/memoizerific/ sync ***!
+  \*****************************************/

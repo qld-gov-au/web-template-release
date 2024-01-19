@@ -1,4 +1,4 @@
-/*! SWE 4.3.0 2023084T1118 */
+/*! SWE 4.4.0 2024015T1622 */
 /*
  * generate-id
  * http://bboyle.github.com/Generate-ID
@@ -623,13 +623,13 @@ jQuery.butterfly.linkCount = 0;
 /**
  * Standard key mappings
  */
-	DOM_VK_END    = 35;
-	DOM_VK_HOME   = 36;
-	DOM_VK_LEFT   = 37;
-	DOM_VK_UP     = 38;
-	DOM_VK_RIGHT  = 39;
-	DOM_VK_DOWN   = 40;
-	DOM_VK_ESCAPE = 27;
+const DOM_VK_END    = 35;
+const DOM_VK_HOME   = 36;
+const DOM_VK_LEFT   = 37;
+const DOM_VK_UP     = 38;
+const DOM_VK_RIGHT  = 39;
+const DOM_VK_DOWN   = 40;
+const DOM_VK_ESCAPE = 27;
 
 (function( $, ResizeEvents ) {// start closure
 	'use strict';

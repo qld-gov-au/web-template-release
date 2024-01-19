@@ -17,7 +17,7 @@
 
   <!-- Misc Metadata test-->
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, minimum-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!--[if (lt IE 9)|(gt IE 10) ]><link href="//fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic" rel="stylesheet" type="text/css" /><![endif]-->
   <!--[if !IE]><!--><link href="//fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic" rel="stylesheet" type="text/css" /><!--<![endif]-->
 
@@ -305,8 +305,6 @@
       </div>
 
       <!--parameters to display results on search page-->
-      <input type="hidden" name="num_ranks" value="10">
-      <input type="hidden" name="tiers" value="off">
       <input type="hidden" name="collection" value="qgov~sp-search">
       <input type="hidden" name="profile" value="qld">
     </form>
@@ -434,7 +432,7 @@
       <div id="qg-primary-content" role="main">
 
 
-        <a class="print-content-link" href='#'><span class="fa fa-print"></span> Print</a>
+        <a class="print-content-link" href='#'><span class="fa fa-print"></span>Print</a>
 
 
 
@@ -890,9 +888,14 @@
               </li>
 
 
-              <li class="qg-share-list-item">
+              <li class="qg-share-list-item twitter-list-item">
                 <a class="qg-share-link" href="https://twitter.com/share?url=https://www.qld.gov.au/contact-us/responsive-maintenance-request" title="Twitter" data-analytics-link-group="qg-sharing-twitter" aria-label="Share on Twitter">
-                  <span class="fa fa-twitter-square fa-2x qg-share-icon" aria-hidden="true"></span>
+                  <span class="x-twitter-square qg-share-icon" aria-hidden="true">
+                    <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect width="20.8" height="20.2138" rx="4" fill="#4a4a4a"/>
+                      <path d="M14.0404 4.3999H15.9964L11.7243 9.28158L16.75 15.9253H12.8158L9.73224 11.897L6.20812 15.9253H4.24935L8.81796 10.7029L4 4.3999H8.0339L10.8183 8.08194L14.0404 4.3999ZM13.3533 14.7562H14.4366L7.44377 5.50812H6.28015L13.3533 14.7562Z" fill="white"/>
+                    </svg>
+                  </span>
                   <span class="title qg-visually-hidden">Twitter</span>
                 </a>
               </li>
@@ -1199,7 +1202,6 @@
           <!--<p>For general enquiries, feedback, complaints and compliments: test</p>-->
           <ul>
             <li>For general enquiries, feedback, complaints and compliments: <p class="phone"><span>13 QGOV (<a href="tel:137468" class="d-inline d-sm-none" data-analytics-link-group="qg-contact-phone">13 74 68</a><span class="d-none d-sm-inline">13 74 68</span>)</span></p></li>
-            <li>For COVID-19 related enquiries: <p class="phone"><span>134 COVID (<a href="tel:134268" class="d-inline d-sm-none" data-analytics-link-group="qg-contact-phone">13 42 68</a><span class="d-none d-sm-inline">13 42 68</span>)</span></p></li>
             <li class="facebook"><a href="https://www.facebook.com/QueenslandGovernment/" aria-label="Facebook /QueenslandGovernment" data-analytics-link-group="qg-contact-facebook">/QueenslandGovernment</a></li>
             <li class="twitter"><a href="https://twitter.com/qldgov" aria-label="Twitter @QldGov" data-analytics-link-group="qg-contact-twitter">@QldGov</a></li>
           </ul>
@@ -1334,15 +1336,15 @@
     </div>
     <div class="qg-legal d-flex flex-wrap align-items-end justify-content-between">
       <ul class="list-inline col-lg-6 col-md-6">
-        <li><a href="https://www.qld.gov.au/help" class="no-print">Help</a></li>
+        <li><a href="https://www.qld.gov.au/help" class="d-print-none">Help</a></li>
         <li><a href="https://www.qld.gov.au/legal/copyright">Copyright</a></li>
         <li><a href="https://www.qld.gov.au/legal/disclaimer">Disclaimer</a></li>
         <li><a href="https://www.qld.gov.au/legal/privacy">Privacy</a></li>
         <li><a href="https://www.qld.gov.au/about/rights-accountability/right-to-information">Right to information</a></li>
-        <li><a href="https://www.qld.gov.au/help/accessibility" class="no-print">Accessibility</a></li>
+        <li><a href="https://www.qld.gov.au/help/accessibility" class="d-print-none">Accessibility</a></li>
         <li class="d-none"><a href="https://www.qld.gov.au/help/keyboard" accesskey="0">Keyboard Accessibility</a>
-        <li><a href="http://www.smartjobs.qld.gov.au/" class="no-print">Jobs in Queensland Government</a></li>
-        <li id="link-languages"><a href="https://www.qld.gov.au/help/languages" class="no-print">Other languages</a></li>
+        <li><a href="http://www.smartjobs.qld.gov.au/" class="d-print-none">Jobs in Queensland Government</a></li>
+        <li id="link-languages"><a href="https://www.qld.gov.au/help/languages" class="d-print-none">Other languages</a></li>
       </ul>
       <p class="qg-copyright col-lg-4 col-md-4">&copy; The State of Queensland <span id="qg-copyright-yearrange">1995&ndash;2021</span></p>
     </div>

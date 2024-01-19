@@ -1,0 +1,23 @@
+/*! ../../readme/making-changes.md?raw */
+
+/*! ./node_modules/@storybook/addon-docs/dist/shims/mdx-react-shim */
+
+/*! @storybook/addon-docs */
+
+/*! @storybook/blocks */
+
+/*! react */
+
+/*! react/jsx-runtime */
+
+/*!**************************************!*\
+  !*** ./readme/making-changes.md?raw ***!
+  \**************************************/
+
+/*!***************************************!*\
+  !*** ./src/stories/MakingChanges.mdx ***!
+  \***************************************/
+
+/*!*****************************************!*\
+  !*** ./node_modules/memoizerific/ sync ***!
+  \*****************************************/

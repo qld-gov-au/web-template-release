@@ -751,8 +751,8 @@ body .qg-projects-search form .questions input.inp {
 .range-slider {
   margin: 0 2em 0 1em !important; }
   .range-slider .irs-bar {
-    background: url("/digitalprojectsdashboard-uat/assets/images/sprite-skin-flat.png") repeat-x 0 -60px; }
-
+    /*background: url("/digitalprojectsdashboard-uat/assets/images/sprite-skin-flat.png") repeat-x 0 -60px; }*/
+  }
 .lbl.js-from,
 .lbl.js-to {
   text-decoration: underline;
@@ -769,8 +769,8 @@ body .qg-projects-search form .questions input.inp {
 #results-table a {
   font-size: 0.9em; }
 
-#ictdb.dataTable.small,
-#ictdb.dataTable.medium {
+#ictdb.small,
+#ictdb.medium {
   width: 100%; }
 
 .qg-projects-search.medium {
@@ -793,18 +793,18 @@ body .qg-projects-search form .questions input.inp {
 #content-container .article .box-sizing .border {
   margin-left: 2.9em; }
 
-#ictdb.dataTable.small .desktop-view,
-#ictdb.dataTable .mobile-view {
+#ictdb.small .desktop-view,
+#ictdb .mobile-view {
   display: none; }
 
-#ictdb.dataTable.small .mobile-view {
+#ictdb.small .mobile-view {
   display: list-item; }
 
-#ictdb.dataTable .projectStatusCol img {
+#ictdb .projectStatusCol img {
   width: 20px;
   margin: auto 0.5em -0.4em 0; }
 
-#ictdb.dataTable .projectStatusCol span {
+#ictdb .projectStatusCol span {
   position: absolute;
   left: -9999em; }
 
@@ -1015,7 +1015,7 @@ div.actions ul {
   #content-container .article .box-sizing .border {
     left-padding: 0 !important;
     margin-left: 0 !important; }
-  #ictdb.dataTable {
+  #ictdb {
     width: 100%; }
   #overview-expenditure .graph li span,
   #overview-status .graph li span {
@@ -1027,7 +1027,7 @@ div.actions ul {
     color: #000000 !important; }
   table#example td.details-control {
     padding-left: 0; }
-  #ictdb.dataTable .projectStatusCol span {
+  #ictdb .projectStatusCol span {
     position: relative;
     left: 0;
     top: -0.2em;
@@ -1255,8 +1255,8 @@ div.actions ul {
 .irs-bar,
 .irs-bar-edge,
 .irs-slider {
-  background: url(../../images/sprite-skin-flat.png) repeat-x; }
-
+  /*background: url(../../images/sprite-skin-flat.png) repeat-x; }*/
+}
 .irs {
   height: 40px; }
 
