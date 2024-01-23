@@ -1,0 +1,23 @@
+/*! ../../readme/develop-in-storybook.md?raw */
+
+/*! ./node_modules/@storybook/addon-docs/dist/shims/mdx-react-shim */
+
+/*! @storybook/addon-docs */
+
+/*! @storybook/blocks */
+
+/*! react */
+
+/*! react/jsx-runtime */
+
+/*!**************************************!*\
+  !*** ./src/stories/Introduction.mdx ***!
+  \**************************************/
+
+/*!*****************************************!*\
+  !*** ./node_modules/memoizerific/ sync ***!
+  \*****************************************/
+
+/*!********************************************!*\
+  !*** ./readme/develop-in-storybook.md?raw ***!
+  \********************************************/
