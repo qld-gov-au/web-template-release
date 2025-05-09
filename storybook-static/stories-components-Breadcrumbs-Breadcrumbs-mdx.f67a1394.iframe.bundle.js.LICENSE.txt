@@ -1,0 +1,27 @@
+/*! ./Breadcrumbs.stories */
+
+/*! ./node_modules/@storybook/addon-docs/dist/shims/mdx-react-shim */
+
+/*! ./templates/Default.html */
+
+/*! @storybook/blocks */
+
+/*! react */
+
+/*! react/jsx-runtime */
+
+/*!*****************************************!*\
+  !*** ./node_modules/memoizerific/ sync ***!
+  \*****************************************/
+
+/*!************************************************************!*\
+  !*** ./src/stories/components/Breadcrumbs/Breadcrumbs.mdx ***!
+  \************************************************************/
+
+/*!*******************************************************************!*\
+  !*** ./src/stories/components/Breadcrumbs/Breadcrumbs.stories.js ***!
+  \*******************************************************************/
+
+/*!*******************************************************************!*\
+  !*** ./src/stories/components/Breadcrumbs/templates/Default.html ***!
+  \*******************************************************************/

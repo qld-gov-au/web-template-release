@@ -1,0 +1,17 @@
+/*! ./Dfv.stories */
+
+/*! ./node_modules/@storybook/addon-docs/dist/shims/mdx-react-shim */
+
+/*! @storybook/blocks */
+
+/*! react */
+
+/*! react/jsx-runtime */
+
+/*!*****************************************!*\
+  !*** ./node_modules/memoizerific/ sync ***!
+  \*****************************************/
+
+/*!********************************************!*\
+  !*** ./src/stories/franchises/Dfv/Dfv.mdx ***!
+  \********************************************/
